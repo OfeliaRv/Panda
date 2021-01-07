@@ -4,6 +4,7 @@ header {
 
     .logo {
         position: absolute;
+        cursor: pointer;
 
         img {
             width: 100%;
@@ -28,6 +29,8 @@ header {
             padding: 0;
 
             &-item {
+                cursor: pointer;
+
                 a {
                     color: $textcolor2;
                 }
@@ -53,7 +56,7 @@ header {
 @media (min-width: 1200px) and (max-width: 1700px) {
     header {
         height: 150px;
-        padding: 55px;
+        padding: 55px 55px 0px 55px;
 
         .logo {
             width: 107px;
@@ -91,7 +94,7 @@ header {
 @media screen and (min-width: 1999px) {
     header {
         height: 165px;
-        padding: 65px;
+        padding: 65px 65px 0px 65px;
 
         .logo {
             width: 148px;

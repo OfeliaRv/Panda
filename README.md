@@ -1,0 +1,1 @@
+Currently optimized for 4K and Laptop L displays

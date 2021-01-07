@@ -18,6 +18,7 @@
 
     .heading-buttons {
         .heading-button {
+            cursor: pointer;
             background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
             background-blend-mode: soft-light, normal;
             box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
