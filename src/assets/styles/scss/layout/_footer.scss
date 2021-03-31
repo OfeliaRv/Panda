@@ -1,0 +1,120 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: $textcolor2;
+
+    .footer-content {
+        display: flex;
+        height: 100%;
+        align-items: flex-end;
+
+        p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .footer-icons {
+            width: 22px;
+            height: 22px;
+        }
+
+        .footer-col {
+            display: flex;
+            text-align: right;
+        }
+    }
+}
+
+// S SCREEN
+@media (max-width: 1440px) {
+    footer {
+        margin: 85px 0 0 95px;
+
+        .footer-content {
+            #copyright {
+                width: 14px;
+                height: 14px;
+            }
+
+            #rights-text {
+                font-size: 13px;
+                line-height: 14px;
+            }
+
+            .footer-col {
+                margin-left: 30px;
+
+                .footer-text {
+                    font-size: 18px;
+                    line-height: 20px;
+                    margin: 0 15px;
+                }
+
+                #footer-stamp{
+                    transform: scale(0.9);
+                }
+            }
+        }
+    }
+}
+
+
+// M SCREEN
+@media (min-width: 1441px) and (max-width: 1799px){
+    footer {
+        margin: 85px 0 0 95px;
+
+        .footer-content {
+            #copyright {
+                width: 16px;
+                height: 16px;
+            }
+
+            #rights-text {
+                font-size: 15px;
+                line-height: 16px;
+            }
+
+            .footer-col {
+                margin-left: 60px;
+
+                .footer-text {
+                    font-size: 20px;
+                    line-height: 24px;
+                    margin: 0 25px;
+                }
+            }
+        }
+    }
+}
+
+// L SCREEN
+@media (min-width: 1800px) {
+    footer {
+        margin: 85px 0 0 95px;
+
+        .footer-content {
+            #copyright {
+                width: 22px;
+                height: 22px;
+            }
+
+            #rights-text {
+                font-size: 20px;
+                line-height: 24px;
+            }
+
+            .footer-col {
+                margin-left: 60px;
+
+                .footer-text {
+                    font-size: 20px;
+                    line-height: 24px;
+                    margin: 0 25px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+* {
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ebecf0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+ul {
+    li {
+        list-style-type: none;
+    }
+}
+
+@media (max-width: 1440px) {
+    body {
+        padding: 20px 20px 10px 20px;
+    }
+}
+
+@media (min-width: 1441px) {
+    body {
+        padding: 30px 40px 20px 40px;
+    }
+}
+
+@media (min-width: 1920px) {
+    body {
+        padding: 50px 60px 40px 60px;
+    }
+}
+
+///////////////  Variables ///////////////
+
+$textcolor1: #8a92a5; //primary
+$textcolor2: #6d7587; //secondary
+$gradient: linear-gradient(239.57deg, #37dbe0 20.53%, #1758f1 79.85%);

@@ -1,4 +1,7 @@
-import React, { createContext, useState } from 'react';
+import { createContext, useState } from 'react'
+import c_logo1 from './assets/img/logo1.svg'
+import c_logo2 from './assets/img/logo2.svg'
+import c_logo3 from './assets/img/logo3.svg'
 
 export const DataContext = createContext();
 
@@ -8,18 +11,18 @@ export const DataProvider = props => {
     const [widget, setWidget] = useState([
         {
             id: 1,
-            logo: require('./assets/img/logo1.svg'),
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing"
+            logo: c_logo1,
+            text: "Lorem ipsum dolor sit amet, consectetur"
         },
         {
             id: 2,
-            logo: require('./assets/img/logo2.svg'),
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing"
+            logo: c_logo2,
+            text: "Lorem ipsum dolor sit amet, consectetur"
         },
         {
             id: 3,
-            logo: require('./assets/img/logo3.svg'),
-            text: "Lorem ipsum dolor sit amet, consectetur adipiscing"
+            logo: c_logo3,
+            text: "Lorem ipsum dolor sit amet, consectetur"
         }
     ]);
 

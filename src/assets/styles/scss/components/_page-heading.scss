@@ -1,0 +1,101 @@
+.page-heading-holder {
+    & > div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .page-heading {
+        flex-direction: column;
+        text-align: center;
+
+        h1 {
+            color: $textcolor1;
+            font-weight: 400;
+            margin-top: unset !important;
+            margin-bottom: 5px !important;
+        }
+    }
+
+    .heading-buttons {
+        .heading-button {
+            cursor: pointer;
+            background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
+            background-blend-mode: soft-light, normal;
+            box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
+            border-radius: 47px;
+            color: $textcolor2;
+            font-weight: 400;
+            display: flex;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+// S SCREEN
+@media (max-width: 1440px) {
+    .page-heading {
+        margin: 40px 0;
+
+        h1 {
+            font-size: 35px;
+            line-height: 43px;
+        }
+    }
+
+    .heading-buttons {
+        .heading-button {
+            width: 240px;
+            height: 45px;
+            font-size: 20px;
+            line-height: 25px;
+            margin: 0 10px;
+        }
+    }
+}
+
+// M SCREEN
+@media (min-width: 1441px) and (max-width: 1799px) {
+    .page-heading {
+        margin: 30px 0;
+
+        h1 {
+            font-size: 40px;
+            line-height: 48px;
+        }
+    }
+
+    .heading-buttons {
+        .heading-button {
+            width: 270px;
+            height: 55px;
+            font-size: 24px;
+            line-height: 30px;
+            margin: 0 15px;
+        }
+    }
+}
+
+// L SCREEN
+@media (min-width: 1800px) {
+    .page-heading {
+        margin: 40px 0;
+
+        h1 {
+            font-size: 50px;
+            line-height: 61px;
+        }
+    }
+
+    .heading-buttons {
+        .heading-button {
+            width: 310px;
+            height: 70px;
+            padding: 0;
+            font-size: 30px;
+            line-height: 37px;
+            margin: 0 25px;
+        }
+    }
+}
