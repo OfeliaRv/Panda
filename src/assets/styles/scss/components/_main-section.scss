@@ -1,6 +1,6 @@
 .main-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 
     .left-items {
         position: relative;
@@ -12,6 +12,8 @@
     }
 
     .center-content {
+        margin-right: auto;
+
         .main-heading {
             display: flex;
             align-items: center;
@@ -97,17 +99,85 @@
     }
 }
 
-// S SCREEN
-@media (max-width: 1440px) {
+// XS SCREEN
+@media (min-width: 1000px) and (max-width: 1329px) {
     .main-section {
         .left-items {
-            top: 60px;
+            top: 50px;
+            margin: 0 7px 0 60px;
 
             img {
                 top: 60px;
-                margin: 55px 0 0 50px;
-                width: 20px;
-                height: 260px;
+                margin-top: 55px;
+                width: 27px;
+                height: 210px;
+            }
+        }
+
+        .center-content {
+            .main-heading {
+                margin: 45px 0 20px 25px;
+
+                h1 {
+                    font-size: 28px;
+                    line-height: 40px;
+                }
+            }
+        }
+
+        .right-items {
+            .selector-buttons-group {
+                bottom: 73px;
+
+                .selector-button-container {
+                    .button-stroke {
+                        .button {
+                            width: 22px;
+                            height: 22px;
+                            margin: 10px 0;
+
+                            &-dot {
+                                width: 8px;
+                                height: 8px;
+                            }
+                        }
+                    }
+                }
+
+                .button-clicked {
+                    .button {
+                        &-dot {
+                            width: 9px !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .next-button {
+            width: 40px;
+            height: 40px;
+
+            img {
+                width: 7px;
+                height: 12px;
+            }
+        }
+    }
+}
+
+// S SCREEN
+@media (min-width: 1330px) and (max-width: 1439px) {
+    .main-section {
+        .left-items {
+            top: 60px;
+            margin: 0 20px 0 70px;
+
+            img {
+                top: 60px;
+                margin-top: 55px;
+                width: 30px;
+                height: 230px;
             }
         }
 
@@ -164,14 +234,15 @@
 }
 
 // M SCREEN
-@media (min-width: 1440px) and (max-width: 1699px) {
+@media (min-width: 1441px) and (max-width: 1649px) {
     .main-section {
         .left-items {
-            top: 90px;
+            top: 70px;
+            margin: 0 20px 0 70px;
 
             img {
                 top: 90px;
-                margin: 55px 25px 0 30px;
+                margin-top: 45px;
                 width: 24px;
                 height: 280px;
             }
@@ -230,10 +301,80 @@
 }
 
 // L SCREEN
-@media (min-width: 1700px) {
+@media (min-width: 1650px) and (max-width: 1850px) {
     .main-section {
         .left-items {
             top: 90px;
+            margin: 0 25px 0 45px;
+
+            img {
+                top: 70px;
+                margin: 55px 0px 0 30px;
+                width: 26px;
+                height: 320px;
+            }
+        }
+
+        .center-content {
+            .main-heading {
+                margin: 55px 0 35px 40px;
+
+                h1 {
+                    font-size: 45px;
+                    line-height: 50px;
+                }
+            }
+        }
+
+        .right-items {
+            margin-left: 25px;
+
+            .selector-buttons-group {
+                bottom: 73px;
+
+                .selector-button-container {
+                    .button-stroke {
+                        .button {
+                            width: 36px;
+                            height: 36px;
+                            margin: 10px 0;
+
+                            &-dot {
+                                width: 12px;
+                                height: 12px;
+                            }
+                        }
+                    }
+                }
+
+                .button-clicked {
+                    .button {
+                        &-dot {
+                            width: 13px !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .next-button {
+            width: 70px;
+            height: 70px;
+
+            img {
+                width: 17px;
+                height: 26px;
+            }
+        }
+    }
+}
+
+// XL SCREEN
+@media (min-width: 1851px) {
+    .main-section {
+        .left-items {
+            top: 90px;
+            margin: 0 40px 0 90px;
 
             img {
                 top: 70px;

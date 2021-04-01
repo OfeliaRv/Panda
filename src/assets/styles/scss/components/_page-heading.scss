@@ -33,8 +33,30 @@
     }
 }
 
+// XS SCREEN
+@media (min-width: 1000px) and (max-width: 1329px) {
+    .page-heading {
+        margin: 20px 0;
+
+        h1 {
+            font-size: 35px;
+            line-height: 43px;
+        }
+    }
+
+    .heading-buttons {
+        .heading-button {
+            width: 220px;
+    height: 42px;
+    font-size: 19px;
+    line-height: 23px;
+    margin: 0 8px;
+        }
+    }
+}
+
 // S SCREEN
-@media (max-width: 1440px) {
+@media (min-width: 1330px) and (max-width: 1439px) {
     .page-heading {
         margin: 40px 0;
 

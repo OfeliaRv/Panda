@@ -31,9 +31,24 @@ ul {
     }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1800px) {
     body {
         padding: 50px 60px 40px 60px;
+    }
+}
+
+@media (min-width: 1920px) {
+    body {
+        display: flex;
+        justify-content: center;
+
+        #root {
+            background-blend-mode: soft-light, normal;
+            box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
+            padding: 50px 60px 50px 60px;
+            width: 1920px !important;
+            border-radius: 47px;
+        }
     }
 }
 

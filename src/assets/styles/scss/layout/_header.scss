@@ -55,20 +55,63 @@ header {
     }
 }
 
-// S SCREEN
-@media (max-width: 1440px) {
+
+// XS SCREEN
+@media (min-width: 1000px) and (max-width: 1110px) {
     header {
         .logo {
-            margin-right: 35px;
-
             img {
-                transform: scale(0.7);
+                transform: scale(0.6);
             }
         }
 
         nav {
-            width: 745px;
-            height: 60px;
+            width: 620px;
+            height: 45px;
+            margin-left: -25px;
+
+            .navigation-list {
+                &-item {
+                    margin: 0 10px;
+
+                    a {
+                        font-size: 15px;
+                        line-height: 18px;
+                    }
+                }
+            }
+        }
+
+        .lang-select {
+            font-size: 14px;
+            line-height: 16px;
+            flex-grow: 3;
+            margin: 0 20px;
+
+            .lang {
+                margin: 0 3px;
+            }
+        }
+    }
+}
+
+// S SCREEN
+@media (min-width: 1111px) and (max-width: 1350px) {
+    header {
+        padding: 0 20px 0 40px;
+
+        .logo {
+            margin-left: -55px;
+
+            img {
+                transform: scale(0.65);
+            }
+        }
+
+        nav {
+            width: 700px;
+            height: 50px;
+            margin-left: -20px;
 
             .navigation-list {
                 &-item {
@@ -83,26 +126,28 @@ header {
         }
 
         .lang-select {
-            font-size: 16px;
-            line-height: 18px;
+            font-size: 14px;
+            line-height: 16px;
             flex-grow: 3;
             margin: 0 25px;
 
             .lang {
-                margin: 0 5px;
+                margin: 0 4px;
             }
         }
     }
 }
 
 // M SCREEN
-@media (min-width: 1441px) and (max-width: 1599px) {
+@media (min-width: 1351px) and (max-width: 1540px) {
     header {
+        padding: 0 10px 0 25px;
+
         .logo {
-            margin-right: 40px;
+            // margin-right: 40px;
 
             img {
-                transform: scale(0.85);
+                transform: scale(0.8);
             }
         }
 
@@ -135,9 +180,97 @@ header {
     }
 }
 
-// L SCREEN
-@media (min-width: 1600px) {
+// L SCREEN (1)
+@media (min-width: 1541px) and (max-width: 1700px) {
     header {
+        padding: 0 15px 0 30px;
+
+        .logo {
+            margin-right: 20px;
+
+            img {
+                transform: scale(0.85);
+            }
+        }
+
+        nav {
+            width: 900px;
+            height: 65px;
+            margin-left: 20px;
+
+            .navigation-list {
+                &-item {
+                    margin: 0 17px;
+
+                    a {
+                        font-size: 21px;
+                        line-height: 24px;
+                    }
+                }
+            }
+        }
+
+        .lang-select {
+            font-size: 20px;
+            line-height: 26px;
+            flex-grow: 3;
+            margin: 0 15px;
+
+            .lang {
+                margin: 0 10px;
+            }
+        }
+    }
+}
+
+// L SCREEN (2)
+@media (min-width: 1701px) and (max-width: 1830px) {
+    header {
+        padding: 0 15px 0 40px;
+
+        .logo {
+            margin-right: 50px;
+
+            img {
+                transform: scale(0.9);
+            }
+        }
+
+        nav {
+            width: 920px;
+            height: 65px;
+            margin-left: 35px;
+
+            .navigation-list {
+                &-item {
+                    margin: 0 17px;
+
+                    a {
+                        font-size: 21px;
+                        line-height: 24px;
+                    }
+                }
+            }
+        }
+
+        .lang-select {
+            font-size: 20px;
+            line-height: 26px;
+            flex-grow: 3;
+            margin: 0 15px;
+
+            .lang {
+                margin: 0 10px;
+            }
+        }
+    }
+}
+
+// XL SCREEN
+@media (min-width: 1831px) {
+    header {
+        padding: 0 20px 0 60px;
+
         .logo {
             margin-right: 55px;
         }
@@ -145,7 +278,6 @@ header {
         nav {
             width: 1071px;
             height: 73px;
-            margin: 0 40px;
 
             .navigation-list {
                 &-item {
