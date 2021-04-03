@@ -56,4 +56,17 @@ ul {
 
 $textcolor1: #8a92a5; //primary
 $textcolor2: #6d7587; //secondary
+$textcolor3: #4d545e;
 $gradient: linear-gradient(239.57deg, #37dbe0 20.53%, #1758f1 79.85%);
+
+
+
+#products{
+    .selector-buttons-group{
+        display: none !important;
+    }
+    
+    .next-button{
+        margin-top: auto;
+    }
+}

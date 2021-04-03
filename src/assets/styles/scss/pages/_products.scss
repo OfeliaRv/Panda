@@ -1,0 +1,112 @@
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .product {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
+        background-blend-mode: soft-light, normal;
+        box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
+        border-radius: 47px;
+
+        h6 {
+            text-align: center;
+            font-weight: 500;
+            color: $textcolor3;
+            padding: 0 50px;
+        }
+    }
+}
+
+// XS SCREEN
+@media (min-width: 1000px) and (max-width: 1110px) {
+    .products {
+        margin-top: 80px;
+
+        .product {
+            width: 350px;
+            height: 190px;
+            margin: 26px 13px 0 13px;
+
+            h6 {
+                font-size: 20px;
+                line-height: 26px;
+            }
+        }
+    }
+}
+
+// S SCREEN
+@media (min-width: 1111px) and (max-width: 1415px) {
+    .products {
+        margin-top: 80px;
+
+        .product {
+            width: 350px;
+            height: 190px;
+            margin: 26px 13px 0 13px;
+
+            h6 {
+                font-size: 20px;
+                line-height: 26px;
+            }
+        }
+    }
+}
+
+// M SCREEN
+@media (min-width: 1416px) and (max-width: 1570px) {
+    .products {
+        margin-top: 80px;
+
+        .product {
+            width: 350px;
+            height: 190px;
+            margin: 26px 13px 0 13px;
+
+            h6 {
+                font-size: 20px;
+                line-height: 26px;
+            }
+        }
+    }
+}
+
+// L SCREEN
+@media (min-width: 1571px) and (max-width: 1720px) {
+    .products {
+        margin-top: 90px;
+
+        .product {
+            width: 410px;
+            height: 230px;
+            margin: 30px 15px 0 15px;
+
+            h6 {
+                font-size: 25px;
+                line-height: 30px;
+            }
+        }
+    }
+}
+
+// XL SCREEN
+@media (min-width: 1721px) {
+    .products {
+        margin-top: 100px;
+
+        .product {
+            width: 430px;
+            height: 240px;
+            margin: 40px 20px 0 20px;
+
+            h6 {
+                font-size: 26px;
+                line-height: 32px;
+            }
+        }
+    }
+}

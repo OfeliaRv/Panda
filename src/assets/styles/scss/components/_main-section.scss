@@ -371,6 +371,14 @@
 
 // XL SCREEN
 @media (min-width: 1851px) {
+    #products {
+        .main-section {
+            .left-items {
+                margin: 0 40px 0 55px;
+            }
+        }
+    }
+
     .main-section {
         .left-items {
             top: 90px;

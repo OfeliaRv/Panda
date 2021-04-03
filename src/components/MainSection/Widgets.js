@@ -1,14 +1,14 @@
-import { useContext } from 'react';
-import Widget from './Widget';
-import { DataContext } from '../../DataContext';
+import { useContext } from 'react'
+import Widget from './Widget'
+import { DataContext } from '../../DataContext'
 
 const Widgets = () => {
-    const { widgets } = useContext(DataContext);
-    const [widgetData] = widgets;
+    const { widgetData } = useContext(DataContext);
+    const [widgets] = widgetData;
 
     return (
         <div className="widgets-row">
-            {widgetData.map(widget => <Widget widgets={widgetData} widget={widget} key={widget.id} />)}
+            {widgets.map(widget => <Widget widgets={widgets} widget={widget} key={widget.id} />)}
         </div>
     );
 }

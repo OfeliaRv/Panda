@@ -1,20 +1,19 @@
-import left_item from '../../assets/img/left-item.svg'
+import left_item from '../../assets/img/left-item-home.svg'
 import arrow from '../../assets/img/arrow.svg'
-import Widgets from './Widgets'
+import { useContext } from 'react'
+import { DataContext } from '../../DataContext'
 
-const MainSection = () => {
+const MainSection = ({ children }) => {
+    const { leftNameData } = useContext(DataContext);
+    const [leftName] = leftNameData;
+
     return (
         <section className="main-section">
             <div className="left-items">
                 <img src={left_item} alt="item" />
             </div>
             <div className="center-content">
-                <div className="main-heading">
-                    <h1>Customers</h1>
-                </div>
-                <div className="page-widgets">
-                    <Widgets />
-                </div>
+                {children}
             </div>
             <div className="right-items">
                 <div className="selector-buttons-group">
