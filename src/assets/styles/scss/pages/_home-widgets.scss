@@ -44,9 +44,9 @@
 @media (min-width: 1000px) and (max-width: 1110px) {
     .widgets-row {
         .widget {
-            width: 260px;
+            width: 250px;
             height: 220px;
-            margin: 0 17px;
+            margin: 0 10px;
 
             &-data {
                 padding: 35px 20px 20px 20px;
@@ -60,8 +60,8 @@
             }
 
             &-text {
-                // margin-top: 10px 0;
-
+                padding: 0 10px;
+                
                 p {
                     font-size: 16px;
                     line-height: 22px;
@@ -75,9 +75,9 @@
 @media (min-width: 1111px) and (max-width: 1415px) {
     .widgets-row {
         .widget {
-            width: 320px;
+            width: 310px;
             height: 250px;
-            margin: 0 25px;
+            margin: 0 20px;
 
             &-data {
                 padding: 10px 15px 10px 15px;
@@ -92,6 +92,7 @@
 
             &-text {
                 margin-top: 5px;
+                padding: 0 15px;
 
                 p {
                     font-size: 20px;
@@ -155,6 +156,7 @@
 
             &-text {
                 margin: 20px 0;
+                padding: 0 20px;
 
                 p {
                     font-size: 24px;
@@ -186,6 +188,7 @@
 
             &-text {
                 margin: 20px 0;
+                padding: 0 20px;
 
                 p {
                     font-size: 26px;

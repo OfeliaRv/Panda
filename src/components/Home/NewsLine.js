@@ -23,6 +23,12 @@ const NewsLine = () => {
                     </div>
                 )}
             </div>
+            <div className="slider-buttons">
+                <div className="slide-button active-slide"></div>
+                {[...Array(5)].map(i =>
+                    <div className="slide-button" key={i}></div>
+                )}
+            </div>
         </div>
     );
 }

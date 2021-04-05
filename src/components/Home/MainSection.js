@@ -30,10 +30,10 @@ const MainSection = ({ children }) => {
             <div className="left-items">
                 <img src={left_item} alt="item" />
             </div>
-            <div className="center-content">
+            <div id={'center' + clicked} className="center-content">
                 {children}
             </div>
-            <div className="right-items">
+            <div id={'right' + clicked} className="right-items">
                 <div className="selector-buttons-group">
                     {home.map(homeData =>
                         <div className={"selector-button-container " + (homeData.id === clicked ? "button-clicked" : "")} onClick={() => handleClick(homeData.id)} key={homeData.id}>

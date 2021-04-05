@@ -1,1 +1,1 @@
-Currently optimized for 4K and Laptop L displays
+Test link: https://panda-website.herokuapp.com/

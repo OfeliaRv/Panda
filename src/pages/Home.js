@@ -21,7 +21,7 @@ const Home = () => {
                         <div className="page-content">
                             <Widgets />
                         </div>
-                        <div style={{ height: '50px' }}></div>
+                        <div className="space"></div>
                     </div>}
                 {home[1].clicked &&
                     <div>
