@@ -4,6 +4,7 @@ import Widgets from '../components/Home/Widgets'
 import { DataContext } from '../DataContext'
 import { useContext } from 'react'
 import NewsLine from "../components/Home/NewsLine"
+import ContactForm from "../components/Home/ContactForm"
 
 const Home = () => {
     const { homePageData } = useContext(DataContext);
@@ -34,11 +35,11 @@ const Home = () => {
                     </div>}
                 {home[2].clicked &&
                     <div>
-                        <div className="main-heading">
+                        <div className="main-heading" style={{marginLeft: '70px'}}>
                             <h1>Get in touch</h1>
                         </div>
                         <div className="page-content">
-                            <h1>page 3</h1>
+                            <ContactForm />
                         </div>
                     </div>}
                 {home[3].clicked &&

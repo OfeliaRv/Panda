@@ -878,11 +878,12 @@ footer .footer-content .footer-col {
     margin-bottom: 130px;
   }
   .main-section .left-items {
-    margin: 0 20px 0 70px;
+    margin: 0 20px 0 30px;
   }
   .main-section .left-items img {
     bottom: 7px;
     height: 320px;
+    margin-left: 30px;
   }
   .main-section .center-content .main-heading {
     margin: 55px 0 35px 25px;
@@ -1298,6 +1299,428 @@ footer .footer-content .footer-col {
 @media (min-width: 1651px) {
   .news-slider {
     padding: 0 30px;
+  }
+}
+
+.contact-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.contact-form-container .form-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.contact-form-container .form-line .input-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contact-form-container .form-line label {
+  color: #6d7587;
+  font-weight: 500;
+}
+
+.contact-form-container .form-line input,
+.contact-form-container .form-line textarea {
+  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
+  background-blend-mode: soft-light, normal;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
+          box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
+  border-radius: 47px;
+}
+
+.contact-form-container .form-line input::-webkit-input-placeholder,
+.contact-form-container .form-line textarea::-webkit-input-placeholder {
+  color: #6d7587;
+}
+
+.contact-form-container .form-line input:-ms-input-placeholder,
+.contact-form-container .form-line textarea:-ms-input-placeholder {
+  color: #6d7587;
+}
+
+.contact-form-container .form-line input::-ms-input-placeholder,
+.contact-form-container .form-line textarea::-ms-input-placeholder {
+  color: #6d7587;
+}
+
+.contact-form-container .form-line input::placeholder,
+.contact-form-container .form-line textarea::placeholder {
+  color: #6d7587;
+}
+
+.contact-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.contact-button button {
+  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #8a92a5;
+  background-blend-mode: soft-light, normal;
+  -webkit-box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
+          box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
+  border-radius: 13px;
+  color: white;
+  border: none;
+  text-align: center;
+  font-weight: 600;
+  position: relative;
+}
+
+#right2 .next-button {
+  display: none;
+}
+
+@media (min-width: 1000px) and (max-width: 1110px) {
+  .contact-form-container .form-line label {
+    margin-bottom: 10px;
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .contact-form-container .form-line input,
+  .contact-form-container .form-line textarea {
+    margin: 10px 0;
+  }
+  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea::-webkit-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:-ms-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea::-ms-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea::placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input {
+    width: 670px;
+    height: 70px;
+    padding-top: 10px;
+  }
+  .contact-form-container .form-line textarea {
+    width: 1401px;
+    height: 257px;
+    padding-top: 25px;
+  }
+  .contact-button button {
+    left: 60px;
+    width: 180px;
+    height: 99px;
+    font-size: 30px;
+    line-height: 37px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 1111px) and (max-width: 1330px) {
+  .contact-form-container .form-line label {
+    margin-bottom: 10px;
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .contact-form-container .form-line input,
+  .contact-form-container .form-line textarea {
+    margin: 10px 0;
+  }
+  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea::-webkit-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:-ms-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea::-ms-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea::placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input {
+    width: 670px;
+    height: 70px;
+    padding-top: 10px;
+  }
+  .contact-form-container .form-line textarea {
+    width: 1401px;
+    height: 257px;
+    padding-top: 25px;
+  }
+  .contact-button button {
+    left: 60px;
+    width: 180px;
+    height: 99px;
+    font-size: 30px;
+    line-height: 37px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 1330px) and (max-width: 1440px) {
+  .contact-form-container .form-line label {
+    margin-bottom: 10px;
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .contact-form-container .form-line input,
+  .contact-form-container .form-line textarea {
+    margin: 10px 0;
+  }
+  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea::-webkit-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:-ms-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea::-ms-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea::placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input {
+    width: 670px;
+    height: 70px;
+    padding-top: 10px;
+  }
+  .contact-form-container .form-line textarea {
+    width: 1401px;
+    height: 257px;
+    padding-top: 25px;
+  }
+  .contact-button button {
+    left: 60px;
+    width: 180px;
+    height: 99px;
+    font-size: 30px;
+    line-height: 37px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 1441px) and (max-width: 1650px) {
+  .contact-form-container {
+    margin-left: 70px;
+  }
+  .contact-form-container .form-line label {
+    margin-bottom: 10px;
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .contact-form-container .form-line input,
+  .contact-form-container .form-line textarea {
+    margin: 10px 0;
+  }
+  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea::-webkit-input-placeholder {
+    font-size: 25px;
+    line-height: 30px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:-ms-input-placeholder {
+    font-size: 25px;
+    line-height: 30px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea::-ms-input-placeholder {
+    font-size: 25px;
+    line-height: 30px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea::placeholder {
+    font-size: 25px;
+    line-height: 30px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input {
+    width: 520px;
+    height: 55px;
+    padding-top: 10px;
+  }
+  .contact-form-container .form-line textarea {
+    width: 1100px;
+    height: 247px;
+    padding-top: 25px;
+  }
+  .contact-button button {
+    left: 35px;
+    width: 120px;
+    height: 60px;
+    font-size: 22px;
+    line-height: 25px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 1650px) and (max-width: 1920px) {
+  .contact-form-container .form-line label {
+    margin-bottom: 10px;
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .contact-form-container .form-line input,
+  .contact-form-container .form-line textarea {
+    margin: 10px 0;
+  }
+  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea::-webkit-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:-ms-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea::-ms-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea::placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input {
+    width: 560px;
+    height: 60px;
+    padding-top: 10px;
+  }
+  .contact-form-container .form-line textarea {
+    width: 1200px;
+    height: 247px;
+    padding-top: 25px;
+  }
+  .contact-button button {
+    left: 60px;
+    width: 180px;
+    height: 99px;
+    font-size: 30px;
+    line-height: 37px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .contact-form-container .form-line label {
+    margin-bottom: 10px;
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .contact-form-container .form-line input,
+  .contact-form-container .form-line textarea {
+    margin: 10px 0;
+  }
+  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea::-webkit-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:-ms-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea::-ms-input-placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea::placeholder {
+    font-size: 30px;
+    line-height: 37px;
+    padding: 0 44px;
+  }
+  .contact-form-container .form-line input {
+    width: 670px;
+    height: 70px;
+    padding-top: 10px;
+  }
+  .contact-form-container .form-line textarea {
+    width: 1401px;
+    height: 257px;
+    padding-top: 25px;
+  }
+  .contact-button button {
+    left: 60px;
+    width: 180px;
+    height: 99px;
+    font-size: 30px;
+    line-height: 37px;
+    margin-bottom: 10px;
   }
 }
 
