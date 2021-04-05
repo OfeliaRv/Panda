@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { DataContext } from '../DataContext'
-import MainSection from '../components/MainSection/MainSection'
+import MainSection from '../components/Home/MainSection'
+import { Link } from 'react-router-dom';
 
 const Products = () => {
     const { productData } = useContext(DataContext);
@@ -11,9 +12,9 @@ const Products = () => {
             <MainSection>
                 <div className="products">
                     {products.map(product =>
-                        <div className="product">
+                        <Link to={`/products/${product.id}`}><div className="product" key={product.id}>
                             <h6>{product.name}</h6>
-                        </div>
+                        </div></Link>
                     )}
                 </div>
             </MainSection>

@@ -4,8 +4,26 @@ import { useContext } from 'react'
 import { DataContext } from '../../DataContext'
 
 const MainSection = ({ children }) => {
-    const { leftNameData } = useContext(DataContext);
-    const [leftName] = leftNameData;
+    const { leftNameData, homePageData, clickedItem } = useContext(DataContext);
+    // const [leftName] = leftNameData;
+    const [home, setHome] = homePageData;
+    const [clicked, setClicked] = clickedItem;
+
+    const handleClick = (id) => {
+        let newId = id;
+        setClicked(id);
+        console.log(id);
+        let visible = 0;
+        for (let i = 0; i < home.length; i++) {
+            home[i].clicked = false;
+            if (i === newId) {
+                visible = i;
+            }
+        }
+
+        home[visible].clicked = true;
+        setHome(home);
+    }
 
     return (
         <section className="main-section">
@@ -17,21 +35,15 @@ const MainSection = ({ children }) => {
             </div>
             <div className="right-items">
                 <div className="selector-buttons-group">
-                    {[...Array(3)].map((i) =>
-                        <div className="selector-button-container" key={i}>
+                    {home.map(homeData =>
+                        <div className={"selector-button-container " + (homeData.id === clicked ? "button-clicked" : "")} onClick={() => handleClick(homeData.id)} key={homeData.id}>
                             <div className="button-stroke">
                                 <div className="button">
                                     <div className="button-dot"></div>
                                 </div>
                             </div>
-                        </div>)}
-                    <div className="selector-button-container button-clicked">
-                        <div className="button-stroke">
-                            <div className="button">
-                                <div className="button-dot"></div>
-                            </div>
                         </div>
-                    </div>
+                    )}
                 </div>
                 <div className="next-button">
                     <img src={arrow} alt="arrow" />

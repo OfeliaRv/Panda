@@ -1,0 +1,41 @@
+.news-slider {
+    &-container {
+        display: flex;
+        overflow: hidden;
+    }
+}
+
+// XS SCREEN
+@media (min-width: 1000px) and (max-width: 1110px) {
+    .news-slider {
+        padding: 0 10px;
+    }
+}
+
+// S SCREEN
+@media (min-width: 1111px) and (max-width: 1415px) {
+    .news-slider {
+        padding: 0 10px;
+    }
+}
+
+// M SCREEN
+@media (min-width: 1416px) and (max-width: 1570px) {
+    .news-slider {
+        padding: 0 20px;
+    }
+}
+
+// L SCREEN
+@media (min-width: 1571px) and (max-width: 1720px) {
+    .news-slider {
+        padding: 0 25px;
+    }
+}
+
+// XL SCREEN
+@media (min-width: 1721px) {
+    .news-slider {
+        padding: 0 30px;
+    }
+}

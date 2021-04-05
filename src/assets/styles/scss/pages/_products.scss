@@ -21,6 +21,16 @@
     }
 }
 
+#products {
+    .selector-buttons-group {
+        display: none !important;
+    }
+
+    .next-button {
+        margin-top: auto;
+    }
+}
+
 // XS SCREEN
 @media (min-width: 1000px) and (max-width: 1110px) {
     .products {
