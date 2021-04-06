@@ -25,6 +25,7 @@
                 box-sizing: border-box;
                 box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
                 border-radius: 47px;
+                resize: none;
 
                 &::placeholder {
                     color: $textcolor2;

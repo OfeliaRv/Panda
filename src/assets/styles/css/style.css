@@ -1345,6 +1345,7 @@ footer .footer-content .footer-col {
   -webkit-box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
           box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
   border-radius: 47px;
+  resize: none;
 }
 
 .contact-form-container .form-line input::-webkit-input-placeholder,
@@ -1765,6 +1766,10 @@ footer .footer-content .footer-col {
 
 #products .next-button {
   margin-top: auto;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  margin-bottom: unset !important;
 }
 
 @media (min-width: 1000px) and (max-width: 1110px) {
