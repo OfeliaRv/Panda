@@ -46,7 +46,7 @@
         .widget {
             width: 250px;
             height: 220px;
-            margin: 0 10px;
+            margin: 0 13px;
 
             &-data {
                 padding: 35px 20px 20px 20px;
@@ -72,15 +72,46 @@
 }
 
 // S SCREEN
-@media (min-width: 1111px) and (max-width: 1415px) {
+@media (min-width: 1111px) and (max-width: 1250px) {
     .widgets-row {
         .widget {
-            width: 310px;
+            width: 300px;
             height: 250px;
-            margin: 0 20px;
+            margin: 0 15px;
 
             &-data {
                 padding: 10px 15px 10px 15px;
+            }
+
+            &-logo {
+                img {
+                    width: 110px;
+                    height: 131px;
+                }
+            }
+
+            &-text {
+                margin-top: 5px;
+                padding: 0 15px;
+
+                p {
+                    font-size: 20px;
+                    line-height: 26px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1250px) and (max-width: 1415px) {
+    .widgets-row {
+        .widget {
+            width: 340px;
+            height: 265px;
+            margin: 0 15px;
+
+            &-data {
+                padding: 10px 25px 10px 25px;
             }
 
             &-logo {
@@ -168,12 +199,44 @@
 }
 
 // XL SCREEN
-@media (min-width: 1721px) {
+@media (min-width: 1721px) and (max-width: 1850px) {
     .widgets-row {
         .widget {
             width: 430px;
             height: 340px;
             margin: 0 30px;
+
+            &-data {
+                padding: 40px 45px 30px 45px;
+            }
+
+            &-logo {
+                img {
+                    width: 145px;
+                    height: 170px;
+                }
+            }
+
+            &-text {
+                margin: 20px 0;
+                padding: 0 20px;
+
+                p {
+                    font-size: 26px;
+                    line-height: 32px;
+                }
+            }
+        }
+    }
+}
+
+// XL SCREEN
+@media (min-width: 1850px) {
+    .widgets-row {
+        .widget {
+            width: 430px;
+            height: 340px;
+            margin: 0 40px;
 
             &-data {
                 padding: 40px 45px 30px 45px;

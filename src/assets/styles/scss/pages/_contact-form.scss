@@ -3,6 +3,8 @@
     justify-content: space-between;
 
     &-container {
+        margin-left: 30px;
+        
         .form-line {
             display: flex;
             justify-content: space-between;
@@ -50,6 +52,7 @@
         text-align: center;
         font-weight: 600;
         position: relative;
+        // left: 50% !important;
     }
 }
 
@@ -60,14 +63,14 @@
 }
 
 // XS SCREEN
-@media (min-width: 1000px) and (max-width: 1110px) {
+@media (min-width: 1000px) and (max-width: 1150px) {
     .contact-form {
         &-container {
             .form-line {
                 label {
                     margin-bottom: 10px;
-                    font-size: 36px;
-                    line-height: 44px;
+                    font-size: 25px;
+                    line-height: 34px;
                 }
 
                 input,
@@ -75,21 +78,21 @@
                     margin: 10px 0;
 
                     &::placeholder {
-                        font-size: 30px;
-                        line-height: 37px;
+                        font-size: 22px;
+                        line-height: 28px;
                         padding: 0 44px;
                     }
                 }
 
                 input {
-                    width: 670px;
-                    height: 70px;
+                    width: 385px;
+                    height: 53px;
                     padding-top: 10px;
                 }
 
                 textarea {
-                    width: 1401px;
-                    height: 257px;
+                    width: 830px;
+                    height: 240px;
                     padding-top: 25px;
                 }
             }
@@ -98,24 +101,24 @@
 
     .contact-button {
         button {
-            left: 60px;
-            width: 180px;
-            height: 99px;
-            font-size: 30px;
-            line-height: 37px;
+            left: 25px;
+            width: 100px;
+            height: 60px;
+            font-size: 19px;
+            line-height: 25px;
             margin-bottom: 10px;
         }
     }
 }
 
-@media (min-width: 1111px) and (max-width: 1330px) {
+@media (min-width: 1150px) and (max-width: 1260px) {
     .contact-form {
         &-container {
             .form-line {
                 label {
-                    margin-bottom: 10px;
-                    font-size: 36px;
-                    line-height: 44px;
+                    margin-bottom: 7px;
+                    font-size: 24px;
+                    line-height: 30px;
                 }
 
                 input,
@@ -123,21 +126,21 @@
                     margin: 10px 0;
 
                     &::placeholder {
-                        font-size: 30px;
-                        line-height: 37px;
+                        font-size: 21px;
+                        line-height: 28px;
                         padding: 0 44px;
                     }
                 }
 
                 input {
-                    width: 670px;
-                    height: 70px;
+                    width: 440px;
+                    height: 50px;
                     padding-top: 10px;
                 }
 
                 textarea {
-                    width: 1401px;
-                    height: 257px;
+                    width: 930px;
+                    height: 240px;
                     padding-top: 25px;
                 }
             }
@@ -146,11 +149,59 @@
 
     .contact-button {
         button {
-            left: 60px;
-            width: 180px;
-            height: 99px;
-            font-size: 30px;
-            line-height: 37px;
+            left: 25px;
+            width: 120px;
+            height: 60px;
+            font-size: 21px;
+            line-height: 25px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media (min-width: 1261px) and (max-width: 1330px) {
+    .contact-form {
+        &-container {
+            .form-line {
+                label {
+                    margin-bottom: 10px;
+                    font-size: 25px;
+                    line-height: 34px;
+                }
+
+                input,
+                textarea {
+                    margin: 10px 0;
+
+                    &::placeholder {
+                        font-size: 22px;
+                        line-height: 28px;
+                        padding: 0 44px;
+                    }
+                }
+
+                input {
+                    width: 485px;
+                    height: 53px;
+                    padding-top: 10px;
+                }
+
+                textarea {
+                    width: 1015px;
+                    height: 240px;
+                    padding-top: 25px;
+                }
+            }
+        }
+    }
+
+    .contact-button {
+        button {
+            left: 25px;
+            width: 120px;
+            height: 60px;
+            font-size: 21px;
+            line-height: 25px;
             margin-bottom: 10px;
         }
     }
@@ -163,8 +214,8 @@
             .form-line {
                 label {
                     margin-bottom: 10px;
-                    font-size: 36px;
-                    line-height: 44px;
+                    font-size: 30px;
+                    line-height: 38px;
                 }
 
                 input,
@@ -172,71 +223,20 @@
                     margin: 10px 0;
 
                     &::placeholder {
-                        font-size: 30px;
-                        line-height: 37px;
+                        font-size: 24px;
+                        line-height: 28px;
                         padding: 0 44px;
                     }
                 }
 
                 input {
-                    width: 670px;
-                    height: 70px;
-                    padding-top: 10px;
-                }
-
-                textarea {
-                    width: 1401px;
-                    height: 257px;
-                    padding-top: 25px;
-                }
-            }
-        }
-    }
-
-    .contact-button {
-        button {
-            left: 60px;
-            width: 180px;
-            height: 99px;
-            font-size: 30px;
-            line-height: 37px;
-            margin-bottom: 10px;
-        }
-    }
-}
-
-// M SCREEN
-@media (min-width: 1441px) and (max-width: 1650px) {
-    .contact-form {
-        &-container {
-            margin-left: 70px;
-
-            .form-line {
-                label {
-                    margin-bottom: 10px;
-                    font-size: 32px;
-                    line-height: 40px;
-                }
-
-                input,
-                textarea {
-                    margin: 10px 0;
-
-                    &::placeholder {
-                        font-size: 25px;
-                        line-height: 30px;
-                        padding: 0 44px;
-                    }
-                }
-
-                input {
-                    width: 520px;
+                    width: 490px;
                     height: 55px;
                     padding-top: 10px;
                 }
 
                 textarea {
-                    width: 1100px;
+                    width: 1020px;
                     height: 247px;
                     padding-top: 25px;
                 }
@@ -246,7 +246,7 @@
 
     .contact-button {
         button {
-            left: 35px;
+            left: 60px;
             width: 120px;
             height: 60px;
             font-size: 22px;
@@ -256,8 +256,8 @@
     }
 }
 
-// L SCREEN
-@media (min-width: 1650px) and (max-width: 1920px) {
+// M SCREEN
+@media (min-width: 1441px) and (max-width: 1640px) {
     .contact-form {
         &-container {
             .form-line {
@@ -295,10 +295,59 @@
 
     .contact-button {
         button {
-            left: 60px;
-            width: 180px;
-            height: 99px;
-            font-size: 30px;
+            left: 35px;
+            width: 140px;
+            height: 79px;
+            font-size: 24px;
+            line-height: 32px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+// L SCREEN
+@media (min-width: 1640px) and (max-width: 1850px) {
+    .contact-form {
+        &-container {
+            .form-line {
+                label {
+                    margin-bottom: 10px;
+                    font-size: 36px;
+                    line-height: 44px;
+                }
+
+                input,
+                textarea {
+                    margin: 10px 0;
+
+                    &::placeholder {
+                        font-size: 30px;
+                        line-height: 37px;
+                        padding: 0 44px;
+                    }
+                }
+
+                input {
+                    width: 610px;
+                    height: 70px;
+                    padding-top: 10px;
+                }
+
+                textarea {
+                    width: 1300px;
+                    height: 247px;
+                    padding-top: 25px;
+                }
+            }
+        }
+    }
+
+    .contact-button {
+        button {
+            left: 70px;
+            width: 160px;
+            height: 79px;
+            font-size: 28px;
             line-height: 37px;
             margin-bottom: 10px;
         }
@@ -306,7 +355,7 @@
 }
 
 // XL SCREEN
-@media (min-width: 1920px) {
+@media (min-width: 1851px) {
     .contact-form {
         &-container {
             .form-line {

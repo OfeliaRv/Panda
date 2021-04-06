@@ -35,7 +35,7 @@ const Home = () => {
                     </div>}
                 {home[2].clicked &&
                     <div>
-                        <div className="main-heading" style={{ marginLeft: '70px' }}>
+                        <div className="main-heading" style={{ marginLeft: '30px' }}>
                             <h1>Get in touch</h1>
                         </div>
                         <div className="page-content">
