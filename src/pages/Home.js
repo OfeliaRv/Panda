@@ -35,20 +35,11 @@ const Home = () => {
                     </div>}
                 {home[2].clicked &&
                     <div>
-                        <div className="main-heading" style={{marginLeft: '70px'}}>
+                        <div className="main-heading" style={{ marginLeft: '70px' }}>
                             <h1>Get in touch</h1>
                         </div>
                         <div className="page-content">
                             <ContactForm />
-                        </div>
-                    </div>}
-                {home[3].clicked &&
-                    <div>
-                        <div className="main-heading">
-                            <h1>Page 4</h1>
-                        </div>
-                        <div className="page-content">
-                            <h1>page 4</h1>
                         </div>
                     </div>}
             </MainSection>

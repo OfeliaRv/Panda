@@ -30,10 +30,6 @@ export const DataProvider = props => {
         {
             id: 2,
             clicked: false
-        },
-        {
-            id: 3,
-            clicked: false
         }
     ]);
 
