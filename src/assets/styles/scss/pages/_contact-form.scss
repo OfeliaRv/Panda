@@ -4,7 +4,7 @@
 
     &-container {
         margin-left: 30px;
-        
+
         .form-line {
             display: flex;
             justify-content: space-between;
@@ -263,8 +263,8 @@
             .form-line {
                 label {
                     margin-bottom: 10px;
-                    font-size: 36px;
-                    line-height: 44px;
+                    font-size: 34px;
+                    line-height: 40px;
                 }
 
                 input,
@@ -272,8 +272,8 @@
                     margin: 10px 0;
 
                     &::placeholder {
-                        font-size: 30px;
-                        line-height: 37px;
+                        font-size: 28px;
+                        line-height: 35px;
                         padding: 0 44px;
                     }
                 }

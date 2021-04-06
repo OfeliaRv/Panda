@@ -34,10 +34,6 @@ header {
                     color: $textcolor2;
                 }
 
-                a:active {
-                    color: $gradient;
-                }
-
                 &:hover {
                     a {
                         background: $gradient;

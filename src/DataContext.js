@@ -33,20 +33,6 @@ export const DataProvider = props => {
         }
     ]);
 
-    // LEFT PAGE NAME
-    const [leftName, setLeftName] = useState([
-        {
-            id: 1,
-            item: left_home,
-            name: "Home"
-        },
-        {
-            id: 2,
-            item: left_products,
-            name: "Products"
-        }
-    ]);
-
     // WIDGETS
     const [widget, setWidget] = useState([
         {
@@ -155,7 +141,6 @@ export const DataProvider = props => {
     const provider_values = {
         widgetData: [widget, setWidget],
         productData: [product, setProduct],
-        leftNameData: [leftName, setLeftName],
         homePageData: [homePage, setHomePage],
         newsData: [news, setNews],
         clickedItem: [clickedItem, setClickedItem]

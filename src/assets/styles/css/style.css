@@ -120,10 +120,6 @@ header nav .navigation-list-item a {
   color: #6d7587;
 }
 
-header nav .navigation-list-item a:active {
-  color: linear-gradient(239.57deg, #37dbe0 20.53%, #1758f1 79.85%);
-}
-
 header nav .navigation-list-item:hover a {
   background: linear-gradient(239.57deg, #37dbe0 20.53%, #1758f1 79.85%);
   background-clip: text;
@@ -1732,8 +1728,8 @@ footer .footer-content .footer-col {
 @media (min-width: 1441px) and (max-width: 1640px) {
   .contact-form-container .form-line label {
     margin-bottom: 10px;
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 34px;
+    line-height: 40px;
   }
   .contact-form-container .form-line input,
   .contact-form-container .form-line textarea {
@@ -1741,26 +1737,26 @@ footer .footer-content .footer-col {
   }
   .contact-form-container .form-line input::-webkit-input-placeholder,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 30px;
-    line-height: 37px;
+    font-size: 28px;
+    line-height: 35px;
     padding: 0 44px;
   }
   .contact-form-container .form-line input:-ms-input-placeholder,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 30px;
-    line-height: 37px;
+    font-size: 28px;
+    line-height: 35px;
     padding: 0 44px;
   }
   .contact-form-container .form-line input::-ms-input-placeholder,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 30px;
-    line-height: 37px;
+    font-size: 28px;
+    line-height: 35px;
     padding: 0 44px;
   }
   .contact-form-container .form-line input::placeholder,
   .contact-form-container .form-line textarea::placeholder {
-    font-size: 30px;
-    line-height: 37px;
+    font-size: 28px;
+    line-height: 35px;
     padding: 0 44px;
   }
   .contact-form-container .form-line input {

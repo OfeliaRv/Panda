@@ -1,11 +1,12 @@
-import left_item from '../../assets/img/left-item-home.svg'
+import left_item_home from '../../assets/img/left-item-home.svg'
+import left_item_products from '../../assets/img/left-item-products.svg'
 import arrow from '../../assets/img/arrow.svg'
 import { useContext } from 'react'
 import { DataContext } from '../../DataContext'
+import { Route } from 'react-router'
 
 const MainSection = ({ children }) => {
     const { leftNameData, homePageData, clickedItem } = useContext(DataContext);
-    // const [leftName] = leftNameData;
     const [home, setHome] = homePageData;
     const [clicked, setClicked] = clickedItem;
 
@@ -28,7 +29,12 @@ const MainSection = ({ children }) => {
     return (
         <section className="main-section">
             <div className="left-items">
-                <img src={left_item} alt="item" />
+                <Route exact path="/">
+                    <img src={left_item_home} alt="Home" />
+                </Route>
+                <Route path="/products">
+                    <img src={left_item_products} alt="Products" />
+                </Route>
             </div>
             <div id={'center' + clicked} className="center-content">
                 {children}
