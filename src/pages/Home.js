@@ -2,13 +2,20 @@ import MainSection from "../components/Home/MainSection"
 import PageHeading from "../components/PageHeading"
 import Widgets from '../components/Home/Widgets'
 import { DataContext } from '../DataContext'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import NewsLine from "../components/Home/NewsLine"
 import ContactForm from "../components/Home/ContactForm"
 
 const Home = () => {
-    const { homePageData } = useContext(DataContext);
+    const { homePageData, clickedItem } = useContext(DataContext);
     const [home] = homePageData;
+    const [clicked, setClicked] = clickedItem;
+
+    useEffect(() => {
+        if (clicked == null) {
+            setClicked(0);
+        }
+    }, []);
 
     return (
         <div>
@@ -17,20 +24,19 @@ const Home = () => {
                 {home[0].clicked &&
                     <div>
                         <div className="main-heading">
-                            <h1>Customers</h1>
-                        </div>
-                        <div className="page-content">
-                            <Widgets />
-                        </div>
-                        <div className="space"></div>
-                    </div>}
-                {home[1].clicked &&
-                    <div>
-                        <div className="main-heading">
                             <h1>News</h1>
                         </div>
                         <div className="page-content">
                             <NewsLine />
+                        </div>
+                    </div>}
+                {home[1].clicked &&
+                    <div>
+                        <div className="main-heading">
+                            <h1>Customers</h1>
+                        </div>
+                        <div className="page-content" style={{ marginBottom: '20px' }}>
+                            <Widgets />
                         </div>
                     </div>}
                 {home[2].clicked &&

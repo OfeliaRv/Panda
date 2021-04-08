@@ -12,7 +12,7 @@ const Products = () => {
             <MainSection>
                 <div className="products">
                     {products.map(product =>
-                        <Link to={`/products/${product.id}`} key={product.id}><div className="product">
+                        <Link to={`/products/${product.id}`} key={product.id}><div className="product white-button">
                             <h6>{product.name}</h6>
                         </div></Link>
                     )}

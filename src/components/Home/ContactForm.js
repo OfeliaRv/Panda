@@ -17,7 +17,7 @@ const ContactForm = () => {
                 </div>
             </div>
             <div className="contact-button">
-                <button>Send</button>
+                <button className="grey-button">Send</button>
             </div>
         </form>
     );

@@ -26,7 +26,6 @@
                 border: 1px solid rgba(255, 255, 255, 0.4);
                 box-sizing: border-box;
                 box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
-                border-radius: 47px;
                 resize: none;
 
                 &::placeholder {
@@ -43,16 +42,9 @@
     justify-content: flex-end;
 
     button {
-        background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #8a92a5;
-        background-blend-mode: soft-light, normal;
-        box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-        border-radius: 13px;
-        color: white;
-        border: none;
-        text-align: center;
         font-weight: 600;
         position: relative;
-        // left: 50% !important;
+        margin-bottom: 10px;
     }
 }
 
@@ -68,32 +60,32 @@
         &-container {
             .form-line {
                 label {
-                    margin-bottom: 10px;
-                    font-size: 25px;
-                    line-height: 34px;
+                    font-size: 18px;
+                    line-height: 26px;
                 }
 
                 input,
                 textarea {
-                    margin: 10px 0;
+                    margin: 6px 0;
+                    border-radius: 25px;
 
                     &::placeholder {
-                        font-size: 22px;
-                        line-height: 28px;
-                        padding: 0 44px;
+                        font-size: 17px;
+                        line-height: 29px;
+                        padding: 0 20px;
                     }
                 }
 
                 input {
-                    width: 385px;
-                    height: 53px;
-                    padding-top: 10px;
+                    width: 400px;
+                    height: 40px;
+                    padding-top: 3px;
                 }
 
                 textarea {
-                    width: 830px;
-                    height: 240px;
-                    padding-top: 25px;
+                    width: 840px;
+                    height: 160px;
+                    padding-top: 20px;
                 }
             }
         }
@@ -101,12 +93,11 @@
 
     .contact-button {
         button {
-            left: 25px;
-            width: 100px;
-            height: 60px;
-            font-size: 19px;
-            line-height: 25px;
-            margin-bottom: 10px;
+            left: 20px;
+            width: 80px;
+            height: 50px;
+            font-size: 14px;
+            line-height: 26px;
         }
     }
 }
@@ -116,32 +107,32 @@
         &-container {
             .form-line {
                 label {
-                    margin-bottom: 7px;
-                    font-size: 24px;
-                    line-height: 30px;
+                    font-size: 19px;
+                    line-height: 28px;
                 }
 
                 input,
                 textarea {
-                    margin: 10px 0;
+                    margin: 6px 0;
+                    border-radius: 25px;
 
                     &::placeholder {
-                        font-size: 21px;
-                        line-height: 28px;
-                        padding: 0 44px;
+                        font-size: 17px;
+                        line-height: 29px;
+                        padding: 0 20px;
                     }
                 }
 
                 input {
                     width: 440px;
-                    height: 50px;
-                    padding-top: 10px;
+                    height: 40px;
+                    padding-top: 3px;
                 }
 
                 textarea {
-                    width: 930px;
-                    height: 240px;
-                    padding-top: 25px;
+                    width: 920px;
+                    height: 160px;
+                    padding-top: 20px;
                 }
             }
         }
@@ -149,12 +140,11 @@
 
     .contact-button {
         button {
-            left: 25px;
-            width: 120px;
-            height: 60px;
-            font-size: 21px;
-            line-height: 25px;
-            margin-bottom: 10px;
+            left: 20px;
+            width: 80px;
+            height: 50px;
+            font-size: 14px;
+            line-height: 26px;
         }
     }
 }
@@ -164,32 +154,32 @@
         &-container {
             .form-line {
                 label {
-                    margin-bottom: 10px;
-                    font-size: 25px;
-                    line-height: 34px;
+                    font-size: 21px;
+                    line-height: 30px;
                 }
 
                 input,
                 textarea {
-                    margin: 10px 0;
+                    margin: 6px 0;
+                    border-radius: 47px;
 
                     &::placeholder {
-                        font-size: 22px;
-                        line-height: 28px;
-                        padding: 0 44px;
+                        font-size: 18px;
+                        line-height: 31px;
+                        padding: 0 20px;
                     }
                 }
 
                 input {
-                    width: 485px;
-                    height: 53px;
-                    padding-top: 10px;
+                    width: 460px;
+                    height: 40px;
+                    padding-top: 7px;
                 }
 
                 textarea {
-                    width: 1015px;
-                    height: 240px;
-                    padding-top: 25px;
+                    width: 950px;
+                    height: 160px;
+                    padding-top: 20px;
                 }
             }
         }
@@ -197,12 +187,11 @@
 
     .contact-button {
         button {
-            left: 25px;
-            width: 120px;
-            height: 60px;
-            font-size: 21px;
-            line-height: 25px;
-            margin-bottom: 10px;
+            left: 20px;
+            width: 95px;
+            height: 55px;
+            font-size: 16px;
+            line-height: 31px;
         }
     }
 }
@@ -213,32 +202,32 @@
         &-container {
             .form-line {
                 label {
-                    margin-bottom: 10px;
-                    font-size: 30px;
-                    line-height: 38px;
+                    font-size: 21px;
+                    line-height: 30px;
                 }
 
                 input,
                 textarea {
-                    margin: 10px 0;
+                    margin: 6px 0;
+                    border-radius: 47px;
 
                     &::placeholder {
-                        font-size: 24px;
-                        line-height: 28px;
-                        padding: 0 44px;
+                        font-size: 19px;
+                        line-height: 31px;
+                        padding: 0 20px;
                     }
                 }
 
                 input {
-                    width: 490px;
-                    height: 55px;
-                    padding-top: 10px;
+                    width: 495px;
+                    height: 40px;
+                    padding-top: 7px;
                 }
 
                 textarea {
-                    width: 1020px;
-                    height: 247px;
-                    padding-top: 25px;
+                    width: 1040px;
+                    height: 165px;
+                    padding-top: 20px;
                 }
             }
         }
@@ -246,12 +235,11 @@
 
     .contact-button {
         button {
-            left: 60px;
-            width: 120px;
+            left: 25px;
+            width: 100px;
             height: 60px;
-            font-size: 22px;
-            line-height: 25px;
-            margin-bottom: 10px;
+            font-size: 18px;
+            line-height: 31px;
         }
     }
 }
@@ -262,32 +250,32 @@
         &-container {
             .form-line {
                 label {
-                    margin-bottom: 10px;
-                    font-size: 34px;
-                    line-height: 40px;
+                    font-size: 24px;
+                    line-height: 33px;
                 }
 
                 input,
                 textarea {
-                    margin: 10px 0;
+                    margin: 8px 0;
+                    border-radius: 47px;
 
                     &::placeholder {
-                        font-size: 28px;
-                        line-height: 35px;
-                        padding: 0 44px;
+                        font-size: 21px;
+                        line-height: 34px;
+                        padding: 0 30px;
                     }
                 }
 
                 input {
-                    width: 560px;
-                    height: 60px;
-                    padding-top: 10px;
+                    width: 545px;
+                    height: 47px;
+                    padding-top: 7px;
                 }
 
                 textarea {
-                    width: 1200px;
-                    height: 247px;
-                    padding-top: 25px;
+                    width: 1140px;
+                    height: 195px;
+                    padding-top: 20px;
                 }
             }
         }
@@ -296,47 +284,93 @@
     .contact-button {
         button {
             left: 35px;
-            width: 140px;
-            height: 79px;
-            font-size: 24px;
+            width: 120px;
+            height: 69px;
+            font-size: 21px;
             line-height: 32px;
-            margin-bottom: 10px;
         }
     }
 }
 
 // L SCREEN
-@media (min-width: 1640px) and (max-width: 1850px) {
+@media (min-width: 1641px) and (max-width: 1720px) {
     .contact-form {
         &-container {
             .form-line {
                 label {
-                    margin-bottom: 10px;
-                    font-size: 36px;
-                    line-height: 44px;
+                    font-size: 28px;
+                    line-height: 35px;
                 }
 
                 input,
                 textarea {
-                    margin: 10px 0;
+                    margin: 8px 0;
+                    border-radius: 47px;
 
                     &::placeholder {
-                        font-size: 30px;
-                        line-height: 37px;
-                        padding: 0 44px;
+                        font-size: 22px;
+                        line-height: 34px;
+                        padding: 0 30px;
                     }
                 }
 
                 input {
-                    width: 610px;
-                    height: 70px;
-                    padding-top: 10px;
+                    width: 590px;
+                    height: 53px;
+                    padding-top: 7px;
+                }
+
+                textarea {
+                    width: 1235px;
+                    height: 205px;
+                    padding-top: 20px;
+                }
+            }
+        }
+    }
+
+    .contact-button {
+        button {
+            left: 60px;
+            width: 138px;
+            height: 79px;
+            font-size: 23px;
+            line-height: 32px;
+        }
+    }
+}
+
+@media (min-width: 1720px) and (max-width: 1850px) {
+    .contact-form {
+        &-container {
+            .form-line {
+                label {
+                    font-size: 30px;
+                    line-height: 37px;
+                }
+
+                input,
+                textarea {
+                    margin: 8px 0;
+                    border-radius: 47px;
+
+                    &::placeholder {
+                        font-size: 23px;
+                        line-height: 34px;
+                        padding: 0 30px;
+                    }
+                }
+
+                input {
+                    width: 620px;
+                    height: 60px;
+                    padding-top: 7px;
                 }
 
                 textarea {
                     width: 1300px;
-                    height: 247px;
-                    padding-top: 25px;
+                    height: 240px;
+                    padding-top: 20px;
                 }
             }
         }
@@ -349,7 +383,6 @@
             height: 79px;
             font-size: 28px;
             line-height: 37px;
-            margin-bottom: 10px;
         }
     }
 }
@@ -368,6 +401,7 @@
                 input,
                 textarea {
                     margin: 10px 0;
+                    border-radius: 47px;
 
                     &::placeholder {
                         font-size: 30px;
@@ -393,12 +427,11 @@
 
     .contact-button {
         button {
-            left: 60px;
+            left: 55px;
             width: 180px;
             height: 99px;
             font-size: 30px;
             line-height: 37px;
-            margin-bottom: 10px;
         }
     }
 }

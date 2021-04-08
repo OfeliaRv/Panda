@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Products from './pages/Products'
 import ProductPage from './pages/ProductPage'
+import Customers from './pages/Customers'
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
                         <Route exact path="/" component={Home} />
                         <Route exact path="/products" component={Products} />
                         <Route exact path="/products/:id" component={ProductPage} />
+                        <Route exact path="/customers" component={Customers} />
                         <Route path="*">
                             <div style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <h1 style={{ textAlign: 'center', color: '#6D7587' }}>PAGE NOT FOUND</h1>

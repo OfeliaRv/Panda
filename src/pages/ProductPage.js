@@ -9,7 +9,7 @@ const ProductPage = () => {
 
     const { id } = useParams();
     return (
-        <div id="products">
+        <div id="product-page">
             <MainSection>
                 <div className="product-container col-md-12 col-lg-12">
                     <div className="main-heading">

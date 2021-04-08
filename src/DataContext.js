@@ -2,8 +2,6 @@ import { createContext, useState } from 'react'
 import c_logo1 from './assets/img/logo1.svg'
 import c_logo2 from './assets/img/logo2.svg'
 import c_logo3 from './assets/img/logo3.svg'
-import left_home from './assets/img/left-item-home.svg'
-import left_products from './assets/img/left-item-products.svg'
 import product1 from './assets/img/product1.png'
 import news1 from './assets/img/news1.png'
 import news2 from './assets/img/news2.png'
@@ -15,7 +13,7 @@ export const DataContext = createContext();
 
 export const DataProvider = props => {
 
-    const [clickedItem, setClickedItem] = useState(0);
+    const [clickedItem, setClickedItem] = useState(null);
 
     // LEFT PAGE NAME
     const [homePage, setHomePage] = useState([
@@ -49,6 +47,35 @@ export const DataProvider = props => {
             id: 3,
             logo: c_logo3,
             text: "Lorem ipsum dolor sit amet, consectetur"
+        }
+    ]);
+
+    // COMPANIES
+    const [company, setCompany] = useState([
+        {
+            id: 1,
+            logo: c_logo1,
+            name: "Company name"
+        },
+        {
+            id: 2,
+            logo: c_logo2,
+            name: "Company name"
+        },
+        {
+            id: 3,
+            logo: c_logo3,
+            name: "Company name"
+        },
+        {
+            id: 4,
+            logo: c_logo1,
+            name: "Company name"
+        },
+        {
+            id: 5,
+            logo: c_logo2,
+            name: "Company name"
         }
     ]);
 
@@ -143,6 +170,7 @@ export const DataProvider = props => {
         productData: [product, setProduct],
         homePageData: [homePage, setHomePage],
         newsData: [news, setNews],
+        companyData: [company, setCompany],
         clickedItem: [clickedItem, setClickedItem]
     };
 

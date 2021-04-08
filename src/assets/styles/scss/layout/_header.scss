@@ -62,7 +62,47 @@ header {
         padding: 0 10px 0 0;
 
         .logo {
-            margin: -20px;
+            margin-left: -30px;
+
+            img {
+                transform: scale(0.54);
+            }
+        }
+
+        nav {
+            width: 600px;
+            height: 38px;
+
+            .navigation-list {
+                &-item {
+                    margin: 0 12px;
+
+                    a {
+                        font-size: 13px;
+                        line-height: 18px;
+                    }
+                }
+            }
+        }
+
+        .lang-select {
+            font-size: 12px;
+            line-height: 16px;
+            margin-left: 60px;
+
+            .lang {
+                margin: 0 3px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1080px) and (max-width: 1216px) {
+    header {
+        padding: 0 10px 0 0;
+
+        .logo {
+            margin-left: -30px;
 
             img {
                 transform: scale(0.58);
@@ -70,12 +110,12 @@ header {
         }
 
         nav {
-            width: 640px;
-            height: 45px;
+            width: 650px;
+            height: 40px;
 
             .navigation-list {
                 &-item {
-                    margin: 0 10px;
+                    margin: 0 12px;
 
                     a {
                         font-size: 14px;
@@ -87,48 +127,8 @@ header {
 
         .lang-select {
             font-size: 13px;
-            line-height: 14px;
-            margin-left: 40px;
-
-            .lang {
-                margin: 0 2px;
-            }
-        }
-    }
-}
-
-@media (min-width: 1080px) and (max-width: 1216px) {
-    header {
-        padding: 0 10px 0 0;
-
-        .logo {
-            margin: -30px;
-
-            img {
-                transform: scale(0.58);
-            }
-        }
-
-        nav {
-            width: 700px;
-            height: 50px;
-
-            .navigation-list {
-                &-item {
-                    margin: 0 12px;
-
-                    a {
-                        font-size: 15px;
-                        line-height: 18px;
-                    }
-                }
-            }
-        }
-
-        .lang-select {
-            font-size: 14px;
             line-height: 16px;
-            margin-left: 20px;
+            margin-left: 60px;
 
             .lang {
                 margin: 0 3px;
@@ -139,25 +139,27 @@ header {
 
 @media (min-width: 1217px) and (max-width: 1255px) {
     header {
-        padding: 0 15px 0 0;
+        padding: 0 30px 0 0;
 
         .logo {
+            margin-left: -10px;
+
             img {
-                transform: scale(0.65);
+                transform: scale(0.62);
             }
         }
 
         nav {
-            width: 790px;
-            height: 50px;
+            width: 680px;
+            height: 40px;
 
             .navigation-list {
                 &-item {
                     margin: 0 15px;
 
                     a {
-                        font-size: 17px;
-                        line-height: 18px;
+                        font-size: 15px;
+                        line-height: 19px;
                     }
                 }
             }
@@ -165,11 +167,11 @@ header {
 
         .lang-select {
             font-size: 14px;
-            line-height: 16px;
-            margin-left: 35px;
+            line-height: 18px;
+            margin-left: 50px;
 
             .lang {
-                margin: 0 3px;
+                margin: 0 5px;
             }
         }
     }
@@ -177,7 +179,7 @@ header {
 
 @media (min-width: 1255px) and (max-width: 1334px) {
     header {
-        padding: 0 15px 0 0;
+        padding: 0 30px 0 0;
 
         .logo {
             img {
@@ -186,16 +188,16 @@ header {
         }
 
         nav {
-            width: 820px;
-            height: 55px;
+            width: 720px;
+            height: 45px;
 
             .navigation-list {
                 &-item {
                     margin: 0 15px;
 
                     a {
-                        font-size: 17px;
-                        line-height: 18px;
+                        font-size: 16px;
+                        line-height: 20px;
                     }
                 }
             }
@@ -203,11 +205,11 @@ header {
 
         .lang-select {
             font-size: 15px;
-            line-height: 17px;
-            margin-left: 30px;
+            line-height: 18px;
+            margin-left: 40px;
 
             .lang {
-                margin: 0 3px;
+                margin: 0 5px;
             }
         }
     }
@@ -216,7 +218,7 @@ header {
 // S SCREEN
 @media (min-width: 1335px) and (max-width: 1400px) {
     header {
-        padding: 0 25px 0 10px;
+        padding: 0 25px 0 0;
 
         .logo {
             img {
@@ -225,25 +227,25 @@ header {
         }
 
         nav {
-            width: 860px;
-            height: 55px;
+            width: 720px;
+            height: 45px;
 
             .navigation-list {
                 &-item {
                     margin: 0 15px;
 
                     a {
-                        font-size: 18px;
-                        line-height: 22px;
+                        font-size: 16px;
+                        line-height: 20px;
                     }
                 }
             }
         }
 
         .lang-select {
-            font-size: 17px;
-            line-height: 20px;
-            margin-left: 30px;
+            font-size: 15px;
+            line-height: 18px;
+            margin-left: 40px;
 
             .lang {
                 margin: 0 5px;
@@ -255,24 +257,24 @@ header {
 // M SCREEN
 @media (min-width: 1400px) and (max-width: 1540px) {
     header {
-        padding: 0 25px 0 10px;
+        padding: 0 35px 0 0;
 
         .logo {
             img {
-                transform: scale(0.8);
+                transform: scale(0.7);
             }
         }
 
         nav {
-            width: 900px;
-            height: 60px;
+            width: 810px;
+            height: 50px;
 
             .navigation-list {
                 &-item {
                     margin: 0 20px;
 
                     a {
-                        font-size: 18px;
+                        font-size: 16px;
                         line-height: 24px;
                     }
                 }
@@ -280,7 +282,7 @@ header {
         }
 
         .lang-select {
-            font-size: 18px;
+            font-size: 16px;
             line-height: 20px;
             margin-left: 30px;
 
@@ -294,11 +296,9 @@ header {
 // L SCREEN (1)
 @media (min-width: 1541px) and (max-width: 1700px) {
     header {
-        padding: 0 15px 0 30px;
+        padding: 0 15px 0 10px;
 
         .logo {
-            // margin-right: 20px;
-
             img {
                 transform: scale(0.85);
             }
@@ -307,7 +307,6 @@ header {
         nav {
             width: 930px;
             height: 65px;
-            // margin-left: 20px;
 
             .navigation-list {
                 &-item {
@@ -324,7 +323,6 @@ header {
         .lang-select {
             font-size: 20px;
             line-height: 26px;
-            // flex-grow: 3;
             margin-left: 20px;
 
             .lang {
@@ -340,8 +338,6 @@ header {
         padding: 0 20px 0 40px;
 
         .logo {
-            // margin-right: 50px;
-
             img {
                 transform: scale(0.9);
             }
@@ -350,7 +346,6 @@ header {
         nav {
             width: 980px;
             height: 65px;
-            // margin-left: 35px;
 
             .navigation-list {
                 &-item {
@@ -367,7 +362,6 @@ header {
         .lang-select {
             font-size: 20px;
             line-height: 26px;
-            // flex-grow: 3;
             margin-left: 20px;
 
             .lang {
@@ -380,15 +374,17 @@ header {
 // XL SCREEN
 @media (min-width: 1871px) {
     header {
-        padding: 0 20px 0 75px;
+        padding: 0 20px 0 55px;
 
-        // .logo {
-        //     margin-right: 55px;
-        // }
+        .logo {
+            margin-right: 20px;
+            // margin-left: -20px;
+        }
 
         nav {
             width: 1071px;
             height: 73px;
+            // margin-right: 20px;
 
             .navigation-list {
                 &-item {
@@ -405,8 +401,6 @@ header {
         .lang-select {
             font-size: 24px;
             line-height: 29px;
-            // flex-grow: 3;
-            // margin: 0 20px;
             margin-left: 30px;
 
             .lang {

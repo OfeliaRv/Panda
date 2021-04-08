@@ -1,0 +1,39 @@
+button {
+    cursor: pointer;
+}
+
+.white-button {
+    cursor: pointer;
+    background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
+    background-blend-mode: soft-light, normal;
+    box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
+
+    &:hover {
+        background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #e4e5ec;
+    }
+
+    &:active {
+        background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
+        box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd, inset 0px 1px 3px #767e91;
+    }
+}
+
+.grey-button {
+    background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #8a92a5;
+    background-blend-mode: soft-light, normal;
+    box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
+    border-radius: 13px;
+    color: white;
+    border: none;
+    text-align: center;
+
+    &:hover {
+        background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0.6) 105.18%), #7d859a;
+    }
+
+    &:active {
+        background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #777f92;
+        box-shadow: -2px -2px 4px rgba(106, 114, 133, 0.348838), -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd,
+            inset 1px 2px 6px #484e5d;
+    }
+}

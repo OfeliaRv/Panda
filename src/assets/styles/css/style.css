@@ -7,6 +7,8 @@
 body {
   background-color: #ebecf0;
   margin: 0;
+  height: 100vh;
+  overflow: hidden;
 }
 
 a {
@@ -24,41 +26,126 @@ ul li {
   list-style-type: none;
 }
 
-@media (max-width: 1440px) {
+#root {
+  height: 100%;
+}
+
+.page-holder {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (min-width: 1000px) and (max-width: 1300px) {
   body {
-    padding: 20px 20px 10px 20px;
+    padding: 10px 25px 5px 25px;
   }
 }
 
-@media (min-width: 1441px) {
+@media (min-width: 1300px) and (max-width: 1440px) {
   body {
-    padding: 30px 40px 20px 40px;
+    padding: 20px 35px 10px 35px;
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1650px) {
+  body {
+    padding: 20px 45px 10px 45px;
+  }
+}
+
+@media (min-width: 1650px) and (max-width: 1800px) {
+  body {
+    padding: 35px 40px 20px 40px;
   }
 }
 
 @media (min-width: 1800px) {
   body {
-    padding: 50px 60px 40px 60px;
+    padding: 50px 50px 40px 50px;
   }
 }
 
 @media (min-width: 1920px) {
   body {
+    padding: 50px 60px 40px 60px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   body #root {
     background-blend-mode: soft-light, normal;
     -webkit-box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
             box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-    padding: 50px 60px 50px 60px;
+    padding: 40px 60px 40px 60px;
     width: 1920px !important;
     border-radius: 47px;
+    height: 1080px !important;
   }
+  body #root .page-holder {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+.white-button {
+  cursor: pointer;
+  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
+  background-blend-mode: soft-light, normal;
+  -webkit-box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
+          box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
+}
+
+.white-button:hover {
+  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #e4e5ec;
+}
+
+.white-button:active {
+  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
+  -webkit-box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd, inset 0px 1px 3px #767e91;
+          box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd, inset 0px 1px 3px #767e91;
+}
+
+.grey-button {
+  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #8a92a5;
+  background-blend-mode: soft-light, normal;
+  -webkit-box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
+          box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
+  border-radius: 13px;
+  color: white;
+  border: none;
+  text-align: center;
+}
+
+.grey-button:hover {
+  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0.6) 105.18%), #7d859a;
+}
+
+.grey-button:active {
+  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #777f92;
+  -webkit-box-shadow: -2px -2px 4px rgba(106, 114, 133, 0.348838), -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd, inset 1px 2px 6px #484e5d;
+          box-shadow: -2px -2px 4px rgba(106, 114, 133, 0.348838), -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd, inset 1px 2px 6px #484e5d;
 }
 
 header {
@@ -145,30 +232,30 @@ header .lang-select .lang {
     padding: 0 10px 0 0;
   }
   header .logo {
-    margin: -20px;
+    margin-left: -30px;
   }
   header .logo img {
-    -webkit-transform: scale(0.58);
-            transform: scale(0.58);
+    -webkit-transform: scale(0.54);
+            transform: scale(0.54);
   }
   header nav {
-    width: 640px;
-    height: 45px;
+    width: 600px;
+    height: 38px;
   }
   header nav .navigation-list-item {
-    margin: 0 10px;
+    margin: 0 12px;
   }
   header nav .navigation-list-item a {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 18px;
   }
   header .lang-select {
-    font-size: 13px;
-    line-height: 14px;
-    margin-left: 40px;
+    font-size: 12px;
+    line-height: 16px;
+    margin-left: 60px;
   }
   header .lang-select .lang {
-    margin: 0 2px;
+    margin: 0 3px;
   }
 }
 
@@ -177,27 +264,27 @@ header .lang-select .lang {
     padding: 0 10px 0 0;
   }
   header .logo {
-    margin: -30px;
+    margin-left: -30px;
   }
   header .logo img {
     -webkit-transform: scale(0.58);
             transform: scale(0.58);
   }
   header nav {
-    width: 700px;
-    height: 50px;
+    width: 650px;
+    height: 40px;
   }
   header nav .navigation-list-item {
     margin: 0 12px;
   }
   header nav .navigation-list-item a {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 18px;
   }
   header .lang-select {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 16px;
-    margin-left: 20px;
+    margin-left: 60px;
   }
   header .lang-select .lang {
     margin: 0 3px;
@@ -206,85 +293,88 @@ header .lang-select .lang {
 
 @media (min-width: 1217px) and (max-width: 1255px) {
   header {
-    padding: 0 15px 0 0;
+    padding: 0 30px 0 0;
+  }
+  header .logo {
+    margin-left: -10px;
   }
   header .logo img {
-    -webkit-transform: scale(0.65);
-            transform: scale(0.65);
+    -webkit-transform: scale(0.62);
+            transform: scale(0.62);
   }
   header nav {
-    width: 790px;
-    height: 50px;
+    width: 680px;
+    height: 40px;
   }
   header nav .navigation-list-item {
     margin: 0 15px;
   }
   header nav .navigation-list-item a {
-    font-size: 17px;
-    line-height: 18px;
+    font-size: 15px;
+    line-height: 19px;
   }
   header .lang-select {
     font-size: 14px;
-    line-height: 16px;
-    margin-left: 35px;
+    line-height: 18px;
+    margin-left: 50px;
   }
   header .lang-select .lang {
-    margin: 0 3px;
+    margin: 0 5px;
   }
 }
 
 @media (min-width: 1255px) and (max-width: 1334px) {
   header {
-    padding: 0 15px 0 0;
+    padding: 0 30px 0 0;
   }
   header .logo img {
     -webkit-transform: scale(0.65);
             transform: scale(0.65);
   }
   header nav {
-    width: 820px;
-    height: 55px;
+    width: 720px;
+    height: 45px;
   }
   header nav .navigation-list-item {
     margin: 0 15px;
   }
   header nav .navigation-list-item a {
-    font-size: 17px;
-    line-height: 18px;
+    font-size: 16px;
+    line-height: 20px;
   }
   header .lang-select {
     font-size: 15px;
-    line-height: 17px;
-    margin-left: 30px;
+    line-height: 18px;
+    margin-left: 40px;
   }
   header .lang-select .lang {
-    margin: 0 3px;
+    margin: 0 5px;
   }
 }
 
 @media (min-width: 1335px) and (max-width: 1400px) {
   header {
-    padding: 0 25px 0 10px;
+    padding: 0 25px 0 0;
   }
   header .logo img {
     -webkit-transform: scale(0.65);
             transform: scale(0.65);
   }
   header nav {
-    width: 860px;
-    height: 55px;
+    width: 720px;
+    height: 45px;
   }
   header nav .navigation-list-item {
     margin: 0 15px;
   }
   header nav .navigation-list-item a {
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 20px;
   }
   header .lang-select {
-    font-size: 17px;
-    line-height: 20px;
-    margin-left: 30px;
+    font-size: 15px;
+    line-height: 18px;
+    margin-left: 40px;
   }
   header .lang-select .lang {
     margin: 0 5px;
@@ -293,25 +383,25 @@ header .lang-select .lang {
 
 @media (min-width: 1400px) and (max-width: 1540px) {
   header {
-    padding: 0 25px 0 10px;
+    padding: 0 35px 0 0;
   }
   header .logo img {
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
   }
   header nav {
-    width: 900px;
-    height: 60px;
+    width: 810px;
+    height: 50px;
   }
   header nav .navigation-list-item {
     margin: 0 20px;
   }
   header nav .navigation-list-item a {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
   }
   header .lang-select {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 20px;
     margin-left: 30px;
   }
@@ -322,7 +412,7 @@ header .lang-select .lang {
 
 @media (min-width: 1541px) and (max-width: 1700px) {
   header {
-    padding: 0 15px 0 30px;
+    padding: 0 15px 0 10px;
   }
   header .logo img {
     -webkit-transform: scale(0.85);
@@ -380,7 +470,10 @@ header .lang-select .lang {
 
 @media (min-width: 1871px) {
   header {
-    padding: 0 20px 0 75px;
+    padding: 0 20px 0 55px;
+  }
+  header .logo {
+    margin-right: 20px;
   }
   header nav {
     width: 1071px;
@@ -428,7 +521,6 @@ footer .footer-content {
 
 footer .footer-content p {
   margin: 0;
-  font-size: 14px;
   font-weight: 500;
 }
 
@@ -446,7 +538,7 @@ footer .footer-content .footer-col {
 
 @media (min-width: 1000px) and (max-width: 1300px) {
   footer {
-    margin: 15px 0 0 50px;
+    margin: auto 0 0 70px;
   }
   footer .footer-content #copyright {
     width: 13px;
@@ -459,20 +551,19 @@ footer .footer-content .footer-col {
   footer .footer-content .footer-col {
     margin-left: 20px;
   }
-  footer .footer-content .footer-col .footer-text {
-    font-size: 14px;
+  footer .footer-content .footer-col .footer-text p {
+    font-size: 12px;
     line-height: 16px;
     margin: 0 13px;
   }
-  footer .footer-content .footer-col #footer-stamp {
-    width: 90px;
-    height: 70px;
+  footer .footer-content #footer-stamp {
+    width: 80px;
   }
 }
 
 @media (min-width: 1301px) and (max-width: 1440px) {
   footer {
-    margin: 15px 0 0 50px;
+    margin: auto 0 0 80px;
   }
   footer .footer-content #copyright {
     width: 13px;
@@ -485,20 +576,19 @@ footer .footer-content .footer-col {
   footer .footer-content .footer-col {
     margin-left: 20px;
   }
-  footer .footer-content .footer-col .footer-text {
+  footer .footer-content .footer-col .footer-text p {
     font-size: 14px;
     line-height: 16px;
     margin: 0 13px;
   }
-  footer .footer-content .footer-col #footer-stamp {
+  footer .footer-content #footer-stamp {
     width: 90px;
-    height: 70px;
   }
 }
 
-@media (min-width: 1441px) and (max-width: 1799px) {
+@media (min-width: 1441px) and (max-width: 1870px) {
   footer {
-    margin: 15px 0 0 95px;
+    margin: auto 0 0 75px;
   }
   footer .footer-content #copyright {
     width: 16px;
@@ -511,16 +601,19 @@ footer .footer-content .footer-col {
   footer .footer-content .footer-col {
     margin-left: 60px;
   }
-  footer .footer-content .footer-col .footer-text {
-    font-size: 20px;
-    line-height: 24px;
+  footer .footer-content .footer-col .footer-text p {
+    font-size: 16px;
+    line-height: 22px;
     margin: 0 25px;
+  }
+  footer .footer-content #footer-stamp {
+    width: 100px;
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 1871px) {
   footer {
-    margin: 15px 0 0 95px;
+    margin: auto 0px 0 125px;
   }
   footer .footer-content #copyright {
     width: 22px;
@@ -533,10 +626,13 @@ footer .footer-content .footer-col {
   footer .footer-content .footer-col {
     margin-left: 60px;
   }
-  footer .footer-content .footer-col .footer-text {
+  footer .footer-content .footer-col .footer-text p {
     font-size: 20px;
     line-height: 24px;
     margin: 0 25px;
+  }
+  footer .footer-content #footer-stamp {
+    width: 120px;
   }
 }
 
@@ -565,11 +661,6 @@ footer .footer-content .footer-col {
 }
 
 .page-heading-holder .heading-buttons .heading-button {
-  cursor: pointer;
-  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
-  background-blend-mode: soft-light, normal;
-  -webkit-box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-          box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
   border-radius: 47px;
   color: #6d7587;
   font-weight: 400;
@@ -587,51 +678,68 @@ footer .footer-content .footer-col {
 
 @media (min-width: 1000px) and (max-width: 1330px) {
   .page-heading {
-    margin: 20px 0;
+    margin: 13px 0;
   }
   .page-heading h1 {
-    font-size: 35px;
-    line-height: 43px;
+    font-size: 27px;
+    line-height: 35px;
   }
   .heading-buttons .heading-button {
-    width: 220px;
-    height: 42px;
-    font-size: 19px;
+    width: 180px;
+    height: 38px;
+    font-size: 16px;
     line-height: 23px;
-    margin: 0 8px;
+    margin: 0 6px;
   }
 }
 
-@media (min-width: 1330px) and (max-width: 1440px) {
+@media (min-width: 1330px) and (max-width: 1500px) {
   .page-heading {
-    margin: 40px 0;
+    margin: 15px 0;
   }
   .page-heading h1 {
-    font-size: 35px;
-    line-height: 43px;
+    font-size: 31px;
+    line-height: 37px;
   }
   .heading-buttons .heading-button {
-    width: 240px;
-    height: 45px;
-    font-size: 20px;
-    line-height: 25px;
+    width: 195px;
+    height: 42px;
+    font-size: 19px;
+    line-height: 22px;
     margin: 0 10px;
   }
 }
 
-@media (min-width: 1441px) and (max-width: 1799px) {
+@media (min-width: 1500px) and (max-width: 1620px) {
+  .page-heading {
+    margin: 20px 0;
+  }
+  .page-heading h1 {
+    font-size: 33px;
+    line-height: 35px;
+  }
+  .heading-buttons .heading-button {
+    width: 245px;
+    height: 47px;
+    font-size: 21px;
+    line-height: 25px;
+    margin: 0 12px;
+  }
+}
+
+@media (min-width: 1620px) and (max-width: 1799px) {
   .page-heading {
     margin: 30px 0;
   }
   .page-heading h1 {
-    font-size: 40px;
-    line-height: 48px;
+    font-size: 37px;
+    line-height: 40px;
   }
   .heading-buttons .heading-button {
-    width: 270px;
-    height: 55px;
-    font-size: 24px;
-    line-height: 30px;
+    width: 255px;
+    height: 52px;
+    font-size: 23px;
+    line-height: 26px;
     margin: 0 15px;
   }
 }
@@ -669,11 +777,11 @@ footer .footer-content .footer-col {
 
 .main-section .left-items img {
   position: relative;
-  cursor: pointer;
 }
 
 .main-section .center-content {
   margin: 0 auto;
+  width: 100%;
 }
 
 .main-section .center-content .main-heading {
@@ -694,11 +802,11 @@ footer .footer-content .footer-col {
   margin: 0;
 }
 
-.main-section #center1 {
+.main-section #center0 {
   overflow: hidden;
 }
 
-.main-section #right1 .next-button {
+.main-section #right0 .next-button {
   margin-bottom: 20px;
 }
 
@@ -780,7 +888,6 @@ footer .footer-content .footer-col {
 }
 
 .main-section .right-items .next-button {
-  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -790,19 +897,16 @@ footer .footer-content .footer-col {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
-  background-blend-mode: soft-light, normal;
-  -webkit-box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-          box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-  border-radius: 13px;
+  border-radius: 22%;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 1000px) and (max-width: 1110px) {
-  #center0 .space {
-    height: 80px;
+  #left0 img {
+    bottom: 5px;
   }
-  #right0 .next-button {
-    margin-bottom: 80px;
+  #left1 img {
+    top: 30px;
   }
   .main-section .left-items {
     margin: 0 30px 0 40px;
@@ -810,14 +914,14 @@ footer .footer-content .footer-col {
   .main-section .left-items img {
     bottom: 15px;
     width: 23px;
-    height: 250px;
+    height: 200px;
   }
   .main-section .center-content .main-heading {
-    margin: 45px 0 20px 25px;
+    margin: 15px 0 10px 10px;
   }
   .main-section .center-content .main-heading h1 {
-    font-size: 28px;
-    line-height: 40px;
+    font-size: 23px;
+    line-height: 32px;
   }
   .main-section .right-items .selector-buttons-group .selector-button-container .button-stroke .button {
     width: 22px;
@@ -832,36 +936,35 @@ footer .footer-content .footer-col {
     width: 9px !important;
   }
   .main-section .next-button {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
   .main-section .next-button img {
-    width: 9px;
-    height: 15px;
+    width: 8px;
+    height: 14px;
   }
 }
 
 @media (min-width: 1111px) and (max-width: 1330px) {
-  #center0 .space {
-    height: 100px;
+  #left0 img {
+    bottom: 9px;
   }
-  #right0 .next-button {
-    margin-bottom: 100px;
+  #left1 img {
+    top: 20px;
   }
   .main-section .left-items {
     margin: 0 30px 0 50px;
   }
   .main-section .left-items img {
-    bottom: 45px;
     width: 23px;
-    height: 250px;
+    height: 220px;
   }
   .main-section .center-content .main-heading {
-    margin: 45px 0 20px 25px;
+    margin: 10px 0 10px 20px;
   }
   .main-section .center-content .main-heading h1 {
-    font-size: 28px;
-    line-height: 40px;
+    font-size: 24px;
+    line-height: 32px;
   }
   .main-section .right-items .selector-buttons-group .selector-button-container .button-stroke .button {
     width: 22px;
@@ -876,8 +979,8 @@ footer .footer-content .footer-col {
     width: 9px !important;
   }
   .main-section .next-button {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
   .main-section .next-button img {
     width: 9px;
@@ -885,26 +988,26 @@ footer .footer-content .footer-col {
   }
 }
 
-@media (min-width: 1330px) and (max-width: 1440px) {
-  #center0 .space {
-    height: 130px;
+@media (min-width: 1331px) and (max-width: 1440px) {
+  #left0 img {
+    bottom: 6px;
   }
-  #right0 .next-button {
-    margin-bottom: 130px;
+  #left1 img {
+    top: 40px;
   }
   .main-section .left-items {
-    margin: 0 20px 0 70px;
+    margin: 0 20px 0 60px;
   }
   .main-section .left-items img {
-    bottom: 40px;
+    height: 240px;
     width: 23px;
   }
   .main-section .center-content .main-heading {
-    margin: 45px 0 30px 30px;
+    margin: 10px 0 10px 20px;
   }
   .main-section .center-content .main-heading h1 {
-    font-size: 34px;
-    line-height: 40px;
+    font-size: 27px;
+    line-height: 28px;
   }
   .main-section .right-items .selector-buttons-group {
     bottom: 73px;
@@ -932,26 +1035,28 @@ footer .footer-content .footer-col {
 }
 
 @media (min-width: 1441px) and (max-width: 1650px) {
-  #center0 .space {
-    height: 130px;
+  #left0 img {
+    bottom: 7px;
   }
-  #right0 .next-button {
-    margin-bottom: 130px;
+  #left1 img {
+    top: 30px;
+  }
+  #left2 img {
+    bottom: 35px;
   }
   .main-section .left-items {
     margin: 0 20px 0 30px;
   }
   .main-section .left-items img {
-    bottom: 7px;
-    height: 320px;
+    height: 250px;
     margin-left: 30px;
   }
   .main-section .center-content .main-heading {
-    margin: 55px 0 35px 25px;
+    margin: 20px 0 15px 25px;
   }
   .main-section .center-content .main-heading h1 {
-    font-size: 40px;
-    line-height: 48px;
+    font-size: 31px;
+    line-height: 33px;
   }
   .main-section .right-items .selector-buttons-group {
     bottom: 73px;
@@ -969,36 +1074,38 @@ footer .footer-content .footer-col {
     width: 11px !important;
   }
   .main-section .next-button {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
   }
   .main-section .next-button img {
-    width: 14px;
+    width: 11px;
     height: 23px;
   }
 }
 
-@media (min-width: 1650px) and (max-width: 1850px) {
-  #center0 .space {
-    height: 100px;
+@media (min-width: 1651px) and (max-width: 1860px) {
+  #left0 img {
+    bottom: 30px;
   }
-  #right0 .next-button {
-    margin-bottom: 100px;
+  #left1 img {
+    top: 40px;
+  }
+  #left2 img {
+    bottom: 30px;
   }
   .main-section .left-items {
     margin: 0 25px 0 45px;
   }
   .main-section .left-items img {
-    bottom: 30px;
     margin-left: 30px;
-    height: 320px;
+    height: 275px;
   }
   .main-section .center-content .main-heading {
-    margin: 55px 0 35px 40px;
+    margin: 30px 0 25px 25px;
   }
   .main-section .center-content .main-heading h1 {
-    font-size: 45px;
-    line-height: 50px;
+    font-size: 39px;
+    line-height: 43px;
   }
   .main-section .right-items {
     margin-left: 25px;
@@ -1028,15 +1135,15 @@ footer .footer-content .footer-col {
   }
 }
 
-@media (min-width: 1851px) {
-  #center0 .space {
-    height: 100px;
+@media (min-width: 1861px) {
+  #left1 img {
+    top: 55px;
   }
-  #right0 .next-button {
-    margin-bottom: 100px;
+  #left2 img {
+    bottom: 40px;
   }
-  #products .main-section .left-items {
-    margin: 0 40px 0 55px;
+  #products .main-section .left-items img {
+    bottom: 85px;
   }
   .main-section .left-items {
     margin: 0 40px 0 90px;
@@ -1045,7 +1152,7 @@ footer .footer-content .footer-col {
     margin-left: 10px;
   }
   .main-section .center-content .main-heading {
-    margin: 55px 0 35px 40px;
+    margin: 30px 0 35px 45px;
   }
   .main-section .center-content .main-heading h1 {
     font-size: 48px;
@@ -1083,9 +1190,9 @@ footer .footer-content .footer-col {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
 }
@@ -1095,7 +1202,8 @@ footer .footer-content .footer-col {
   background-blend-mode: soft-light, normal;
   -webkit-box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
           box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-  border-radius: 47px;
+  border-radius: 13%;
+  margin-right: auto;
 }
 
 .widgets-row .widget-data {
@@ -1130,57 +1238,57 @@ footer .footer-content .footer-col {
 
 @media (min-width: 1000px) and (max-width: 1110px) {
   .widgets-row .widget {
-    width: 250px;
-    height: 220px;
+    width: 240px;
+    height: 190px;
     margin: 0 13px;
   }
   .widgets-row .widget-data {
-    padding: 35px 20px 20px 20px;
+    padding: 25px 20px 20px 20px;
   }
   .widgets-row .widget-logo img {
-    width: 90px;
-    height: 111px;
+    width: 85px;
+    height: 105px;
   }
   .widgets-row .widget-text {
     padding: 0 10px;
   }
   .widgets-row .widget-text p {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 14px;
+    line-height: 19px;
   }
 }
 
 @media (min-width: 1111px) and (max-width: 1250px) {
   .widgets-row .widget {
-    width: 300px;
-    height: 250px;
-    margin: 0 15px;
+    width: 280px;
+    height: 220px;
+    margin-left: 15px;
   }
   .widgets-row .widget-data {
     padding: 10px 15px 10px 15px;
   }
   .widgets-row .widget-logo img {
-    width: 110px;
-    height: 131px;
+    width: 100px;
+    height: 121px;
   }
   .widgets-row .widget-text {
     margin-top: 5px;
     padding: 0 15px;
   }
   .widgets-row .widget-text p {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 15px;
+    line-height: 20px;
   }
 }
 
 @media (min-width: 1250px) and (max-width: 1415px) {
   .widgets-row .widget {
-    width: 340px;
-    height: 265px;
-    margin: 0 15px;
+    width: 300px;
+    height: 235px;
+    margin-left: 15px;
   }
   .widgets-row .widget-data {
-    padding: 10px 25px 10px 25px;
+    padding: 15px 25px 10px 25px;
   }
   .widgets-row .widget-logo img {
     width: 110px;
@@ -1191,31 +1299,54 @@ footer .footer-content .footer-col {
     padding: 0 15px;
   }
   .widgets-row .widget-text p {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 
-@media (min-width: 1416px) and (max-width: 1570px) {
+@media (min-width: 1415px) and (max-width: 1450px) {
   .widgets-row .widget {
-    width: 370px;
-    height: 280px;
-    margin: 0 20px;
+    width: 340px;
+    height: 250px;
+    margin-left: 20px;
   }
   .widgets-row .widget-data {
     padding: 20px 25px 20px 25px;
   }
   .widgets-row .widget-logo img {
-    width: 130px;
-    height: 151px;
+    width: 120px;
+    height: 141px;
   }
   .widgets-row .widget-text {
     margin-top: 8px;
-    padding: 0 20px;
+    padding: 0 30px;
   }
   .widgets-row .widget-text p {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 18px;
+    line-height: 23px;
+  }
+}
+
+@media (min-width: 1450px) and (max-width: 1570px) {
+  .widgets-row .widget {
+    width: 350px;
+    height: 260px;
+    margin-left: 20px;
+  }
+  .widgets-row .widget-data {
+    padding: 25px 25px 20px 25px;
+  }
+  .widgets-row .widget-logo img {
+    width: 120px;
+    height: 151px;
+  }
+  .widgets-row .widget-text {
+    margin-top: 5px;
+    padding: 0 30px;
+  }
+  .widgets-row .widget-text p {
+    font-size: 18px;
+    line-height: 23px;
   }
 }
 
@@ -1324,19 +1455,23 @@ footer .footer-content .footer-col {
     padding: 0 10px;
   }
   .news-slider-container .news-item .news-image {
-    width: 260px;
-    height: 150px;
+    width: 240px;
+    height: 140px;
   }
   .news-slider-container .news-item .news-info h6 {
-    height: 40px;
+    height: 13px;
+  }
+  .news-slider-container .news-item .news-info img {
+    width: 16px;
+    height: 26px;
   }
   .news-slider .slider-buttons {
-    margin-top: 30px;
+    margin-top: 12px;
   }
   .news-slider .slider-buttons .slide-button {
-    width: 12px;
-    height: 12px;
-    margin: 0 3px;
+    width: 8px;
+    height: 8px;
+    margin: 0 2px;
   }
 }
 
@@ -1345,18 +1480,22 @@ footer .footer-content .footer-col {
     padding: 0 10px;
   }
   .news-slider-container .news-item .news-image {
-    width: 290px;
-    height: 180px;
+    width: 260px;
+    height: 160px;
   }
   .news-slider-container .news-item .news-info h6 {
-    height: 40px;
+    height: 14px;
+  }
+  .news-slider-container .news-item .news-info img {
+    width: 18px;
+    height: 28px;
   }
   .news-slider .slider-buttons {
-    margin-top: 30px;
+    margin-top: 15px;
   }
   .news-slider .slider-buttons .slide-button {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     margin: 0 3px;
   }
 }
@@ -1366,18 +1505,22 @@ footer .footer-content .footer-col {
     padding: 0 20px;
   }
   .news-slider-container .news-item .news-image {
-    width: 320px;
-    height: 210px;
+    width: 280px;
+    height: 170px;
   }
   .news-slider-container .news-item .news-info h6 {
-    height: 40px;
+    height: 16px;
+  }
+  .news-slider-container .news-item .news-info img {
+    width: 20px;
+    height: 30px;
   }
   .news-slider .slider-buttons {
-    margin-top: 30px;
+    margin-top: 20px;
   }
   .news-slider .slider-buttons .slide-button {
-    width: 12px;
-    height: 12px;
+    width: 9px;
+    height: 9px;
     margin: 0 3px;
   }
 }
@@ -1387,18 +1530,22 @@ footer .footer-content .footer-col {
     padding: 0 25px;
   }
   .news-slider-container .news-item .news-image {
-    width: 340px;
-    height: 220px;
+    width: 300px;
+    height: 190px;
   }
   .news-slider-container .news-item .news-info h6 {
-    height: 40px;
+    height: 20px;
+  }
+  .news-slider-container .news-item .news-info img {
+    width: 20px;
+    height: 30px;
   }
   .news-slider .slider-buttons {
-    margin-top: 30px;
+    margin-top: 20px;
   }
   .news-slider .slider-buttons .slide-button {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     margin: 0 3px;
   }
 }
@@ -1455,7 +1602,6 @@ footer .footer-content .footer-col {
           box-sizing: border-box;
   -webkit-box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
           box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
-  border-radius: 47px;
   resize: none;
 }
 
@@ -1493,16 +1639,9 @@ footer .footer-content .footer-col {
 }
 
 .contact-button button {
-  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #8a92a5;
-  background-blend-mode: soft-light, normal;
-  -webkit-box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-          box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-  border-radius: 13px;
-  color: white;
-  border: none;
-  text-align: center;
   font-weight: 600;
   position: relative;
+  margin-bottom: 10px;
 }
 
 #right2 .next-button {
@@ -1511,317 +1650,365 @@ footer .footer-content .footer-col {
 
 @media (min-width: 1000px) and (max-width: 1150px) {
   .contact-form-container .form-line label {
-    margin-bottom: 10px;
-    font-size: 25px;
-    line-height: 34px;
+    font-size: 18px;
+    line-height: 26px;
   }
   .contact-form-container .form-line input,
   .contact-form-container .form-line textarea {
-    margin: 10px 0;
+    margin: 6px 0;
+    border-radius: 25px;
   }
   .contact-form-container .form-line input::-webkit-input-placeholder,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 22px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 17px;
+    line-height: 29px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input:-ms-input-placeholder,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 22px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 17px;
+    line-height: 29px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input::-ms-input-placeholder,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 22px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 17px;
+    line-height: 29px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input::placeholder,
   .contact-form-container .form-line textarea::placeholder {
-    font-size: 22px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 17px;
+    line-height: 29px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input {
-    width: 385px;
-    height: 53px;
-    padding-top: 10px;
+    width: 400px;
+    height: 40px;
+    padding-top: 3px;
   }
   .contact-form-container .form-line textarea {
-    width: 830px;
-    height: 240px;
-    padding-top: 25px;
+    width: 840px;
+    height: 160px;
+    padding-top: 20px;
   }
   .contact-button button {
-    left: 25px;
-    width: 100px;
-    height: 60px;
-    font-size: 19px;
-    line-height: 25px;
-    margin-bottom: 10px;
+    left: 20px;
+    width: 80px;
+    height: 50px;
+    font-size: 14px;
+    line-height: 26px;
   }
 }
 
 @media (min-width: 1150px) and (max-width: 1260px) {
   .contact-form-container .form-line label {
-    margin-bottom: 7px;
-    font-size: 24px;
-    line-height: 30px;
+    font-size: 19px;
+    line-height: 28px;
   }
   .contact-form-container .form-line input,
   .contact-form-container .form-line textarea {
-    margin: 10px 0;
+    margin: 6px 0;
+    border-radius: 25px;
   }
   .contact-form-container .form-line input::-webkit-input-placeholder,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 21px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 17px;
+    line-height: 29px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input:-ms-input-placeholder,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 21px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 17px;
+    line-height: 29px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input::-ms-input-placeholder,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 21px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 17px;
+    line-height: 29px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input::placeholder,
   .contact-form-container .form-line textarea::placeholder {
-    font-size: 21px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 17px;
+    line-height: 29px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input {
     width: 440px;
-    height: 50px;
-    padding-top: 10px;
+    height: 40px;
+    padding-top: 3px;
   }
   .contact-form-container .form-line textarea {
-    width: 930px;
-    height: 240px;
-    padding-top: 25px;
+    width: 920px;
+    height: 160px;
+    padding-top: 20px;
   }
   .contact-button button {
-    left: 25px;
-    width: 120px;
-    height: 60px;
-    font-size: 21px;
-    line-height: 25px;
-    margin-bottom: 10px;
+    left: 20px;
+    width: 80px;
+    height: 50px;
+    font-size: 14px;
+    line-height: 26px;
   }
 }
 
 @media (min-width: 1261px) and (max-width: 1330px) {
   .contact-form-container .form-line label {
-    margin-bottom: 10px;
-    font-size: 25px;
-    line-height: 34px;
+    font-size: 21px;
+    line-height: 30px;
   }
   .contact-form-container .form-line input,
   .contact-form-container .form-line textarea {
-    margin: 10px 0;
+    margin: 6px 0;
+    border-radius: 47px;
   }
   .contact-form-container .form-line input::-webkit-input-placeholder,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 22px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 18px;
+    line-height: 31px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input:-ms-input-placeholder,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 22px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 18px;
+    line-height: 31px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input::-ms-input-placeholder,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 22px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 18px;
+    line-height: 31px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input::placeholder,
   .contact-form-container .form-line textarea::placeholder {
-    font-size: 22px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 18px;
+    line-height: 31px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input {
-    width: 485px;
-    height: 53px;
-    padding-top: 10px;
+    width: 460px;
+    height: 40px;
+    padding-top: 7px;
   }
   .contact-form-container .form-line textarea {
-    width: 1015px;
-    height: 240px;
-    padding-top: 25px;
+    width: 950px;
+    height: 160px;
+    padding-top: 20px;
   }
   .contact-button button {
-    left: 25px;
-    width: 120px;
-    height: 60px;
-    font-size: 21px;
-    line-height: 25px;
-    margin-bottom: 10px;
+    left: 20px;
+    width: 95px;
+    height: 55px;
+    font-size: 16px;
+    line-height: 31px;
   }
 }
 
 @media (min-width: 1330px) and (max-width: 1440px) {
   .contact-form-container .form-line label {
-    margin-bottom: 10px;
-    font-size: 30px;
-    line-height: 38px;
+    font-size: 21px;
+    line-height: 30px;
   }
   .contact-form-container .form-line input,
   .contact-form-container .form-line textarea {
-    margin: 10px 0;
+    margin: 6px 0;
+    border-radius: 47px;
   }
   .contact-form-container .form-line input::-webkit-input-placeholder,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 24px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 19px;
+    line-height: 31px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input:-ms-input-placeholder,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 24px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 19px;
+    line-height: 31px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input::-ms-input-placeholder,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 24px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 19px;
+    line-height: 31px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input::placeholder,
   .contact-form-container .form-line textarea::placeholder {
-    font-size: 24px;
-    line-height: 28px;
-    padding: 0 44px;
+    font-size: 19px;
+    line-height: 31px;
+    padding: 0 20px;
   }
   .contact-form-container .form-line input {
-    width: 490px;
-    height: 55px;
-    padding-top: 10px;
+    width: 495px;
+    height: 40px;
+    padding-top: 7px;
   }
   .contact-form-container .form-line textarea {
-    width: 1020px;
-    height: 247px;
-    padding-top: 25px;
+    width: 1040px;
+    height: 165px;
+    padding-top: 20px;
   }
   .contact-button button {
-    left: 60px;
-    width: 120px;
+    left: 25px;
+    width: 100px;
     height: 60px;
-    font-size: 22px;
-    line-height: 25px;
-    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 31px;
   }
 }
 
 @media (min-width: 1441px) and (max-width: 1640px) {
   .contact-form-container .form-line label {
-    margin-bottom: 10px;
-    font-size: 34px;
-    line-height: 40px;
+    font-size: 24px;
+    line-height: 33px;
   }
   .contact-form-container .form-line input,
   .contact-form-container .form-line textarea {
-    margin: 10px 0;
+    margin: 8px 0;
+    border-radius: 47px;
   }
   .contact-form-container .form-line input::-webkit-input-placeholder,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 28px;
-    line-height: 35px;
-    padding: 0 44px;
+    font-size: 21px;
+    line-height: 34px;
+    padding: 0 30px;
   }
   .contact-form-container .form-line input:-ms-input-placeholder,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 28px;
-    line-height: 35px;
-    padding: 0 44px;
+    font-size: 21px;
+    line-height: 34px;
+    padding: 0 30px;
   }
   .contact-form-container .form-line input::-ms-input-placeholder,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 28px;
-    line-height: 35px;
-    padding: 0 44px;
+    font-size: 21px;
+    line-height: 34px;
+    padding: 0 30px;
   }
   .contact-form-container .form-line input::placeholder,
   .contact-form-container .form-line textarea::placeholder {
-    font-size: 28px;
-    line-height: 35px;
-    padding: 0 44px;
+    font-size: 21px;
+    line-height: 34px;
+    padding: 0 30px;
   }
   .contact-form-container .form-line input {
-    width: 560px;
-    height: 60px;
-    padding-top: 10px;
+    width: 545px;
+    height: 47px;
+    padding-top: 7px;
   }
   .contact-form-container .form-line textarea {
-    width: 1200px;
-    height: 247px;
-    padding-top: 25px;
+    width: 1140px;
+    height: 195px;
+    padding-top: 20px;
   }
   .contact-button button {
     left: 35px;
-    width: 140px;
-    height: 79px;
-    font-size: 24px;
+    width: 120px;
+    height: 69px;
+    font-size: 21px;
     line-height: 32px;
-    margin-bottom: 10px;
   }
 }
 
-@media (min-width: 1640px) and (max-width: 1850px) {
+@media (min-width: 1641px) and (max-width: 1720px) {
   .contact-form-container .form-line label {
-    margin-bottom: 10px;
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 28px;
+    line-height: 35px;
   }
   .contact-form-container .form-line input,
   .contact-form-container .form-line textarea {
-    margin: 10px 0;
+    margin: 8px 0;
+    border-radius: 47px;
   }
   .contact-form-container .form-line input::-webkit-input-placeholder,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 30px;
-    line-height: 37px;
-    padding: 0 44px;
+    font-size: 22px;
+    line-height: 34px;
+    padding: 0 30px;
   }
   .contact-form-container .form-line input:-ms-input-placeholder,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 30px;
-    line-height: 37px;
-    padding: 0 44px;
+    font-size: 22px;
+    line-height: 34px;
+    padding: 0 30px;
   }
   .contact-form-container .form-line input::-ms-input-placeholder,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 30px;
-    line-height: 37px;
-    padding: 0 44px;
+    font-size: 22px;
+    line-height: 34px;
+    padding: 0 30px;
   }
   .contact-form-container .form-line input::placeholder,
   .contact-form-container .form-line textarea::placeholder {
-    font-size: 30px;
-    line-height: 37px;
-    padding: 0 44px;
+    font-size: 22px;
+    line-height: 34px;
+    padding: 0 30px;
   }
   .contact-form-container .form-line input {
-    width: 610px;
-    height: 70px;
-    padding-top: 10px;
+    width: 590px;
+    height: 53px;
+    padding-top: 7px;
+  }
+  .contact-form-container .form-line textarea {
+    width: 1235px;
+    height: 205px;
+    padding-top: 20px;
+  }
+  .contact-button button {
+    left: 60px;
+    width: 138px;
+    height: 79px;
+    font-size: 23px;
+    line-height: 32px;
+  }
+}
+
+@media (min-width: 1720px) and (max-width: 1850px) {
+  .contact-form-container .form-line label {
+    font-size: 30px;
+    line-height: 37px;
+  }
+  .contact-form-container .form-line input,
+  .contact-form-container .form-line textarea {
+    margin: 8px 0;
+    border-radius: 47px;
+  }
+  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea::-webkit-input-placeholder {
+    font-size: 23px;
+    line-height: 34px;
+    padding: 0 30px;
+  }
+  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:-ms-input-placeholder {
+    font-size: 23px;
+    line-height: 34px;
+    padding: 0 30px;
+  }
+  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea::-ms-input-placeholder {
+    font-size: 23px;
+    line-height: 34px;
+    padding: 0 30px;
+  }
+  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea::placeholder {
+    font-size: 23px;
+    line-height: 34px;
+    padding: 0 30px;
+  }
+  .contact-form-container .form-line input {
+    width: 620px;
+    height: 60px;
+    padding-top: 7px;
   }
   .contact-form-container .form-line textarea {
     width: 1300px;
-    height: 247px;
-    padding-top: 25px;
+    height: 240px;
+    padding-top: 20px;
   }
   .contact-button button {
     left: 70px;
@@ -1829,7 +2016,6 @@ footer .footer-content .footer-col {
     height: 79px;
     font-size: 28px;
     line-height: 37px;
-    margin-bottom: 10px;
   }
 }
 
@@ -1842,6 +2028,7 @@ footer .footer-content .footer-col {
   .contact-form-container .form-line input,
   .contact-form-container .form-line textarea {
     margin: 10px 0;
+    border-radius: 47px;
   }
   .contact-form-container .form-line input::-webkit-input-placeholder,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
@@ -1878,12 +2065,11 @@ footer .footer-content .footer-col {
     padding-top: 25px;
   }
   .contact-button button {
-    left: 60px;
+    left: 55px;
     width: 180px;
     height: 99px;
     font-size: 30px;
     line-height: 37px;
-    margin-bottom: 10px;
   }
 }
 
@@ -1908,11 +2094,6 @@ footer .footer-content .footer-col {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
-  background-blend-mode: soft-light, normal;
-  -webkit-box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-          box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-  border-radius: 47px;
 }
 
 .products .product h6 {
@@ -1922,11 +2103,23 @@ footer .footer-content .footer-col {
   padding: 0 50px;
 }
 
-#products .selector-buttons-group {
+#products,
+#product-page {
+  margin: auto 0 !important;
+}
+
+#products .center-content,
+#product-page .center-content {
+  overflow: visible !important;
+}
+
+#products .selector-buttons-group,
+#product-page .selector-buttons-group {
   display: none !important;
 }
 
-#products .next-button {
+#products .next-button,
+#product-page .next-button {
   margin-top: auto;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
@@ -1934,74 +2127,156 @@ footer .footer-content .footer-col {
   margin-bottom: unset !important;
 }
 
-@media (min-width: 1000px) and (max-width: 1110px) {
+@media (min-width: 1000px) and (max-width: 1150px) {
+  #products .left-items img {
+    bottom: 50px !important;
+  }
+  #products .next-button {
+    margin-bottom: 30px !important;
+  }
   .products {
-    margin-top: 80px;
+    margin: 30px;
   }
   .products .product {
-    width: 350px;
-    height: 190px;
-    margin: 26px 13px 0 13px;
+    width: 220px;
+    height: 130px;
+    margin: 20px 10px 0 10px;
+    border-radius: 30px;
   }
   .products .product h6 {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 13px;
+    line-height: 22px;
   }
 }
 
-@media (min-width: 1111px) and (max-width: 1415px) {
+@media (min-width: 1151px) and (max-width: 1250px) {
+  #products .left-items img {
+    bottom: 75px !important;
+    height: 230px;
+  }
+  #products .next-button {
+    margin-bottom: 60px !important;
+  }
   .products {
-    margin-top: 80px;
+    margin: 30px;
+    padding: 30px;
   }
   .products .product {
-    width: 350px;
-    height: 190px;
-    margin: 26px 13px 0 13px;
+    width: 250px;
+    height: 140px;
+    margin: 20px 10px 0 10px;
+    border-radius: 30px;
   }
   .products .product h6 {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media (min-width: 1251px) and (max-width: 1415px) {
+  #products .left-items img {
+    bottom: 60px !important;
+    height: 230px;
+  }
+  #products .next-button {
+    margin-bottom: 30px !important;
+  }
+  .products {
+    margin: 30px;
+  }
+  .products .product {
+    width: 280px;
+    height: 155px;
+    margin: 20px 10px 0 10px;
+    border-radius: 30px;
+  }
+  .products .product h6 {
+    font-size: 17px;
+    line-height: 24px;
   }
 }
 
 @media (min-width: 1416px) and (max-width: 1570px) {
+  #products .left-items img {
+    bottom: 55px !important;
+    height: 315px;
+  }
+  #products .next-button {
+    margin-bottom: 50px !important;
+  }
   .products {
-    margin-top: 80px;
+    margin: 50px 0;
   }
   .products .product {
-    width: 350px;
-    height: 190px;
-    margin: 26px 13px 0 13px;
+    width: 300px;
+    height: 180px;
+    margin: 30px 15px 0 15px;
+    border-radius: 47px;
   }
   .products .product h6 {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 21px;
+    line-height: 28px;
   }
 }
 
 @media (min-width: 1571px) and (max-width: 1720px) {
+  #products .left-items img {
+    bottom: 55px !important;
+    height: 315px;
+  }
+  #products .next-button {
+    margin-bottom: 50px !important;
+  }
   .products {
-    margin-top: 90px;
+    margin: 50px 0;
   }
   .products .product {
-    width: 410px;
-    height: 230px;
+    width: 335px;
+    height: 190px;
     margin: 30px 15px 0 15px;
+    border-radius: 47px;
   }
   .products .product h6 {
-    font-size: 25px;
-    line-height: 30px;
+    font-size: 22px;
+    line-height: 28px;
   }
 }
 
-@media (min-width: 1721px) {
+@media (min-width: 1721px) and (max-width: 1930px) {
+  #products .left-items img {
+    bottom: 80px !important;
+    height: 340px;
+  }
+  #products .next-button {
+    margin-bottom: 60px !important;
+  }
   .products {
-    margin-top: 100px;
+    margin: 60px 0;
+  }
+  .products .product {
+    width: 360px;
+    height: 200px;
+    margin: 30px 15px 0 15px;
+    border-radius: 47px;
+  }
+  .products .product h6 {
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+
+@media (min-width: 1930px) {
+  #products .next-button {
+    margin-bottom: 70px !important;
+  }
+  .products {
+    margin: 70px 0;
   }
   .products .product {
     width: 430px;
     height: 240px;
     margin: 40px 20px 0 20px;
+    border-radius: 47px;
   }
   .products .product h6 {
     font-size: 26px;
@@ -2031,70 +2306,136 @@ footer .footer-content .footer-col {
   font-weight: bold;
 }
 
-@media (min-width: 1000px) and (max-width: 1110px) {
+@media (min-width: 1000px) and (max-width: 1150px) {
+  #product-page .left-items img {
+    height: 250px;
+  }
   .product-container .main-heading {
-    margin: 60px 0 60px 15px !important;
+    margin: 0 0 20px 15px !important;
   }
   .product-container .product-content .product-img {
     margin: 0 15px;
   }
   .product-container .product-content .product-img img {
-    width: 420px;
-    height: 350px;
+    width: 330px;
+    height: 260px;
   }
   .product-container .product-content .product-text {
     margin: 0 15px;
   }
   .product-container .product-content .product-text h6 {
-    margin: 15px 0;
+    margin: 9px 0;
   }
   .product-container .product-content .product-text,
   .product-container .product-content .product-text h6 {
-    font-size: 13px;
-    line-height: 17px;
+    font-size: 10px;
+    line-height: 13px;
   }
 }
 
-@media (min-width: 1111px) and (max-width: 1415px) {
+@media (min-width: 1151px) and (max-width: 1270px) {
+  #product-page .left-items img {
+    height: 268px;
+  }
   .product-container .main-heading {
-    margin: 60px 0 60px 15px !important;
+    margin: 0 0 30px 15px !important;
   }
   .product-container .product-content .product-img {
     margin: 0 15px;
   }
   .product-container .product-content .product-img img {
-    width: 420px;
-    height: 350px;
+    width: 350px;
+    height: 280px;
   }
   .product-container .product-content .product-text {
     margin: 0 15px;
   }
   .product-container .product-content .product-text h6 {
-    margin: 15px 0;
+    margin: 10px 0;
   }
   .product-container .product-content .product-text,
   .product-container .product-content .product-text h6 {
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+
+@media (min-width: 1271px) and (max-width: 1415px) {
+  #product-page .left-items img {
+    bottom: 21px !important;
+    height: 275px;
+  }
+  .product-container .main-heading {
+    margin: 0 0 40px 15px !important;
+  }
+  .product-container .product-content .product-img {
+    margin: 0 20px;
+  }
+  .product-container .product-content .product-img img {
+    width: 370px;
+    height: 300px;
+  }
+  .product-container .product-content .product-text {
+    margin: 0 20px;
+  }
+  .product-container .product-content .product-text h6 {
+    margin: 12px 0;
+  }
+  .product-container .product-content .product-text,
+  .product-container .product-content .product-text h6 {
+    font-size: 12px;
+    line-height: 14px;
   }
 }
 
 @media (min-width: 1415px) and (max-width: 1460px) {
+  #product-page .left-items img {
+    bottom: 21px !important;
+    height: 275px;
+  }
   .product-container .main-heading {
-    margin: 60px 0 60px 16px !important;
+    margin: 0 0 60px 16px !important;
   }
   .product-container .product-content .product-img {
-    margin: 0 16px;
+    margin: 0 20px;
   }
   .product-container .product-content .product-img img {
-    width: 440px;
-    height: 370px;
+    width: 370px;
+    height: 300px;
   }
   .product-container .product-content .product-text {
-    margin: 0 16px;
+    margin: 0 20px;
   }
   .product-container .product-content .product-text h6 {
-    margin: 16px 0;
+    margin: 12px 0;
+  }
+  .product-container .product-content .product-text,
+  .product-container .product-content .product-text h6 {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
+
+@media (min-width: 1460px) and (max-width: 1570px) {
+  #product-page .left-items img {
+    bottom: 15px !important;
+    height: 284px;
+  }
+  .product-container .main-heading {
+    margin: 0 0 65px 20px !important;
+  }
+  .product-container .product-content .product-img {
+    margin: 0 20px;
+  }
+  .product-container .product-content .product-img img {
+    width: 370px;
+    height: 300px;
+  }
+  .product-container .product-content .product-text {
+    margin: 0 20px;
+  }
+  .product-container .product-content .product-text h6 {
+    margin: 12px 0;
   }
   .product-container .product-content .product-text,
   .product-container .product-content .product-text h6 {
@@ -2103,53 +2444,40 @@ footer .footer-content .footer-col {
   }
 }
 
-@media (min-width: 1460px) and (max-width: 1570px) {
+@media (min-width: 1571px) and (max-width: 1720px) {
+  #product-page .left-items img {
+    bottom: 20px !important;
+    height: 360px;
+  }
   .product-container .main-heading {
-    margin: 65px 0 65px 20px !important;
+    margin: 0 0 60px 20px !important;
   }
   .product-container .product-content .product-img {
     margin: 0 20px;
   }
   .product-container .product-content .product-img img {
-    width: 450px;
-    height: 380px;
+    width: 460px;
+    height: 370px;
   }
   .product-container .product-content .product-text {
     margin: 0 20px;
   }
   .product-container .product-content .product-text h6 {
-    margin: 20px 0;
+    margin: 16px 0;
   }
   .product-container .product-content .product-text,
   .product-container .product-content .product-text h6 {
     font-size: 15px;
-    line-height: 18px;
-  }
-}
-
-@media (min-width: 1571px) and (max-width: 1720px) {
-  .product-container .main-heading {
-    margin: 65px 0 65px 20px !important;
-  }
-  .product-container .product-content .product-img {
-    margin: 0 20px;
-  }
-  .product-container .product-content .product-text {
-    margin: 0 20px;
-  }
-  .product-container .product-content .product-text h6 {
-    margin: 20px 0;
-  }
-  .product-container .product-content .product-text,
-  .product-container .product-content .product-text h6 {
-    font-size: 16px;
-    line-height: 20px;
+    line-height: 19px;
   }
 }
 
 @media (min-width: 1721px) {
+  #product-page .left-items img {
+    bottom: 17px;
+  }
   .product-container .main-heading {
-    margin: 70px 0 70px 25px !important;
+    margin: 0 0 70px 25px !important;
   }
   .product-container .product-content .product-img {
     margin: 0 20px;
@@ -2164,6 +2492,53 @@ footer .footer-content .footer-col {
   .product-container .product-content h6 {
     font-size: 16px;
     line-height: 20px;
+  }
+}
+
+.customers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.customers .company-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.customers .company-item h6 {
+  font-weight: 500;
+  color: #6d7587;
+  margin: 0;
+}
+
+#customers-page {
+  margin: auto;
+}
+
+#customers-page .right-items {
+  display: none;
+}
+
+@media screen and (min-width: 1900px) {
+  .customers .company-item {
+    margin: 35px 0;
+  }
+  .customers .company-item img {
+    width: 60px;
+    height: 67px;
+    margin: 0 20px;
+  }
+  .customers .company-item h6 {
+    font-size: 24px;
+    line-height: 29px;
   }
 }
 /*# sourceMappingURL=style.css.map */
