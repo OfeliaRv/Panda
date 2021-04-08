@@ -57,7 +57,7 @@ header {
 }
 
 // XS SCREEN
-@media (min-width: 1000px) and (max-width: 1080px) {
+@media screen and (max-width: 1080px) {
     header {
         padding: 0 10px 0 0;
 

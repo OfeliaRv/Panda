@@ -14,7 +14,6 @@ const MainSection = ({ children }) => {
     const handleClick = (id) => {
         let newId = id;
         setClicked(id);
-        console.log(id);
         let visible = 0;
         for (let i = 0; i < home.length; i++) {
             home[i].clicked = false;

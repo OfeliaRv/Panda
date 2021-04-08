@@ -24,6 +24,10 @@ ul {
     }
 }
 
+div {
+    outline: none;
+}
+
 #root {
     height: 100%;
 }
@@ -34,7 +38,7 @@ ul {
     flex-direction: column;
 }
 
-@media (min-width: 1000px) and (max-width: 1300px) {
+@media screen and (max-width: 1300px) {
     body {
         padding: 10px 25px 5px 25px;
     }

@@ -5,10 +5,10 @@ import { DataContext } from '../DataContext'
 import { useContext, useEffect } from 'react'
 import NewsLine from "../components/Home/NewsLine"
 import ContactForm from "../components/Home/ContactForm"
+import ReactScrollWheelHandler from 'react-scroll-wheel-handler'
 
 const Home = () => {
-    const { homePageData, clickedItem } = useContext(DataContext);
-    const [home] = homePageData;
+    const { clickedItem } = useContext(DataContext);
     const [clicked, setClicked] = clickedItem;
 
     useEffect(() => {
@@ -17,11 +17,27 @@ const Home = () => {
         }
     }, []);
 
+    const nextIndex = () => {
+        if (clicked == 2) {
+            setClicked(0);
+        } else {
+            setClicked(clicked + 1);
+        }
+    };
+
+    const prevIndex = () => {
+        if (clicked == 0) {
+            setClicked(2);
+        } else {
+            setClicked(clicked - 1);
+        }
+    };
+
     return (
-        <div>
+        <ReactScrollWheelHandler upHandler={prevIndex} downHandler={nextIndex} timeout={500}>
             <PageHeading />
             <MainSection>
-                {home[0].clicked &&
+                {clicked == 0 &&
                     <div>
                         <div className="main-heading">
                             <h1>News</h1>
@@ -30,7 +46,7 @@ const Home = () => {
                             <NewsLine />
                         </div>
                     </div>}
-                {home[1].clicked &&
+                {clicked == 1 &&
                     <div>
                         <div className="main-heading">
                             <h1>Customers</h1>
@@ -39,7 +55,7 @@ const Home = () => {
                             <Widgets />
                         </div>
                     </div>}
-                {home[2].clicked &&
+                {clicked == 2 &&
                     <div>
                         <div className="main-heading" style={{ marginLeft: '30px' }}>
                             <h1>Get in touch</h1>
@@ -49,7 +65,7 @@ const Home = () => {
                         </div>
                     </div>}
             </MainSection>
-        </div>
+        </ReactScrollWheelHandler>
     );
 }
 

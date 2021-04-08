@@ -26,6 +26,10 @@ ul li {
   list-style-type: none;
 }
 
+div {
+  outline: none;
+}
+
 #root {
   height: 100%;
 }
@@ -41,7 +45,7 @@ ul li {
           flex-direction: column;
 }
 
-@media (min-width: 1000px) and (max-width: 1300px) {
+@media screen and (max-width: 1300px) {
   body {
     padding: 10px 25px 5px 25px;
   }
@@ -227,7 +231,7 @@ header .lang-select .lang {
   cursor: pointer;
 }
 
-@media (min-width: 1000px) and (max-width: 1080px) {
+@media screen and (max-width: 1080px) {
   header {
     padding: 0 10px 0 0;
   }
@@ -536,7 +540,7 @@ footer .footer-content .footer-col {
   text-align: right;
 }
 
-@media (min-width: 1000px) and (max-width: 1300px) {
+@media screen and (max-width: 1300px) {
   footer {
     margin: auto 0 0 70px;
   }
@@ -676,7 +680,7 @@ footer .footer-content .footer-col {
           align-items: center;
 }
 
-@media (min-width: 1000px) and (max-width: 1330px) {
+@media screen and (max-width: 1330px) {
   .page-heading {
     margin: 13px 0;
   }
@@ -901,7 +905,7 @@ footer .footer-content .footer-col {
   margin-bottom: 20px;
 }
 
-@media (min-width: 1000px) and (max-width: 1110px) {
+@media screen and (max-width: 1110px) {
   #left0 img {
     bottom: 5px;
   }
@@ -1236,7 +1240,7 @@ footer .footer-content .footer-col {
   fill: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), #1654f0;
 }
 
-@media (min-width: 1000px) and (max-width: 1110px) {
+@media screen and (max-width: 1110px) {
   .widgets-row .widget {
     width: 240px;
     height: 190px;
@@ -1450,7 +1454,7 @@ footer .footer-content .footer-col {
   background-color: #4d545e;
 }
 
-@media (min-width: 1000px) and (max-width: 1110px) {
+@media screen and (max-width: 1110px) {
   .news-slider {
     padding: 0 10px;
   }
@@ -1603,6 +1607,7 @@ footer .footer-content .footer-col {
   -webkit-box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
           box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
   resize: none;
+  outline: none;
 }
 
 .contact-form-container .form-line input::-webkit-input-placeholder,
@@ -1623,6 +1628,32 @@ footer .footer-content .footer-col {
 .contact-form-container .form-line input::placeholder,
 .contact-form-container .form-line textarea::placeholder {
   color: #6d7587;
+}
+
+.contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
+.contact-form-container .form-line textarea:not(:focus),
+.contact-form-container .form-line textarea:focus {
+  color: #6d7587;
+}
+
+.contact-form-container .form-line input:focus::-webkit-input-placeholder,
+.contact-form-container .form-line textarea:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.contact-form-container .form-line input:focus:-ms-input-placeholder,
+.contact-form-container .form-line textarea:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.contact-form-container .form-line input:focus::-ms-input-placeholder,
+.contact-form-container .form-line textarea:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.contact-form-container .form-line input:focus::placeholder,
+.contact-form-container .form-line textarea:focus::placeholder {
+  color: transparent;
 }
 
 .contact-button {
@@ -1648,7 +1679,7 @@ footer .footer-content .footer-col {
   display: none;
 }
 
-@media (min-width: 1000px) and (max-width: 1150px) {
+@media screen and (max-width: 1150px) {
   .contact-form-container .form-line label {
     font-size: 18px;
     line-height: 26px;
@@ -1658,29 +1689,42 @@ footer .footer-content .footer-col {
     margin: 6px 0;
     border-radius: 25px;
   }
-  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
     font-size: 17px;
     line-height: 29px;
-    padding: 0 20px;
+    padding: 0 15px;
   }
-  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
     font-size: 17px;
     line-height: 29px;
-    padding: 0 20px;
+    padding: 0 15px;
   }
-  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
     font-size: 17px;
     line-height: 29px;
-    padding: 0 20px;
+    padding: 0 15px;
   }
-  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::placeholder {
     font-size: 17px;
     line-height: 29px;
-    padding: 0 20px;
+    padding: 0 15px;
+  }
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus {
+    padding: 0 0 0 15px;
   }
   .contact-form-container .form-line input {
     width: 400px;
@@ -1690,7 +1734,7 @@ footer .footer-content .footer-col {
   .contact-form-container .form-line textarea {
     width: 840px;
     height: 160px;
-    padding-top: 20px;
+    padding-top: 5px !important;
   }
   .contact-button button {
     left: 20px;
@@ -1711,29 +1755,38 @@ footer .footer-content .footer-col {
     margin: 6px 0;
     border-radius: 25px;
   }
-  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
     font-size: 17px;
     line-height: 29px;
-    padding: 0 20px;
   }
-  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
     font-size: 17px;
     line-height: 29px;
-    padding: 0 20px;
   }
-  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
     font-size: 17px;
     line-height: 29px;
-    padding: 0 20px;
   }
-  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::placeholder {
     font-size: 17px;
     line-height: 29px;
-    padding: 0 20px;
+  }
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus {
+    padding: 0 0 0 15px;
   }
   .contact-form-container .form-line input {
     width: 440px;
@@ -1743,7 +1796,7 @@ footer .footer-content .footer-col {
   .contact-form-container .form-line textarea {
     width: 920px;
     height: 160px;
-    padding-top: 20px;
+    padding-top: 5px !important;
   }
   .contact-button button {
     left: 20px;
@@ -1764,29 +1817,38 @@ footer .footer-content .footer-col {
     margin: 6px 0;
     border-radius: 47px;
   }
-  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
     font-size: 18px;
     line-height: 31px;
-    padding: 0 20px;
   }
-  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
     font-size: 18px;
     line-height: 31px;
-    padding: 0 20px;
   }
-  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
     font-size: 18px;
     line-height: 31px;
-    padding: 0 20px;
   }
-  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::placeholder {
     font-size: 18px;
     line-height: 31px;
-    padding: 0 20px;
+  }
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus {
+    padding: 0 0 0 20px;
   }
   .contact-form-container .form-line input {
     width: 460px;
@@ -1796,7 +1858,7 @@ footer .footer-content .footer-col {
   .contact-form-container .form-line textarea {
     width: 950px;
     height: 160px;
-    padding-top: 20px;
+    padding-top: 8px !important;
   }
   .contact-button button {
     left: 20px;
@@ -1817,29 +1879,38 @@ footer .footer-content .footer-col {
     margin: 6px 0;
     border-radius: 47px;
   }
-  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
     font-size: 19px;
     line-height: 31px;
-    padding: 0 20px;
   }
-  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
     font-size: 19px;
     line-height: 31px;
-    padding: 0 20px;
   }
-  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
     font-size: 19px;
     line-height: 31px;
-    padding: 0 20px;
   }
-  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::placeholder {
     font-size: 19px;
     line-height: 31px;
-    padding: 0 20px;
+  }
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus {
+    padding: 0 0 0 20px;
   }
   .contact-form-container .form-line input {
     width: 495px;
@@ -1849,7 +1920,7 @@ footer .footer-content .footer-col {
   .contact-form-container .form-line textarea {
     width: 1040px;
     height: 165px;
-    padding-top: 20px;
+    padding-top: 10px !important;
   }
   .contact-button button {
     left: 25px;
@@ -1869,30 +1940,40 @@ footer .footer-content .footer-col {
   .contact-form-container .form-line textarea {
     margin: 8px 0;
     border-radius: 47px;
+    padding-left: 10px;
   }
-  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
     font-size: 21px;
     line-height: 34px;
-    padding: 0 30px;
   }
-  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
     font-size: 21px;
     line-height: 34px;
-    padding: 0 30px;
   }
-  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
     font-size: 21px;
     line-height: 34px;
-    padding: 0 30px;
   }
-  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::placeholder {
     font-size: 21px;
     line-height: 34px;
-    padding: 0 30px;
+  }
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus {
+    padding: 0 0 0 30px;
   }
   .contact-form-container .form-line input {
     width: 545px;
@@ -1902,7 +1983,7 @@ footer .footer-content .footer-col {
   .contact-form-container .form-line textarea {
     width: 1140px;
     height: 195px;
-    padding-top: 20px;
+    padding-top: 10px !important;
   }
   .contact-button button {
     left: 35px;
@@ -1923,29 +2004,38 @@ footer .footer-content .footer-col {
     margin: 8px 0;
     border-radius: 47px;
   }
-  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
     font-size: 22px;
     line-height: 34px;
-    padding: 0 30px;
   }
-  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
     font-size: 22px;
     line-height: 34px;
-    padding: 0 30px;
   }
-  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
     font-size: 22px;
     line-height: 34px;
-    padding: 0 30px;
   }
-  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::placeholder {
     font-size: 22px;
     line-height: 34px;
-    padding: 0 30px;
+  }
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus {
+    padding: 0 0 0 30px;
   }
   .contact-form-container .form-line input {
     width: 590px;
@@ -1955,7 +2045,7 @@ footer .footer-content .footer-col {
   .contact-form-container .form-line textarea {
     width: 1235px;
     height: 205px;
-    padding-top: 20px;
+    padding-top: 20px !important;
   }
   .contact-button button {
     left: 60px;
@@ -1976,29 +2066,38 @@ footer .footer-content .footer-col {
     margin: 8px 0;
     border-radius: 47px;
   }
-  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
     font-size: 23px;
     line-height: 34px;
-    padding: 0 30px;
   }
-  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
     font-size: 23px;
     line-height: 34px;
-    padding: 0 30px;
   }
-  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
     font-size: 23px;
     line-height: 34px;
-    padding: 0 30px;
   }
-  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::placeholder {
     font-size: 23px;
     line-height: 34px;
-    padding: 0 30px;
+  }
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus {
+    padding: 0 0 0 30px;
   }
   .contact-form-container .form-line input {
     width: 620px;
@@ -2008,7 +2107,7 @@ footer .footer-content .footer-col {
   .contact-form-container .form-line textarea {
     width: 1300px;
     height: 240px;
-    padding-top: 20px;
+    padding-top: 20px !important;
   }
   .contact-button button {
     left: 70px;
@@ -2030,29 +2129,38 @@ footer .footer-content .footer-col {
     margin: 10px 0;
     border-radius: 47px;
   }
-  .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-webkit-input-placeholder {
     font-size: 30px;
     line-height: 37px;
-    padding: 0 44px;
   }
-  .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea:-ms-input-placeholder {
     font-size: 30px;
     line-height: 37px;
-    padding: 0 44px;
   }
-  .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::-ms-input-placeholder {
     font-size: 30px;
     line-height: 37px;
-    padding: 0 44px;
   }
-  .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus,
   .contact-form-container .form-line textarea::placeholder {
     font-size: 30px;
     line-height: 37px;
-    padding: 0 44px;
+  }
+  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
+  .contact-form-container .form-line textarea:not(:focus),
+  .contact-form-container .form-line textarea:focus {
+    padding: 0 0 0 44px;
   }
   .contact-form-container .form-line input {
     width: 670px;
@@ -2062,7 +2170,7 @@ footer .footer-content .footer-col {
   .contact-form-container .form-line textarea {
     width: 1401px;
     height: 257px;
-    padding-top: 25px;
+    padding-top: 25px !important;
   }
   .contact-button button {
     left: 55px;
@@ -2127,7 +2235,7 @@ footer .footer-content .footer-col {
   margin-bottom: unset !important;
 }
 
-@media (min-width: 1000px) and (max-width: 1150px) {
+@media screen and (max-width: 1150px) {
   #products .left-items img {
     bottom: 50px !important;
   }
@@ -2306,7 +2414,7 @@ footer .footer-content .footer-col {
   font-weight: bold;
 }
 
-@media (min-width: 1000px) and (max-width: 1150px) {
+@media screen and (max-width: 1150px) {
   #product-page .left-items img {
     height: 250px;
   }
@@ -2528,7 +2636,7 @@ footer .footer-content .footer-col {
   margin: 0;
 }
 
-@media (min-width: 1000px) and (max-width: 1150px) {
+@media screen and (max-width: 1150px) {
   .customers .map-container img {
     width: 620px;
     height: 280px;
