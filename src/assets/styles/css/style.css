@@ -95,6 +95,7 @@ div {
     padding: 40px 60px 40px 60px;
     width: 1920px !important;
     border-radius: 47px;
+    height: 1080px !important;
   }
   body #root .page-holder {
     height: 100%;
@@ -1706,7 +1707,7 @@ footer .footer-content .footer-col {
 
 @media (min-width: 1501px) and (max-width: 1680px) {
   #news .left-items {
-    margin: 75px 20px auto 0px !important;
+    margin: 85px 20px auto 0px !important;
   }
   #news .news-slider-container .news-item .news-image {
     width: 270px;
@@ -1742,9 +1743,6 @@ footer .footer-content .footer-col {
 }
 
 @media (min-width: 1681px) {
-  #news .left-items {
-    margin: 125px 20px auto 0px !important;
-  }
   #news .main-heading {
     margin: 40px 0 15px 33px !important;
   }
@@ -1778,6 +1776,18 @@ footer .footer-content .footer-col {
     font-size: 16px;
     line-height: 20px;
     margin: 8px 0 0 40px;
+  }
+}
+
+@media (min-width: 1681px) and (max-width: 1850px) {
+  #news .left-items {
+    margin: 125px 20px auto 0px !important;
+  }
+}
+
+@media (min-width: 1851px) {
+  #news .left-items {
+    margin: 115px 20px auto 0px !important;
   }
 }
 

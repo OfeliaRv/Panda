@@ -221,7 +221,7 @@
 @media (min-width: 1501px) and (max-width: 1680px) {
     #news {
         .left-items {
-            margin: 75px 20px auto 0px !important;
+            margin: 85px 20px auto 0px !important;
         }
 
         .news-slider {
@@ -280,10 +280,6 @@
 // XL SCREEN
 @media (min-width: 1681px) {
     #news {
-        .left-items {
-            margin: 125px 20px auto 0px !important;
-        }
-
         .main-heading {
             margin: 40px 0 15px 33px !important;
         }
@@ -337,6 +333,22 @@
                     }
                 }
             }
+        }
+    }
+}
+
+@media (min-width: 1681px) and (max-width: 1850px) {
+    #news {
+        .left-items {
+            margin: 125px 20px auto 0px !important;
+        }
+    }
+}
+
+@media (min-width: 1851px) {
+    #news {
+        .left-items {
+            margin: 115px 20px auto 0px !important;
         }
     }
 }
