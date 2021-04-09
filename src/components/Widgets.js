@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import Widget from './Widget'
-import { DataContext } from '../../DataContext'
+import { DataContext } from '../DataContext'
 
 const Widgets = () => {
     const { widgetData } = useContext(DataContext);

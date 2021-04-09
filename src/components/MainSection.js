@@ -1,9 +1,10 @@
-import left_item_home from '../../assets/img/left-item-home.svg'
-import left_item_products from '../../assets/img/left-item-products.svg'
-import left_item_customers from '../../assets/img/left-item-customers.svg'
-import arrow from '../../assets/img/arrow.svg'
+import left_item_home from '../assets/img/left-item-home.svg'
+import left_item_products from '../assets/img/left-item-products.svg'
+import left_item_customers from '../assets/img/left-item-customers.svg'
+import left_item_news from '../assets/img/left-item-news.svg'
+import arrow from '../assets/img/arrow.svg'
 import { useContext } from 'react'
-import { DataContext } from '../../DataContext'
+import { DataContext } from '../DataContext'
 import { Route } from 'react-router'
 
 const MainSection = ({ children }) => {
@@ -37,6 +38,9 @@ const MainSection = ({ children }) => {
                 </Route>
                 <Route path="/customers">
                     <img src={left_item_customers} alt="Customers" />
+                </Route>
+                <Route path="/news">
+                    <img src={left_item_news} alt="News" />
                 </Route>
             </div>
             <div id={'center' + clicked} className="center-content">

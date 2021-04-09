@@ -1,10 +1,10 @@
-import MainSection from "../components/Home/MainSection"
+import MainSection from "../components/MainSection"
 import PageHeading from "../components/PageHeading"
-import Widgets from '../components/Home/Widgets'
+import Widgets from '../components/Widgets'
 import { DataContext } from '../DataContext'
 import { useContext, useEffect } from 'react'
-import NewsLine from "../components/Home/NewsLine"
-import ContactForm from "../components/Home/ContactForm"
+import NewsLine from "../components/NewsLine"
+import ContactForm from "../components/ContactForm"
 import ReactScrollWheelHandler from 'react-scroll-wheel-handler'
 
 const Home = () => {

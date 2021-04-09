@@ -1,6 +1,6 @@
-import { DataContext } from '../../DataContext'
+import { DataContext } from '../DataContext'
 import { useContext } from 'react'
-import date_icon from '../../assets/img/date-icon.svg'
+import date_icon from '../assets/img/date-icon.svg'
 
 const NewsLine = () => {
 

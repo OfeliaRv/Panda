@@ -1,7 +1,7 @@
 import { DataContext } from '../DataContext'
 import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import MainSection from '../components/Home/MainSection';
+import MainSection from '../components/MainSection';
 
 const ProductPage = () => {
     const { productData } = useContext(DataContext);

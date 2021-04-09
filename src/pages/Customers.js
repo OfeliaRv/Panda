@@ -1,7 +1,7 @@
 import map from '../assets/img/map.png'
 import { useContext } from 'react'
 import { DataContext } from '../DataContext'
-import MainSection from '../components/Home/MainSection'
+import MainSection from '../components/MainSection'
 
 const Customers = () => {
     const { companyData } = useContext(DataContext);

@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Products from './pages/Products'
 import ProductPage from './pages/ProductPage'
 import Customers from './pages/Customers'
+import News from './pages/News'
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
                         <Route exact path="/products" component={Products} />
                         <Route exact path="/products/:id" component={ProductPage} />
                         <Route exact path="/customers" component={Customers} />
+                        <Route exact path="/news" component={News} />
                         <Route path="*">
                             <div style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <h1 style={{ textAlign: 'center', color: '#6D7587' }}>PAGE NOT FOUND</h1>

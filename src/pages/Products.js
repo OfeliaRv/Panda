@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { DataContext } from '../DataContext'
-import MainSection from '../components/Home/MainSection'
+import MainSection from '../components/MainSection'
 import { Link } from 'react-router-dom'
 
 const Products = () => {
