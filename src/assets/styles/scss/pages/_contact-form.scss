@@ -240,18 +240,18 @@
                 input,
                 textarea {
                     margin: 6px 0;
-                    border-radius: 47px;
+                    border-radius: 28px;
 
                     &:not(:focus),
                     &:focus,
                     &::placeholder {
-                        font-size: 19px;
-                        line-height: 31px;
+                        font-size: 18px;
+                        line-height: 26px;
                     }
 
                     &:not(:focus),
                     &:focus {
-                        padding: 0 0 0 20px;
+                        padding: 0 0 0 30px;
                     }
                 }
 

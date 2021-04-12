@@ -30,6 +30,7 @@ div {
 
 #root {
     height: 100%;
+    padding: 4.7vh 3.125vw 1vh 3.125vw;
 }
 
 .page-holder {
@@ -38,56 +39,21 @@ div {
     flex-direction: column;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (min-width: 1920px) {
     body {
-        padding: 10px 25px 5px 25px;
-    }
-}
-
-@media (min-width: 1300px) and (max-width: 1440px) {
-    body {
-        padding: 20px 35px 10px 35px;
-    }
-}
-
-@media (min-width: 1440px) and (max-width: 1650px) {
-    body {
-        padding: 20px 45px 10px 45px;
-    }
-}
-
-@media (min-width: 1650px) and (max-width: 1800px) {
-    body {
-        padding: 35px 40px 20px 40px;
-    }
-}
-
-@media (min-width: 1800px) {
-    body {
-        padding: 50px 50px 40px 50px;
-    }
-}
-
-@media (min-width: 1920px) {
-    body {
-        padding: 50px 60px 40px 60px;
         display: flex;
         justify-content: center;
         align-items: center;
 
         #root {
+            padding: 2.61vw 3.125vw 2.1vw 3.125vw !important;
             background-blend-mode: soft-light, normal;
             box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-            padding: 40px 60px 40px 60px;
-            width: 1920px !important;
-            border-radius: 47px;
-            height: 1080px !important;
-
-            .page-holder {
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-            }
+            border-radius: 2vw;
+            // width: 1920px !important;
+            // height: 1080px !important;
+            height: 53vw;
+            width: 90vw;
         }
     }
 }
@@ -97,4 +63,5 @@ div {
 $textcolor1: #8a92a5; //primary
 $textcolor2: #6d7587; //secondary
 $textcolor3: #4d545e;
+$text-hover: #1654f0;
 $gradient: linear-gradient(239.57deg, #37dbe0 20.53%, #1758f1 79.85%);

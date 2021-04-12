@@ -1,7 +1,7 @@
 import copyright_item from '../../assets/img/copyright.svg'
 import location_item from '../../assets/img/location.svg'
 import mail_item from '../../assets/img/mail.svg'
-import stapm_item from '../../assets/img/stamp.svg'
+import stamp_item from '../../assets/img/stamp.svg'
 
 const Footer = () => {
     return (
@@ -25,9 +25,7 @@ const Footer = () => {
                         <p>pandasupport@risk.az</p>
                     </div>
                 </div>
-                <div className="footer-col">
-                    <img id="footer-stamp" src={stapm_item} alt="stamp" />
-                </div>
+                <img id="footer-stamp" src={stamp_item} alt="stamp" />
             </div>
         </footer>
     );

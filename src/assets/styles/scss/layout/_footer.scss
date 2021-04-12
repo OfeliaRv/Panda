@@ -4,164 +4,155 @@ footer {
     align-items: flex-end;
     color: $textcolor2;
 
+    margin: auto 0 0 5vw;
+
     .footer-content {
         display: flex;
         height: 100%;
         align-items: flex-end;
 
+        #copyright {
+            height: 1.146vw;
+            width: 1.146vw;
+        }
+
+        #rights-text,
+        p {
+            font-size: 1.03vw;
+        }
+
         p {
             margin: 0;
             font-weight: 500;
+            margin-left: 1.875vw;
         }
 
         .footer-icons {
-            width: 22px;
-            height: 22px;
+            width: 1.5625vw;
+            height: 1.5625vw;
         }
 
         .footer-col {
             display: flex;
             text-align: right;
+            margin: 0 2.1vw;
+        }
+
+        #footer-stamp {
+            width: 6.4vw;
+            margin-left: 0.938vw;
         }
     }
 }
 
 // XS SCREEN
-@media screen and (max-width: 1300px) {
-    footer {
-        margin: auto 0 0 70px;
+// @media screen and (max-width: 1300px) {
+//     footer {
+//         margin: auto 0 0 70px;
 
-        .footer-content {
-            #copyright {
-                width: 13px;
-                height: 13px;
-            }
+//         .footer-content {
+//             #copyright {
+//                 width: 13px;
+//                 height: 13px;
+//             }
 
-            #rights-text {
-                font-size: 13px;
-                line-height: 15px;
-            }
+//             #rights-text {
+//                 font-size: 13px;
+//                 line-height: 15px;
+//             }
 
-            .footer-col {
-                margin-left: 20px;
+//             .footer-col {
+//                 margin-left: 20px;
 
-                .footer-text {
-                    p {
-                        font-size: 12px;
-                        line-height: 16px;
-                        margin: 0 13px;
-                    }
-                }
-            }
+//                 .footer-text {
+//                     p {
+//                         font-size: 12px;
+//                         line-height: 16px;
+//                         margin: 0 13px;
+//                     }
+//                 }
+//             }
 
-            #footer-stamp {
-                width: 80px;
-            }
-        }
-    }
-}
+//             #footer-stamp {
+//                 width: 80px;
+//             }
+//         }
+//     }
+// }
 
-// S SCREEN
-@media (min-width: 1301px) and (max-width: 1440px) {
-    footer {
-        margin: auto 0 0 80px;
+// // S SCREEN
+// @media (min-width: 1301px) and (max-width: 1440px) {
+//     footer {
+//         margin: auto 0 0 80px;
 
-        .footer-content {
-            #copyright {
-                width: 13px;
-                height: 13px;
-            }
+//         .footer-content {
+//             #copyright {
+//                 width: 13px;
+//                 height: 13px;
+//             }
 
-            #rights-text {
-                font-size: 13px;
-                line-height: 15px;
-            }
+//             #rights-text {
+//                 font-size: 13px;
+//                 line-height: 15px;
+//             }
 
-            .footer-col {
-                margin-left: 20px;
+//             .footer-col {
+//                 margin-left: 20px;
 
-                .footer-text {
-                    p {
-                        font-size: 14px;
-                        line-height: 16px;
-                        margin: 0 13px;
-                    }
-                }
-            }
+//                 .footer-text {
+//                     p {
+//                         font-size: 14px;
+//                         line-height: 16px;
+//                         margin: 0 13px;
+//                     }
+//                 }
+//             }
 
-            #footer-stamp {
-                width: 90px;
-            }
-        }
-    }
-}
+//             #footer-stamp {
+//                 width: 90px;
+//             }
+//         }
+//     }
+// }
 
-// M SCREEN
-@media (min-width: 1441px) and (max-width: 1870px) {
-    footer {
-        margin: auto 0 0 75px;
+// // M SCREEN
+// @media (min-width: 1441px) and (max-width: 1870px) {
+//     footer {
+//         margin: auto 0 0 75px;
 
-        .footer-content {
-            #copyright {
-                width: 16px;
-                height: 16px;
-            }
+//         .footer-content {
+//             #copyright {
+//                 width: 16px;
+//                 height: 16px;
+//             }
 
-            #rights-text {
-                font-size: 15px;
-                line-height: 16px;
-            }
+//             #rights-text {
+//                 font-size: 15px;
+//                 line-height: 16px;
+//             }
 
-            .footer-col {
-                margin-left: 60px;
+//             .footer-col {
+//                 margin-left: 60px;
 
-                .footer-text {
-                    p {
-                        font-size: 16px;
-                        line-height: 22px;
-                        margin: 0 25px;
-                    }
-                }
-            }
+//                 .footer-text {
+//                     p {
+//                         font-size: 16px;
+//                         line-height: 22px;
+//                         margin: 0 25px;
+//                     }
+//                 }
+//             }
 
-            #footer-stamp {
-                width: 100px;
-            }
-        }
-    }
-}
+//             #footer-stamp {
+//                 width: 100px;
+//             }
+//         }
+//     }
+// }
 
 // L SCREEN
-@media (min-width: 1871px) {
-    footer {
-        margin: auto 0px 0 125px;
-
-        .footer-content {
-            #copyright {
-                width: 22px;
-                height: 22px;
-            }
-
-            #rights-text {
-                font-size: 20px;
-                line-height: 24px;
-            }
-
-            .footer-col {
-                margin-left: 60px;
-
-                .footer-text {
-                    p {
-                        font-size: 20px;
-                        line-height: 24px;
-                        margin: 0 25px;
-                    }
-                }
-            }
-
-            #footer-stamp {
-                width: 120px;
-            }
-        }
-    }
-}
+// @media (min-width: 1871px) {
+//     footer {
+//         margin: auto 0px 0 5vw;
+//     }
+// }

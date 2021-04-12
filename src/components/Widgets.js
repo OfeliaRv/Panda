@@ -7,10 +7,8 @@ const Widgets = () => {
     const [widgets] = widgetData;
 
     return (
-        <div>
-            <div className="widgets-row">
-                {widgets.map(widget => <Widget widgets={widgets} widget={widget} key={widget.id} />)}
-            </div>
+        <div className="widgets-row">
+            {widgets.map(widget => <Widget widgets={widgets} widget={widget} key={widget.id} />)}
         </div>
     );
 }
