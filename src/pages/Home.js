@@ -51,13 +51,13 @@ const Home = () => {
                         <div className="main-heading">
                             <h1>Customers</h1>
                         </div>
-                        <div className="page-content" style={{ marginBottom: '20px' }}>
+                        <div className="page-content">
                             <Widgets />
                         </div>
                     </div>}
                 {clicked == 2 &&
                     <div>
-                        <div className="main-heading" style={{ marginLeft: '30px' }}>
+                        <div className="main-heading">
                             <h1>Get in touch</h1>
                         </div>
                         <div className="page-content">

@@ -1,5 +1,9 @@
 #customers-page {
-    margin-top: auto;
+    margin-top: 7%;
+
+    .left-items {
+        margin-top: auto !important;
+    }
 
     .right-items {
         display: none;
@@ -8,211 +12,32 @@
     .customers {
         display: flex;
 
+        .map-container {
+            img {
+                width: 53.5vw;
+            }
+        }
+
         .companies-list {
-            margin: 0 auto;
+            margin: 0 12% 0 7%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
 
             .company-item {
                 display: flex;
                 align-items: center;
 
+                img {
+                    width: 3.13vw;
+                    margin: 0 1.045vw;
+                }
+
                 h6 {
                     font-weight: 500;
                     color: $textcolor2;
                     margin: 0;
-                }
-            }
-        }
-    }
-}
-
-// XS SCREEN
-@media screen and (max-width: 1150px) {
-    .customers {
-        .map-container {
-            img {
-                width: 620px;
-                height: 280px;
-            }
-        }
-
-        .companies-list {
-            .company-item {
-                margin: 12px 0;
-
-                img {
-                    width: 37px;
-                    height: 44px;
-                    margin: 0 8px;
-                }
-
-                h6 {
-                    font-size: 15px;
-                    line-height: 20px;
-                }
-            }
-        }
-    }
-}
-
-@media (min-width: 1151px) and (max-width: 1270px) {
-    .customers {
-        .map-container {
-            img {
-                width: 650px;
-                height: 310px;
-            }
-        }
-
-        .companies-list {
-            .company-item {
-                margin: 17px 0;
-
-                img {
-                    width: 41px;
-                    height: 48px;
-                    margin: 0 10px;
-                }
-
-                h6 {
-                    font-size: 16px;
-                    line-height: 22px;
-                }
-            }
-        }
-    }
-}
-
-// S SCREEN
-@media (min-width: 1271px) and (max-width: 1415px) {
-    .customers {
-        .map-container {
-            img {
-                width: 720px;
-                height: 360px;
-            }
-        }
-
-        .companies-list {
-            .company-item {
-                margin: 20px 0;
-
-                img {
-                    width: 44px;
-                    height: 51px;
-                    margin: 0 12px;
-                }
-
-                h6 {
-                    font-size: 18px;
-                    line-height: 23px;
-                }
-            }
-        }
-    }
-}
-
-// M SCREEN
-@media (min-width: 1415px) and (max-width: 1460px) {
-    .customers {
-        .map-container {
-            img {
-                width: 800px;
-                height: 400px;
-            }
-        }
-
-        .companies-list {
-            .company-item {
-                margin: 26px 0;
-
-                img {
-                    width: 48px;
-                    height: 55px;
-                    margin: 0 13px;
-                }
-
-                h6 {
-                    font-size: 20px;
-                    line-height: 24px;
-                }
-            }
-        }
-    }
-}
-
-@media (min-width: 1460px) and (max-width: 1570px) {
-    .customers {
-        .map-container {
-            img {
-                width: 823px;
-                height: 420px;
-            }
-        }
-
-        .companies-list {
-            .company-item {
-                margin: 28px 0;
-
-                img {
-                    width: 50px;
-                    height: 57px;
-                    margin: 0 15px;
-                }
-
-                h6 {
-                    font-size: 21px;
-                    line-height: 25px;
-                }
-            }
-        }
-    }
-}
-
-// L SCREEN
-@media (min-width: 1571px) and (max-width: 1720px) {
-    .customers {
-        .map-container {
-            img {
-                width: 915px;
-                height: 460px;
-            }
-        }
-
-        .companies-list {
-            .company-item {
-                margin: 32px 0;
-
-                img {
-                    width: 55px;
-                    height: 62px;
-                    margin: 0 18px;
-                }
-
-                h6 {
-                    font-size: 22px;
-                    line-height: 27px;
-                }
-            }
-        }
-    }
-}
-
-// XL SCREEN
-@media (min-width: 1721px) {
-    .customers {
-        .companies-list {
-            .company-item {
-                margin: 35px 0;
-
-                img {
-                    width: 60px;
-                    height: 67px;
-                    margin: 0 20px;
-                }
-
-                h6 {
-                    font-size: 24px;
-                    line-height: 29px;
+                    font-size: 1.24vw;
                 }
             }
         }

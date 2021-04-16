@@ -12,7 +12,9 @@ const NewsLine = () => {
             <div className="news-slider-container">
                 {news.map(news =>
                     <div className="news-item">
-                        <img className="news-image" src={news.photo} alt="news" />
+                        <div className="news-img">
+                            <img className="news-image" src={news.photo} alt="news" />
+                        </div>
                         <div className="news-info">
                             <h6>{news.title}</h6>
                             <div style={{ display: 'flex' }}>

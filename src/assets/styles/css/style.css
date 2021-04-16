@@ -59,18 +59,26 @@ div {
             align-items: center;
   }
   body #root {
-    padding: 2.61vw 3.125vw 2.1vw 3.125vw !important;
+    padding: 2.61vw 3.125vw 1.1vw 3.125vw !important;
     background-blend-mode: soft-light, normal;
     -webkit-box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
             box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
     border-radius: 2vw;
-    height: 53vw;
-    width: 90vw;
+    height: 51vw;
+    width: 90%;
+    overflow: hidden;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  #root {
+    height: 55vw;
   }
 }
 
 button, .white-button, .grey-button, .slide-button {
   cursor: pointer;
+  outline: none;
 }
 
 .white-button {
@@ -250,7 +258,7 @@ footer .footer-content #copyright {
 
 footer .footer-content #rights-text,
 footer .footer-content p {
-  font-size: 1.03vw;
+  font-size: 1.01vw;
 }
 
 footer .footer-content p {
@@ -302,6 +310,10 @@ footer .footer-content #footer-stamp {
   font-size: 4.51vh;
 }
 
+.page-heading-holder .heading-buttons a {
+  margin: 0 0.73%;
+}
+
 .page-heading-holder .heading-buttons .heading-button {
   border-radius: 2vw;
   color: #6d7587;
@@ -310,6 +322,7 @@ footer .footer-content #footer-stamp {
   display: -ms-flexbox;
   display: flex;
   padding: 0;
+  margin: 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -317,17 +330,20 @@ footer .footer-content #footer-stamp {
       -ms-flex-align: center;
           align-items: center;
   font-size: 1.4vw;
-  margin: 0 0.73%;
   height: 6.5vh;
   width: 16.15vw;
 }
 
 @media (max-width: 1000px), (min-width: 1920px) {
+  .page-heading {
+    margin: 2% 0 1.8% 0 !important;
+  }
   .page-heading h1 {
     font-size: 2.5vw !important;
   }
   .heading-buttons .heading-button {
-    height: 3.65vw !important;
+    font-size: 1.5vw !important;
+    height: 3.2vw !important;
   }
 }
 
@@ -341,7 +357,7 @@ footer .footer-content #footer-stamp {
 }
 
 .main-section .left-items {
-  margin: 5.2% 3vw 0 4.5vw;
+  margin: 5.2% 2.5vw 0 4.5vw;
 }
 
 .main-section .left-items img {
@@ -353,6 +369,9 @@ footer .footer-content #footer-stamp {
 .main-section .center-content {
   margin: 0 auto;
   width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .main-section .center-content .main-heading {
@@ -365,7 +384,7 @@ footer .footer-content #footer-stamp {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  margin: 0.5% 0 1.9% 0.2%;
+  margin: 0.5% 0 1.5% 0.2%;
 }
 
 .main-section .center-content .main-heading h1 {
@@ -377,6 +396,14 @@ footer .footer-content #footer-stamp {
 
 .main-section #center0 {
   overflow: hidden;
+}
+
+.main-section #right0 .next-button {
+  margin-bottom: 2vh;
+}
+
+.main-section #right1 .next-button {
+  margin-bottom: 35%;
 }
 
 .main-section .right-items {
@@ -420,8 +447,8 @@ footer .footer-content #footer-stamp {
   -webkit-box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
           box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
   margin: 0.53vw 0;
-  width: 1.88vw;
-  height: 1.88vw;
+  width: 1.88vw !important;
+  height: 1.88vw !important;
 }
 
 .main-section .right-items .selector-buttons-group .selector-button-container .button-stroke .button-dot {
@@ -432,11 +459,6 @@ footer .footer-content #footer-stamp {
 }
 
 .main-section .right-items .selector-buttons-group .button-clicked .button-stroke {
-  position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -446,6 +468,7 @@ footer .footer-content #footer-stamp {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  vertical-align: middle;
   z-index: -1;
   border-radius: 100%;
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -462,7 +485,8 @@ footer .footer-content #footer-stamp {
 }
 
 .main-section .right-items .selector-buttons-group .button-clicked .button-stroke .button-dot {
-  width: 0.68vw !important;
+  width: 0.64vw !important;
+  height: 0.63vw;
 }
 
 .main-section .right-items .next-button {
@@ -476,25 +500,25 @@ footer .footer-content #footer-stamp {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 22%;
-  margin-top: 4.1vh;
   width: 3.65vw;
   height: 3.65vw;
 }
 
-.main-section .right-items .next-button img {
+.main-section .right-items .next-button svg {
   height: 1.0417vw;
   width: 0.678vw;
 }
 
+.main-section .right-items .next-button:hover svg path {
+  fill: #1654f0;
+}
+
 @media (max-width: 1000px), (min-width: 1920px) {
   .left-items img {
-    height: 18.5417vw !important;
+    height: unset !important;
   }
   .center-content .main-heading h1 {
-    font-size: 2.3vw !important;
-  }
-  .right-items .next-button {
-    margin-top: 2.3vw !important;
+    font-size: 2.2vw !important;
   }
 }
 
@@ -507,12 +531,13 @@ footer .footer-content #footer-stamp {
 
 .news-slider-container .news-item .news-image {
   width: 18.75vw;
-  height: 21.852vh;
 }
 
 .news-slider-container .news-item .news-info h6 {
-  margin: 1.667vh 0 0.926vh 0;
-  height: 4.445vh;
+  margin: 1.41vh 0 1.6vh 0;
+  font-size: 1.5vw;
+  font-weight: 500;
+  color: #6d7587;
 }
 
 .news-slider-container .news-item .news-info p {
@@ -532,8 +557,8 @@ footer .footer-content #footer-stamp {
 }
 
 .news-slider .slider-buttons .slide-button {
-  width: 0.73vw;
-  height: 0.73vw;
+  width: 0.7vw;
+  height: 0.7vw;
   background-color: #848e9d;
   border-radius: 100%;
   margin-right: 0.47vw;
@@ -549,11 +574,10 @@ footer .footer-content #footer-stamp {
 
 @media (max-width: 1000px), (min-width: 1920px) {
   .news-slider-container .news-item .news-image {
-    height: 12.2917vw !important;
+    height: unset !important;
   }
   .news-slider-container .news-item .news-info h6 {
-    margin: 0.94vw 0 0.525vw 0 !important;
-    height: 2.5vw !important;
+    margin: 0.8vw 0 0.9vw 0 !important;
   }
   .news-slider .slide-buttons {
     margin-top: 2.3vw !important;
@@ -572,14 +596,17 @@ footer .footer-content #footer-stamp {
 }
 
 .widgets-row .widget {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   cursor: pointer;
   background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
   background-blend-mode: soft-light, normal;
   -webkit-box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
           box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-  border-radius: 13%;
-  width: 27.35%;
-  height: 100%;
+  border-radius: 2vw;
+  width: 28.07%;
+  height: 31.5vh;
   margin-right: 5.159%;
 }
 
@@ -587,6 +614,9 @@ footer .footer-content #footer-stamp {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -594,16 +624,12 @@ footer .footer-content #footer-stamp {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 100%;
-  margin: 12.1% 10.5% 7.45% 10.5%;
+  margin: 4.7vh 2.35vw 2.9vh 2.35vw;
 }
 
 .widgets-row .widget-text {
   text-align: center;
-  margin-top: 1.045vw;
+  margin-top: 1.86vh;
 }
 
 .widgets-row .widget-text p {
@@ -612,17 +638,69 @@ footer .footer-content #footer-stamp {
   font-size: 1.35vw;
 }
 
-.widgets-row .widget-logo svg {
+.widgets-row .widget-logo svg,
+.widgets-row .widget-logo img {
   width: 7.917vw;
-  height: 8.9vw;
+  height: 15.75vh;
+  -webkit-filter: saturate(0);
+          filter: saturate(0);
+}
+
+.widgets-row .widget-logo svg path,
+.widgets-row .widget-logo img path {
+  fill: #4d545e;
 }
 
 .widgets-row .widget:hover .widget-logo svg path {
-  fill: #1654f0;
+  fill: black;
 }
 
-.widgets-row .widget:hover .widget-text p {
-  color: #1654f0;
+.widgets-row .widget:hover .widget-logo img {
+  -webkit-filter: saturate(100%);
+          filter: saturate(100%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+@media (max-width: 1000px), (min-width: 1920px) {
+  .widgets-row .widget {
+    height: 17.71vw !important;
+  }
+  .widgets-row .widget-data {
+    margin: 2.6vw 2.35vw 1.3vw 2.35vw;
+  }
+  .widgets-row .widget-logo svg {
+    height: 8.855vw !important;
+  }
+  .widgets-row .widget-text {
+    margin-top: 1.045vw;
+  }
+}
+
+#news {
+  padding: 1% 0 0 0;
+}
+
+#news .left-items img {
+  height: unset !important;
+}
+
+#news .news-slider .news-img {
+  height: 50%;
+  overflow: hidden;
+}
+
+#news .news-slider .news-img img {
+  position: relative;
+  bottom: 25%;
+}
+
+#news .news-slider .news-info h6 {
+  margin-bottom: 5% !important;
+}
+
+#news .news-slider .slider-buttons {
+  margin-top: -3.5% !important;
 }
 
 #news .center-content {
@@ -637,224 +715,15 @@ footer .footer-content #footer-stamp {
   margin: auto 0 !important;
 }
 
+#news .news-container {
+  padding: 1% 0 0 0;
+}
+
+#news .news-container .main-heading {
+  margin: 0 0 1% 0;
+}
+
 #news .news-container .news-data {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#news .news-container .news-data .news-text p {
-  font-weight: 500;
-  color: #8a92a5;
-}
-
-@media screen and (max-width: 1180px) {
-  #news .left-items {
-    margin: 72px 20px auto 0px !important;
-  }
-  #news .main-heading {
-    margin: 15px 0 10px 10px !important;
-  }
-  #news .news-slider-container .news-item .news-image {
-    width: 220px;
-    height: 100px;
-  }
-  #news .news-slider-container .news-item .news-info h6 {
-    height: 20px;
-  }
-  #news .news-slider-container .news-item .news-info img {
-    width: 12px;
-    height: 22px;
-  }
-  #news .news-slider .slider-buttons {
-    margin-top: 7px;
-  }
-  #news .news-slider .slider-buttons .slide-button {
-    width: 7px;
-    height: 7px;
-    margin: 0 2px;
-  }
-  #news .news-container .news-data {
-    margin-left: 10px;
-  }
-  #news .news-container .news-data img {
-    width: 220px;
-    height: 150px;
-  }
-  #news .news-container .news-data .news-text p {
-    font-size: 11px;
-    line-height: 15px;
-    margin: 0 0 0 20px;
-  }
-}
-
-@media (min-width: 1181px) and (max-width: 1330px) {
-  #news .left-items {
-    margin: 72px 20px auto 0px !important;
-  }
-  #news .main-heading {
-    margin: 20px 0 15px 10px !important;
-  }
-  #news .news-slider-container .news-item .news-image {
-    width: 240px;
-    height: 120px;
-  }
-  #news .news-slider-container .news-item .news-info h6 {
-    height: 20px;
-  }
-  #news .news-slider-container .news-item .news-info img {
-    width: 13px;
-    height: 23px;
-  }
-  #news .news-slider .slider-buttons {
-    margin-top: 7px;
-  }
-  #news .news-slider .slider-buttons .slide-button {
-    width: 8px;
-    height: 8px;
-    margin: 0 2px;
-  }
-  #news .news-container .news-data {
-    margin-left: 10px;
-  }
-  #news .news-container .news-data img {
-    width: 240px;
-    height: 170px;
-  }
-  #news .news-container .news-data .news-text p {
-    font-size: 12px;
-    line-height: 15px;
-    margin: 8px 0 0 30px;
-  }
-}
-
-@media (min-width: 1331px) and (max-width: 1500px) {
-  #news .left-items {
-    margin: 72px 20px auto 0px !important;
-  }
-  #news .main-heading {
-    margin: 25px 0 15px 25px !important;
-  }
-  #news .news-slider-container .news-item .news-image {
-    width: 250px;
-    height: 120px;
-  }
-  #news .news-slider-container .news-item .news-info h6 {
-    height: 20px;
-  }
-  #news .news-slider-container .news-item .news-info img {
-    width: 15px;
-    height: 25px;
-  }
-  #news .news-slider .slider-buttons {
-    margin-top: 8px;
-  }
-  #news .news-slider .slider-buttons .slide-button {
-    width: 8px;
-    height: 8px;
-    margin: 0 2px;
-  }
-  #news .news-container .news-data {
-    margin-left: 25px;
-  }
-  #news .news-container .news-data img {
-    width: 250px;
-    height: 180px;
-  }
-  #news .news-container .news-data .news-text p {
-    font-size: 13px;
-    line-height: 16px;
-    margin: 8px 0 0 40px;
-  }
-}
-
-@media (min-width: 1501px) and (max-width: 1680px) {
-  #news .left-items {
-    margin: 85px 20px auto 0px !important;
-  }
-  #news .news-slider-container .news-item .news-image {
-    width: 270px;
-    height: 130px;
-  }
-  #news .news-slider-container .news-item .news-info h6 {
-    height: 20px;
-  }
-  #news .news-slider-container .news-item .news-info img {
-    width: 17px;
-    height: 27px;
-  }
-  #news .news-slider .slider-buttons {
-    margin-top: 10px;
-  }
-  #news .news-slider .slider-buttons .slide-button {
-    width: 9px;
-    height: 9px;
-    margin: 0 3px;
-  }
-  #news .news-container .news-data {
-    margin-left: 25px;
-  }
-  #news .news-container .news-data img {
-    width: 270px;
-    height: 220px;
-  }
-  #news .news-container .news-data .news-text p {
-    font-size: 14px;
-    line-height: 18px;
-    margin: 8px 0 0 40px;
-  }
-}
-
-@media (min-width: 1681px) {
-  #news .main-heading {
-    margin: 40px 0 15px 33px !important;
-  }
-  #news .news-slider-container .news-item .news-image {
-    width: 360px;
-    height: 150px;
-  }
-  #news .news-slider-container .news-item .news-info h6 {
-    height: 40px;
-  }
-  #news .news-slider-container .news-item .news-info img {
-    width: 22px;
-    height: 22px;
-  }
-  #news .news-slider .slider-buttons {
-    margin-top: 20px;
-  }
-  #news .news-slider .slider-buttons .slide-button {
-    width: 14px;
-    height: 14px;
-    margin: 0 4px;
-  }
-  #news .news-container .news-data {
-    margin-left: 33px;
-  }
-  #news .news-container .news-data img {
-    width: 360px;
-    height: 240px;
-  }
-  #news .news-container .news-data .news-text p {
-    font-size: 16px;
-    line-height: 20px;
-    margin: 8px 0 0 40px;
-  }
-}
-
-@media (min-width: 1681px) and (max-width: 1850px) {
-  #news .left-items {
-    margin: 125px 20px auto 0px !important;
-  }
-}
-
-@media (min-width: 1851px) {
-  #news .left-items {
-    margin: 115px 20px auto 0px !important;
-  }
-}
-
-.contact-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -863,8 +732,50 @@ footer .footer-content #footer-stamp {
           justify-content: space-between;
 }
 
+#news .news-container .news-data img {
+  width: 23%;
+  height: 24vh;
+}
+
+#news .news-container .news-data .news-text {
+  width: 74%;
+}
+
+#news .news-container .news-data .news-text p {
+  margin-bottom: 0;
+  margin-top: 0.5%;
+  font-weight: 500;
+  color: #8a92a5;
+  font-size: 0.82vw;
+}
+
+@media (min-width: 1920px) {
+  #news {
+    padding: 2% 0 0 0 !important;
+  }
+  #news .news-container {
+    padding: 1.5% 0 0 0 !important;
+  }
+  #news .news-container .news-data img {
+    width: 27%;
+    height: unset !important;
+  }
+  #news .news-container .news-data .news-text {
+    width: 70%;
+  }
+}
+
+.contact-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-bottom: 1vh;
+}
+
 .contact-form-container {
-  margin-left: 30px;
+  width: 89%;
+  height: 100%;
 }
 
 .contact-form-container .form-line {
@@ -874,6 +785,7 @@ footer .footer-content #footer-stamp {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  height: 100%;
 }
 
 .contact-form-container .form-line .input-holder {
@@ -884,11 +796,27 @@ footer .footer-content #footer-stamp {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 47.81%;
+  height: 100%;
 }
 
 .contact-form-container .form-line label {
   color: #6d7587;
   font-weight: 500;
+  font-size: 1.8vw;
+  height: 30%;
+}
+
+.contact-form-container .form-line input {
+  height: 6.8vh;
+  margin: 1.9vh 0 2.2vh 0;
+  width: 100%;
+}
+
+.contact-form-container .form-line textarea {
+  width: 100%;
+  height: 23.8vh;
+  padding-top: 2vh;
 }
 
 .contact-form-container .form-line input,
@@ -900,8 +828,11 @@ footer .footer-content #footer-stamp {
           box-sizing: border-box;
   -webkit-box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
           box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
+  border-radius: 2vw;
   resize: none;
   outline: none;
+  font-size: 1.6vw;
+  padding-left: 2.3vw;
 }
 
 .contact-form-container .form-line input::-webkit-input-placeholder,
@@ -961,517 +892,32 @@ footer .footer-content #footer-stamp {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  width: 11%;
+  position: relative;
+  left: 4%;
 }
 
 .contact-button button {
   font-weight: 600;
-  position: relative;
-  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.5vw;
+  width: 100%;
+  border-radius: 0.8vw;
+  height: 23.9%;
 }
 
 #right2 .next-button {
   display: none;
 }
 
-@media screen and (max-width: 1150px) {
-  .contact-form-container .form-line label {
-    font-size: 18px;
-    line-height: 26px;
-  }
-  .contact-form-container .form-line input,
-  .contact-form-container .form-line textarea {
-    margin: 6px 0;
-    border-radius: 25px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 17px;
-    line-height: 29px;
-    padding: 0 15px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 17px;
-    line-height: 29px;
-    padding: 0 15px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 17px;
-    line-height: 29px;
-    padding: 0 15px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::placeholder {
-    font-size: 17px;
-    line-height: 29px;
-    padding: 0 15px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus {
-    padding: 0 0 0 15px;
-  }
-  .contact-form-container .form-line input {
-    width: 400px;
-    height: 40px;
-    padding-top: 3px;
-  }
-  .contact-form-container .form-line textarea {
-    width: 840px;
-    height: 160px;
-    padding-top: 5px !important;
-  }
-  .contact-button button {
-    left: 20px;
-    width: 80px;
-    height: 50px;
-    font-size: 14px;
-    line-height: 26px;
-  }
-}
-
-@media (min-width: 1150px) and (max-width: 1260px) {
-  .contact-form-container .form-line label {
-    font-size: 19px;
-    line-height: 28px;
-  }
-  .contact-form-container .form-line input,
-  .contact-form-container .form-line textarea {
-    margin: 6px 0;
-    border-radius: 25px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 17px;
-    line-height: 29px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 17px;
-    line-height: 29px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 17px;
-    line-height: 29px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::placeholder {
-    font-size: 17px;
-    line-height: 29px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus {
-    padding: 0 0 0 15px;
-  }
-  .contact-form-container .form-line input {
-    width: 440px;
-    height: 40px;
-    padding-top: 3px;
-  }
-  .contact-form-container .form-line textarea {
-    width: 920px;
-    height: 160px;
-    padding-top: 5px !important;
-  }
-  .contact-button button {
-    left: 20px;
-    width: 80px;
-    height: 50px;
-    font-size: 14px;
-    line-height: 26px;
-  }
-}
-
-@media (min-width: 1261px) and (max-width: 1330px) {
-  .contact-form-container .form-line label {
-    font-size: 21px;
-    line-height: 30px;
-  }
-  .contact-form-container .form-line input,
-  .contact-form-container .form-line textarea {
-    margin: 6px 0;
-    border-radius: 47px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 18px;
-    line-height: 31px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 18px;
-    line-height: 31px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 18px;
-    line-height: 31px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::placeholder {
-    font-size: 18px;
-    line-height: 31px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus {
-    padding: 0 0 0 20px;
-  }
-  .contact-form-container .form-line input {
-    width: 460px;
-    height: 40px;
-    padding-top: 7px;
-  }
-  .contact-form-container .form-line textarea {
-    width: 950px;
-    height: 160px;
-    padding-top: 8px !important;
-  }
-  .contact-button button {
-    left: 20px;
-    width: 95px;
-    height: 55px;
-    font-size: 16px;
-    line-height: 31px;
-  }
-}
-
-@media (min-width: 1330px) and (max-width: 1440px) {
-  .contact-form-container .form-line label {
-    font-size: 21px;
-    line-height: 30px;
-  }
-  .contact-form-container .form-line input,
-  .contact-form-container .form-line textarea {
-    margin: 6px 0;
-    border-radius: 28px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 18px;
-    line-height: 26px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 18px;
-    line-height: 26px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 18px;
-    line-height: 26px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::placeholder {
-    font-size: 18px;
-    line-height: 26px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus {
-    padding: 0 0 0 30px;
-  }
-  .contact-form-container .form-line input {
-    width: 495px;
-    height: 40px;
-    padding-top: 7px;
-  }
-  .contact-form-container .form-line textarea {
-    width: 1040px;
-    height: 165px;
-    padding-top: 10px !important;
-  }
-  .contact-button button {
-    left: 25px;
-    width: 100px;
-    height: 60px;
-    font-size: 18px;
-    line-height: 31px;
-  }
-}
-
-@media (min-width: 1441px) and (max-width: 1640px) {
-  .contact-form-container .form-line label {
-    font-size: 24px;
-    line-height: 33px;
-  }
-  .contact-form-container .form-line input,
-  .contact-form-container .form-line textarea {
-    margin: 8px 0;
-    border-radius: 47px;
-    padding-left: 10px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 21px;
-    line-height: 34px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 21px;
-    line-height: 34px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 21px;
-    line-height: 34px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::placeholder {
-    font-size: 21px;
-    line-height: 34px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus {
-    padding: 0 0 0 30px;
-  }
-  .contact-form-container .form-line input {
-    width: 545px;
-    height: 47px;
-    padding-top: 7px;
-  }
-  .contact-form-container .form-line textarea {
-    width: 1140px;
-    height: 195px;
-    padding-top: 10px !important;
-  }
-  .contact-button button {
-    left: 35px;
-    width: 120px;
-    height: 69px;
-    font-size: 21px;
-    line-height: 32px;
-  }
-}
-
-@media (min-width: 1641px) and (max-width: 1720px) {
-  .contact-form-container .form-line label {
-    font-size: 28px;
-    line-height: 35px;
-  }
-  .contact-form-container .form-line input,
-  .contact-form-container .form-line textarea {
-    margin: 8px 0;
-    border-radius: 47px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 22px;
-    line-height: 34px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 22px;
-    line-height: 34px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 22px;
-    line-height: 34px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::placeholder {
-    font-size: 22px;
-    line-height: 34px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus {
-    padding: 0 0 0 30px;
-  }
-  .contact-form-container .form-line input {
-    width: 590px;
-    height: 53px;
-    padding-top: 7px;
-  }
-  .contact-form-container .form-line textarea {
-    width: 1235px;
-    height: 205px;
-    padding-top: 20px !important;
-  }
-  .contact-button button {
-    left: 60px;
-    width: 138px;
-    height: 79px;
-    font-size: 23px;
-    line-height: 32px;
-  }
-}
-
-@media (min-width: 1720px) and (max-width: 1850px) {
-  .contact-form-container .form-line label {
-    font-size: 30px;
-    line-height: 37px;
-  }
-  .contact-form-container .form-line input,
-  .contact-form-container .form-line textarea {
-    margin: 8px 0;
-    border-radius: 47px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 23px;
-    line-height: 34px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 23px;
-    line-height: 34px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 23px;
-    line-height: 34px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::placeholder {
-    font-size: 23px;
-    line-height: 34px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus {
-    padding: 0 0 0 30px;
-  }
-  .contact-form-container .form-line input {
-    width: 620px;
-    height: 60px;
-    padding-top: 7px;
-  }
-  .contact-form-container .form-line textarea {
-    width: 1300px;
-    height: 240px;
-    padding-top: 20px !important;
-  }
-  .contact-button button {
-    left: 70px;
-    width: 160px;
-    height: 79px;
-    font-size: 28px;
-    line-height: 37px;
-  }
-}
-
-@media (min-width: 1851px) {
-  .contact-form-container .form-line label {
-    margin-bottom: 10px;
-    font-size: 36px;
-    line-height: 44px;
-  }
-  .contact-form-container .form-line input,
-  .contact-form-container .form-line textarea {
-    margin: 10px 0;
-    border-radius: 47px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-webkit-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-webkit-input-placeholder {
-    font-size: 30px;
-    line-height: 37px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input:-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea:-ms-input-placeholder {
-    font-size: 30px;
-    line-height: 37px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::-ms-input-placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::-ms-input-placeholder {
-    font-size: 30px;
-    line-height: 37px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus, .contact-form-container .form-line input::placeholder,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus,
-  .contact-form-container .form-line textarea::placeholder {
-    font-size: 30px;
-    line-height: 37px;
-  }
-  .contact-form-container .form-line input:not(:focus), .contact-form-container .form-line input:focus,
-  .contact-form-container .form-line textarea:not(:focus),
-  .contact-form-container .form-line textarea:focus {
-    padding: 0 0 0 44px;
-  }
-  .contact-form-container .form-line input {
-    width: 670px;
-    height: 70px;
-    padding-top: 10px;
-  }
-  .contact-form-container .form-line textarea {
-    width: 1401px;
-    height: 257px;
-    padding-top: 25px !important;
-  }
-  .contact-button button {
-    left: 55px;
-    width: 180px;
-    height: 99px;
-    font-size: 30px;
-    line-height: 37px;
+@media (max-width: 1000px), (min-width: 1920px) {
+  .contact-form-container input {
+    height: 3.65vw !important;
+    margin: 1.09vw 0 1.25vw 0 !important;
+  }
+  .contact-form-container textarea {
+    height: 12.8vw !important;
+    padding-top: 1.2vw !important;
   }
 }
 
@@ -1496,13 +942,18 @@ footer .footer-content #footer-stamp {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 21vw;
+  height: 24.23vh;
+  margin: 3.7vh 1.05vw 0 1.05vw;
+  border-radius: 2vw;
 }
 
 .products .product h6 {
   text-align: center;
   font-weight: 500;
   color: #4d545e;
-  padding: 0 50px;
+  padding: 0 2.2vw;
+  font-size: 1.4vw;
 }
 
 #products,
@@ -1515,9 +966,19 @@ footer .footer-content #footer-stamp {
   overflow: visible !important;
 }
 
+#products .main-section,
+#product-page .main-section {
+  margin: 2.5vw 0;
+}
+
 #products .selector-buttons-group,
 #product-page .selector-buttons-group {
   display: none !important;
+}
+
+#products .left-items img,
+#product-page .left-items img {
+  height: unset;
 }
 
 #products .next-button,
@@ -1529,160 +990,13 @@ footer .footer-content #footer-stamp {
   margin-bottom: unset !important;
 }
 
-@media screen and (max-width: 1150px) {
-  #products .left-items img {
-    bottom: 50px !important;
-  }
-  #products .next-button {
-    margin-bottom: 30px !important;
-  }
-  .products {
-    margin: 30px;
+@media (max-width: 1000px), (min-width: 1920px) {
+  #products .main-section {
+    margin: 3vw 0 !important;
   }
   .products .product {
-    width: 220px;
-    height: 130px;
-    margin: 20px 10px 0 10px;
-    border-radius: 30px;
-  }
-  .products .product h6 {
-    font-size: 13px;
-    line-height: 22px;
-  }
-}
-
-@media (min-width: 1151px) and (max-width: 1250px) {
-  #products .left-items img {
-    bottom: 75px !important;
-    height: 230px;
-  }
-  #products .next-button {
-    margin-bottom: 60px !important;
-  }
-  .products {
-    margin: 30px;
-    padding: 30px;
-  }
-  .products .product {
-    width: 250px;
-    height: 140px;
-    margin: 20px 10px 0 10px;
-    border-radius: 30px;
-  }
-  .products .product h6 {
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-
-@media (min-width: 1251px) and (max-width: 1415px) {
-  #products .left-items img {
-    bottom: 60px !important;
-    height: 230px;
-  }
-  #products .next-button {
-    margin-bottom: 30px !important;
-  }
-  .products {
-    margin: 30px;
-  }
-  .products .product {
-    width: 280px;
-    height: 155px;
-    margin: 20px 10px 0 10px;
-    border-radius: 30px;
-  }
-  .products .product h6 {
-    font-size: 17px;
-    line-height: 24px;
-  }
-}
-
-@media (min-width: 1416px) and (max-width: 1570px) {
-  #products .left-items img {
-    bottom: 55px !important;
-    height: 315px;
-  }
-  #products .next-button {
-    margin-bottom: 50px !important;
-  }
-  .products {
-    margin: 50px 0;
-  }
-  .products .product {
-    width: 300px;
-    height: 180px;
-    margin: 30px 15px 0 15px;
-    border-radius: 47px;
-  }
-  .products .product h6 {
-    font-size: 21px;
-    line-height: 28px;
-  }
-}
-
-@media (min-width: 1571px) and (max-width: 1720px) {
-  #products .left-items img {
-    bottom: 55px !important;
-    height: 315px;
-  }
-  #products .next-button {
-    margin-bottom: 50px !important;
-  }
-  .products {
-    margin: 50px 0;
-  }
-  .products .product {
-    width: 335px;
-    height: 190px;
-    margin: 30px 15px 0 15px;
-    border-radius: 47px;
-  }
-  .products .product h6 {
-    font-size: 22px;
-    line-height: 28px;
-  }
-}
-
-@media (min-width: 1721px) and (max-width: 1930px) {
-  #products .left-items img {
-    bottom: 80px !important;
-    height: 340px;
-  }
-  #products .next-button {
-    margin-bottom: 60px !important;
-  }
-  .products {
-    margin: 60px 0;
-  }
-  .products .product {
-    width: 360px;
-    height: 200px;
-    margin: 30px 15px 0 15px;
-    border-radius: 47px;
-  }
-  .products .product h6 {
-    font-size: 24px;
-    line-height: 29px;
-  }
-}
-
-@media (min-width: 1930px) {
-  #products .next-button {
-    margin-bottom: 70px !important;
-  }
-  .products {
-    margin: 70px 0;
-  }
-  .products .product {
-    width: 430px;
-    height: 240px;
-    margin: 40px 20px 0 20px;
-    border-radius: 47px;
-  }
-  .products .product h6 {
-    font-size: 26px;
-    line-height: 32px;
+    height: 12.5vw !important;
+    margin: 2.08vw 1.05vw 0 1.05vw !important;
   }
 }
 
@@ -1693,11 +1007,23 @@ footer .footer-content #footer-stamp {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-top: 4vh;
+}
+
+.product-container .product-content .product-img img {
+  width: 24.9vw;
 }
 
 .product-container .product-content .product-text {
   font-weight: 500;
   color: #8a92a5;
+  margin: 0 0 0 2.084vw;
+}
+
+.product-container .product-content .product-text p,
+.product-container .product-content .product-text h6,
+.product-container .product-content .product-text li {
+  font-size: 0.9vw;
 }
 
 .product-container .product-content .product-text p {
@@ -1705,200 +1031,16 @@ footer .footer-content #footer-stamp {
 }
 
 .product-container .product-content .product-text h6 {
+  margin: 1.5vh 0;
   font-weight: bold;
 }
 
-@media screen and (max-width: 1150px) {
-  #product-page .left-items img {
-    height: 250px;
-  }
-  .product-container .main-heading {
-    margin: 0 0 20px 15px !important;
-  }
-  .product-container .product-content .product-img {
-    margin: 0 15px;
-  }
-  .product-container .product-content .product-img img {
-    width: 330px;
-    height: 260px;
-  }
-  .product-container .product-content .product-text {
-    margin: 0 15px;
-  }
-  .product-container .product-content .product-text h6 {
-    margin: 9px 0;
-  }
-  .product-container .product-content .product-text,
-  .product-container .product-content .product-text h6 {
-    font-size: 10px;
-    line-height: 13px;
-  }
-}
-
-@media (min-width: 1151px) and (max-width: 1270px) {
-  #product-page .left-items img {
-    height: 268px;
-  }
-  .product-container .main-heading {
-    margin: 0 0 30px 15px !important;
-  }
-  .product-container .product-content .product-img {
-    margin: 0 15px;
-  }
-  .product-container .product-content .product-img img {
-    width: 350px;
-    height: 280px;
-  }
-  .product-container .product-content .product-text {
-    margin: 0 15px;
-  }
-  .product-container .product-content .product-text h6 {
-    margin: 10px 0;
-  }
-  .product-container .product-content .product-text,
-  .product-container .product-content .product-text h6 {
-    font-size: 11px;
-    line-height: 14px;
-  }
-}
-
-@media (min-width: 1271px) and (max-width: 1415px) {
-  #product-page .left-items img {
-    bottom: 21px !important;
-    height: 275px;
-  }
-  .product-container .main-heading {
-    margin: 0 0 40px 15px !important;
-  }
-  .product-container .product-content .product-img {
-    margin: 0 20px;
-  }
-  .product-container .product-content .product-img img {
-    width: 370px;
-    height: 300px;
-  }
-  .product-container .product-content .product-text {
-    margin: 0 20px;
-  }
-  .product-container .product-content .product-text h6 {
-    margin: 12px 0;
-  }
-  .product-container .product-content .product-text,
-  .product-container .product-content .product-text h6 {
-    font-size: 12px;
-    line-height: 14px;
-  }
-}
-
-@media (min-width: 1415px) and (max-width: 1460px) {
-  #product-page .left-items img {
-    bottom: 21px !important;
-    height: 275px;
-  }
-  .product-container .main-heading {
-    margin: 0 0 60px 16px !important;
-  }
-  .product-container .product-content .product-img {
-    margin: 0 20px;
-  }
-  .product-container .product-content .product-img img {
-    width: 370px;
-    height: 300px;
-  }
-  .product-container .product-content .product-text {
-    margin: 0 20px;
-  }
-  .product-container .product-content .product-text h6 {
-    margin: 12px 0;
-  }
-  .product-container .product-content .product-text,
-  .product-container .product-content .product-text h6 {
-    font-size: 13px;
-    line-height: 16px;
-  }
-}
-
-@media (min-width: 1460px) and (max-width: 1570px) {
-  #product-page .left-items img {
-    bottom: 15px !important;
-    height: 284px;
-  }
-  .product-container .main-heading {
-    margin: 0 0 65px 20px !important;
-  }
-  .product-container .product-content .product-img {
-    margin: 0 20px;
-  }
-  .product-container .product-content .product-img img {
-    width: 370px;
-    height: 300px;
-  }
-  .product-container .product-content .product-text {
-    margin: 0 20px;
-  }
-  .product-container .product-content .product-text h6 {
-    margin: 12px 0;
-  }
-  .product-container .product-content .product-text,
-  .product-container .product-content .product-text h6 {
-    font-size: 14px;
-    line-height: 16px;
-  }
-}
-
-@media (min-width: 1571px) and (max-width: 1720px) {
-  #product-page .left-items img {
-    bottom: 20px !important;
-    height: 360px;
-  }
-  .product-container .main-heading {
-    margin: 0 0 60px 20px !important;
-  }
-  .product-container .product-content .product-img {
-    margin: 0 20px;
-  }
-  .product-container .product-content .product-img img {
-    width: 460px;
-    height: 370px;
-  }
-  .product-container .product-content .product-text {
-    margin: 0 20px;
-  }
-  .product-container .product-content .product-text h6 {
-    margin: 16px 0;
-  }
-  .product-container .product-content .product-text,
-  .product-container .product-content .product-text h6 {
-    font-size: 15px;
-    line-height: 19px;
-  }
-}
-
-@media (min-width: 1721px) {
-  #product-page .left-items img {
-    bottom: 17px;
-  }
-  .product-container .main-heading {
-    margin: 0 0 70px 25px !important;
-  }
-  .product-container .product-content .product-img {
-    margin: 0 20px;
-  }
-  .product-container .product-content .product-text {
-    margin: 0 20px;
-  }
-  .product-container .product-content .product-text h6 {
-    margin: 20px 0;
-  }
-  .product-container .product-content .product-text,
-  .product-container .product-content h6 {
-    font-size: 16px;
-    line-height: 20px;
-  }
-}
-
 #customers-page {
-  margin-top: auto;
+  margin-top: 7%;
+}
+
+#customers-page .left-items {
+  margin-top: auto !important;
 }
 
 #customers-page .right-items {
@@ -1911,8 +1053,21 @@ footer .footer-content #footer-stamp {
   display: flex;
 }
 
+#customers-page .customers .map-container img {
+  width: 53.5vw;
+}
+
 #customers-page .customers .companies-list {
-  margin: 0 auto;
+  margin: 0 12% 0 7%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 #customers-page .customers .companies-list .company-item {
@@ -1924,138 +1079,15 @@ footer .footer-content #footer-stamp {
           align-items: center;
 }
 
+#customers-page .customers .companies-list .company-item img {
+  width: 3.13vw;
+  margin: 0 1.045vw;
+}
+
 #customers-page .customers .companies-list .company-item h6 {
   font-weight: 500;
   color: #6d7587;
   margin: 0;
-}
-
-@media screen and (max-width: 1150px) {
-  .customers .map-container img {
-    width: 620px;
-    height: 280px;
-  }
-  .customers .companies-list .company-item {
-    margin: 12px 0;
-  }
-  .customers .companies-list .company-item img {
-    width: 37px;
-    height: 44px;
-    margin: 0 8px;
-  }
-  .customers .companies-list .company-item h6 {
-    font-size: 15px;
-    line-height: 20px;
-  }
-}
-
-@media (min-width: 1151px) and (max-width: 1270px) {
-  .customers .map-container img {
-    width: 650px;
-    height: 310px;
-  }
-  .customers .companies-list .company-item {
-    margin: 17px 0;
-  }
-  .customers .companies-list .company-item img {
-    width: 41px;
-    height: 48px;
-    margin: 0 10px;
-  }
-  .customers .companies-list .company-item h6 {
-    font-size: 16px;
-    line-height: 22px;
-  }
-}
-
-@media (min-width: 1271px) and (max-width: 1415px) {
-  .customers .map-container img {
-    width: 720px;
-    height: 360px;
-  }
-  .customers .companies-list .company-item {
-    margin: 20px 0;
-  }
-  .customers .companies-list .company-item img {
-    width: 44px;
-    height: 51px;
-    margin: 0 12px;
-  }
-  .customers .companies-list .company-item h6 {
-    font-size: 18px;
-    line-height: 23px;
-  }
-}
-
-@media (min-width: 1415px) and (max-width: 1460px) {
-  .customers .map-container img {
-    width: 800px;
-    height: 400px;
-  }
-  .customers .companies-list .company-item {
-    margin: 26px 0;
-  }
-  .customers .companies-list .company-item img {
-    width: 48px;
-    height: 55px;
-    margin: 0 13px;
-  }
-  .customers .companies-list .company-item h6 {
-    font-size: 20px;
-    line-height: 24px;
-  }
-}
-
-@media (min-width: 1460px) and (max-width: 1570px) {
-  .customers .map-container img {
-    width: 823px;
-    height: 420px;
-  }
-  .customers .companies-list .company-item {
-    margin: 28px 0;
-  }
-  .customers .companies-list .company-item img {
-    width: 50px;
-    height: 57px;
-    margin: 0 15px;
-  }
-  .customers .companies-list .company-item h6 {
-    font-size: 21px;
-    line-height: 25px;
-  }
-}
-
-@media (min-width: 1571px) and (max-width: 1720px) {
-  .customers .map-container img {
-    width: 915px;
-    height: 460px;
-  }
-  .customers .companies-list .company-item {
-    margin: 32px 0;
-  }
-  .customers .companies-list .company-item img {
-    width: 55px;
-    height: 62px;
-    margin: 0 18px;
-  }
-  .customers .companies-list .company-item h6 {
-    font-size: 22px;
-    line-height: 27px;
-  }
-}
-
-@media (min-width: 1721px) {
-  .customers .companies-list .company-item {
-    margin: 35px 0;
-  }
-  .customers .companies-list .company-item img {
-    width: 60px;
-    height: 67px;
-    margin: 0 20px;
-  }
-  .customers .companies-list .company-item h6 {
-    font-size: 24px;
-    line-height: 29px;
-  }
+  font-size: 1.24vw;
 }
 /*# sourceMappingURL=style.css.map */
