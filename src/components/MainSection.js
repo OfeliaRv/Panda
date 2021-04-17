@@ -2,6 +2,7 @@ import left_item_home from '../assets/img/left-item-home.svg'
 import left_item_products from '../assets/img/left-item-products.svg'
 import left_item_customers from '../assets/img/left-item-customers.svg'
 import left_item_news from '../assets/img/left-item-news.svg'
+import left_item_reviews from '../assets/img/left-item-reviews.svg'
 import { useContext } from 'react'
 import { DataContext } from '../DataContext'
 import { Route } from 'react-router'
@@ -55,6 +56,9 @@ const MainSection = ({ children }) => {
                 <Route path="/customers">
                     <img src={left_item_customers} alt="Customers" />
                 </Route>
+                <Route path="/reviews">
+                    <img src={left_item_reviews} alt="Reviews" />
+                </Route>
                 <Route path="/news">
                     <img src={left_item_news} alt="News" />
                 </Route>
@@ -63,33 +67,34 @@ const MainSection = ({ children }) => {
                 {children}
             </div>
             <div id={'right' + clicked} className="right-items">
-                <div className="selector-buttons-group">
-                    {home.map(homeData =>
-                        <div className={"selector-button-container " + (homeData.id === clicked ? "button-clicked" : "")} onClick={() => handleClick(homeData.id)} key={homeData.id}>
-                            <div className="button-stroke">
-                                <div className="button">
-                                    <div className="button-dot"></div>
+                {<Route exact path="/">
+                    <div className="selector-buttons-group">
+                        {home.map(homeData =>
+                            <div className={"selector-button-container " + (homeData.id === clicked ? "button-clicked" : "")} onClick={() => handleClick(homeData.id)} key={homeData.id}>
+                                <div className="button-stroke">
+                                    <div className="button">
+                                        <div className="button-dot"></div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
+                            </div>)}
+                    </div>
+                </Route>}
                 <Route path="/news">
-                    <div className="next-button white-button" onClick={newsSlidesHandler}>
+                    <div className="next-button white-button square-button" onClick={newsSlidesHandler}>
                         <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
                         </svg>
                     </div>
                 </Route>
                 {clicked == 0 && <Route exact path="/">
-                    <div className="next-button white-button" onClick={newsSlidesHandler}>
+                    <div className="next-button white-button square-button" onClick={newsSlidesHandler}>
                         <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
                         </svg>
                     </div>
                 </Route>}
                 {clicked == 1 && <Route exact path="/">
-                    <div className="next-button white-button">
+                    <div className="next-button white-button square-button">
                         <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
                         </svg>

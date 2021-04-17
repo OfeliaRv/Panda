@@ -19,7 +19,7 @@ export const DataProvider = props => {
     const [clickedSlide, setclickedSlide] = useState(0);
     const [clickedNews, setclickedNews] = useState(0);
 
-    // LEFT PAGE NAME
+    // HOMEPAGE SETTERS
     const [homePage, setHomePage] = useState([
         {
             id: 0,
@@ -168,7 +168,23 @@ export const DataProvider = props => {
             name: "Flight Procedures Design System",
             img: product1
         },
-    ])
+    ]);
+
+    // REVIEWS
+    const [review, setReview] = useState([
+        {
+            id: 1,
+            username: "Mr. Vadim Tumarkin",
+        },
+        {
+            id: 2,
+            username: "Mr. Vadim Tumarkin",
+        },
+        {
+            id: 3,
+            username: "Mr. Vadim Tumarkin",
+        }
+    ]);
 
     const provider_values = {
         widgetData: [widget, setWidget],
@@ -180,7 +196,8 @@ export const DataProvider = props => {
         firstSlide: [firstSlide, setfirstSlide],
         lastSlide: [lastSlide, setlastSlide],
         clickedSlide: [clickedSlide, setclickedSlide],
-        clickedNews: [clickedNews, setclickedNews]
+        clickedNews: [clickedNews, setclickedNews],
+        reviewData: [review, setReview]
     };
 
     return (

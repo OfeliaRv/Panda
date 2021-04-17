@@ -119,6 +119,21 @@ button, .white-button, .grey-button, .slide-button {
           box-shadow: -2px -2px 4px rgba(106, 114, 133, 0.348838), -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd, inset 1px 2px 6px #484e5d;
 }
 
+.square-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 22%;
+  width: 3.65vw;
+  height: 3.65vw;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -489,21 +504,6 @@ footer .footer-content #footer-stamp {
   height: 0.63vw;
 }
 
-.main-section .right-items .next-button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-radius: 22%;
-  width: 3.65vw;
-  height: 3.65vw;
-}
-
 .main-section .right-items .next-button svg {
   height: 1.0417vw;
   width: 0.678vw;
@@ -714,10 +714,6 @@ footer .footer-content #footer-stamp {
   overflow: hidden;
 }
 
-#news .selector-buttons-group {
-  display: none;
-}
-
 #news .next-button {
   margin: auto 0 !important;
 }
@@ -913,10 +909,6 @@ footer .footer-content #footer-stamp {
   height: 23.9%;
 }
 
-#right2 .next-button {
-  display: none;
-}
-
 @media (max-width: 1000px), (min-width: 1920px) {
   .contact-form-container input {
     height: 3.65vw !important;
@@ -976,11 +968,6 @@ footer .footer-content #footer-stamp {
 #products .main-section,
 #product-page .main-section {
   margin: 2.5vw 0;
-}
-
-#products .selector-buttons-group,
-#product-page .selector-buttons-group {
-  display: none !important;
 }
 
 #products .left-items img,
@@ -1050,10 +1037,6 @@ footer .footer-content #footer-stamp {
   margin-top: auto !important;
 }
 
-#customers-page .right-items {
-  display: none;
-}
-
 #customers-page .customers {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1096,5 +1079,90 @@ footer .footer-content #footer-stamp {
   color: #6d7587;
   margin: 0;
   font-size: 1.24vw;
+}
+
+#reviews {
+  padding: 2vh 14vw 0 0;
+}
+
+#reviews .left-items img {
+  height: unset;
+}
+
+#reviews .reviews .review {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 2% 0;
+}
+
+#reviews .reviews .review-quote {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 2%;
+}
+
+#reviews .reviews .review-quote .square-button img {
+  width: 1.355vw;
+}
+
+#reviews .reviews .review-content .review-user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #6d7587;
+}
+
+#reviews .reviews .review-content .review-user-info .user-info-img img {
+  height: 3.3335vw;
+}
+
+#reviews .reviews .review-content .review-user-info .user-info-data {
+  margin-left: 2%;
+}
+
+#reviews .reviews .review-content .review-user-info .user-info-data h2,
+#reviews .reviews .review-content .review-user-info .user-info-data h6 {
+  margin: 0;
+}
+
+#reviews .reviews .review-content .review-user-info .user-info-data h2 {
+  font-weight: 700;
+  font-size: 1.05vw;
+}
+
+#reviews .reviews .review-content .review-user-info .user-info-data h6 {
+  font-weight: 500;
+  font-size: 0.85vw;
+}
+
+#reviews .reviews .review-content .review-text p {
+  color: #8a92a5;
+  font-weight: 500;
+  font-size: 0.8vw;
+  margin: 1% 0 0 0;
+}
+
+@media (min-width: 1920px) {
+  #reviews {
+    padding: 3vh 15vw 0vh 0;
+  }
+  #reviews .reviews .review {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 2% 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */
