@@ -527,6 +527,13 @@ footer .footer-content #footer-stamp {
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
+  -webkit-transition: all 3s ease-out;
+  transition: all 3s ease-out;
+}
+
+.news-slider-container .news-item {
+  -webkit-transition: all 3s ease-out;
+  transition: all 3s ease-out;
 }
 
 .news-slider-container .news-item .news-image {

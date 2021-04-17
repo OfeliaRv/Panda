@@ -2,8 +2,10 @@
     &-container {
         display: flex;
         overflow: hidden;
+        transition: all 3s ease-out;
 
         .news-item {
+            transition: all 3s ease-out;
             .news-image {
                 width: 18.75vw;
             }
@@ -71,4 +73,3 @@
         }
     }
 }
-

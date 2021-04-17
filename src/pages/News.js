@@ -5,8 +5,10 @@ import MainSection from '../components/MainSection'
 
 const News = () => {
 
-    const { newsData } = useContext(DataContext);
+    const { newsData, clickedNews } = useContext(DataContext);
     const [news] = newsData;
+    const [clickedN] = clickedNews;
+
     return (
         <div id="news">
             <MainSection>
@@ -16,12 +18,12 @@ const News = () => {
                 <NewsLine />
                 <div className="news-container">
                     <div className="main-heading">
-                        <h1>Heading</h1>
+                        <h1>{news[clickedN].title}</h1>
                     </div>
                     <div className="news-data">
-                        <img src={news[0].photo} alt="imgjd" />
+                        <img src={news[clickedN].photo} alt="imgjd" />
                         <div className="news-text">
-                            <p>{news[0].text}</p>
+                            <p>{news[clickedN].text}</p>
                         </div>
                     </div>
                 </div>
