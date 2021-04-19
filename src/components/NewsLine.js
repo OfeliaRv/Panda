@@ -9,7 +9,7 @@ export const NewsLine = () => {
     const [firstS, setfirstS] = firstSlide;
     const [lastS, setlastS] = lastSlide;
     const [clickedS, setclickedS] = clickedSlide;
-    const [setclickedN] = clickedNews;
+    const [clickedN, setclickedN] = clickedNews;
 
     var dots = [];
     const dots_num = Math.ceil(news.length / 5);
