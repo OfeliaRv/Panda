@@ -186,6 +186,16 @@ export const DataProvider = props => {
         }
     ]);
 
+    // FORUM DATA
+    const [forumData, setforumData] = useState([
+        {
+            id: 1,
+        },
+        {
+            id: 2,
+        }
+    ]);
+
     const provider_values = {
         widgetData: [widget, setWidget],
         productData: [product, setProduct],
@@ -197,7 +207,8 @@ export const DataProvider = props => {
         lastSlide: [lastSlide, setlastSlide],
         clickedSlide: [clickedSlide, setclickedSlide],
         clickedNews: [clickedNews, setclickedNews],
-        reviewData: [review, setReview]
+        reviewData: [review, setReview],
+        forumData: [forumData, setforumData]
     };
 
     return (

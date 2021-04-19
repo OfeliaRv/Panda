@@ -7,6 +7,7 @@ import ProductPage from './pages/ProductPage'
 import Customers from './pages/Customers'
 import News from './pages/News'
 import Reviews from './pages/Reviews'
+import Forum from './pages/Forum'
 
 const App = () => {
     return (
@@ -20,6 +21,7 @@ const App = () => {
                         <Route exact path="/customers" component={Customers} />
                         <Route exact path="/reviews" component={Reviews}></Route>
                         <Route exact path="/news" component={News} />
+                        <Route exact path="/forum" component={Forum} />
                         <Route path="*">
                             <div style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <h1 style={{ textAlign: 'center', color: '#6D7587' }}>PAGE NOT FOUND</h1>

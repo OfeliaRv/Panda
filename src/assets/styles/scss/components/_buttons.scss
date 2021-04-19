@@ -1,4 +1,7 @@
-button, .white-button, .grey-button, .slide-button {
+button,
+.white-button,
+.grey-button,
+.slide-button {
     cursor: pointer;
     outline: none;
 }
@@ -22,8 +25,9 @@ button, .white-button, .grey-button, .slide-button {
     background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #8a92a5;
     background-blend-mode: soft-light, normal;
     box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-    border-radius: 13px;
+    border-radius: 0.7vw;
     color: white;
+    font-weight: 600;
     border: none;
     text-align: center;
 
@@ -38,11 +42,22 @@ button, .white-button, .grey-button, .slide-button {
     }
 }
 
-.square-button{
+.square-button,
+.round-button,
+.add-comment-button {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.square-button {
     border-radius: 22%;
     width: 3.65vw;
     height: 3.65vw;
+}
+
+.round-button {
+    border-radius: 100%;
+    width: 2.5vw;
+    height: 2.5vw;
 }
