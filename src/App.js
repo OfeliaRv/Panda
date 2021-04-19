@@ -8,6 +8,7 @@ import Customers from './pages/Customers'
 import News from './pages/News'
 import Reviews from './pages/Reviews'
 import Forum from './pages/Forum'
+import Contacts from './pages/Contacts'
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
                         <Route exact path="/customers" component={Customers} />
                         <Route exact path="/reviews" component={Reviews}></Route>
                         <Route exact path="/news" component={News} />
+                        <Route exact path="/contacts" component={Contacts}></Route>
                         <Route exact path="/forum" component={Forum} />
                         <Route path="*">
                             <div style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

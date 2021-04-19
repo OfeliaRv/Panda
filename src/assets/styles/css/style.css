@@ -1181,6 +1181,90 @@ footer .footer-content #footer-stamp {
   }
 }
 
+#contacts {
+  height: 100%;
+}
+
+#contacts .main-section {
+  height: 100%;
+}
+
+#contacts .main-section .center-content {
+  overflow: visible;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#contacts .main-section .left-items {
+  margin: auto 2.5vw auto 4.5vw !important;
+}
+
+#contacts .main-section .left-items img {
+  height: unset;
+}
+
+#contacts .contacts-holder {
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#contacts .contacts-holder .contact-info {
+  width: 30%;
+}
+
+#contacts .contacts-holder .contact-info .contact-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 15% 0;
+}
+
+#contacts .contacts-holder .contact-info .contact-item img {
+  width: 1.2vw;
+  height: 1.2vw;
+}
+
+#contacts .contacts-holder .contact-info .contact-item p {
+  font-size: 1.2vw;
+  margin: 0 1vw;
+}
+
+#contacts .contacts-holder .contact-form {
+  width: 67%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+#contacts .contacts-holder .contact-form-container .form-line {
+  height: unset;
+}
+
+#contacts .contacts-holder .contact-form .contact-button {
+  width: 18%;
+  left: 2%;
+}
+
 #forum .center-content {
   overflow: visible;
 }
@@ -1249,11 +1333,11 @@ footer .footer-content #footer-stamp {
 }
 
 #forum .forum-container .forum .forum-item-rating .forum-upvote:hover path {
-  fill: #32B72E;
+  fill: #32b72e;
 }
 
 #forum .forum-container .forum .forum-item-rating .forum-downvote:hover path {
-  fill: #E55D5D;
+  fill: #e55d5d;
 }
 
 #forum .forum-container .forum .forum-item-rating p {

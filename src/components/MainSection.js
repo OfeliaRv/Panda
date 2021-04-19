@@ -3,6 +3,7 @@ import left_item_products from '../assets/img/left-item-products.svg'
 import left_item_customers from '../assets/img/left-item-customers.svg'
 import left_item_news from '../assets/img/left-item-news.svg'
 import left_item_reviews from '../assets/img/left-item-reviews.svg'
+import left_item_contacts from '../assets/img/left-item-contact.svg'
 import { useContext } from 'react'
 import { DataContext } from '../DataContext'
 import { Route } from 'react-router'
@@ -103,6 +104,9 @@ const MainSection = ({ children }) => {
                     </Route>
                     <Route path="/news">
                         <img src={left_item_news} alt="News" />
+                    </Route>
+                    <Route path="/contacts">
+                        <img src={left_item_contacts} alt="Contact" />
                     </Route>
                 </div>
                 <div id={'center' + clicked} className="center-content">
