@@ -1,1 +1,148 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #f7f7fc;
+  margin: 0;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+}
+
+#layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+#layout .main-content {
+  height: 100%;
+  width: 100%;
+}
+
+nav {
+  background-color: #fff;
+  height: 10%;
+  width: 100%;
+  -webkit-box-shadow: 0 0 2rem 0 rgba(33, 37, 41, 0.1);
+          box-shadow: 0 0 2rem 0 rgba(33, 37, 41, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 1%;
+}
+
+nav .nav-part {
+  height: 100%;
+  width: 18%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .nav-part span {
+  color: #495057;
+  cursor: pointer;
+  margin: 0 2%;
+  font-size: 2vw;
+}
+
+nav .nav-part .logo {
+  width: 20%;
+  height: 60%;
+  margin: 0 5%;
+}
+
+nav .nav-part .logo img {
+  height: 100%;
+}
+
+nav .nav-part .admin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+nav .nav-part .admin-img {
+  width: 3vw;
+  height: 3vw;
+  border-radius: 0.5vw;
+  margin: 0 5%;
+}
+
+nav .nav-part .admin p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  font-size: 1vw;
+  margin: 0;
+}
+
+nav .nav-part .admin p span {
+  font-size: 1.2vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav:nth-child(2) {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#sidebar {
+  width: 20%;
+  height: 100%;
+  background-color: #222e3c;
+}
+
+#sidebar .sidebar-items-holder {
+  height: 100%;
+}
+
+#sidebar .sidebar-items-holder .sidebar-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10%;
+  color: #e9ecef;
+  height: 7%;
+}
+
+#sidebar .sidebar-items-holder .sidebar-item .sidebar-name {
+  margin: 0;
+  font-size: .9vw;
+}
+
+#sidebar .sidebar-items-holder .sidebar-item:hover .sidebar-name {
+  margin-left: 2%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+/*# sourceMappingURL=style.css.map */

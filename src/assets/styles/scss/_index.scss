@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-color: #f7f7fc;
+    margin: 0;
+}
+
+.App {
+    height: 100vh;
+    width: 100vw;
+}
+
+#layout {
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    .main-content {
+        height: 100%;
+        width: 100%;
+    }
+}

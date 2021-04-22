@@ -1,0 +1,31 @@
+#sidebar {
+    width: 20%;
+    height: 100%;
+    background-color: #222e3c;
+
+    .sidebar-items-holder {
+        height: 100%;
+
+        .sidebar-item {
+            display: flex;
+            cursor: pointer;
+            // justify-content: space-between;
+            align-items: center;
+            padding: 0 10%;
+            color: #e9ecef;
+            height: 7%;
+
+            .sidebar-name{
+                margin: 0;
+                font-size: .9vw;
+            }
+
+            &:hover{
+                .sidebar-name{
+                    margin-left: 2%;
+                    transition: 0.5s;
+                }
+            }
+        }
+    }
+}

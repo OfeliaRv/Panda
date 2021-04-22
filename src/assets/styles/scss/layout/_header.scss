@@ -1,0 +1,63 @@
+nav {
+    background-color: #fff;
+    height: 10%;
+    width: 100%;
+    box-shadow: 0 0 2rem 0 rgba(33, 37, 41, 0.1);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1%;
+
+    .nav-part {
+        height: 100%;
+        width: 18%;
+        display: flex;
+        align-items: center;
+
+        span {
+            color: #495057;
+            cursor: pointer;
+            margin: 0 2%;
+            font-size: 2vw;
+        }
+
+        .logo {
+            width: 20%;
+            height: 60%;
+            margin: 0 5%;
+
+            img {
+                height: 100%;
+            }
+        }
+
+        .admin {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            &-img {
+                width: 3vw;
+                height: 3vw;
+                border-radius: 0.5vw;
+                margin: 0 5%;
+            }
+
+            p {
+                display: flex;
+                width: 100%;
+                font-size: 1vw;
+                margin: 0;
+
+                span {
+                    font-size: 1.2vw;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+nav:nth-child(2) {
+    justify-content: flex-end;
+}
