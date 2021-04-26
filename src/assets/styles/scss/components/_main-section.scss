@@ -37,17 +37,21 @@
         overflow: hidden;
     }
 
-    #right0 {
-        .next-button {
-            margin-bottom: 2vh;
-        }
-    }
+    //     #right0 {
+    // height: 24vw;
+    // .selector-buttons-group{
+    //     top: -10%;
+    // }
+    // .next-button {
+    //     margin-bottom: 2vh;
+    // }
+    //}
 
-    #right1 {
-        .next-button {
-            margin-bottom: 35%;
-        }
-    }
+    // #right1 {
+    //     .next-button {
+    //         margin-bottom: 35%;
+    //     }
+    // }
 
     .right-items {
         position: relative;
@@ -60,7 +64,8 @@
         .selector-buttons-group {
             margin-left: auto;
             position: relative;
-            bottom: 20%;
+            // bottom: 20%;
+            bottom: 4.5vw;
 
             .selector-button-container {
                 .button-stroke {
@@ -145,5 +150,9 @@
                 font-size: 2.2vw !important;
             }
         }
+    }
+
+    .right-items {
+        height: 22vw;
     }
 }
