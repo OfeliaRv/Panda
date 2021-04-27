@@ -31,6 +31,23 @@
             flex-direction: column;
             align-items: center;
 
+            #register {
+                justify-content: center;
+
+                .check {
+                    label {
+                        display: block !important;
+                    }
+                }
+
+                [type="checkbox"]:not(:checked) + label:after,
+                [type="checkbox"]:checked + label:after {
+                    top: 30%;
+                    left: 3%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
             .auth-container {
                 width: 48%;
                 height: 100%;
@@ -91,11 +108,15 @@
                             }
 
                             label {
-                                font-size: 1vw;
-                                height: 1.7vw;
+                                font-size: 0.9vw;
+                                height: 1.5vw;
                                 display: flex;
                                 align-items: center;
                                 color: $textcolor2;
+
+                                span {
+                                    font-weight: 600;
+                                }
                             }
                         }
 
@@ -126,8 +147,8 @@
                         position: absolute;
                         left: 0;
                         top: 0;
-                        width: 1.6vw;
-                        height: 1.6vw;
+                        width: 1.3vw;
+                        height: 1.3vw;
                         background: #fff;
                         border-radius: 0.2em;
                         background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%),
@@ -142,7 +163,7 @@
                         content: "\2022"; // •
                         position: absolute;
                         top: 30%;
-                        left: 3%;
+                        left: 2%;
                         font-size: 3.5vw;
                         color: $textcolor1;
                         background-blend-mode: soft-light, normal;
@@ -161,15 +182,33 @@
                     button {
                         width: 100%;
                         height: 13%;
-                        margin: 7% 0;
+                        margin: 7% 0 4% 0;
                         font-size: 1.4vw;
+                    }
+
+                    .google-button {
+                        color: $textcolor2;
+                        font-weight: 600;
+                        border-radius: 0.7vw;
+                        text-align: center;
+                        border: none;
+                        margin: unset !important;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        &:hover {
+                            #google-icon {
+                                background-image: url("../../../assets/img/google-color.svg");
+                            }
+                        }
                     }
 
                     p {
                         color: $textcolor2;
                         font-weight: 500;
                         font-size: 1vw;
-                        margin: 0;
+                        margin: 2% 0 0 0;
 
                         a {
                             font-weight: 700;
@@ -239,4 +278,13 @@
             left: 2.5%;
         }
     }
+}
+
+#google-icon {
+    transition: all 0.2s;
+    background-image: url("../../../assets/img/google-grey.svg");
+    width: 1.5vw;
+    height: 1.5vw;
+    background-repeat: no-repeat;
+    margin: 0 3% 0 0;
 }

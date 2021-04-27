@@ -12,6 +12,7 @@ const App = () => {
                 <Switch>
                     <Route exact path="/" component={Site} />
                     <Route path="/login" component={Auth} />
+                    <Route path="/register" component={Auth} />
                     <Route path="*">
                         <div style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
                             <h1 style={{ textAlign: 'center', color: '#6D7587' }}>PAGE NOT FOUND</h1>

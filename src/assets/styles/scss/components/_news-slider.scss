@@ -2,7 +2,7 @@
     &-container {
         display: flex;
         overflow: hidden;
-        transition: all 3s ease-out;
+        transition: transform 0.5s ease-out;
 
         .news-item {
             transition: all 3s ease-out;
@@ -14,9 +14,7 @@
 
             .news-info {
                 h6 {
-                    // margin: 1.41vh 0 1.6vh 0;
                     margin: 1vh 0 1.2vh 0;
-                    // font-size: 1.5vw;
                     font-size: 1.4vw;
                     font-weight: 500;
                     color: $textcolor2;
@@ -27,7 +25,6 @@
                 }
 
                 img {
-                    // width: 1.15vw;
                     width: 1.1vw;
                 }
             }

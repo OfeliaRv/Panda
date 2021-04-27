@@ -638,8 +638,10 @@ footer .footer-content #footer-stamp {
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
-  -webkit-transition: all 3s ease-out;
-  transition: all 3s ease-out;
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  transition: -webkit-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
+  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
 }
 
 .news-slider-container .news-item {
@@ -1673,6 +1675,24 @@ footer .footer-content #footer-stamp {
           align-items: center;
 }
 
+#auth .auth-card-right #register {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#auth .auth-card-right #register .check label {
+  display: block !important;
+}
+
+#auth .auth-card-right #register [type="checkbox"]:not(:checked) + label:after,
+#auth .auth-card-right #register [type="checkbox"]:checked + label:after {
+  top: 30%;
+  left: 3%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
 #auth .auth-card-right .auth-container {
   width: 48%;
   height: 100%;
@@ -1759,8 +1779,8 @@ footer .footer-content #footer-stamp {
 }
 
 #auth .auth-card-right .auth-container .auth-form .form-tools .check label {
-  font-size: 1vw;
-  height: 1.7vw;
+  font-size: 0.9vw;
+  height: 1.5vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1768,6 +1788,10 @@ footer .footer-content #footer-stamp {
       -ms-flex-align: center;
           align-items: center;
   color: #6d7587;
+}
+
+#auth .auth-card-right .auth-container .auth-form .form-tools .check label span {
+  font-weight: 600;
 }
 
 #auth .auth-card-right .auth-container .auth-form .form-tools a {
@@ -1797,8 +1821,8 @@ footer .footer-content #footer-stamp {
   position: absolute;
   left: 0;
   top: 0;
-  width: 1.6vw;
-  height: 1.6vw;
+  width: 1.3vw;
+  height: 1.3vw;
   background: #fff;
   border-radius: 0.2em;
   background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
@@ -1813,7 +1837,7 @@ footer .footer-content #footer-stamp {
   content: "\2022";
   position: absolute;
   top: 30%;
-  left: 3%;
+  left: 2%;
   font-size: 3.5vw;
   color: #8a92a5;
   background-blend-mode: soft-light, normal;
@@ -1833,15 +1857,37 @@ footer .footer-content #footer-stamp {
 #auth .auth-card-right .auth-container .auth-form button {
   width: 100%;
   height: 13%;
-  margin: 7% 0;
+  margin: 7% 0 4% 0;
   font-size: 1.4vw;
+}
+
+#auth .auth-card-right .auth-container .auth-form .google-button {
+  color: #6d7587;
+  font-weight: 600;
+  border-radius: 0.7vw;
+  text-align: center;
+  border: none;
+  margin: unset !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#auth .auth-card-right .auth-container .auth-form .google-button:hover #google-icon {
+  background-image: url("../../../assets/img/google-color.svg");
 }
 
 #auth .auth-card-right .auth-container .auth-form p {
   color: #6d7587;
   font-weight: 500;
   font-size: 1vw;
-  margin: 0;
+  margin: 2% 0 0 0;
 }
 
 #auth .auth-card-right .auth-container .auth-form p a {
@@ -1909,5 +1955,15 @@ footer .footer-content #footer-stamp {
     top: 28%;
     left: 2.5%;
   }
+}
+
+#google-icon {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  background-image: url("../../../assets/img/google-grey.svg");
+  width: 1.5vw;
+  height: 1.5vw;
+  background-repeat: no-repeat;
+  margin: 0 3% 0 0;
 }
 /*# sourceMappingURL=style.css.map */
