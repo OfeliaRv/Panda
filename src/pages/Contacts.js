@@ -13,19 +13,19 @@ const Contacts = () => {
                     <div className="contact-info">
                         <div className="contact-item">
                             <img src={location} alt="mail" />
-                            <p>location</p>
+                            <p>59, Rashid Behbudov str.,<br />Baku, Azerbaijan, AZ1022</p>
                         </div>
                         <div className="contact-item">
                             <img src={phone} alt="mail" />
-                            <p>555 44 33</p>
+                            <p>+994 12 497 3737</p>
                         </div>
                         <div className="contact-item">
                             <img src={fax} alt="mail" />
-                            <p>fax</p>
+                            <p>+994 12 498 1993</p>
                         </div>
                         <div className="contact-item">
                             <img src={mail} alt="mail" />
-                            <p>mail</p>
+                            <p>pandasales@risk.az<br/>pandasupport@risk.az<br/>pandasupport@risk.az</p>
                         </div>
                     </div>
                     <ContactForm />

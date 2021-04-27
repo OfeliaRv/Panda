@@ -1,0 +1,242 @@
+#auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    .auth-card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        & > div {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        &-left {
+            background-color: $textcolor1;
+            align-items: center;
+            width: 45%;
+
+            img {
+                width: 20.21vw;
+                height: 6.355vw;
+            }
+        }
+
+        &-right {
+            width: 55%;
+            flex-direction: column;
+            align-items: center;
+
+            .auth-container {
+                width: 48%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+
+                .auth-heading {
+                    color: $textcolor2;
+                    font-weight: 600;
+                    font-size: 2.2vw;
+                    margin: 5% 0;
+                }
+
+                .auth-form {
+                    height: 60%;
+
+                    .input-holder {
+                        display: flex;
+                        flex-direction: column;
+                        height: 20%;
+                        margin-top: 3%;
+
+                        label {
+                            color: $textcolor2;
+                            font-size: 1.1vw;
+                            margin-bottom: 2%;
+                            margin-left: 4%;
+                        }
+
+                        img {
+                            height: 1.4vw;
+                            margin-left: 83%;
+                            margin-top: -8%;
+                            cursor: pointer;
+                        }
+
+                        input {
+                            height: 56%;
+                            padding-left: 2.3vw;
+                            font-size: 1.1vw;
+                        }
+                    }
+
+                    .form-tools {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-top: 2%;
+
+                        .check {
+                            display: flex;
+                            align-items: center;
+
+                            input {
+                                width: 1.6vw;
+                                height: 1.6vw;
+                            }
+
+                            label {
+                                font-size: 1vw;
+                                height: 1.7vw;
+                                display: flex;
+                                align-items: center;
+                                color: $textcolor2;
+                            }
+                        }
+
+                        a {
+                            font-weight: 500;
+                            font-size: 1vw;
+                            color: $textcolor2;
+                            margin: 0;
+                        }
+                    }
+
+                    [type="checkbox"]:not(:checked),
+                    [type="checkbox"]:checked {
+                        position: absolute;
+                        left: 0;
+                        opacity: 0.01;
+                    }
+                    [type="checkbox"]:not(:checked) + label,
+                    [type="checkbox"]:checked + label {
+                        position: relative;
+                        padding-left: 2.3em;
+                        cursor: pointer;
+                    }
+
+                    [type="checkbox"]:not(:checked) + label:before,
+                    [type="checkbox"]:checked + label:before {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 1.6vw;
+                        height: 1.6vw;
+                        background: #fff;
+                        border-radius: 0.2em;
+                        background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%),
+                            #ebecf0;
+                        background-blend-mode: soft-light, normal;
+                        border: 1px solid rgba(255, 255, 255, 0.4);
+                        box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
+                    }
+
+                    [type="checkbox"]:not(:checked) + label:after,
+                    [type="checkbox"]:checked + label:after {
+                        content: "\2022"; // •
+                        position: absolute;
+                        top: 30%;
+                        left: 3%;
+                        font-size: 3.5vw;
+                        color: $textcolor1;
+                        background-blend-mode: soft-light, normal;
+                        box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
+                        line-height: 0;
+                        -webkit-transition: all 0.2s;
+                        transition: all 0.2s;
+                    }
+
+                    [type="checkbox"]:not(:checked) + label:after {
+                        opacity: 0;
+                        -webkit-transform: scale(0) rotate(45deg);
+                        transform: scale(0) rotate(45deg);
+                    }
+
+                    button {
+                        width: 100%;
+                        height: 13%;
+                        margin: 7% 0;
+                        font-size: 1.4vw;
+                    }
+
+                    p {
+                        color: $textcolor2;
+                        font-weight: 500;
+                        font-size: 1vw;
+                        margin: 0;
+
+                        a {
+                            font-weight: 700;
+                            color: $textcolor2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        margin: 3% 0;
+
+        p {
+            font-weight: 500;
+            margin: 0;
+            font-size: 1vw;
+        }
+    }
+}
+
+.socials {
+    width: 50%;
+    height: 10%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+
+    .social-item {
+        width: 3.14vw;
+        height: 3.14vw;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 1.3vw;
+            height: 1.5vw;
+        }
+    }
+}
+
+@media (min-width: 1920px) {
+    #auth {
+        .auth-heading {
+            font-size: 2.6vw;
+        }
+
+        .auth-form {
+            .input-holder {
+                label {
+                    font-size: 1.3vw !important;
+                }
+
+                input {
+                    font-size: 1.3vw !important;
+                }
+            }
+        }
+
+        [type="checkbox"]:not(:checked) + label:after,
+        [type="checkbox"]:checked + label:after {
+            top: 28%;
+            left: 2.5%;
+        }
+    }
+}

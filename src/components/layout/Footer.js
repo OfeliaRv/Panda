@@ -8,7 +8,7 @@ const Footer = () => {
         <footer>
             <div className="footer-content">
                 <img id="copyright" src={copyright_item} alt="c"></img>
-                <p id="rights-text">&nbsp;&nbsp; 2020 &nbsp;&nbsp;Pandanavigation. All rights reserved.</p>
+                <p id="rights-text">&nbsp;&nbsp; 2021 &nbsp;&nbsp;Pandanavigation. All rights reserved.</p>
             </div>
             <div className="footer-content">
                 <div className="footer-col">

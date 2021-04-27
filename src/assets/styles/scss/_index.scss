@@ -30,13 +30,13 @@ div {
 
 #root {
     height: 100%;
-    padding: 4.7vh 3.125vw 1vh 3.125vw;
 }
 
 .page-holder {
     height: 100%;
     display: flex;
     flex-direction: column;
+    padding: 4.7vh 3.125vw 1vh 3.125vw;
 }
 
 @media screen and (min-width: 1920px) {
@@ -46,7 +46,6 @@ div {
         align-items: center;
 
         #root {
-            padding: 2.61vw 3.125vw 1.1vw 3.125vw !important;
             background-blend-mode: soft-light, normal;
             box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
             border-radius: 2vw;
@@ -55,6 +54,10 @@ div {
             height: 51vw;
             width: 90%;
             overflow: hidden;
+
+            .page-holder {
+                padding: 2.61vw 3.125vw 1.1vw 3.125vw !important;
+            }
         }
     }
 }
@@ -74,3 +77,31 @@ $text-hover: #1654f0;
 $gradient: linear-gradient(239.57deg, #37dbe0 20.53%, #1758f1 79.85%); //navbar
 $forum-red: #e55d5d;
 $forum-green: #32b72e;
+
+///////////////  Input effects  ///////////////
+
+.form-input {
+    background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
+    background-blend-mode: soft-light, normal;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset -5px -5px 10px #fafbff, inset 5px 5px 10px #a6abbd;
+    border-radius: 2vw;
+    resize: none;
+    outline: none;
+
+    &::placeholder {
+        color: $textcolor2;
+    }
+
+    &:not(:focus),
+    &:focus {
+        color: $textcolor2;
+        font-size: inherit;
+    }
+
+    &:focus {
+        &::placeholder {
+            color: transparent;
+        }
+    }
+}

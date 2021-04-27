@@ -1,36 +1,24 @@
 import { DataProvider } from './DataContext'
-import Layout from './components/layout/Layout'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Products from './pages/Products'
-import ProductPage from './pages/ProductPage'
-import Customers from './pages/Customers'
-import News from './pages/News'
-import Reviews from './pages/Reviews'
-import Forum from './pages/Forum'
-import Contacts from './pages/Contacts'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import { createBrowserHistory } from 'history';
+import Auth from './Auth'
+import Site from './Site';
+const history = createBrowserHistory({ forceRefresh: true });
 
 const App = () => {
     return (
         <DataProvider>
-            <Router>
-                <Layout>
-                    <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route exact path="/products" component={Products} />
-                        <Route exact path="/products/:id" component={ProductPage} />
-                        <Route exact path="/customers" component={Customers} />
-                        <Route exact path="/reviews" component={Reviews}></Route>
-                        <Route exact path="/news" component={News} />
-                        <Route exact path="/contacts" component={Contacts}></Route>
-                        <Route exact path="/forum" component={Forum} />
-                        <Route path="*">
-                            <div style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <h1 style={{ textAlign: 'center', color: '#6D7587' }}>PAGE NOT FOUND</h1>
-                            </div>
-                        </Route>
-                    </Switch>
-                </Layout>
+            <Router history={history}>
+                <Switch>
+                    <Route exact path="/" component={Site} />
+                    <Route path="/login" component={Auth} />
+                    <Route path="*">
+                        <div style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+                            <h1 style={{ textAlign: 'center', color: '#6D7587' }}>PAGE NOT FOUND</h1>
+                            <Link to="/"><p style={{color:'#4d545e'}}>Go to Homepage</p></Link>
+                        </div>
+                    </Route>
+                </Switch>
             </Router>
         </DataProvider>
     );

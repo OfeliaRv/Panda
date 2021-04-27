@@ -28,11 +28,11 @@
         align-items: center;
 
         .contact-info {
-            width: 30%;
+            width: 28%;
 
             .contact-item {
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 margin: 15% 0;
 
                 img {
@@ -40,27 +40,42 @@
                     height: 1.2vw;
                 }
 
-                p{
-                    font-size: 1.2vw;
+                p {
+                    font-size: 1vw;
                     margin: 0 1vw;
+                    color: $textcolor3;
                 }
             }
         }
 
         .contact-form {
-            width: 67%;
+            width: 72%;
             height: max-content;
 
             &-container {
+                width: 100%;
+
                 .form-line {
                     height: unset;
+                }
+
+                label{
+                    font-size: 1.5vw;
                 }
             }
 
             .contact-button {
-                width: 18%;
+                width: 15%;
                 left: 2%;
             }
+        }
+    }
+}
+
+@media (min-width: 1920px) {
+    #contacts {
+        .contact-button {
+            width: 18% !important;
         }
     }
 }

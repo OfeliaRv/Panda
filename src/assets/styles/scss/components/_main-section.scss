@@ -3,7 +3,7 @@
     justify-content: center;
 
     .left-items {
-        margin: 5.2% 2.5vw 0 4.5vw;
+        margin: 4.5% 2.5vw 0 4.5vw;
 
         img {
             position: relative;
@@ -37,24 +37,7 @@
         overflow: hidden;
     }
 
-    //     #right0 {
-    // height: 24vw;
-    // .selector-buttons-group{
-    //     top: -10%;
-    // }
-    // .next-button {
-    //     margin-bottom: 2vh;
-    // }
-    //}
-
-    // #right1 {
-    //     .next-button {
-    //         margin-bottom: 35%;
-    //     }
-    // }
-
     .right-items {
-        position: relative;
         display: flex;
         align-items: flex-end;
         flex-direction: column;
@@ -62,12 +45,12 @@
         margin-left: 1.39%;
 
         .selector-buttons-group {
-            margin-left: auto;
             position: relative;
-            // bottom: 20%;
             bottom: 4.5vw;
 
             .selector-button-container {
+                margin: 0.53vw 0;
+
                 .button-stroke {
                     .button {
                         cursor: pointer;
@@ -79,7 +62,6 @@
                             #ebecf0;
                         background-blend-mode: soft-light, normal;
                         box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-                        margin: 0.53vw 0;
                         width: 1.88vw !important;
                         height: 1.88vw !important;
 
