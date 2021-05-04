@@ -1,7 +1,6 @@
 import { DataContext } from '../DataContext'
 import { useContext } from 'react'
 import date_icon from '../assets/img/date-icon.svg'
-import { Link } from 'react-router-dom';
 
 export const NewsLine = () => {
     const { newsData, firstSlide, lastSlide, clickedSlide, clickedNews } = useContext(DataContext);
@@ -30,7 +29,7 @@ export const NewsLine = () => {
             <div className="news-slider-container">
                 {news.slice(firstS, lastS).map(news =>
                     <div className="news-item" key={news.id} onClick={() => setclickedN(news.id)}>
-                        <Link to="/news">
+                        <a href="/news">
                             <div className="news-img">
                                 <img className="news-image" src={news.photo} alt="news" />
                             </div>
@@ -41,7 +40,7 @@ export const NewsLine = () => {
                                     <p>{news.date}</p>
                                 </div>
                             </div>
-                        </Link>
+                        </a>
                     </div>
                 )}
             </div>

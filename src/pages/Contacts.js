@@ -4,8 +4,14 @@ import mail from '../assets/img/mail.svg'
 import location from '../assets/img/location.svg'
 import phone from '../assets/img/phone.svg'
 import fax from '../assets/img/fax.svg'
+import { useEffect } from 'react'
 
 const Contacts = () => {
+
+    useEffect(() => {
+        document.title = "Panda Navigation - Contacts"
+    }, [])
+
     return (
         <div id="contacts">
             <MainSection>
@@ -25,7 +31,7 @@ const Contacts = () => {
                         </div>
                         <div className="contact-item">
                             <img src={mail} alt="mail" />
-                            <p>pandasales@risk.az<br/>pandasupport@risk.az<br/>pandasupport@risk.az</p>
+                            <p>pandasales@risk.az<br />pandasupport@risk.az<br />pandasupport@risk.az</p>
                         </div>
                     </div>
                     <ContactForm />

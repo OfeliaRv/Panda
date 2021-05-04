@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 import logo from './assets/img/logo_white.svg'
 import Login from './components/auth/Login'
 import copyright_item from './assets/img/copyright.svg'

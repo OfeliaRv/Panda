@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { DataContext } from '../DataContext'
 import MainSection from '../components/MainSection'
 import { Link } from 'react-router-dom'
@@ -9,14 +9,18 @@ const Products = () => {
     const [firstP] = firstProduct;
     const [lastP] = lastProduct;
 
+    useEffect(() => {
+        document.title = "Panda Navigation - Products"
+    }, [])
+
     return (
         <div id="products">
             <MainSection>
                 <div className="products">
                     {products.slice(firstP, lastP).map(product =>
-                        <Link to={`/products/${product.id}`} key={product.id}><div className="product white-button">
+                        <a href={`/products/${product.id}`} key={product.id}><div className="product white-button">
                             <h6>{product.name}</h6>
-                        </div></Link>
+                        </div></a>
                     )}
                 </div>
             </MainSection>

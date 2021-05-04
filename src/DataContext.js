@@ -221,9 +221,29 @@ export const DataProvider = props => {
     const [forumData, setforumData] = useState([
         {
             id: 1,
+            rating: 21,
+            status: "positive",
+            replies: [
+                {
+                    id: 1
+                },
+                {
+                    id: 2
+                }
+            ]
         },
         {
             id: 2,
+            rating: 5,
+            status: "negative",
+            replies: [
+                {
+                    id: 1
+                },
+                {
+                    id: 2
+                }
+            ]
         }
     ]);
 

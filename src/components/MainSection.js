@@ -153,13 +153,6 @@ const MainSection = ({ children }) => {
                         </svg>
                     </div>
                 </Route>
-                <Route path="/products/:id">
-                    <div className="next-button white-button square-button">
-                        <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
-                        </svg>
-                    </div>
-                </Route>
             </div>
         </section>
     );

@@ -1,11 +1,15 @@
 import map from '../assets/img/map.png'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { DataContext } from '../DataContext'
 import MainSection from '../components/MainSection'
 
 const Customers = () => {
     const { companyData } = useContext(DataContext);
     const [companies] = companyData;
+
+    useEffect(() => {
+        document.title = "Panda Navigation - Customers"
+    }, [])
 
     return (
         <div id="customers-page">

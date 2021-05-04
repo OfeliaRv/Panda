@@ -45,7 +45,7 @@ header {
 
                 &:hover {
                    p {
-                        background: $gradient;
+                        background: $hover-gradient;
                         background-clip: text;
                         -webkit-text-fill-color: transparent;
                     }
@@ -108,7 +108,7 @@ header {
                 cursor: pointer;
 
                 &:hover {
-                    color: $text-hover;
+                    color: $hover-color;
                 }
             }
         }

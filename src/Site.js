@@ -23,7 +23,8 @@ const Site = () => {
                     <Route path="/reviews" component={Reviews} />
                     <Route path="/news" component={News} />
                     <Route path="/contacts" component={Contacts} />
-                    <Route path="/forum" component={Forum} />
+                    <Route exact path="/forum" component={Forum} />
+                    <Route path="/forum/:id" component={Forum} />
                     <Route path="*">
                         <div style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
                             <h1 style={{ textAlign: 'center', color: '#6D7587' }}>PAGE NOT FOUND</h1>

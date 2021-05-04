@@ -1,5 +1,5 @@
 import { DataContext } from '../DataContext'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import MainSection from '../components/MainSection'
 import quotations from '../assets/img/quotations.svg'
 import user_photo from '../assets/img/user-photo.png'
@@ -7,6 +7,10 @@ import user_photo from '../assets/img/user-photo.png'
 const Reviews = () => {
     const { reviewData } = useContext(DataContext);
     const [reviews] = reviewData;
+
+    useEffect(() => {
+        document.title = "Panda Navigation - Reviews"
+    }, [])
 
     return (
         <div id="reviews">

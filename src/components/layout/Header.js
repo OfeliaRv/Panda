@@ -1,22 +1,21 @@
-import { Link } from 'react-router-dom'
 import logo from '../../assets/img/logo.svg'
 import person from '../../assets/img/person.svg'
 
 const Header = () => {
     return (
         <header>
-            <Link to="/"><div className="logo">
+            <a href="/"><div className="logo">
                 <img src={logo} alt="logo" />
-            </div></Link>
+            </div></a>
             <nav>
                 <ul className="navigation-list">
-                    <Link to="/"><li className="navigation-list-item"><p>Home</p></li></Link>
-                    <Link to="/products"><li className="navigation-list-item"><p>Products</p></li></Link>
-                    <Link to="/customers"><li className="navigation-list-item"><p>Customers</p></li></Link>
-                    <Link to="/reviews"><li className="navigation-list-item"><p>Reviews</p></li></Link>
-                    <Link to="/news"><li className="navigation-list-item"><p>News</p></li></Link>
-                    <Link to="/contacts"><li className="navigation-list-item"><p>Contacts</p></li></Link>
-                    <Link to="/forum"><li className="navigation-list-item"><p>Forum</p></li></Link>
+                    <a href="/"><li className="navigation-list-item"><p>Home</p></li></a>
+                    <a href="/products"><li className="navigation-list-item"><p>Products</p></li></a>
+                    <a href="/customers"><li className="navigation-list-item"><p>Customers</p></li></a>
+                    <a href="/reviews"><li className="navigation-list-item"><p>Reviews</p></li></a>
+                    <a href="/news"><li className="navigation-list-item"><p>News</p></li></a>
+                    <a href="/contacts"><li className="navigation-list-item"><p>Contacts</p></li></a>
+                    <a href="/forum"><li className="navigation-list-item"><p>Forum</p></li></a>
                 </ul>
             </nav>
             <div className="header-buttons">

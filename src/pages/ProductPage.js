@@ -1,13 +1,18 @@
 import { DataContext } from '../DataContext'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import MainSection from '../components/MainSection';
+import MainSection from '../components/MainSection'
 
 const ProductPage = () => {
     const { productData } = useContext(DataContext);
     const [products] = productData;
 
     const { id } = useParams();
+
+    useEffect(() => {
+        document.title = "Panda Navigation - " + products[id].name
+    }, [])
+
     return (
         <div id="product-page">
             <MainSection>

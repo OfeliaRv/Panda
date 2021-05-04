@@ -1,13 +1,17 @@
 import { DataContext } from '../DataContext'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import NewsLine from '../components/NewsLine'
 import MainSection from '../components/MainSection'
 
 const News = () => {
-
+    
     const { newsData, clickedNews } = useContext(DataContext);
     const [news] = newsData;
     const [clickedN] = clickedNews;
+
+    useEffect(() => {
+        document.title = "Panda Navigation - News - " + news[clickedN].title
+    }, [])
 
     return (
         <div id="news">

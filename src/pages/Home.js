@@ -12,6 +12,7 @@ const Home = () => {
     const [clicked, setClicked] = clickedItem;
 
     useEffect(() => {
+        document.title = "Panda Navigation - Home";
         if (clicked == null) {
             setClicked(0);
         }
