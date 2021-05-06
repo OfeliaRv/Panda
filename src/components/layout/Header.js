@@ -13,7 +13,7 @@ const Navbar = () => {
             <div className="nav-part">
                 <div className="admin">
                     <img className="admin-img" src={user} alt="admin-img" />
-                    <p>Name Surname <span class="material-icons">expand_more</span></p>
+                    <p>Name Surname <span className="material-icons">expand_more</span></p>
                 </div>
             </div>
         </nav>

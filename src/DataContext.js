@@ -19,11 +19,13 @@ export const DataProvider = props => {
             name: 'Products',
             icon: null
         }
-    ])
+    ]);
 
+    const [currentUser, setCurrentUser] = useState(null);
 
     const provider_values = {
-        sideNavbar: [sideNavbar, setsideNavbar]
+        sideNavbar: [sideNavbar, setsideNavbar],
+        currentUser: [currentUser, setCurrentUser]
     };
 
     return (

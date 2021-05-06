@@ -9,7 +9,7 @@ const Sidebar = () => {
         <div id="sidebar">
             <div className="sidebar-items-holder">
                 {sideNavbarItems.map(item =>
-                    <div className="sidebar-item">
+                    <div className="sidebar-item" key={item.id}>
                         <div className="sidebar-icon">{item.icon}</div>
                         <p className="sidebar-name">{item.name}</p>
                     </div>

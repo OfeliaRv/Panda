@@ -137,12 +137,192 @@ nav:nth-child(2) {
 
 #sidebar .sidebar-items-holder .sidebar-item .sidebar-name {
   margin: 0;
-  font-size: .9vw;
+  font-size: 0.9vw;
 }
 
 #sidebar .sidebar-items-holder .sidebar-item:hover .sidebar-name {
   margin-left: 2%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+}
+
+.auth-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.auth-container .auth-card {
+  width: 40%;
+  min-width: 500px;
+  height: 70%;
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 0px rgba(63, 63, 68, 0.05), 0px 1px 3px rgba(63, 63, 68, 0.15);
+          box-shadow: 0px 0px 0px rgba(63, 63, 68, 0.05), 0px 1px 3px rgba(63, 63, 68, 0.15);
+  border-radius: 0.5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+.auth-container .auth-card .auth-heading {
+  margin: 1% 3% 5% 2%;
+}
+
+.auth-container .auth-card .auth-heading h1 {
+  font-weight: 500;
+  font-size: 18px;
+  color: #212529;
+}
+
+.auth-container .auth-card .form {
+  width: 60%;
+  height: 50%;
+}
+
+.auth-container .auth-card #register-form {
+  height: 60%;
+}
+
+.auth-container .auth-card .auth-form {
+  width: 100%;
+  height: 100%;
+}
+
+.auth-container .auth-card .form,
+.auth-container .auth-card .auth-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.auth-container .auth-card .form input,
+.auth-container .auth-card .auth-form input {
+  height: 35%;
+  width: 100%;
+  margin: 2% 0;
+  border: 1px solid rgba(0, 0, 0, 0.32);
+  border-radius: 0.2vw;
+}
+
+.auth-container .auth-card .form input::-webkit-input-placeholder,
+.auth-container .auth-card .auth-form input::-webkit-input-placeholder {
+  font-size: 16px;
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.auth-container .auth-card .form input:-ms-input-placeholder,
+.auth-container .auth-card .auth-form input:-ms-input-placeholder {
+  font-size: 16px;
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.auth-container .auth-card .form input::-ms-input-placeholder,
+.auth-container .auth-card .auth-form input::-ms-input-placeholder {
+  font-size: 16px;
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.auth-container .auth-card .form input::placeholder,
+.auth-container .auth-card .auth-form input::placeholder {
+  font-size: 16px;
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.auth-container .auth-card .form .auth-button,
+.auth-container .auth-card .auth-form .auth-button {
+  background: #1f1caf;
+  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.12), 0px 1px 3px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  width: 100%;
+  height: 30%;
+  font-weight: 500;
+  font-size: 15px;
+  border: none;
+  letter-spacing: 0.1vw;
+  color: #fff;
+  border-radius: 0.2vw;
+}
+
+.auth-container .auth-card .form button,
+.auth-container .auth-card .form .auth-button-container,
+.auth-container .auth-card .auth-form button,
+.auth-container .auth-card .auth-form .auth-button-container {
+  margin-top: 24px;
+}
+
+.auth-container .auth-card .check {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.auth-container .auth-card .check input {
+  width: 20px;
+  height: 20px;
+}
+
+.auth-container .auth-card .check p {
+  margin: 0 1%;
+}
+
+@media (min-width: 1400px) {
+  .auth-card h1 {
+    font-size: 1.5vw;
+  }
+  .auth-card input::-webkit-input-placeholder {
+    font-size: 1vw;
+    letter-spacing: 0.1vw;
+  }
+  .auth-card input:-ms-input-placeholder {
+    font-size: 1vw;
+    letter-spacing: 0.1vw;
+  }
+  .auth-card input::-ms-input-placeholder {
+    font-size: 1vw;
+    letter-spacing: 0.1vw;
+  }
+  .auth-card input::placeholder {
+    font-size: 1vw;
+    letter-spacing: 0.1vw;
+  }
+  .auth-card .auth-button {
+    font-size: 1vw;
+  }
+  .auth-card .check input {
+    width: 1.2vw;
+    height: 1.2vw;
+  }
 }
 /*# sourceMappingURL=style.css.map */
