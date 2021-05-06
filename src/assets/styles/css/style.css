@@ -269,6 +269,7 @@ nav:nth-child(2) {
   letter-spacing: 0.1vw;
   color: #fff;
   border-radius: 0.2vw;
+  cursor: pointer;
 }
 
 .auth-container .auth-card .form button,

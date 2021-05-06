@@ -1,43 +1,32 @@
-import axios from 'axios';
-import { createBrowserHistory } from 'history';
+import axios from 'axios'
+import { createBrowserHistory } from 'history'
+import { useState } from 'react'
 
 const history = createBrowserHistory();
 
 const Register = () => {
 
+    const [data, setData] = useState([]);
+
     const registerHandler = e => {
         e.preventDefault();
 
-        const data = {
-            username: this.username,
-            fullname: this.fullname,
-            email: this.email,
-            password: this.password
+        console.log(data);
 
-            // add repeat password 
-        }
-
-        console.log(data.json());
-
-        axios.post(`auth/administrator/register`, data)
+        axios.post(`http://localhost:42998/api/Authentication/register`, data)
             .then(res => {
                 setUser(
-                    [
-                        {
-                            username: this.username,
-                            fullname: this.fullname,
-                            email: data.email,
-                            token: res.data.token,
-                            password: data.password
-                        }
-                    ]
+                    {
+                        username: data.username,
+                        fullname: data.fullname,
+                        email: data.email,
+                        token: res.data.token,
+                        password: data.password
+                    }
                 )
-                // localStorage.setItem('token', res.data.token);
-                // localStorage.setItem('user-email', data.email);
-                // localStorage.setItem('user-password', data.password);
-                // localStorage.setItem('user-type', "Administrator");
-                history.push('dashboard');
-                console.log("Admin Register Successful!");
+                localStorage.setItem('token', res.data.token);
+                history.push('/');
+                alert("Admin Register Successful!");
             })
             .catch(err => {
                 console.log(err);
@@ -51,10 +40,10 @@ const Register = () => {
             </div>
             <form className="form" id="register-form" onSubmit={registerHandler}>
                 <div className="auth-form">
-                    <input type="text" name="username" placeholder="Username" onChange={e => this.username = e.target.value} required />
-                    <input type="text" name="fullname" placeholder="Full Name" onChange={e => this.fullname = e.target.value} required />
-                    <input type="email" name="email" placeholder="Email" onChange={e => this.email = e.target.value} required />
-                    <input type="password" name="password" placeholder="Password" onChange={e => this.password = e.target.value} required />
+                    <input type="text" name="username" placeholder="Username" onChange={e => setData(prevState => ({ ...prevState, username: e.target.value }))} required />
+                    <input type="text" name="fullname" placeholder="Full Name" onChange={e => setData(prevState => ({ ...prevState, fullname: e.target.value }))} required />
+                    <input type="email" name="email" placeholder="Email" onChange={e => setData(prevState => ({ ...prevState, email: e.target.value }))} required />
+                    <input type="password" name="password" placeholder="Password" onChange={e => setData(prevState => ({ ...prevState, password: e.target.value }))} required />
                 </div>
                 <button type="submit" className="auth-button">Sign up now</button>
             </form>
