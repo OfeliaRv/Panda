@@ -30,27 +30,6 @@
             }
         }
     }
-
-    .slider-buttons {
-        display: flex;
-        margin-top: 3.1vh;
-
-        .slide-button {
-            width: 0.7vw;
-            height: 0.7vw;
-            background-color: #848e9d;
-            border-radius: 100%;
-            margin-right: 0.47vw;
-
-            &:hover {
-                background-color: #4d545e;
-            }
-        }
-
-        .active-slide {
-            background-color: #4d545e;
-        }
-    }
 }
 
 @media (max-width: 1000px), (min-width: 1920px) {
@@ -67,10 +46,6 @@
                     }
                 }
             }
-        }
-
-        .slide-buttons {
-            margin-top: 2.3vw !important;
         }
     }
 }

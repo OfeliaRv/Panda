@@ -39,6 +39,19 @@ div {
     padding: 4.7vh 3.125vw 1vh 3.125vw;
 }
 
+.go-back {
+    width: max-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 3% 0 0 0;
+    cursor: pointer;
+
+    p {
+        margin: 0 0 0 0.5vw;
+    }
+}
+
 @media screen and (min-width: 1920px) {
     body {
         display: flex;

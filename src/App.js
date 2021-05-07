@@ -1,5 +1,5 @@
 import { DataProvider } from './DataContext'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Router, Switch, Route } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import Site from './Site'
 import Login from './components/auth/Login'

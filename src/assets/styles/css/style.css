@@ -46,6 +46,27 @@ div {
   padding: 4.7vh 3.125vw 1vh 3.125vw;
 }
 
+.go-back {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 3% 0 0 0;
+  cursor: pointer;
+}
+
+.go-back p {
+  margin: 0 0 0 0.5vw;
+}
+
 @media screen and (min-width: 1920px) {
   body {
     display: -webkit-box;
@@ -106,6 +127,35 @@ div {
   font-family: "Montserrat", sans-serif;
   src: url("../../fonts/Montserrat-Bold.otf");
   font-weight: 700;
+}
+
+.slider-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 3.1vh;
+}
+
+.slider-buttons .slide-button {
+  width: 0.7vw;
+  height: 0.7vw;
+  background-color: #848e9d;
+  border-radius: 100%;
+  margin-right: 0.47vw;
+}
+
+.slider-buttons .slide-button:hover {
+  background-color: #4d545e;
+}
+
+.slider-buttons .active-slide {
+  background-color: #4d545e;
+}
+
+@media (max-width: 1000px), (min-width: 1920px) {
+  .slide-buttons {
+    margin-top: 2.3vw !important;
+  }
 }
 
 button,
@@ -293,6 +343,7 @@ header nav .navigation-list-item {
 header nav .navigation-list-item p {
   color: #6d7587;
   font-size: 1.15vw;
+  font-weight: 400;
 }
 
 header nav .navigation-list-item:hover p {
@@ -352,6 +403,7 @@ header .header-buttons .auth-button p {
   margin: 0 auto;
   color: #4d545e;
   font-size: 1vw;
+  font-weight: 400;
 }
 
 header .header-buttons .lang-select {
@@ -699,38 +751,12 @@ footer .footer-content #footer-stamp {
   width: 1.1vw;
 }
 
-.news-slider .slider-buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-top: 3.1vh;
-}
-
-.news-slider .slider-buttons .slide-button {
-  width: 0.7vw;
-  height: 0.7vw;
-  background-color: #848e9d;
-  border-radius: 100%;
-  margin-right: 0.47vw;
-}
-
-.news-slider .slider-buttons .slide-button:hover {
-  background-color: #4d545e;
-}
-
-.news-slider .slider-buttons .active-slide {
-  background-color: #4d545e;
-}
-
 @media (max-width: 1000px), (min-width: 1920px) {
   .news-slider-container .news-item .news-image {
     height: unset !important;
   }
   .news-slider-container .news-item .news-info h6 {
     margin: 0.8vw 0 0.9vw 0 !important;
-  }
-  .news-slider .slide-buttons {
-    margin-top: 2.3vw !important;
   }
 }
 
@@ -1144,6 +1170,7 @@ footer .footer-content #footer-stamp {
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  overflow-y: scroll;
 }
 
 #customers-page .customers .companies-list .company-item {
@@ -1747,7 +1774,7 @@ footer .footer-content #footer-stamp {
 }
 
 #login .login-container .login-form {
-  height: 60%;
+  height: 66%;
 }
 
 #login .input-holder {
@@ -1758,7 +1785,7 @@ footer .footer-content #footer-stamp {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 20%;
+  height: 23%;
   margin-top: 3%;
 }
 
