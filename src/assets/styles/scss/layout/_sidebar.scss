@@ -1,10 +1,14 @@
 #sidebar {
     width: 20%;
-    height: 100%;
     background-color: #222e3c;
+
+    animation: sidebar-animation-open 1s ease-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
 
     .sidebar-items-holder {
         height: 100%;
+        position: relative;
 
         .sidebar-item {
             display: flex;
@@ -12,7 +16,8 @@
             align-items: center;
             padding: 0 10%;
             color: #e9ecef;
-            height: 7%;
+            height: 4%;
+            min-height: 67px;
 
             .sidebar-name {
                 margin: 0;
@@ -26,5 +31,33 @@
                 }
             }
         }
+    }
+}
+
+.sidebar-active {
+    animation: sidebar-animation-close 1s ease-out !important;
+    animation-fill-mode: forwards !important;
+    animation-iteration-count: 1 !important;
+
+    .sidebar-items-holder {
+        display: none !important;
+    }
+}
+
+@keyframes sidebar-animation-open {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 20%;
+    }
+}
+
+@keyframes sidebar-animation-close {
+    from {
+        width: 20%;
+    }
+    to {
+        width: 0%;
     }
 }

@@ -1,37 +1,33 @@
 import Layout from "../components/layout/Layout"
-import { Editor } from '@tinymce/tinymce-react';
 import { DataContext } from '../DataContext'
 import { useContext } from 'react'
-import Auth from "./Auth";
+import { Route } from "react-router"
+import Auth from "./Auth"
+import News from "./News"
+import AddNews from "../components/AddNews"
+import Products from "./Products"
+import AddProduct from "../components/AddProduct"
 
 const Dashboard = () => {
-    const { currentUser } = useContext(DataContext);
-    const [user, setUser] = currentUser;
+    // const { currentUser } = useContext(DataContext);
+    // const [user, setUser] = currentUser;
 
-    const handleEditorChange = (e) => {
-        console.log('Content was updated:', e.target.getContent());
-    }
-
-    if (user === null || user === undefined) {
-        return (
-            <Auth />
-        )
-    }
-    else {
-        return (
-            <Layout>
-                <Editor
-                    apiKey="mvg3ckngqlx3wg04j15oifuabymhabh11i2h6rnbkx0po4cs"
-                    initialValue="<p>This is the initial content of the editor</p>"
-                    init={{
-                        plugins: 'link image code',
-                        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
-                    }}
-                    onChange={handleEditorChange}
-                />
-            </Layout>
-        );
-    }
+    // if (user === null || user === undefined) {
+    //     return (
+    //         <Auth />
+    //     )
+    // }
+    // else {
+    return (
+        <Layout>
+            <Route exact path="/" component={News} />
+            <Route path="/news" component={News} />
+            <Route path="/addnews" component={AddNews} />
+            <Route path="/products" component={Products} />
+            <Route path="/addproduct" component={AddProduct} />
+        </Layout>
+    );
+    // }
 }
 
 export default Dashboard;

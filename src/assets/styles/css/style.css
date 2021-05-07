@@ -5,13 +5,9 @@
 }
 
 body {
-  background-color: #f7f7fc;
+  background-color: #f7f7fc !important;
   margin: 0;
-}
-
-.App {
-  height: 100vh;
-  width: 100vw;
+  overflow-x: hidden;
 }
 
 #layout {
@@ -25,6 +21,33 @@ body {
 #layout .main-content {
   height: 100%;
   width: 100%;
+}
+
+.dashboard {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.add-button {
+  background-color: #3b7ddd;
+  border-radius: 0.2vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+  font-size: 1.2vw;
 }
 
 nav {
@@ -43,7 +66,6 @@ nav {
 }
 
 nav .nav-part {
-  height: 100%;
   width: 18%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -53,11 +75,11 @@ nav .nav-part {
           align-items: center;
 }
 
-nav .nav-part span {
-  color: #495057;
+nav .nav-part #menu-icon {
   cursor: pointer;
   margin: 0 2%;
-  font-size: 2vw;
+  width: 2vw;
+  height: 1.8vw;
 }
 
 nav .nav-part .logo {
@@ -78,6 +100,12 @@ nav .nav-part .admin {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+}
+
+nav .nav-part .admin #logout {
+  width: 1.2vw;
+  height: 1.2vw;
+  cursor: pointer;
 }
 
 nav .nav-part .admin-img {
@@ -114,12 +142,18 @@ nav:nth-child(2) {
 
 #sidebar {
   width: 20%;
-  height: 100%;
   background-color: #222e3c;
+  -webkit-animation: sidebar-animation-open 1s ease-out;
+          animation: sidebar-animation-open 1s ease-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
 }
 
 #sidebar .sidebar-items-holder {
   height: 100%;
+  position: relative;
 }
 
 #sidebar .sidebar-items-holder .sidebar-item {
@@ -132,7 +166,8 @@ nav:nth-child(2) {
           align-items: center;
   padding: 0 10%;
   color: #e9ecef;
-  height: 7%;
+  height: 4%;
+  min-height: 67px;
 }
 
 #sidebar .sidebar-items-holder .sidebar-item .sidebar-name {
@@ -144,6 +179,55 @@ nav:nth-child(2) {
   margin-left: 2%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+}
+
+.sidebar-active {
+  -webkit-animation: sidebar-animation-close 1s ease-out !important;
+          animation: sidebar-animation-close 1s ease-out !important;
+  -webkit-animation-fill-mode: forwards !important;
+          animation-fill-mode: forwards !important;
+  -webkit-animation-iteration-count: 1 !important;
+          animation-iteration-count: 1 !important;
+}
+
+.sidebar-active .sidebar-items-holder {
+  display: none !important;
+}
+
+@-webkit-keyframes sidebar-animation-open {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 20%;
+  }
+}
+
+@keyframes sidebar-animation-open {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 20%;
+  }
+}
+
+@-webkit-keyframes sidebar-animation-close {
+  from {
+    width: 20%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+@keyframes sidebar-animation-close {
+  from {
+    width: 20%;
+  }
+  to {
+    width: 0%;
+  }
 }
 
 .auth-container {
@@ -325,5 +409,90 @@ nav:nth-child(2) {
     width: 1.2vw;
     height: 1.2vw;
   }
+}
+
+.dashboard-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1% 2%;
+  height: 10%;
+}
+
+.dashboard-header h1 {
+  font-size: 2vw;
+  font-weight: 400;
+}
+
+.dashboard-header a {
+  width: 12%;
+}
+
+.dashboard-header .add-button {
+  width: 100%;
+  height: 100%;
+  margin: 0.5%;
+}
+
+.dashboard-header .add-button p {
+  font-weight: 500;
+  color: white;
+  font-size: 1.2vw;
+  margin: unset;
+}
+
+.table-responsive {
+  padding: 0 2% 1% 2%;
+}
+
+.table-responsive table {
+  background-color: white;
+  -webkit-box-shadow: 0 0 0.875rem 0 rgba(33, 37, 41, 0.05);
+          box-shadow: 0 0 0.875rem 0 rgba(33, 37, 41, 0.05);
+}
+
+.add-component {
+  overflow-x: hidden;
+}
+
+.add-component-heading {
+  padding: 3% 4% 0 4%;
+}
+
+.add-component .add-form {
+  padding: 1% 4%;
+  height: 100%;
+}
+
+.add-component .add-form-inputs {
+  background-color: white;
+  padding: 2%;
+}
+
+.add-component .add-form .input-container {
+  width: 100%;
+  margin: 1% 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.add-component .add-form .input-container label {
+  font-size: 1.2vw;
+  font-weight: 500;
+  margin: 0.5% 0;
+}
+
+.add-component .add-form .add-button {
+  margin: 1% 0;
+  width: 20%;
+  height: 3vw;
 }
 /*# sourceMappingURL=style.css.map */

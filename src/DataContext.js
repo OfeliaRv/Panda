@@ -11,21 +11,28 @@ export const DataProvider = props => {
         },
         {
             id: 2,
-            name: 'Companies / Customers',
+            name: 'Companies',
             icon: null
         },
         {
             id: 3,
+            name: 'Reviews',
+            icon: null
+        },
+        {
+            id: 4,
             name: 'Products',
             icon: null
         }
     ]);
 
     const [currentUser, setCurrentUser] = useState(null);
+    const [isActive, setActive] = useState(false);
 
     const provider_values = {
         sideNavbar: [sideNavbar, setsideNavbar],
-        currentUser: [currentUser, setCurrentUser]
+        currentUser: [currentUser, setCurrentUser],
+        isActive: [isActive, setActive]
     };
 
     return (

@@ -1,3 +1,4 @@
+import Footer from "./Footer"
 import Header from "./Header"
 import Sidebar from "./Sidebar"
 
@@ -8,7 +9,7 @@ const Layout = ({ children }) => {
             <div className="main-content">
                 <Header />
                 {children}
-                {/* Footer */}
+                <Footer />
             </div>
         </div>
     );

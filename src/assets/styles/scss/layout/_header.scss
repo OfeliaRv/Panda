@@ -8,16 +8,15 @@ nav {
     padding: 0 1%;
 
     .nav-part {
-        height: 100%;
         width: 18%;
         display: flex;
         align-items: center;
 
-        span {
-            color: #495057;
+        #menu-icon {
             cursor: pointer;
             margin: 0 2%;
-            font-size: 2vw;
+            width: 2vw;
+            height: 1.8vw;
         }
 
         .logo {
@@ -34,6 +33,12 @@ nav {
             display: flex;
             align-items: center;
             width: 100%;
+
+            #logout {
+                width: 1.2vw;
+                height: 1.2vw;
+                cursor: pointer;
+            }
 
             &-img {
                 width: 3vw;
