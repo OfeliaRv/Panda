@@ -96,6 +96,16 @@ export const DataProvider = props => {
             id: 5,
             logo: c_logo1,
             name: "Company name"
+        },
+        {
+            id: 6,
+            logo: c_logo1,
+            name: "Company name"
+        },
+        {
+            id: 7,
+            logo: c_logo1,
+            name: "Company name"
         }
     ]);
 
@@ -106,7 +116,7 @@ export const DataProvider = props => {
             title: "News Title 1",
             photo: news1,
             date: null,
-            text: "Fully integrated Software System assisting procedure designer in creating flight procedures compatible with international safety requirements, by monitoring designer's actions, generating optimal recommendations and supplying documented reports. PANS-OPS Master capable of proposing non-obvious optimal solutions to procedure designer even on the worst aeronautical conditions and preventing from going beyond the best innovative criteria in air navigation. Automated Software System for flight procedure design with unique analytical decision-making ability and computer intelligence. System for procedure designers at any proficiency level: Because of its clear-cut, user-friendly interface and an inbuilt analytical capability, PANDA can serve as a teaching tool for beginners up to the high-competence level. Automated Software System for flight procedure design with unique analytical decision-making ability and computer intelligence. System for procedure designers at any proficiency level: Because of its clear-cut, user-friendly interface and an inbuilt analytical capability, PANDA can serve as a teaching tool for beginners up to the high-competence level. Because of its clear-cut, user-friendly interface and an inbuilt analytical capability, PANDA can serve as a teaching tool for beginners up to the high-competence level."
+            text: "Fully integrated Software System assisting procedure designer in creating flight procedures compatible with international safety requirements, by monitoring designer's actions, generating optimal recommendations and supplying documented reports. PANS-OPS Master capable of proposing non-obvious optimal solutions to procedure designer even on the worst aeronautical conditions and preventing from going beyond the best innovative criteria in air navigation. Automated Software System for flight procedure design with unique analytical decision-making ability and computer intelligence. System for procedure designers at any proficiency level: Because of its clear-cut, user-friendly interface and an inbuilt analytical capability, PANDA can serve as a teaching tool for beginners up to the high-competence level. Automated Software System for flight procedure design with unique analytical decision-making ability and computer intelligence. System for procedure designers at any proficiency level: Because of its clear-cut, user-friendly interface and an inbuilt analytical capability, PANDA can serve as a teaching tool for beginners up to the high-competence level. Because of its clear-cut, user-friendly interface and an inbuilt analytical capability, PANDA can serve as a teaching tool for beginners up to the high-competence level. Fully integrated Software System assisting procedure designer in creating flight procedures compatible with international safety requirements, by monitoring designer's actions, generating optimal recommendations and supplying documented reports. PANS-OPS Master capable of proposing non-obvious optimal solutions to procedure designer even on the worst aeronautical conditions and preventing from going beyond the best innovative criteria in air navigation. Automated Software System for flight procedure design with unique analytical decision-making ability and computer intelligence. System for procedure designers at any proficiency level: Because of its clear-cut, user-friendly interface and an inbuilt analytical capability, PANDA can serve as a teaching tool for beginners up to the high-competence level. Automated Software System for flight procedure design with unique analytical decision-making ability and computer intelligence. System for procedure designers at any proficiency level: Because of its clear-cut, user-friendly interface and an inbuilt analytical capability, PANDA can serve as a teaching tool for beginners up to the high-competence level. Because of its clear-cut, user-friendly interface and an inbuilt analytical capability, PANDA can serve as a teaching tool for beginners up to the high-competence level."
         },
         {
             id: 1,
@@ -155,6 +165,11 @@ export const DataProvider = props => {
     // PRODUCTS
     const [product, setProduct] = useState([
         {
+            id: 0,
+            name: "Flight Procedures Design System",
+            img: product1
+        },
+        {
             id: 1,
             name: "Flight Procedures Design System",
             img: product1
@@ -181,7 +196,7 @@ export const DataProvider = props => {
         },
         {
             id: 6,
-            name: "Flight Procedures Design System",
+            name: "Flight Procedures Design System 2",
             img: product1
         },
         {
@@ -191,12 +206,7 @@ export const DataProvider = props => {
         },
         {
             id: 8,
-            name: "Flight Procedures Design System 2",
-            img: product1
-        },
-        {
-            id: 9,
-            name: "Flight Procedures Design System 2",
+            name: "Flight Procedures Design System",
             img: product1
         }
     ]);

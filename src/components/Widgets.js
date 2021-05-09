@@ -13,11 +13,11 @@ const Widgets = () => {
             <div className="widgets-row">
                 {widgets.slice(firstW, lastW).map(widget => <Widget widgets={widgets} widget={widget} key={widget.id} />)}
             </div>
-            <div className="slider-buttons">
+            {/* <div className="slider-buttons">
                 {dots.map(dot =>
                     <div className={"slide-button " + (dot.id === clickedS ? "active-slide" : "")} key={dot.id} onClick={() => handleSlides(dot.id)}></div>
                 )}
-            </div>
+            </div> */}
         </div>
     );
 }

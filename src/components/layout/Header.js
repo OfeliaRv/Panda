@@ -20,7 +20,7 @@ const Header = () => {
             </nav>
             <div className="header-buttons">
                 <a href="/login"><div className="auth-button white-button">
-                    <div className="icon-holder">
+                    <div className="icon-holder" style={{pointerEvents: 'none'}}>
                         <img src={person} alt="person" />
                     </div>
                     <p>Login</p>

@@ -15,15 +15,39 @@
         }
 
         .companies-list {
-            margin: 0 12% 0 7%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
+            margin: 0 9% 0 7%;
+            width: 20%;
             overflow-y: scroll;
+
+            /* width */
+            &::-webkit-scrollbar {
+                width: 0.5vw;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 2vw;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: $textcolor1;
+                border-radius: 2vw;
+            }
+
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                background: $textcolor3;
+            }
 
             .company-item {
                 display: flex;
                 align-items: center;
+                height: 19%;
+                width: 100%;
+                margin: 0 0 2% 0;
+                cursor: pointer;
 
                 img {
                     width: 3.13vw;
@@ -34,8 +58,22 @@
                     font-weight: 500;
                     color: $textcolor2;
                     margin: 0;
-                    font-size: 1.24vw;
+                    font-size: 1.2vw;
                 }
+
+                &:hover {
+                    background-color: rgba(174, 176, 179, 0.185);
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1920px) {
+    #customers-page {
+        .customers {
+            .companies-list {
+                margin: 0 0 0 4%;
             }
         }
     }

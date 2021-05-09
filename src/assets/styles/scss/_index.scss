@@ -52,6 +52,28 @@ div {
     }
 }
 
+.page-path {
+    display: flex;
+    color: $textcolor1;
+    a {
+        cursor: pointer;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    a,
+    span {
+        font-size: 1.3vw;
+        color: $textcolor1;
+    }
+
+    span {
+        margin: 0 1%;
+    }
+}
+
 @media screen and (min-width: 1920px) {
     body {
         display: flex;

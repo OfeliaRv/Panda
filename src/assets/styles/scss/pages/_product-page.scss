@@ -14,6 +14,30 @@
             font-weight: 500;
             color: #8a92a5;
             margin: 0 0 0 2.084vw;
+            height: 24vw;
+            overflow-y: auto;
+
+            /* width */
+            &::-webkit-scrollbar {
+                width: 0.5vw;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 2vw;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: $textcolor1;
+                border-radius: 2vw;
+            }
+
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                background: $textcolor3;
+            }
 
             p,
             h6,

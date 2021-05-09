@@ -19,7 +19,6 @@
             justify-content: center;
             flex-direction: column;
             align-items: center;
-            // margin: 3vh 2.35vw 2.9vh 2.35vw;
             margin: 4.7vh 2.35vw 2.9vh 2.35vw;
         }
 
@@ -31,6 +30,7 @@
                 color: $textcolor3;
                 margin: 0;
                 font-size: 1.35vw;
+                font-weight: 400;
             }
         }
 
@@ -72,7 +72,6 @@
 
             &-data {
                 margin: 2.6vw 2.35vw 1.3vw 2.35vw;
-                // margin: 1.5vw 2.35vw 1.3vw 2.35vw;
             }
 
             &-logo {
