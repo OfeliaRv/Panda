@@ -5,7 +5,6 @@ import { DataContext } from '../DataContext'
 import { useContext, useEffect } from 'react'
 import NewsLine from "../components/NewsLine"
 import ContactForm from "../components/ContactForm"
-import ReactScrollWheelHandler from 'react-scroll-wheel-handler'
 
 const Home = () => {
     const { clickedItem } = useContext(DataContext);
@@ -18,24 +17,22 @@ const Home = () => {
         }
     }, []);
 
-    const nextIndex = () => {
-        if (clicked == 2) {
-            setClicked(0);
-        } else {
-            setClicked(clicked + 1);
-        }
-    };
+    const scrollHandler = (e) => {
+        var newSlide;
+        newSlide = Math.abs(clicked + e.deltaY * 0.004);
+        setClicked(newSlide);
 
-    const prevIndex = () => {
-        if (clicked == 0) {
-            setClicked(2);
-        } else {
-            setClicked(clicked - 1);
+        if (e.deltaY > 0 && clicked == 2) {
+            setClicked(0);
         }
-    };
+
+        if (e.deltaY < 0 && clicked == 0) {
+            setClicked(2);
+        }
+    }
 
     return (
-        <ReactScrollWheelHandler upHandler={prevIndex} downHandler={nextIndex} timeout={500}>
+        <div onWheel={scrollHandler}>
             <PageHeading />
             <MainSection>
                 {clicked == 0 &&
@@ -66,7 +63,7 @@ const Home = () => {
                         </div>
                     </div>}
             </MainSection>
-        </ReactScrollWheelHandler>
+        </div>
     );
 }
 

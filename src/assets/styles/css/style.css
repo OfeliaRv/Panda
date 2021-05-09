@@ -97,6 +97,10 @@ div {
   margin: 0 0 0 0.5vw;
 }
 
+.go-back:hover p {
+  text-decoration: underline;
+}
+
 .page-path {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1930,7 +1934,7 @@ footer .footer-content #footer-stamp {
 #login .input-holder img {
   height: 1.4vw;
   margin-left: 83%;
-  margin-top: -8%;
+  margin-top: -9%;
   cursor: pointer;
 }
 
@@ -2211,6 +2215,21 @@ p a {
   height: 100%;
 }
 
+#register header {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 10%;
+}
+
+#register header a {
+  padding: 2%;
+}
+
 #register .check label {
   display: block !important;
 }
@@ -2225,7 +2244,7 @@ p a {
 
 #register .auth-card {
   width: 100%;
-  height: 90%;
+  height: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2243,6 +2262,9 @@ p a {
 
 #register .auth-card .auth-container .auth-heading {
   margin: 0 0 3% 3%;
+}
+
+#register .auth-card .auth-container .auth-heading h1 {
   color: #6d7587;
   font-size: 2vw;
 }

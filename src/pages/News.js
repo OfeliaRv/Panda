@@ -4,7 +4,6 @@ import NewsLine from '../components/NewsLine'
 import MainSection from '../components/MainSection'
 
 const News = () => {
-    
     const { newsData, clickedNews } = useContext(DataContext);
     const [news] = newsData;
     const [clickedN] = clickedNews;

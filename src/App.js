@@ -4,7 +4,8 @@ import { createBrowserHistory } from 'history'
 import Site from './Site'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
-const history = createBrowserHistory({ forceRefresh: true });
+
+const history = createBrowserHistory();
 
 const App = () => {
     return (
@@ -25,7 +26,7 @@ const App = () => {
                     <Route path="*">
                         <div style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
                             <h1 style={{ textAlign: 'center', color: '#6D7587' }}>PAGE NOT FOUND</h1>
-                            <a href="/"><p style={{color:'#4d545e'}}>Go to Homepage</p></a>
+                            <a href="/"><p style={{ color: '#4d545e' }}>Go to Homepage</p></a>
                         </div>
                     </Route>
                 </Switch>

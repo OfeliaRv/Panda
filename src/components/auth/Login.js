@@ -35,10 +35,10 @@ const Login = () => {
                     </div>
                     <div className="login-card-right">
                         <div className="login-container">
-                        <div className="go-back" onClick={() => history.goBack()}>
-                            <img src={back_arrow} alt="back arrow" />
-                            <p>Back</p>
-                        </div>
+                            <div className="go-back" onClick={() => history.goBack()}>
+                                <img src={back_arrow} alt="back arrow" />
+                                <p>Back</p>
+                            </div>
                             <h1 className="login-heading">Sign in</h1>
                             <form className="login-form" action="">
                                 <div className="input-holder">

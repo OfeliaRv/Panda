@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react'
 import MainSection from '../components/MainSection'
 import user_photo from '../assets/img/user-photo.png'
 import user from '../assets/img/user.png'
-import {BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import ForumPage from './ForumPage'
 
 const Forum = () => {
@@ -22,7 +22,7 @@ const Forum = () => {
                         <div className="forum">
                             <Route exact path="/forum">
                                 {forumItems.map(forumItem =>
-                                    <a href={`/forum/${forumItem.id}`}  key={forumItem.id}> 
+                                    <a href={`/forum/${forumItem.id}`} key={forumItem.id}>
                                         <div className="forum-item">
                                             <div className="forum-item-rating">
                                                 <div className="rating-components">

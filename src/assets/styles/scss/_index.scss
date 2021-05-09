@@ -50,15 +50,22 @@ div {
     p {
         margin: 0 0 0 0.5vw;
     }
+
+    &:hover {
+        p {
+            text-decoration: underline;
+        }
+    }
 }
 
 .page-path {
     display: flex;
     color: $textcolor1;
+
     a {
         cursor: pointer;
 
-        &:hover{
+        &:hover {
             text-decoration: underline;
         }
     }
