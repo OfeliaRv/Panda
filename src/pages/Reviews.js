@@ -2,14 +2,14 @@ import Table from 'react-bootstrap/Table'
 import { Link } from "react-router-dom"
 import edit from '../assets/img/edit.svg'
 
-const Products = () => {
+const Reviews = () => {
     return (
-        <div className="dashboard" id="products">
+        <div className="dashboard" id="reviews">
             <div className="dashboard-header">
-                <h1>PANDA Products list</h1>
-                <Link to="/addproduct">
+                <h1>PANDA Reviews list</h1>
+                <Link to="/addreview">
                     <div className="add-button">
-                        <p>Add product</p>
+                        <p>Add review</p>
                     </div>
                 </Link>
             </div>
@@ -17,11 +17,10 @@ const Products = () => {
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Product Name</th>
-                        <th>Product Alt Name</th>
-                        <th>Product Keywords</th>
-                        <th>Product Text</th>
-                        <th>Product Image</th>
+                        <th>Full name</th>
+                        <th>Company</th>
+                        <th>Position</th>
+                        <th>Review text</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -50,4 +49,4 @@ const Products = () => {
     );
 }
 
-export default Products;
+export default Reviews;

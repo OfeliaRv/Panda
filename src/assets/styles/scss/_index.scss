@@ -9,6 +9,10 @@ body {
     overflow-x: hidden;
 }
 
+.App{
+    min-height: 100vh;
+}
+
 #layout {
     display: flex;
     height: 100%;

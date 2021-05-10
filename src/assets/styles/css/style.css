@@ -1,3 +1,33 @@
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url("../../fonts/Montserrat-Light.otf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url("../../fonts/Montserrat-Regular.otf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url("../../fonts/Montserrat-Medium.otf");
+  font-weight: 500 !important;
+}
+
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url("../../fonts/Montserrat-SemiBold.otf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url("../../fonts/Montserrat-Bold.otf");
+  font-weight: 700;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -8,6 +38,10 @@ body {
   background-color: #f7f7fc !important;
   margin: 0;
   overflow-x: hidden;
+}
+
+.App {
+  min-height: 100vh;
 }
 
 #layout {
@@ -66,7 +100,7 @@ nav {
 }
 
 nav .nav-part {
-  width: 18%;
+  width: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -116,9 +150,6 @@ nav .nav-part .admin-img {
 }
 
 nav .nav-part .admin p {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   width: 100%;
   font-size: 1vw;
   margin: 0;
@@ -234,7 +265,7 @@ nav:nth-child(2) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100%;
+  height: 100vh;
 }
 
 .auth-container .auth-card {
@@ -363,6 +394,10 @@ nav:nth-child(2) {
   margin-top: 24px;
 }
 
+.auth-container .auth-card .under-auth-text {
+  margin-top: 1rem !important;
+}
+
 .auth-container .auth-card .check {
   width: 100%;
   display: -webkit-box;
@@ -459,7 +494,27 @@ nav:nth-child(2) {
 }
 
 .add-component-heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 3% 4% 0 4%;
+}
+
+.add-component-heading .heading-buttons {
+  width: 21%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.add-component-heading .heading-buttons div {
+  padding: 3%;
 }
 
 .add-component .add-form {
@@ -494,5 +549,26 @@ nav:nth-child(2) {
   margin: 1% 0;
   width: 20%;
   height: 3vw;
+}
+
+.actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.actions img {
+  height: 1.5vw;
+  width: 1.5vw;
+  cursor: pointer;
+  margin: 0 3%;
+}
+
+footer {
+  padding: 4% 0 1% 4%;
+  margin-top: auto;
 }
 /*# sourceMappingURL=style.css.map */

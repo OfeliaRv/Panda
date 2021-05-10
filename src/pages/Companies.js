@@ -2,14 +2,14 @@ import Table from 'react-bootstrap/Table'
 import { Link } from "react-router-dom"
 import edit from '../assets/img/edit.svg'
 
-const Products = () => {
+const Companies = () => {
     return (
-        <div className="dashboard" id="products">
+        <div className="dashboard" id="companies">
             <div className="dashboard-header">
-                <h1>PANDA Products list</h1>
-                <Link to="/addproduct">
+                <h1>PANDA Companies list</h1>
+                <Link to="/addcompany">
                     <div className="add-button">
-                        <p>Add product</p>
+                        <p>Add company</p>
                     </div>
                 </Link>
             </div>
@@ -17,18 +17,17 @@ const Products = () => {
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Product Name</th>
-                        <th>Product Alt Name</th>
-                        <th>Product Keywords</th>
-                        <th>Product Text</th>
-                        <th>Product Image</th>
+                        <th>Comapany Name</th>
+                        <th>X-position</th>
+                        <th>Y-position</th>
+                        <th>Company Image</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        {Array.from({ length: 5 }).map((_, index) => (
+                        {Array.from({ length: 4 }).map((_, index) => (
                             <td key={index}>Table cell {index}</td>
                         ))}
                         <td className="actions">
@@ -37,7 +36,7 @@ const Products = () => {
                     </tr>
                     <tr>
                         <td>2</td>
-                        {Array.from({ length: 5 }).map((_, index) => (
+                        {Array.from({ length: 4 }).map((_, index) => (
                             <td key={index}>Table cell {index}</td>
                         ))}
                         <td className="actions">
@@ -49,5 +48,5 @@ const Products = () => {
         </div>
     );
 }
-
-export default Products;
+ 
+export default Companies;

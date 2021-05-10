@@ -47,7 +47,7 @@ const Register = () => {
                 </div>
                 <button type="submit" className="auth-button">Sign up now</button>
             </form>
-            <p>Or <a href="/">Sign in</a> to your account</p>
+            <p className="under-auth-text">Or <a href="/login">Sign in</a> to your account</p>
         </div>
     );
 }

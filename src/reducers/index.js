@@ -1,10 +1,10 @@
 import { combineReducers } from "redux"
-import dataReducer from "./dataReducer"
-import sidebarReducer from "./sidebarReducer"
+import menuReducer from "./menuReducer"
+import toggleMenuReducer from "./toggleMenuReducer"
 
 const allReducers = combineReducers({
-    data: dataReducer,
-    sidebar: sidebarReducer
+    menu: menuReducer,
+    toggleMenu: toggleMenuReducer
 })
 
 export default allReducers;

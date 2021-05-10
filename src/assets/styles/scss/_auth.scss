@@ -1,6 +1,6 @@
 .auth-container {
     display: flex;
-    height: 100%;
+    height: 100vh;
 
     .auth-card {
         width: 40%;
@@ -17,37 +17,12 @@
 
         .auth-heading {
             margin: 1% 3% 5% 2%;
-
-            // .back-arrow {
-            //     width: 18px;
-            //     height: 14px;
-            //     margin-right: 8px;
-            // }
-
-            // .heading-nav,
-            // .heading-back {
-            //     display: flex;
-            //     align-items: center;
-            // }
-
-            // .heading-back {
-            //     cursor: pointer;
-            // }
-
-            // .heading-main {
+  
             h1 {
                 font-weight: 500;
                 font-size: 18px;
                 color: #212529;
             }
-
-            //     h6 {
-            //         font-size: 14px;
-            //         line-height: 20px;
-            //         letter-spacing: -0.05px;
-            //         color: #9ea0a5;
-            //     }
-            // }
         }
 
         .form {
@@ -105,6 +80,10 @@
             .auth-button-container {
                 margin-top: 24px;
             }
+        }
+
+        .under-auth-text{
+            margin-top: 1rem !important;
         }
 
         .check {

@@ -6,7 +6,7 @@ const Auth = () => {
     return (
         <div className="auth-container">
             <Switch>
-                <Route exact path="/" component={Login} />
+                <Route exact path="/login" component={Login} />
                 <Route path="/register" component={Register} />
             </Switch>
         </div>

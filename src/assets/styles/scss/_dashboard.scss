@@ -39,8 +39,20 @@
 .add-component {
     overflow-x: hidden;
 
-    &-heading{
+    &-heading {
+        display: flex;
+        justify-content: space-between;
         padding: 3% 4% 0 4%;
+
+        .heading-buttons {
+            width: 21%;
+            display: flex;
+            justify-content: space-between;
+
+            div {
+                padding: 3%;
+            }
+        }
     }
 
     .add-form {
@@ -71,4 +83,22 @@
             height: 3vw;
         }
     }
+}
+
+.actions {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+
+    img {
+        height: 1.5vw;
+        width: 1.5vw;
+        cursor: pointer;
+        margin: 0 3%;
+    }
+}
+
+footer {
+    padding: 4% 0 1% 4%;
+    margin-top: auto;
 }

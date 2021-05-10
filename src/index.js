@@ -15,7 +15,7 @@ axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getIte
 
 // Store
 const store = createStore(allReducers, applyMiddleware(thunk));
-console.log(store.getState());
+// console.log(store.getState());
 
 
 ReactDOM.render(

@@ -1,14 +1,9 @@
 import axios from 'axios'
 import { createBrowserHistory } from 'history'
-import { DataContext } from '../../DataContext'
-import { useContext } from 'react'
 
 const history = createBrowserHistory();
 
 const Login = () => {
-    const { currentUser } = useContext(DataContext);
-    const [user, setUser] = currentUser;
-
     const loginHandler = e => {
         e.preventDefault();
 
@@ -19,15 +14,15 @@ const Login = () => {
 
         axios.post(`url`, data)
             .then(res => {
-                setUser(
-                    [
-                        {
-                            email: data.email,
-                            token: res.data.token,
-                            password: data.password
-                        }
-                    ]
-                )
+                // setUser(
+                //     [
+                //         {
+                //             email: data.email,
+                //             token: res.data.token,
+                //             password: data.password
+                //         }
+                //     ]
+                // )
                 // localStorage.setItem('token', res.data.token);
                 // localStorage.setItem('user-email', data.email);
                 // localStorage.setItem('user-password', data.password);
@@ -57,7 +52,7 @@ const Login = () => {
                 </div>
                 <button type="submit" className="auth-button">Sign in</button>
             </form>
-            <p>Or register <a href="/register">here</a></p>
+            <p className="under-auth-text">Or register <a href="/register">here</a></p>
         </div>
     )
 }

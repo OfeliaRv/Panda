@@ -1,47 +1,43 @@
 import Table from 'react-bootstrap/Table'
-import { Link } from "react-router-dom"
-import edit from '../assets/img/edit.svg'
+import read from '../assets/img/read.svg'
+import delete_icon from '../assets/img/delete.svg'
 
-const Products = () => {
+const Messages = () => {
     return (
-        <div className="dashboard" id="products">
+        <div className="dashboard" id="messages">
             <div className="dashboard-header">
-                <h1>PANDA Products list</h1>
-                <Link to="/addproduct">
-                    <div className="add-button">
-                        <p>Add product</p>
-                    </div>
-                </Link>
+                <h1>PANDA Messages list</h1>
             </div>
             <Table bordered responsive size="sm">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Product Name</th>
-                        <th>Product Alt Name</th>
-                        <th>Product Keywords</th>
-                        <th>Product Text</th>
-                        <th>Product Image</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Message text</th>
+                        <th>Date</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        {Array.from({ length: 5 }).map((_, index) => (
+                        {Array.from({ length: 4 }).map((_, index) => (
                             <td key={index}>Table cell {index}</td>
                         ))}
                         <td className="actions">
-                            <img src={edit} alt="edit" title="Edit" />
+                            <img src={read} alt="read" title="Read message" />
+                            <img src={delete_icon} alt="delete" title="Delete message" />
                         </td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        {Array.from({ length: 5 }).map((_, index) => (
+                        {Array.from({ length: 4 }).map((_, index) => (
                             <td key={index}>Table cell {index}</td>
                         ))}
                         <td className="actions">
-                            <img src={edit} alt="edit" title="Edit" />
+                            <img src={read} alt="read" title="Read message" />
+                            <img src={delete_icon} alt="delete" title="Delete message" />
                         </td>
                     </tr>
                 </tbody>
@@ -50,4 +46,4 @@ const Products = () => {
     );
 }
 
-export default Products;
+export default Messages;
