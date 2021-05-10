@@ -1,8 +1,7 @@
 import map from '../assets/img/map.png'
-import { useContext, useEffect } from 'react'
-import { DataContext } from '../DataContext'
+import { useEffect } from 'react'
 import MainSection from '../components/MainSection'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const Customers = () => {
     useEffect(() => {
