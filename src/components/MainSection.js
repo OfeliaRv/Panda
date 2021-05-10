@@ -4,92 +4,98 @@ import left_item_customers from '../assets/img/left-item-customers.svg'
 import left_item_news from '../assets/img/left-item-news.svg'
 import left_item_reviews from '../assets/img/left-item-reviews.svg'
 import left_item_contacts from '../assets/img/left-item-contact.svg'
-import { useContext } from 'react'
-import { DataContext } from '../DataContext'
 import { Route } from 'react-router'
+import { useSelector, useDispatch } from 'react-redux'
+import { loadNews, showPage, loadProducts, loadWidgets, setHomepage, loadReviews } from '../actions/showData'
 
 const MainSection = ({ children }) => {
-    const { homePageData, clickedItem, newsData, firstSlide, lastSlide, clickedSlide, productData, clickedProductSlide,
-        firstProduct, lastProduct, widgetData, firstWidget, lastWidget, clickedWidgetSlide } = useContext(DataContext);
+    const dispatch = useDispatch();
 
-    const [home, setHome] = homePageData;
-    const [clicked, setClicked] = clickedItem;
-    const [firstS, setfirstS] = firstSlide;
-    const [lastS, setlastS] = lastSlide;
-    const [clickedS, setClickedS] = clickedSlide;
-    const [news] = newsData;
-    const dots_num = Math.ceil(news.length / 5);
-    const [products] = productData;
-    const [clickedProductS, setClickedProductS] = clickedProductSlide;
-    const [firstP, setfirstP] = firstProduct;
-    const [lastP, setlastP] = lastProduct;
+    // get homepages
+    const homepages = useSelector(state => state.home.homepage);
+    // active homepage
+    const clickedHome = useSelector(state => state.home.activeHomepage);
+
+
+    // get all news 
+    const news = useSelector(state => state.news.news);
+    // calculate the number of news pages (needed dots)
+    const news_pages = Math.ceil(news.length / 5);
+
+
+    // show current page (little grey dot)
+    const activePage = useSelector(state => state.showData.showPage);
+
+
+    // get all products
+    const products = useSelector(state => state.products.products);
+    // calculate the number of product pages (needed dots)
     const product_pages = Math.ceil(products.length / 6);
-    const [widgets] = widgetData;
-    const [firstW, setfirstW] = firstWidget;
-    const [lastW, setlastW] = lastWidget;
-    const [clickedWidgetS, setClickedWidgetS] = clickedWidgetSlide;
+
+
+    // get add widgets
+    const widgets = useSelector(state => state.companies.companies);
+    // calculate the number of widget pages (needed dots)
     const widget_pages = Math.ceil(widgets.length / 3);
 
-    // for homepage scrollable pages (and dots)
-    const handleClick = (id) => {
-        let newId = id;
-        setClicked(id);
-        let visible = 0;
-        for (let i = 0; i < home.length; i++) {
-            home[i].clicked = false;
-            if (i === newId) {
-                visible = i;
-            }
-        }
-        home[visible].clicked = true;
-        setHome(home);
-    }
+
+    // get all reviews
+    const reviews = useSelector(state => state.reviews.reviews);
+    // calculate the number of widget pages (needed dots)
+    const review_pages = Math.ceil(reviews.length / 3);
+
 
     // news slider on next button click
     const newsSlidesHandler = () => {
-        if (clickedS < dots_num - 1) {
-            setfirstS(firstS + 4);
-            setlastS(lastS + 4);
-            setClickedS(clickedS + 1);
+        if (activePage < news_pages - 1) {
+            dispatch(loadNews(4));
+            dispatch(showPage(activePage + 1));
         }
         else {
-            setfirstS(0);
-            setlastS(5);
-            setClickedS(0);
+            dispatch(loadNews(0));
+            dispatch(showPage(0));
         }
     }
 
     // products slider on next button click
     const productsHandler = () => {
-        if (clickedProductS < product_pages - 1) {
-            setfirstP(firstP + 6);
-            setlastP(lastP + 6);
-            setClickedProductS(clickedProductS + 1);
+        if (activePage < product_pages - 1) {
+            dispatch(loadProducts(6));
+            dispatch(showPage(activePage + 1));
         }
         else {
-            setfirstP(0);
-            setlastP(6);
-            setClickedProductS(0);
+            dispatch(loadProducts(0));
+            dispatch(showPage(0));
         }
     }
 
     // widgets slider on next button click
     const widgetsHandler = () => {
-        if (clickedWidgetS < widget_pages - 1) {
-            setfirstW(firstW + 3);
-            setlastW(lastW + 3);
-            setClickedWidgetS(clickedWidgetS + 1);
+        if (activePage < widget_pages - 1) {
+            dispatch(loadWidgets(3));
+            dispatch(showPage(activePage + 1));
         }
         else {
-            setfirstW(0);
-            setlastW(3);
-            setClickedWidgetS(0);
+            dispatch(loadWidgets(0));
+            dispatch(showPage(0));
+        }
+    }
+
+    // review pages on next button click
+    const reviewsHandler = () => {
+        if (activePage < review_pages - 1) {
+            dispatch(loadReviews(3));
+            dispatch(showPage(activePage + 1));
+        }
+        else {
+            dispatch(loadReviews(0));
+            dispatch(showPage(0));
         }
     }
 
     return (
         <section className="main-section">
-            <div id={'left' + clicked} className="left-items">
+            <div id={'left' + clickedHome} className="left-items">
                 <Route exact path="/">
                     <img src={left_item_home} alt="Home" />
                 </Route>
@@ -99,7 +105,10 @@ const MainSection = ({ children }) => {
                 <Route path="/customers">
                     <img src={left_item_customers} alt="Customers" />
                 </Route>
-                <Route path="/reviews" path="/forum">
+                <Route path="/reviews">
+                    <img src={left_item_reviews} alt="Reviews" />
+                </Route>
+                <Route path="/forum">
                     <img src={left_item_reviews} alt="Reviews" />
                 </Route>
                 <Route path="/news">
@@ -109,14 +118,14 @@ const MainSection = ({ children }) => {
                     <img src={left_item_contacts} alt="Contact" />
                 </Route>
             </div>
-            <div id={'center' + clicked} className="center-content">
+            <div id={'center' + clickedHome} className="center-content">
                 {children}
             </div>
-            <div id={'right' + clicked} className="right-items">
+            <div id={'right' + clickedHome} className="right-items">
                 {<Route exact path="/">
                     <div className="selector-buttons-group">
-                        {home.map(homeData =>
-                            <div className={"selector-button-container " + (homeData.id === clicked ? "button-clicked" : "")} onClick={() => handleClick(homeData.id)} key={homeData.id}>
+                        {homepages.map(homeData =>
+                            <div className={"selector-button-container " + (homeData.id === clickedHome ? "button-clicked" : "")} onClick={() => dispatch(setHomepage(homeData.id))} key={homeData.id}>
                                 <div className="button-stroke">
                                     <div className="button">
                                         <div className="button-dot"></div>
@@ -125,14 +134,14 @@ const MainSection = ({ children }) => {
                             </div>)}
                     </div>
                 </Route>}
-                {clicked == 0 && <Route exact path="/">
+                {clickedHome == 0 && <Route exact path="/">
                     <div className="next-button white-button square-button" onClick={newsSlidesHandler}>
                         <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
                         </svg>
                     </div>
                 </Route>}
-                {clicked == 1 && <Route exact path="/">
+                {clickedHome == 1 && <Route exact path="/">
                     <div className="next-button white-button square-button" onClick={widgetsHandler}>
                         <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
@@ -148,6 +157,13 @@ const MainSection = ({ children }) => {
                 </Route>
                 <Route exact path="/products">
                     <div className="next-button white-button square-button" onClick={productsHandler}>
+                        <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
+                        </svg>
+                    </div>
+                </Route>
+                <Route exact path="/reviews">
+                    <div className="next-button white-button square-button" onClick={reviewsHandler}>
                         <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
                         </svg>

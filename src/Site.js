@@ -1,5 +1,5 @@
 import Layout from './components/layout/Layout'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Router, Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Products from './pages/Products'
 import ProductPage from './pages/ProductPage'
@@ -22,6 +22,7 @@ const Site = () => {
                     <Route path="/customers" component={Customers} />
                     <Route path="/reviews" component={Reviews} />
                     <Route path="/news" component={News} />
+                    <Route path="/news/:id" component={News} />
                     <Route path="/contacts" component={Contacts} />
                     <Route exact path="/forum" component={Forum} />
                     <Route path="/forum/:id" component={Forum} />

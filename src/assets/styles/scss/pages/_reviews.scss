@@ -1,5 +1,5 @@
 #reviews {
-    padding: 2vh 14vw 0 0;
+    padding: 2vh 0 0 0;
 
     .left-items {
         img {
@@ -7,7 +7,14 @@
         }
     }
 
+    .right-items {
+        // margin-bottom: 2vw !important;
+        flex-direction: unset !important;
+    }
+
     .reviews {
+        padding-right: 10vw;
+
         .review {
             display: flex;
             margin: 2% 0;
@@ -97,9 +104,10 @@
 
 @media (min-width: 1920px) {
     #reviews {
-        padding: 3vh 15vw 0vh 0;
+        padding: 3vh 0 0 0;
 
         .reviews {
+            padding-right: 4vw;
             .review {
                 display: flex;
                 margin: 2% 0;

@@ -37,6 +37,12 @@
         overflow: hidden;
     }
 
+    #right1 {
+        .next-button {
+            margin-bottom: 1.5vw;
+        }
+    }
+
     .right-items {
         display: flex;
         align-items: flex-end;
@@ -134,7 +140,13 @@
         }
     }
 
-    .right-items {
-        height: 22vw;
+    #right1 {
+        .next-button {
+            margin-bottom: 2vw !important;
+        }
     }
+
+    // .right-items {
+    //     height: 22vw;
+    // }
 }

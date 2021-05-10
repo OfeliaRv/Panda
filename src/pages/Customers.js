@@ -2,14 +2,15 @@ import map from '../assets/img/map.png'
 import { useContext, useEffect } from 'react'
 import { DataContext } from '../DataContext'
 import MainSection from '../components/MainSection'
+import { useSelector, useDispatch } from 'react-redux'
 
 const Customers = () => {
-    const { companyData } = useContext(DataContext);
-    const [companies] = companyData;
-
     useEffect(() => {
         document.title = "Panda Navigation - Customers"
     }, [])
+
+    // get add widgets
+    const companies = useSelector(state => state.companies.companies);
 
     return (
         <div id="customers-page">
@@ -21,7 +22,8 @@ const Customers = () => {
                     <div className="companies-list">
                         {companies.map(company =>
                             <div className="company-item" key={company.id}>
-                                <img src={company.logo} alt={company.name} />
+                                {company.logo}
+                                {/* <img src={company.logo} alt={company.name} /> */}
                                 <h6>{company.name}</h6>
                             </div>
                         )}

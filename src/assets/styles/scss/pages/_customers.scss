@@ -49,9 +49,14 @@
                 margin: 0 0 2% 0;
                 cursor: pointer;
 
-                img {
-                    width: 3.13vw;
-                    margin: 0 1.045vw;
+                img,
+                svg {
+                    width: 3.2vw;
+                    margin: 0 0.8vw;
+                }
+
+                svg {
+                    height: 3.2vw;
                 }
 
                 h6 {

@@ -1,33 +1,33 @@
 import MainSection from "../components/MainSection"
 import PageHeading from "../components/PageHeading"
 import Widgets from '../components/Widgets'
-import { DataContext } from '../DataContext'
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import NewsLine from "../components/NewsLine"
 import ContactForm from "../components/ContactForm"
+import { useSelector, useDispatch } from 'react-redux'
+import { setHomepage } from '../actions/showData'
 
 const Home = () => {
-    const { clickedItem } = useContext(DataContext);
-    const [clicked, setClicked] = clickedItem;
+    const dispatch = useDispatch();
+
+    // get active homepage
+    const clickedHome = useSelector(state => state.home.activeHomepage);
 
     useEffect(() => {
         document.title = "Panda Navigation - Home";
-        if (clicked == null) {
-            setClicked(0);
-        }
     }, []);
 
     const scrollHandler = (e) => {
         var newSlide;
-        newSlide = Math.abs(clicked + e.deltaY * 0.004);
-        setClicked(newSlide);
+        newSlide = clickedHome + (Math.sign(e.deltaY));
+        dispatch(setHomepage(newSlide));
 
-        if (e.deltaY > 0 && clicked == 2) {
-            setClicked(0);
+        if (e.deltaY > 0 && clickedHome == 2) {
+            dispatch(setHomepage(0));
         }
 
-        if (e.deltaY < 0 && clicked == 0) {
-            setClicked(2);
+        if (e.deltaY < 0 && clickedHome == 0) {
+            dispatch(setHomepage(2));
         }
     }
 
@@ -35,7 +35,7 @@ const Home = () => {
         <div onWheel={scrollHandler}>
             <PageHeading />
             <MainSection>
-                {clicked == 0 &&
+                {clickedHome == 0 &&
                     <div>
                         <div className="main-heading">
                             <h1>News</h1>
@@ -44,7 +44,7 @@ const Home = () => {
                             <NewsLine />
                         </div>
                     </div>}
-                {clicked == 1 &&
+                {clickedHome == 1 &&
                     <div>
                         <div className="main-heading">
                             <h1>Customers</h1>
@@ -53,7 +53,7 @@ const Home = () => {
                             <Widgets />
                         </div>
                     </div>}
-                {clicked == 2 &&
+                {clickedHome == 2 &&
                     <div>
                         <div className="main-heading">
                             <h1>Get in touch</h1>

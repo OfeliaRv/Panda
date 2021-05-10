@@ -1,22 +1,46 @@
-import { DataContext } from '../DataContext'
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import MainSection from '../components/MainSection'
 import quotations from '../assets/img/quotations.svg'
 import user_photo from '../assets/img/user-photo.png'
+import { useSelector, useDispatch } from 'react-redux'
+import { loadReviews, showPage } from '../actions/showData'
 
 const Reviews = () => {
-    const { reviewData } = useContext(DataContext);
-    const [reviews] = reviewData;
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        document.title = "Panda Navigation - Reviews"
-    }, [])
+        document.title = "Panda Navigation - Reviews";
+        dispatch((showPage(0)));
+    }, []);
+
+
+    // get all reviews
+    const reviews = useSelector(state => state.reviews.reviews);
+
+    // show maximum 6 products on a page
+    const getReviewsRange = useSelector(state => state.showData.loadReviews);
+
+    // show current page (little grey dot)
+    const activePage = useSelector(state => state.showData.showPage);
+
+    var dots = [];
+    const dots_num = Math.ceil(reviews.length / 3);
+    for (let i = 0; i < dots_num; i++) {
+        dots[i] = {
+            id: i
+        };
+    }
+
+    const handleSlides = id => {
+        dispatch(loadReviews(0 + 3 * id));
+        dispatch(showPage(id));
+    }
 
     return (
         <div id="reviews">
             <MainSection>
                 <div className="reviews">
-                    {reviews.map(review =>
+                    {reviews.slice(getReviewsRange.first, getReviewsRange.last).map(review =>
                         <div className="review" key={review.id}>
                             <div className="review-quote">
                                 <div className="square-button white-button">
@@ -41,6 +65,11 @@ const Reviews = () => {
                     )}
                 </div>
             </MainSection>
+            <div className="slider-buttons" style={{ padding: '0 10%', marginTop: '0' }}>
+                {dots.map(dot =>
+                    <div className={"slide-button " + (dot.id === activePage ? "active-slide" : "")} key={dot.id} onClick={() => handleSlides(dot.id)}></div>
+                )}
+            </div>
         </div>
     );
 }

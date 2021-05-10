@@ -1,15 +1,29 @@
-import { DataContext } from '../DataContext'
-import { useContext } from 'react'
 import date_icon from '../assets/img/date-icon.svg'
+import { useSelector, useDispatch } from 'react-redux'
+import { loadNews, showNews, showPage } from '../actions/showData'
+import { Router } from 'react-router-dom'
+import { useEffect } from 'react'
+import { createBrowserHistory } from 'history'
+
+const history = createBrowserHistory({ forceRefresh: true });
 
 export const NewsLine = () => {
-    const { newsData, firstSlide, lastSlide, clickedSlide, clickedNews } = useContext(DataContext);
-    const [news] = newsData;
-    const [firstS, setfirstS] = firstSlide;
-    const [lastS, setlastS] = lastSlide;
-    const [clickedS, setclickedS] = clickedSlide;
-    const [clickedN, setclickedN] = clickedNews;
+    const dispatch = useDispatch();
 
+    useEffect(() => {    // may give errors in future when adding redirect to /news
+        dispatch(showPage(0));
+    }, [])
+
+    // get all news 
+    const news = useSelector(state => state.news.news);
+
+    // show maximum 5 news on a page
+    const getNewsRange = useSelector(state => state.showData.loadNews);
+
+    // show current page (little grey dot)
+    const activePage = useSelector(state => state.showData.showPage);
+
+    // calculate the number of pages based on the amount of news
     var dots = [];
     const dots_num = Math.ceil(news.length / 5);
     for (let i = 0; i < dots_num; i++) {
@@ -19,34 +33,39 @@ export const NewsLine = () => {
     }
 
     const handleSlides = id => {
-        setfirstS(0 + 4 * id);
-        setlastS(5 + 4 * id);
-        setclickedS(id);
+        dispatch(loadNews(0 + 4 * id));
+        dispatch(showPage(id));
+    }
+
+    const handleNews = id => {
+        dispatch(showNews(id));
+
+        // if (window.location.pathname != '/news/' +id) {
+        //     history.push('/news/'+ id)
+        // }
     }
 
     return (
         <div className="news-slider">
             <div className="news-slider-container">
-                {news.slice(firstS, lastS).map(news =>
-                    <div className="news-item" key={news.id} onClick={() => setclickedN(news.id)}>
-                        <a href="/news">
-                            <div className="news-img">
-                                <img className="news-image" src={news.photo} alt="news" />
+                {news.slice(getNewsRange.first, getNewsRange.last).map(news =>
+                    <div className="news-item" key={news.id} onClick={() => handleNews((news.id))}>
+                        <div className="news-img">
+                            <img className="news-image" src={news.photo} alt="news" />
+                        </div>
+                        <div className="news-info">
+                            <h6>{news.title}</h6>
+                            <div style={{ display: 'flex' }}>
+                                <img src={date_icon} alt="date icon" />
+                                <p>{news.date}</p>
                             </div>
-                            <div className="news-info">
-                                <h6>{news.title}</h6>
-                                <div style={{ display: 'flex' }}>
-                                    <img src={date_icon} alt="date icon" />
-                                    <p>{news.date}</p>
-                                </div>
-                            </div>
-                        </a>
+                        </div>
                     </div>
                 )}
             </div>
             <div className="slider-buttons">
                 {dots.map(dot =>
-                    <div className={"slide-button " + (dot.id === clickedS ? "active-slide" : "")} key={dot.id} onClick={() => handleSlides(dot.id)}></div>
+                    <div className={"slide-button " + (dot.id === activePage ? "active-slide" : "")} key={dot.id} onClick={() => handleSlides(dot.id)}></div>
                 )}
             </div>
         </div>

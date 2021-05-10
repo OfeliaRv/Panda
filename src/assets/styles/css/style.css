@@ -639,6 +639,10 @@ footer .footer-content #footer-stamp {
   overflow: hidden;
 }
 
+.main-section #right1 .next-button {
+  margin-bottom: 1.5vw;
+}
+
 .main-section .right-items {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -739,8 +743,8 @@ footer .footer-content #footer-stamp {
   .center-content .main-heading h1 {
     font-size: 2.2vw !important;
   }
-  .right-items {
-    height: 22vw;
+  #right1 .next-button {
+    margin-bottom: 2vw !important;
   }
 }
 
@@ -1280,9 +1284,14 @@ footer .footer-content #footer-stamp {
   cursor: pointer;
 }
 
-#customers-page .customers .companies-list .company-item img {
-  width: 3.13vw;
-  margin: 0 1.045vw;
+#customers-page .customers .companies-list .company-item img,
+#customers-page .customers .companies-list .company-item svg {
+  width: 3.2vw;
+  margin: 0 0.8vw;
+}
+
+#customers-page .customers .companies-list .company-item svg {
+  height: 3.2vw;
 }
 
 #customers-page .customers .companies-list .company-item h6 {
@@ -1303,11 +1312,22 @@ footer .footer-content #footer-stamp {
 }
 
 #reviews {
-  padding: 2vh 14vw 0 0;
+  padding: 2vh 0 0 0;
 }
 
 #reviews .left-items img {
   height: unset;
+}
+
+#reviews .right-items {
+  -webkit-box-orient: unset !important;
+  -webkit-box-direction: unset !important;
+      -ms-flex-direction: unset !important;
+          flex-direction: unset !important;
+}
+
+#reviews .reviews {
+  padding-right: 10vw;
 }
 
 #reviews .reviews .review {
@@ -1404,7 +1424,10 @@ footer .footer-content #footer-stamp {
 
 @media (min-width: 1920px) {
   #reviews {
-    padding: 3vh 15vw 0vh 0;
+    padding: 3vh 0 0 0;
+  }
+  #reviews .reviews {
+    padding-right: 4vw;
   }
   #reviews .reviews .review {
     display: -webkit-box;
@@ -2230,6 +2253,10 @@ p a {
   padding: 2%;
 }
 
+#register .go-back {
+  margin: 0 !important;
+}
+
 #register .check label {
   display: block !important;
 }
@@ -2261,7 +2288,7 @@ p a {
 }
 
 #register .auth-card .auth-container .auth-heading {
-  margin: 0 0 3% 3%;
+  margin: 0 0 2% 3%;
 }
 
 #register .auth-card .auth-container .auth-heading h1 {

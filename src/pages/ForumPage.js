@@ -1,11 +1,11 @@
-import { DataContext } from '../DataContext'
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import user_photo from '../assets/img/user-photo.png'
+import { useSelector } from 'react-redux'
 
 const ForumPage = () => {
-    const { forumData } = useContext(DataContext);
-    const [forumItem] = forumData;
+    // get all forum data
+    const forumItems = useSelector(state => state.forumData.forumData);
 
     const { id } = useParams();
 
@@ -15,7 +15,7 @@ const ForumPage = () => {
 
     return (
         <div id="forum-page">
-            <div className="forum-item" key={forumItem[id].id}>
+            <div className="forum-item" key={forumItems[id].id}>
                 <div className="forum-item-rating">
                     <div className="rating-components">
                         <svg className="forum-upvote" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
