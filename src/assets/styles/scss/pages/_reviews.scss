@@ -1,5 +1,6 @@
 #reviews {
     padding: 2vh 0 0 0;
+    height: 100%;
 
     .left-items {
         img {
@@ -7,8 +8,12 @@
         }
     }
 
+    .main-section {
+        height: 97%;
+        min-height: 33.2vw;
+    }
+
     .right-items {
-        // margin-bottom: 2vw !important;
         flex-direction: unset !important;
     }
 
