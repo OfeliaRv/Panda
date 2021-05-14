@@ -21,7 +21,7 @@ const Site = () => {
                     <Route path="/products/:id" component={ProductPage} />
                     <Route path="/customers" component={Customers} />
                     <Route path="/reviews" component={Reviews} />
-                    <Route path="/news" component={News} />
+                    <Route exact path="/news" component={News} />
                     <Route path="/news/:id" component={News} />
                     <Route path="/contacts" component={Contacts} />
                     <Route exact path="/forum" component={Forum} />

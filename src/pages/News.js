@@ -26,12 +26,12 @@ const News = () => {
                 <NewsLine />
                 <div className="news-container">
                     <div className="main-heading">
-                        <h1>{news[news_selected].title}</h1>
+                        <h1>{news[id].title}</h1>
                     </div>
                     <div className="news-data">
-                        <img src={news[news_selected].photo} alt="imgjd" />
+                        <img src={news[id].photo} alt="imgjd" />
                         <div className="news-text">
-                            <p>{news[news_selected].text}</p>
+                            <p>{news[id].text}</p>
                         </div>
                     </div>
                 </div>

@@ -760,6 +760,7 @@ footer .footer-content #footer-stamp {
 .news-slider-container .news-item {
   -webkit-transition: all 3s ease-out;
   transition: all 3s ease-out;
+  cursor: pointer;
 }
 
 .news-slider-container .news-item .news-image {

@@ -10,9 +10,9 @@ const history = createBrowserHistory({ forceRefresh: true });
 export const NewsLine = () => {
     const dispatch = useDispatch();
 
-    useEffect(() => {    // may give errors in future when adding redirect to /news
-        dispatch(showPage(0));
-    }, [])
+    // useEffect(() => {    // may give errors in future when adding redirect to /news
+    //     dispatch(showPage(0));
+    // }, [])
 
     // get all news 
     const news = useSelector(state => state.news.news);
@@ -39,17 +39,13 @@ export const NewsLine = () => {
 
     const handleNews = id => {
         dispatch(showNews(id));
-
-        // if (window.location.pathname != '/news/' +id) {
-        //     history.push('/news/'+ id)
-        // }
     }
 
     return (
         <div className="news-slider">
             <div className="news-slider-container">
                 {news.slice(getNewsRange.first, getNewsRange.last).map(news =>
-                    <div className="news-item" key={news.id} onClick={() => handleNews((news.id))}>
+                    <a href={"/news/"+ news.id} className="news-item" key={news.id} onClick={() => handleNews((news.id))}>
                         <div className="news-img">
                             <img className="news-image" src={news.photo} alt="news" />
                         </div>
@@ -60,7 +56,7 @@ export const NewsLine = () => {
                                 <p>{news.date}</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 )}
             </div>
             <div className="slider-buttons">

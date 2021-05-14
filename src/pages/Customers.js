@@ -1,5 +1,5 @@
 import map from '../assets/img/map.png'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import MainSection from '../components/MainSection'
 import { useSelector } from 'react-redux'
 
@@ -8,15 +8,13 @@ const Customers = () => {
         document.title = "Panda Navigation - Customers"
     }, [])
 
-    const [selectedCompany, setSelectedCompany] = useState(false);
-
     // get add widgets
     const companies = useSelector(state => state.companies.companies);
 
     const handlePin = (id) => {
         var company_item = document.getElementById("company" + id);
         company_item.classList.toggle("active-company"); 
-        
+
         setTimeout(() => {
             company_item.classList.toggle("active-company"); 
         }, 2000);

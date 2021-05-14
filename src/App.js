@@ -15,7 +15,7 @@ const App = () => {
                 <Route path="/products/:id" component={Site} />
                 <Route path="/customers" component={Site} />
                 <Route path="/reviews" component={Site} />
-                <Route path="/news" component={Site} />
+                <Route exact path="/news" component={Site} />
                 <Route path="/news/:id" component={Site} />
                 <Route path="/contacts" component={Site} />
                 <Route exact path="/forum" component={Site} />
