@@ -1,12 +1,16 @@
 const user = {
-    username: '',
-    email: ''
+    username: null,
+    fullname: null
 }
 
 const authReducer = (state = user, action) => {
     switch (action.type) {
-        case 'LOGIN':
-            return 0;
+        case 'REGISTER':
+            state.email = action.data.email
+            state.fullname = action.data.fullname
+            return state;
+        // case 'LOGIN':
+        //     state.email = action.data.username
         case 'LOGOUT':
             return null;
         default:

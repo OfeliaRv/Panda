@@ -1,5 +1,5 @@
 import { combineReducers } from "redux"
-import menuReducer from "./menuReducer"
+import menuReducer from "./sideMenuReducer"
 import toggleMenuReducer from "./toggleMenuReducer"
 
 const allReducers = combineReducers({

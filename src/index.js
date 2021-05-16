@@ -10,13 +10,11 @@ import { Provider } from 'react-redux'
 import allReducers from './reducers'
 import thunk from 'redux-thunk';
 
-// axios.defaults.baseURL = '';
+axios.defaults.baseURL = 'http://localhost:42998/api';
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 
 // Store
 const store = createStore(allReducers, applyMiddleware(thunk));
-// console.log(store.getState());
-
 
 ReactDOM.render(
     <Provider store={store}>

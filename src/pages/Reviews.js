@@ -27,7 +27,7 @@ const Reviews = () => {
                 <tbody>
                     <tr>
                         <td>1</td>
-                        {Array.from({ length: 5 }).map((_, index) => (
+                        {Array.from({ length: 4 }).map((_, index) => (
                             <td key={index}>Table cell {index}</td>
                         ))}
                         <td className="actions">
@@ -36,7 +36,7 @@ const Reviews = () => {
                     </tr>
                     <tr>
                         <td>2</td>
-                        {Array.from({ length: 5 }).map((_, index) => (
+                        {Array.from({ length: 4 }).map((_, index) => (
                             <td key={index}>Table cell {index}</td>
                         ))}
                         <td className="actions">

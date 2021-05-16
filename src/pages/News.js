@@ -2,12 +2,13 @@ import Table from 'react-bootstrap/Table'
 import { Link, Router } from "react-router-dom"
 import edit from '../assets/img/edit.svg'
 import { createBrowserHistory } from 'history'
+import EditNews from '../components/EditNews'
 
 const history = createBrowserHistory();
 
 const News = () => {
     return (
-        <Router history={history}>
+        // <Router history={history}>
             <div className="dashboard" id="news">
                 <div className="dashboard-header">
                     <h1>PANDA News list</h1>
@@ -37,7 +38,7 @@ const News = () => {
                                 <td key={index}>Table cell {index}</td>
                             ))}
                             <td className="actions">
-                                <img src={edit} alt="edit" title="Edit" onClick={() => history.push('/editnews')} />
+                                <Link to="/editnews"><img src={edit} alt="edit" title="Edit" /> </Link>
                             </td>
                         </tr>
                         <tr>
@@ -46,13 +47,13 @@ const News = () => {
                                 <td key={index}>Table cell {index}</td>
                             ))}
                             <td className="actions">
-                                <img src={edit} alt="edit" title="Edit" onClick={() => <Link to="/editNews" />} />
+                                <Link to="/editnews"><img src={edit} alt="edit" title="Edit" /> </Link>
                             </td>
                         </tr>
                     </tbody>
                 </Table>
             </div>
-        </Router>
+        // </Router>
     );
 }
 

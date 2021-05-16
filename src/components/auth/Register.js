@@ -1,8 +1,9 @@
 import axios from 'axios'
 import { createBrowserHistory } from 'history'
 import { useState } from 'react'
+import { Auth } from '../../actions'
 
-const history = createBrowserHistory();
+const history = createBrowserHistory({forceRefresh: true});
 
 const Register = () => {
 
@@ -13,17 +14,10 @@ const Register = () => {
 
         console.log(data);
 
-        axios.post(`http://localhost:42998/api/Authentication/register`, data)
+        axios.post(`/Authentication/register`, data)
             .then(res => {
-                setUser(
-                    {
-                        username: data.username,
-                        fullname: data.fullname,
-                        email: data.email,
-                        token: res.data.token,
-                        password: data.password
-                    }
-                )
+                Auth.register(data);
+                console.log("token: " + res.data.token);
                 localStorage.setItem('token', res.data.token);
                 history.push('/');
                 alert("Admin Register Successful!");

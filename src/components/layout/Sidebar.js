@@ -11,7 +11,7 @@ const Sidebar = () => {
                 {menuItems.map(item =>
                     <Link to={"/" + item.link} key={item.id}>
                         <div className="sidebar-item">
-                            <div className="sidebar-icon">{item.icon}</div>
+                            <img className="sidebar-icon" src={item.icon}></img>
                             <p className="sidebar-name">{item.name}</p>
                         </div>
                     </Link>

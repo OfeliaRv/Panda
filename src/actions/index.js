@@ -1,29 +1,7 @@
-export const toggleSidebar = () => {
-    return {
-        type: 'TOGGLE_MENU'
-    };
-};
+import * as Data from './Data'
+import * as Auth from './Auth'
+import * as Tools from './Tools'
 
-export const logout = () => {
-    return {
-        type: 'LOGOUT'
-    };
-};
-
-export const login = () => {
-    return {
-        type: 'LOGIN'
-    };
-};
-
-export const register = () => {
-    return {
-        type: 'REGISTER'
-    };
-};
-
-// export const editNews = () =>{
-//     return {
-//         type: 'EDIT_NEWS'
-//     };
-// }
+export { Data }
+export { Auth }
+export { Tools }

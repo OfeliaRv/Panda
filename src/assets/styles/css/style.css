@@ -201,6 +201,12 @@ nav:nth-child(2) {
   min-height: 67px;
 }
 
+#sidebar .sidebar-items-holder .sidebar-item .sidebar-icon {
+  width: 1.3vw;
+  height: 1.3vw;
+  margin-right: 5%;
+}
+
 #sidebar .sidebar-items-holder .sidebar-item .sidebar-name {
   margin: 0;
   font-size: 0.9vw;
