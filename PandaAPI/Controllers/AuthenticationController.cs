@@ -30,7 +30,7 @@ namespace PandaAPI.Controllers
             var UserExists = await userManager.FindByNameAsync(model.UserName);
             if (UserExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists" });
-            User user = new User()
+            User user = new()
             {
                 Email = model.Email,
                 FullName = model.FullName,

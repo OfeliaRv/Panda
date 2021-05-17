@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using PandaAPI.Models;
 
-namespace PandaAPI.Data
+namespace PandaAPI.Database
 {
     public class PandaDbContext : IdentityDbContext<User>
     {
@@ -15,5 +15,7 @@ namespace PandaAPI.Data
         {
             base.OnModelCreating(builder);
         }
+
+        public DbSet<News> News { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using PandaAPI.Data;
+using PandaAPI.Database;
 using PandaAPI.Models;
 using System.Text;
 
@@ -28,10 +29,12 @@ namespace PandaAPI
         {
 
             services.AddControllers();
-            
+
             // Entity framwork
             services.AddDbContext<PandaDbContext>(options =>
              options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<INewsData, SqlNewsData>();
 
             //For Identity
             services.AddIdentityCore<User>()
@@ -77,11 +80,18 @@ namespace PandaAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PandaAPI", Version = "v1" });
             });
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(options =>
+            options.WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
