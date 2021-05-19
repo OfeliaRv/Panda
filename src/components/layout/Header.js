@@ -25,11 +25,11 @@ const Header = () => {
                     </div>
                     <p>Login</p>
                 </div></a>
-                <div className="lang-select">
+                {/* <div className="lang-select">
                     <span className="lang" id="az">AZ</span> |
                     <span className="lang" id="ru">RU</span> |
                     <span className="lang" id="en">EN</span>
-                </div>
+                </div> */}
             </div>
         </header>
     );

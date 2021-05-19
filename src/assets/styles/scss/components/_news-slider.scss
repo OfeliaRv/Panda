@@ -2,10 +2,9 @@
     &-container {
         display: flex;
         overflow: hidden;
-        transition: transform 0.5s ease-out;
 
         .news-item {
-            transition: all 3s ease-out;
+            width: 23.3%;
             cursor: pointer;
 
             .news-image {
@@ -22,7 +21,7 @@
                 }
 
                 p {
-                    margin: 0;
+                    margin: 0 0 0 2%;
                 }
 
                 img {

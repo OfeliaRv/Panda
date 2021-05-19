@@ -59,7 +59,7 @@ const NewsLine = ({ fetchNews, newsData }) => {
                 {newsData && newsData.news && newsData.news.slice(getNewsRange.first, getNewsRange.last).map(news =>
                     <a href={"/news/" + news.id} className="news-item" key={news.id} onClick={() => handleNews((news.id))}>
                         <div className="news-img">
-                            <img className="news-image" src={'../../assets/img/' + news.photo} alt="news" />
+                            <img className="news-image" src={`../img/${news.photo}`} alt="news" />
                         </div>
                         <div className="news-info">
                             <h6>{news.title}</h6>

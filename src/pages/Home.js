@@ -17,8 +17,10 @@ const Home = () => {
         document.title = "Panda Navigation - Home";
     }, []);
 
+    var myTimeout;
     const scrollHandler = (e) => {
-        setTimeout(() => {
+        window.clearTimeout(myTimeout);
+        myTimeout = setTimeout(() => {
             var newSlide;
             newSlide = clickedHome + (Math.sign(e.deltaY));
             dispatch(setHomepage(newSlide));
@@ -30,7 +32,7 @@ const Home = () => {
             if (e.deltaY < 0 && clickedHome == 0) {
                 dispatch(setHomepage(2));
             }
-        }, 300);
+        }, 150);
     }
 
     return (
