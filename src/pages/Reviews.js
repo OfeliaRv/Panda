@@ -3,7 +3,7 @@ import MainSection from '../components/MainSection'
 import quotations from '../assets/img/quotations.svg'
 import user_photo from '../assets/img/user-photo.png'
 import { useSelector, useDispatch } from 'react-redux'
-import { loadReviews, showPage } from '../actions/showData'
+import { loadReviews, showPage } from '../actions/showDataActions'
 
 const Reviews = () => {
     const dispatch = useDispatch();

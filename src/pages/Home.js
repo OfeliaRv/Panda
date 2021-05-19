@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import NewsLine from "../components/NewsLine"
 import ContactForm from "../components/ContactForm"
 import { useSelector, useDispatch } from 'react-redux'
-import { setHomepage } from '../actions/showData'
+import { setHomepage } from '../actions/showDataActions'
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -18,17 +18,19 @@ const Home = () => {
     }, []);
 
     const scrollHandler = (e) => {
-        var newSlide;
-        newSlide = clickedHome + (Math.sign(e.deltaY));
-        dispatch(setHomepage(newSlide));
+        setTimeout(() => {
+            var newSlide;
+            newSlide = clickedHome + (Math.sign(e.deltaY));
+            dispatch(setHomepage(newSlide));
 
-        if (e.deltaY > 0 && clickedHome == 2) {
-            dispatch(setHomepage(0));
-        }
+            if (e.deltaY > 0 && clickedHome == 2) {
+                dispatch(setHomepage(0));
+            }
 
-        if (e.deltaY < 0 && clickedHome == 0) {
-            dispatch(setHomepage(2));
-        }
+            if (e.deltaY < 0 && clickedHome == 0) {
+                dispatch(setHomepage(2));
+            }
+        }, 300);
     }
 
     return (

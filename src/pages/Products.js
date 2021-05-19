@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import MainSection from '../components/MainSection'
 import { useSelector, useDispatch } from 'react-redux'
-import { loadProducts, showPage } from '../actions/showData'
+import { loadProducts, showPage } from '../actions/showDataActions'
 
 const Products = () => {
     const dispatch = useDispatch();

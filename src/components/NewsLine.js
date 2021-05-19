@@ -1,21 +1,29 @@
 import date_icon from '../assets/img/date-icon.svg'
 import { useSelector, useDispatch } from 'react-redux'
-import { loadNews, showNews, showPage } from '../actions/showData'
-import { Router } from 'react-router-dom'
+import { loadNews, showNews, showPage } from '../actions/showDataActions'
 import { useEffect } from 'react'
-import { createBrowserHistory } from 'history'
+import { connect } from 'react-redux'
+import { fetchNews } from '../actions/newsAction'
+import { newsState } from '../reducers/data/newsReducer'
 
-const history = createBrowserHistory({ forceRefresh: true });
+const NewsLine = ({ fetchNews, newsData }) => {
+    const my_dispatch = useDispatch();
 
-export const NewsLine = () => {
-    const dispatch = useDispatch();
+    useEffect(() => {
+        fetchNews()
+        console.log("newstate news: " + newsState.news);
+        console.log("News data: " + newsData.news);
+    }, [])
 
-    // useEffect(() => {    // may give errors in future when adding redirect to /news
-    //     dispatch(showPage(0));
-    // }, [])
+    // // get all news 
+    // const news = useSelector(state => state.news.news);
+    // const news = useSelector(state => state.news.news);
 
-    // get all news 
-    const news = useSelector(state => state.news.news);
+    // is loading (boolean)
+    // const isLoading = useSelector(state => state.news.loading);
+
+    // if there is an error
+    // const error = useSelector(state => state.news.error);
 
     // show maximum 5 news on a page
     const getNewsRange = useSelector(state => state.showData.loadNews);
@@ -25,7 +33,7 @@ export const NewsLine = () => {
 
     // calculate the number of pages based on the amount of news
     var dots = [];
-    const dots_num = Math.ceil(news.length / 5);
+    const dots_num = Math.ceil(newsData.news.length / 5);
     for (let i = 0; i < dots_num; i++) {
         dots[i] = {
             id: i
@@ -33,21 +41,25 @@ export const NewsLine = () => {
     }
 
     const handleSlides = id => {
-        dispatch(loadNews(0 + 4 * id));
-        dispatch(showPage(id));
+        my_dispatch(loadNews(0 + 4 * id));
+        my_dispatch(showPage(id));
     }
 
     const handleNews = id => {
-        dispatch(showNews(id));
+        my_dispatch(showNews(id));
     }
 
-    return (
+    return newsData.loading ? (
+        <h2>Loading</h2>
+    ) : newsData.error ? (
+        <h2>{newsData.error}</h2>
+    ) : (
         <div className="news-slider">
             <div className="news-slider-container">
-                {news.slice(getNewsRange.first, getNewsRange.last).map(news =>
-                    <a href={"/news/"+ news.id} className="news-item" key={news.id} onClick={() => handleNews((news.id))}>
+                {newsData && newsData.news && newsData.news.slice(getNewsRange.first, getNewsRange.last).map(news =>
+                    <a href={"/news/" + news.id} className="news-item" key={news.id} onClick={() => handleNews((news.id))}>
                         <div className="news-img">
-                            <img className="news-image" src={news.photo} alt="news" />
+                            <img className="news-image" src={'../../assets/img/' + news.photo} alt="news" />
                         </div>
                         <div className="news-info">
                             <h6>{news.title}</h6>
@@ -68,4 +80,21 @@ export const NewsLine = () => {
     );
 }
 
-export default NewsLine;
+const mapStateToProps = state => {
+    return {
+        newsData: state.news
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchNews: () => dispatch(fetchNews())
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(NewsLine)
+
+// export default NewsLine;

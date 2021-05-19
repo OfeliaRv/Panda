@@ -1,7 +1,7 @@
 import Widget from './Widget'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { loadWidgets, showPage } from '../actions/showData'
+import { loadWidgets, showPage } from '../actions/showDataActions'
 
 const Widgets = () => {
     const dispatch = useDispatch();

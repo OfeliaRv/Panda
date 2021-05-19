@@ -6,7 +6,7 @@ import left_item_reviews from '../assets/img/left-item-reviews.svg'
 import left_item_contacts from '../assets/img/left-item-contact.svg'
 import { Route } from 'react-router'
 import { useSelector, useDispatch } from 'react-redux'
-import { loadNews, showPage, loadProducts, loadWidgets, setHomepage, loadReviews } from '../actions/showData'
+import { loadNews, showPage, loadProducts, loadWidgets, setHomepage, loadReviews } from '../actions/showDataActions'
 
 const MainSection = ({ children }) => {
     const dispatch = useDispatch();
