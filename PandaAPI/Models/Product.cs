@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PandaAPI.Models
 {
-    public class News
+    public class Product
     {
         [Key]
         public Guid Id { get; set; }
 
         [Required]
         [MaxLength(300)]
-        public string Title { get; set; }
+        public string Name { get; set; }
 
         [Required]
         public string AltName { get; set; }
@@ -19,10 +19,7 @@ namespace PandaAPI.Models
         public string Keywords { get; set; }
 
         [Required]
-        public string NewsText { get; set; }
-
-        [Required]
-        public string Date { get; set; }
+        public string ProductText { get; set; }
 
         [Required]
         public string Photo { get; set; }

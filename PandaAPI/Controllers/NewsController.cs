@@ -16,14 +16,13 @@ namespace PandaAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/[controller]")]
         public IActionResult GetNews()
         {
             return Ok(_newsData.GetNews());
         }
 
         [HttpGet]
-        [Route("api/[controller]/{id}")]
+        [Route("{id}")]
         public IActionResult GetOneNews(Guid id)
         {
             var one_news = _newsData.GetOneNews(id);
@@ -37,8 +36,7 @@ namespace PandaAPI.Controllers
 
 
         [HttpPost]
-        [Route("api/[controller]")]
-        public IActionResult GetOneNews(News one_news)
+        public IActionResult AddNews(News one_news)
         {
             _newsData.AddNews(one_news);
             return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + one_news.Id, one_news);
@@ -46,7 +44,7 @@ namespace PandaAPI.Controllers
 
 
         [HttpDelete]
-        [Route("api/[controller]/{id}")]
+        [Route("{id}")]
         public IActionResult DeleteNews(Guid id)
         {
             var one_news = _newsData.GetOneNews(id);
@@ -60,7 +58,7 @@ namespace PandaAPI.Controllers
         }
 
         [HttpPatch]
-        [Route("api/[controller]/{id}")]
+        [Route("{id}")]
         public IActionResult EditNews(Guid id, News one_news)
         {
             var existing_one_news = _newsData.GetOneNews(id);

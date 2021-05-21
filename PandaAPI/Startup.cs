@@ -1,3 +1,6 @@
+using IdentityModel;
+using IdentityServer4;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +14,8 @@ using Microsoft.OpenApi.Models;
 using PandaAPI.Data;
 using PandaAPI.Database;
 using PandaAPI.Models;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Text;
 
 namespace PandaAPI
@@ -35,37 +40,9 @@ namespace PandaAPI
              options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<INewsData, SqlNewsData>();
+            services.AddScoped<IProductData, SqlProductData>();
 
             //For Identity
-            services.AddIdentityCore<User>()
-                .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<PandaDbContext>()
-                .AddDefaultTokenProviders();
-
-            //Adding Authentication
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-
-            // Add JWT Bearer
-            .AddJwtBearer(options =>
-            {
-                options.SaveToken = true;
-                options.RequireHttpsMetadata = false;
-                options.TokenValidationParameters = new TokenValidationParameters()
-                {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidAudience = Configuration["JWT:ValidAudience"],
-                    ValidIssuer = Configuration["JWT:ValidIssuer"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["JWT:Secret"])),
-                };
-            });
-
-            // Password settings
             services.AddIdentityCore<User>(x =>
             {
                 x.Stores.MaxLengthForKeys = 128;
@@ -74,7 +51,48 @@ namespace PandaAPI
                 x.Password.RequireNonAlphanumeric = false;
                 x.Password.RequiredLength = 1;
                 x.Password.RequireDigit = false;
-            });
+            })
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<PandaDbContext>()
+                .AddDefaultTokenProviders()
+                .AddSignInManager();
+
+            //Adding Authentication
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = IdentityConstants.ApplicationScheme;
+                options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+                //options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                //options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                //options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddIdentityCookies();
+
+            services.AddIdentityServer()
+                .AddApiAuthorization<User, PandaDbContext>(o =>
+                {
+                    o.IdentityResources[IdentityServerConstants.StandardScopes.OpenId].UserClaims.Add(JwtClaimTypes.Role);
+                    o.ApiResources.Single().UserClaims.Add(JwtClaimTypes.Role);
+                });
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove(JwtClaimTypes.Role);
+
+            services.AddAuthentication()
+                .AddIdentityServerJwt();
+
+            // Add JWT Bearer
+            //.AddJwtBearer(options =>
+            //{
+            //    options.SaveToken = true;
+            //    options.RequireHttpsMetadata = false;
+            //    options.TokenValidationParameters = new TokenValidationParameters()
+            //    {
+            //        ValidateIssuer = true,
+            //        ValidateAudience = true,
+            //        ValidAudience = Configuration["JWT:ValidAudience"],
+            //        ValidIssuer = Configuration["JWT:ValidIssuer"],
+            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["JWT:Secret"])),
+            //    };
+            //});
 
             services.AddSwaggerGen(c =>
             {
@@ -101,6 +119,7 @@ namespace PandaAPI
 
             app.UseRouting();
 
+            app.UseIdentityServer();
             app.UseAuthentication();
             app.UseAuthorization();
 
