@@ -8,17 +8,21 @@ import axios from 'axios'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import allReducers from './reducers'
-import thunk from 'redux-thunk';
+import thunk from 'redux-thunk'
+import { user } from '../src/reducers/authReducer'
+import { OidcProvider } from 'redux-oidc'
 
 axios.defaults.baseURL = 'http://localhost:42998/api';
-axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+axios.defaults.headers.common['Authorization'] = 'Bearer ' + user.user.token;
 
 // Store
 const store = createStore(allReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        {/* <OidcProvider userManager={userManager} store={store}> */}
+            <App />
+        {/* </OidcProvider> */}
     </Provider>,
     document.getElementById('root'));
 registerServiceWorker();

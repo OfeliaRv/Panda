@@ -25,7 +25,7 @@ const Dashboard = () => {
             <Route exact path="/" component={News} />
             <Route path="/news" component={News} />
             <Route path="/addnews" component={AddNews} />
-            <Route path="/editnews" component={EditNews} />
+            <Route path="/editnews/:id" component={EditNews} />
             <Route path="/products" component={Products} />
             <Route path="/addproduct" component={AddProduct} />
             <Route path="/reviews" component={Reviews} />

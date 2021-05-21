@@ -1,60 +1,80 @@
 import Table from 'react-bootstrap/Table'
-import { Link, Router } from "react-router-dom"
+import { Link } from "react-router-dom"
 import edit from '../assets/img/edit.svg'
-import { createBrowserHistory } from 'history'
-import EditNews from '../components/EditNews'
+import { useEffect } from 'react'
+import { connect } from 'react-redux'
+// import EditNews from '../components/EditNews'
+import { fetchNews } from '../actions/NewsAction'
 
-const history = createBrowserHistory();
+const News = ({ fetchNews, newsData }) => {
+    useEffect(() => {
+        fetchNews();
+    }, []);
 
-const News = () => {
     return (
-        // <Router history={history}>
-            <div className="dashboard" id="news">
-                <div className="dashboard-header">
-                    <h1>PANDA News list</h1>
-                    <Link to="/addnews">
-                        <div className="add-button">
-                            <p>Add news</p>
-                        </div>
-                    </Link>
-                </div>
-                <Table bordered responsive size="sm">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>News Title</th>
-                            <th>News Date</th>
-                            <th>News Text</th>
-                            <th>News Alt Name</th>
-                            <th>News Keywords</th>
-                            <th>News Image</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            {Array.from({ length: 6 }).map((_, index) => (
-                                <td key={index}>Table cell {index}</td>
-                            ))}
-                            <td className="actions">
-                                <Link to="/editnews"><img src={edit} alt="edit" title="Edit" /> </Link>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            {Array.from({ length: 6 }).map((_, index) => (
-                                <td key={index}>Table cell {index}</td>
-                            ))}
-                            <td className="actions">
-                                <Link to="/editnews"><img src={edit} alt="edit" title="Edit" /> </Link>
-                            </td>
-                        </tr>
-                    </tbody>
-                </Table>
+        <div className="dashboard" id="news">
+            <div className="dashboard-header">
+                <h1>PANDA News list</h1>
+                <Link to="/addnews">
+                    <div className="add-button">
+                        <p>Add news</p>
+                    </div>
+                </Link>
             </div>
-        // </Router>
+            <Table bordered responsive size="sm">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>News Title</th>
+                        <th>News Date</th>
+                        <th>News Text</th>
+                        <th>News Alt Name</th>
+                        <th>News Keywords</th>
+                        <th>News Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                {newsData.loading ? (
+                    <h2>Loading</h2>
+                ) : newsData.error ? (
+                    <h2>{newsData.error}</h2>
+                ) : (
+                    <tbody>
+                        {newsData && newsData.news && newsData.news.map(news =>
+                            <tr key={news.id}>
+                                <td>{newsData.news.indexOf(news) + 1}</td>
+                                <td>{news.title}</td>
+                                <td>{news.date}</td>
+                                <td>{news.text}</td>
+                                <td>{news.altname}</td>
+                                <td>{news.keywords}</td>
+                                <td>{news.photo}</td>
+                                <td className="actions">
+                                    <Link to={"/editnews/" + news.id}><img src={edit} alt="edit" title="Edit" /> </Link>
+                                </td>
+                            </tr>
+                        )}
+                    </tbody>
+                )}
+            </Table>
+        </div>
     );
 }
 
-export default News;
+
+const mapStateToProps = state => {
+    return {
+        newsData: state.news
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchNews: () => dispatch(fetchNews())
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(News)

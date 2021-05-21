@@ -1,18 +1,32 @@
-const user = {
-    username: null,
-    fullname: null
+export const user = {
+    user: {},
+    error: ''
 }
 
 const authReducer = (state = user, action) => {
     switch (action.type) {
-        case 'REGISTER':
-            state.email = action.data.email
-            state.fullname = action.data.fullname
+        case 'REGISTER_USER_SUCCESS':
+            return {
+                ...state,
+                user: action.payload
+            }
+        case 'REGISTER_USER_FAILURE':
+            return {
+                ...state,
+                error: action.payload
+            }
+        case 'LOGIN_USER_SUCCESS':
+            return {
+                ...state,
+                user: action.payload
+            }
+        case 'LOGIN_USER_FAILURE':
+            return {
+                ...state,
+                error: action.payload
+            }
+        case 'USER_LOGOUT':
             return state;
-        // case 'LOGIN':
-        //     state.email = action.data.username
-        case 'LOGOUT':
-            return null;
         default:
             return state;
     }
