@@ -12,7 +12,7 @@ import thunk from 'redux-thunk'
 import { user } from '../src/reducers/authReducer'
 import { OidcProvider } from 'redux-oidc'
 
-axios.defaults.baseURL = 'http://localhost:42998/api';
+axios.defaults.baseURL = 'https://localhost:44344/api';
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + user.user.token;
 
 // Store

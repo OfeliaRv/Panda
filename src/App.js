@@ -2,6 +2,8 @@ import Dashboard from './pages/Dashboard'
 import Auth from './pages/Auth'
 import { Router, Switch, Route } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
+import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
+import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
 
 const history = createBrowserHistory();
 
@@ -10,6 +12,7 @@ const App = () => {
         <div className="App">
             <Router history={history}>
                 <Switch>
+                    <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
                     <Route exact path="/" component={Dashboard} />
                     <Route path="/login" component={Auth} />
                     <Route path="/register" component={Auth} />

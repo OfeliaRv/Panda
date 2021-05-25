@@ -1,4 +1,4 @@
-export const ApplicationName = 'TestReactAuth';
+export const ApplicationName = 'PandaAdmin';
 
 export const QueryParameterNames = {
   ReturnUrl: 'returnUrl',
@@ -23,7 +23,7 @@ const prefix = '/authentication';
 
 export const ApplicationPaths = {
   DefaultLoginRedirectPath: '/',
-  ApiAuthorizationClientConfigurationUrl: `_configuration/${ApplicationName}`,
+  ApiAuthorizationClientConfigurationUrl: `https://localhost:44344/_configuration/${ApplicationName}`,
   ApiAuthorizationPrefix: prefix,
   Login: `${prefix}/${LoginActions.Login}`,
   LoginFailed: `${prefix}/${LoginActions.LoginFailed}`,
