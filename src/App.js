@@ -1,12 +1,15 @@
 import Dashboard from './pages/Dashboard'
 import Auth from './pages/Auth'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
+import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
 
 const App = () => {
     return (
         <div className="App">
             <Router>
                 <Switch>
+                    <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
                     <Route exact path="/" component={Dashboard} />
                     <Route path="/login" component={Auth} />
                     <Route path="/register" component={Auth} />
