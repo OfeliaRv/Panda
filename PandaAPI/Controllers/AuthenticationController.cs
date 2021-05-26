@@ -1,15 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using PandaAPI.Models;
-using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PandaAPI.Controllers
@@ -21,18 +15,15 @@ namespace PandaAPI.Controllers
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
         private readonly RoleManager<IdentityRole> roleManager;
-        private readonly IConfiguration _configuration;
 
-        public AuthenticationController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        public AuthenticationController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<IdentityRole> roleManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.roleManager = roleManager;
-            _configuration = configuration;
         }
 
-        [HttpPost]
-        [Route("Register")]
+        [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
             var UserExists = await userManager.FindByNameAsync(model.UserName);
@@ -42,7 +33,6 @@ namespace PandaAPI.Controllers
             {
                 Email = model.Email,
                 FullName = model.FullName,
-                SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.UserName
             };
 
@@ -53,8 +43,7 @@ namespace PandaAPI.Controllers
             return Ok(new Response { Status = "Success", Message = "User was successfully created!" });
         }
 
-        [HttpPost]
-        [Route("RegisterAdmin")]
+        [HttpPost("RegisterAdmin")]
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
         {
             var userExist = await userManager.FindByNameAsync(model.UserName);
@@ -65,9 +54,7 @@ namespace PandaAPI.Controllers
             {
                 Email = model.Email,
                 FullName = model.FullName,
-                //SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.UserName
-                //LockoutEnabled = false
             };
 
             var result = await userManager.CreateAsync(user, model.Password);
@@ -90,8 +77,7 @@ namespace PandaAPI.Controllers
             return Ok(new Response { Status = "Success", Message = "User Created Successfully" });
         }
 
-        [HttpPost]
-        [Route("Login")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
             var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, true, false);
@@ -100,34 +86,7 @@ namespace PandaAPI.Controllers
             {
                 return Ok();
             }
-            //var user = await userManager.FindByNameAsync(model.UserName);
-            //if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
-            //{
-            //    var userRoles = await userManager.GetRolesAsync(user);
-            //    var authClaims = new List<Claim>
-            //    {
-            //        new Claim(ClaimTypes.Name, user.UserName),
-            //        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            //    };
-            //    foreach (var userRole in userRoles)
-            //    {
-            //        authClaims.Add(new Claim(ClaimTypes.Role, userRole));
-            //    }
-            //    var authSiginKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(_configuration["JWT:Secret"]));
-            //    var token = new JwtSecurityToken(
-            //        issuer: _configuration["JWT:ValidIssuer"],
-            //        audience: _configuration["JWT:ValidAudience"],
-            //        expires: DateTime.Now.AddDays(1),
-            //        claims: authClaims,
-            //        signingCredentials: new SigningCredentials(authSiginKey, SecurityAlgorithms.HmacSha256Signature)
-            //        );
 
-            //    return Ok(new
-            //    {
-            //        token = new JwtSecurityTokenHandler().WriteToken(token),
-            //        ValidTo = token.ValidTo.ToString("yyyy-MM-ddThh:mm:ss")
-            //    });
-            //}
             return Unauthorized();
         }
     }
