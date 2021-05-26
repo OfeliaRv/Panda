@@ -32,11 +32,11 @@ export const login = data => {
         axios.post('/Authentication/Login', data)
             .then(res => {
                 console.log("res", res);
-                window.location.reload();
+                // window.location.reload();
                 //dispatch(loginUserSuccess(res.data));
                 // console.log("token: " + res.data.token);
                 // localStorage.setItem('token', res.data.token);
-                //alert("User Login Successful!");
+                alert("User Login Successful!");
             })
             .catch(error => {
                 console.log(error.message);

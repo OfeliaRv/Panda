@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import edit from '../assets/img/edit.svg'
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
-// import EditNews from '../components/EditNews'
 import { fetchNews } from '../actions/NewsAction'
 
 const News = ({ fetchNews, newsData }) => {
@@ -45,8 +44,8 @@ const News = ({ fetchNews, newsData }) => {
                                 <td>{newsData.news.indexOf(news) + 1}</td>
                                 <td>{news.title}</td>
                                 <td>{news.date}</td>
-                                <td>{news.text}</td>
-                                <td>{news.altname}</td>
+                                <td>{news.newsText}</td>
+                                <td>{news.altName}</td>
                                 <td>{news.keywords}</td>
                                 <td>{news.photo}</td>
                                 <td className="actions">

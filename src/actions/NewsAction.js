@@ -10,7 +10,10 @@ export const ACTION_TYPES = {
     ADD_NEWS_FAILURE: 'ADD_NEWS_FAILURE',
 
     EDIT_NEWS_SUCCESS: 'EDIT_NEWS_SUCCESS',
-    EDIT_NEWS_FAILURE: 'EDIT_NEWS_FAILURE'
+    EDIT_NEWS_FAILURE: 'EDIT_NEWS_FAILURE',
+
+    DELETE_NEWS_SUCCESS: 'DELETE_NEWS_SUCCESS',
+    DELETE_NEWS_FAILURE: 'DELETE_NEWS_FAILURE'
 }
 
 export const fetchNews = () => {
@@ -19,10 +22,7 @@ export const fetchNews = () => {
         axios
             .get('/News')
             .then(res => {
-                const news = res.data;
-                console.log(news);
-                // console.log(res.data);
-                dispatch(fetchNewsSuccess(news));
+                dispatch(fetchNewsSuccess(res.data));
             })
             .catch(error => {
                 dispatch(fetchNewsFailure(error.message))
@@ -32,14 +32,11 @@ export const fetchNews = () => {
 
 export function fetchOneNews(id) {
     return (dispatch) => {
-        console.log(id);
         dispatch(fetchNewsRequest())
         axios
             .get('/News/' + id)
             .then(res => {
-                console.log(res.data);
-                const one_news = res.data;
-                dispatch(fetchOneNewsSuccess(one_news));
+                dispatch(fetchOneNewsSuccess(res.data));
             })
             .catch(error => {
                 dispatch(fetchNewsFailure(error.message))
@@ -49,12 +46,11 @@ export function fetchOneNews(id) {
 
 export const addNews = data => {
     return (dispatch) => {
-        console.log(data);
         axios.post('/News', data)
             .then(res => {
                 dispatch(addNewsSuccess(res.data));
                 alert('News successfully added!');
-                console.log(res.data);
+                window.location.replace("/news");
             })
             .catch(error => {
                 dispatch(addNewsFailure(error.message))
@@ -62,18 +58,32 @@ export const addNews = data => {
     }
 }
 
-export const editNews = id => {
+export const editNews = (id, data) => {
     return (dispatch) => {
-        console.log(id);
         axios
-            .patch(`/News/${id}`)
+            .patch(`/News/${id}`, data)
             .then(res => {
-                const news = res.data;
-                console.log(news);
-                dispatch(editNewsSuccess(news));
+                console.log("updated news:", res.data);
+                dispatch(editNewsSuccess(id, res.data));
+                alert('News successfully edited!');
             })
             .catch(error => {
                 dispatch(editNewsFailure(error.message))
+            })
+    }
+}
+
+export const deleteNews = id => {
+    return (dispatch) => {
+        axios
+            .delete(`/News/${id}`)
+            .then(res => {
+                console.log("updated news:", res.data);
+                alert('News successfully deleted!');
+                window.location.replace("/news");
+            })
+            .catch(error => {
+                dispatch(deleteNewsFailure(error.message))
             })
     }
 }
@@ -107,12 +117,6 @@ export function fetchNewsFailure(error) {
 }
 
 // ADD
-// export function addNewsRequest() {
-//     return {
-//         type: ACTION_TYPES.ADD_NEWS_REQUEST
-//     }
-// }
-
 export function addNewsSuccess(news) {
     return {
         type: ACTION_TYPES.ADD_NEWS_SUCCESS,
@@ -129,9 +133,10 @@ export function addNewsFailure(error) {
 
 
 // EDIT
-export function editNewsSuccess(news) {
+export function editNewsSuccess(id, news) {
     return {
         type: ACTION_TYPES.EDIT_NEWS_SUCCESS,
+        id: id,
         payload: news
     }
 }
@@ -139,6 +144,14 @@ export function editNewsSuccess(news) {
 export function editNewsFailure(error) {
     return {
         type: ACTION_TYPES.EDIT_NEWS_FAILURE,
+        payload: error
+    }
+}
+
+// DELETE
+export function deleteNewsFailure(error) {
+    return {
+        type: ACTION_TYPES.DELETE_NEWS_FAILURE,
         payload: error
     }
 }

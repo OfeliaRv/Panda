@@ -1,14 +1,11 @@
 import Dashboard from './pages/Dashboard'
 import Auth from './pages/Auth'
-import { Router, Switch, Route } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
-
-const history = createBrowserHistory();
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 const App = () => {
     return (
         <div className="App">
-            <Router history={history}>
+            <Router>
                 <Switch>
                     <Route exact path="/" component={Dashboard} />
                     <Route path="/login" component={Auth} />
@@ -26,6 +23,7 @@ const App = () => {
                     <Route path="/messages" component={Dashboard} />
                     <Route path="/companies" component={Dashboard} />
                     <Route path="/addcompany" component={Dashboard} />
+                    <Route path="*"> <h1>Page not found</h1></Route>
                 </Switch>
             </Router>
         </div>

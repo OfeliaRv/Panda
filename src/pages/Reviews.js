@@ -1,8 +1,15 @@
 import Table from 'react-bootstrap/Table'
 import { Link } from "react-router-dom"
 import edit from '../assets/img/edit.svg'
+import { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { fetchReviews } from '../actions/ReviewAction'
 
-const Reviews = () => {
+const Reviews = ({fetchReviews, reviewsData}) => {
+    useEffect(() => {
+        fetchReviews();
+    }, []);
+
     return (
         <div className="dashboard" id="reviews">
             <div className="dashboard-header">
@@ -25,28 +32,40 @@ const Reviews = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        {Array.from({ length: 4 }).map((_, index) => (
-                            <td key={index}>Table cell {index}</td>
-                        ))}
-                        <td className="actions">
-                            <img src={edit} alt="edit" title="Edit" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        {Array.from({ length: 4 }).map((_, index) => (
-                            <td key={index}>Table cell {index}</td>
-                        ))}
-                        <td className="actions">
-                            <img src={edit} alt="edit" title="Edit" />
-                        </td>
-                    </tr>
+                {reviewsData && reviewsData.reviews && reviewsData.reviews.map(review =>
+                            <tr key={review.id}>
+                                <td>{reviewsData.reviews.indexOf(review) + 1}</td>
+                                <td>{review.fullName}</td>
+                                <td>{review.company}</td>
+                                <td>{review.position}</td>
+                                <td>{review.reviewText}</td>
+                                <td>{review.photo}</td>
+                                <td className="actions">
+                                    <Link to={"/editreviews/" + review.id}><img src={edit} alt="edit" title="Edit" /> </Link>
+                                </td>
+                            </tr>
+                        )}
                 </tbody>
             </Table>
         </div>
     );
 }
 
-export default Reviews;
+const mapStateToProps = state => {
+    return {
+        reviewsData: state.reviews
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchReviews: () => dispatch(fetchReviews())
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Reviews)
+
+// export default Reviews;

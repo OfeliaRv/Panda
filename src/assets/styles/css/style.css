@@ -41,7 +41,7 @@ body {
 }
 
 .App {
-  min-height: 100vh;
+  height: 100vh;
 }
 
 #layout {
@@ -50,15 +50,26 @@ body {
   display: flex;
   height: 100%;
   width: 100%;
+  min-height: 100vh;
 }
 
 #layout .main-content {
-  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .dashboard {
-  min-height: 100vh;
+  height: 100%;
+  overflow-y: auto;
 }
 
 a {
@@ -90,9 +101,9 @@ nav {
   width: 100%;
   -webkit-box-shadow: 0 0 2rem 0 rgba(33, 37, 41, 0.1);
           box-shadow: 0 0 2rem 0 rgba(33, 37, 41, 0.1);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -460,7 +471,7 @@ nav:nth-child(2) {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 1% 2%;
-  height: 10%;
+  height: 13%;
 }
 
 .dashboard-header h1 {
@@ -493,6 +504,12 @@ nav:nth-child(2) {
   background-color: white;
   -webkit-box-shadow: 0 0 0.875rem 0 rgba(33, 37, 41, 0.05);
           box-shadow: 0 0 0.875rem 0 rgba(33, 37, 41, 0.05);
+}
+
+.table-responsive table tr td, .table-responsive table tr th {
+  padding: 0;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .add-component {
@@ -561,9 +578,15 @@ nav:nth-child(2) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
 }
 
 .actions img {
@@ -574,7 +597,7 @@ nav:nth-child(2) {
 }
 
 footer {
-  padding: 4% 0 1% 4%;
+  padding: 4% 0 0 4%;
   margin-top: auto;
 }
 /*# sourceMappingURL=style.css.map */

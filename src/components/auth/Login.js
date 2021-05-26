@@ -1,11 +1,6 @@
 import { login } from '../../actions/AuthAction';
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Router } from 'react-router';
-// import { createBrowserHistory } from 'history'
-
-// const history = createBrowserHistory();
-
 
 const Login = () => {
     const dispatch = useDispatch();

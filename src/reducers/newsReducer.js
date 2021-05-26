@@ -4,7 +4,8 @@ export const newsState = {
     loading: false,
     news: [],
     one_news: {},
-    error: ''
+    error: '',
+    // redirect: false
 }
 
 const newsReducer = (state = newsState, action) => {
@@ -40,7 +41,8 @@ const newsReducer = (state = newsState, action) => {
             return {
                 loading: false,
                 news: [...state.news, added_news],
-                error: ''
+                error: '',
+                redirect: true
             }
         case ACTION_TYPES.ADD_NEWS_FAILURE:
             return {
@@ -50,16 +52,22 @@ const newsReducer = (state = newsState, action) => {
             }
 
         case ACTION_TYPES.EDIT_NEWS_SUCCESS:
-            // const edit_news = state.news.concat(action.payload);
             return {
-                loading: false,
-                news: action.payload,
-                error: ''
+                ...state,
+                news: state.news.map(
+                    content => content.id === action.id ? { content: action.payload } : content
+                )
             }
         case ACTION_TYPES.EDIT_NEWS_FAILURE:
             return {
                 loading: false,
-                one_news: state.one_news,
+                news: state.news,
+                error: action.payload
+            }
+        case ACTION_TYPES.DELETE_NEWS_FAILURE:
+            return {
+                loading: false,
+                news: state.news,
                 error: action.payload
             }
         default:

@@ -1,7 +1,7 @@
 // import { Editor } from '@tinymce/tinymce-react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addNews } from '../actions/NewsAction';
+import { addNews } from '../actions/NewsAction'
 
 const AddNews = () => {
     const dispatch = useDispatch();

@@ -1,19 +1,45 @@
 // import { Editor } from '@tinymce/tinymce-react'
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { editNews, fetchOneNews } from '../actions/NewsAction'
+import { editNews, fetchOneNews, deleteNews } from '../actions/NewsAction'
 import { connect } from 'react-redux'
 import { useParams } from 'react-router'
 
 const EditNews = ({ fetchOneNews, newsData }) => {
     const { id } = useParams();
     const my_dispatch = useDispatch();
-    const [data, setData] = useState({});
+    // const [data, setData] = useState({});
+    // const [data, setData] = useState({ 
+    //     title: newsData.one_news.title,
+    //     date: newsData.one_news.date,
+    //     altName: newsData.one_news.altName,
+    //     keywords: newsData.one_news.keywords,
+    //     photo: newsData.one_news.photo,
+    //     newsText: newsData.one_news.newsText
+    // });
+
+    const [data, setData] = useState({ 
+        title: "",
+        date: "",
+        altName: "",
+        keywords: "",
+        photo: "",
+        newsText: ""
+    });
 
     useEffect(() => {
         fetchOneNews(id);
-        // console.log(id);
-        console.log(newsData.one_news);
+        // setData(prevState => ({
+        //     ...prevState,
+        //     title: newsData.one_news.title,
+        //     date: newsData.one_news.date,
+        //     altName: newsData.one_news.altName,
+        //     keywords: newsData.one_news.keywords,
+        //     photo: newsData.one_news.photo,
+        //     newsText: newsData.one_news.newsText
+        // }));
+        console.log("current news", newsData.one_news);
+        // console.log("data: ", data);
     }, [])
 
     const edit = e => {
@@ -36,10 +62,10 @@ const EditNews = ({ fetchOneNews, newsData }) => {
                 <h4>Edit News</h4>
                 <div className="heading-buttons">
                     <div className="add-button" onClick={edit}>Edit News</div>
-                    <div className="add-button" style={{ backgroundColor: '#e55d5d' }}>Delete News</div>
+                    <div className="add-button" style={{ backgroundColor: '#e55d5d' }} onClick={() => my_dispatch(deleteNews(id))}>Delete News</div>
                 </div>
             </div>
-            <form className="add-form" onSubmit={() => my_dispatch(editNews(data))}>
+            <form className="add-form" onSubmit={() => my_dispatch(editNews(id, data))}>
                 <div className="add-form-inputs">
                     <div className="input-container">
                         <label htmlFor="news-title">News title</label>
@@ -59,6 +85,7 @@ const EditNews = ({ fetchOneNews, newsData }) => {
                     </div>
                     <div className="input-container">
                         <label htmlFor="news-image">News image</label>
+                        {newsData.one_news.photo && <img src={"./img/" + newsData.one_news.photo} alt={newsData.one_news.title}></img>}
                         <input className="input-item" type="file" id="news-image" defaultValue={newsData.one_news.photo} onChange={e => setData(prevState => ({ ...prevState, photo: e.target.value }))} required disabled />
                     </div>
                 </div>
@@ -77,7 +104,7 @@ const EditNews = ({ fetchOneNews, newsData }) => {
                     /> */}
                     <textarea id="news-text" defaultValue={newsData.one_news.newsText} onChange={e => setData(prevState => ({ ...prevState, newsText: e.target.value }))} placeholder="Enter text" required ></textarea>
                 </div>
-                <button type="submit" className="add-button" disabled>Update news</button>
+                <button type="submit" className="add-button input-item" disabled>Update news</button>
             </form>
         </div>
     );
