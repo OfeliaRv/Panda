@@ -30,5 +30,7 @@ namespace PandaAPI.Database
         public DbSet<News> News { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Company> Companies { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<ClientMessage> Messages { get; set; }
     }
 }

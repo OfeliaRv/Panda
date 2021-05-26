@@ -35,6 +35,10 @@ namespace PandaAPI.Data
             if (existing_product != null)
             {
                 existing_product.Name = product.Name;
+                existing_product.AltName = product.AltName;
+                existing_product.Keywords = product.Keywords;
+                existing_product.Photo = product.Photo;
+                existing_product.ProductText = product.ProductText;
                 _pandaContext.Products.Update(existing_product);
                 _pandaContext.SaveChanges();
             }

@@ -35,6 +35,11 @@ namespace PandaAPI.Data
             if (existing_one_news != null)
             {
                 existing_one_news.Title = one_news.Title;
+                existing_one_news.Keywords = one_news.Keywords;
+                existing_one_news.NewsText = one_news.NewsText;
+                existing_one_news.Photo = one_news.Photo;
+                existing_one_news.AltName = one_news.AltName;
+                existing_one_news.Date = one_news.Date;
                 _pandaContext.News.Update(existing_one_news);
                 _pandaContext.SaveChanges();
             }

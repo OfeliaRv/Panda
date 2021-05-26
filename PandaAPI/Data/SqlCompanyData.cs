@@ -35,6 +35,10 @@ namespace PandaAPI.Data
             if (existing_company != null)
             {
                 existing_company.Name = company.Name;
+                existing_company.About = company.About;
+                existing_company.Logo = company.Logo;
+                existing_company.X_position = company.X_position;
+                existing_company.Y_position = company.Y_position;
                 _pandaContext.Companies.Update(existing_company);
                 _pandaContext.SaveChanges();
             }
