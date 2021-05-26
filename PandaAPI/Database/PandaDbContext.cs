@@ -21,7 +21,7 @@ namespace PandaAPI.Database
             builder.Entity<User>(x => x.ToTable("User"));
             builder.Entity<IdentityRole>(x => x.ToTable("Role"));
             builder.Entity<IdentityUserRole<string>>(x => x.ToTable("UserRole"));
-            builder.Entity<IdentityUserRole<string>>(x => x.ToTable("UserClaim"));
+            builder.Entity<IdentityUserClaim<string>>(x => x.ToTable("UserClaim"));
             builder.Entity<IdentityUserLogin<string>>(x => x.ToTable("UserLogin"));
             builder.Entity<IdentityRoleClaim<string>>(x => x.ToTable("RoleClaim"));
             builder.Entity<IdentityUserToken<string>>(x => x.ToTable("UserToken"));
