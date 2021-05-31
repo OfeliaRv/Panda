@@ -20,7 +20,7 @@ const Navbar = () => {
             <div className="nav-part">
                 <div className="admin">
                     <img className="admin-img" src={user_img} alt="admin-img" />
-                    <p>Name Surname</p>
+                    <p>Ofelya Rahmanova</p>
                     <img id="logout" onClick={() => dispatch(logoutUser)} src={logout_img} alt="logout" />
                 </div>
             </div>

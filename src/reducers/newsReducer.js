@@ -5,7 +5,6 @@ export const newsState = {
     news: [],
     one_news: {},
     error: '',
-    // redirect: false
 }
 
 const newsReducer = (state = newsState, action) => {

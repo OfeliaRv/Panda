@@ -506,7 +506,8 @@ nav:nth-child(2) {
           box-shadow: 0 0 0.875rem 0 rgba(33, 37, 41, 0.05);
 }
 
-.table-responsive table tr td, .table-responsive table tr th {
+.table-responsive table tr td,
+.table-responsive table tr th {
   padding: 0;
   vertical-align: middle;
   text-align: center;
@@ -572,6 +573,12 @@ nav:nth-child(2) {
   margin: 1% 0;
   width: 20%;
   height: 3vw;
+}
+
+#edit-image {
+  width: 17vw;
+  height: 12vw;
+  padding: 2% 2% 2% 0;
 }
 
 .actions {

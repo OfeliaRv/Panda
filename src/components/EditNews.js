@@ -8,39 +8,15 @@ import { useParams } from 'react-router'
 const EditNews = ({ fetchOneNews, newsData }) => {
     const { id } = useParams();
     const my_dispatch = useDispatch();
-    // const [data, setData] = useState({});
-    // const [data, setData] = useState({ 
-    //     title: newsData.one_news.title,
-    //     date: newsData.one_news.date,
-    //     altName: newsData.one_news.altName,
-    //     keywords: newsData.one_news.keywords,
-    //     photo: newsData.one_news.photo,
-    //     newsText: newsData.one_news.newsText
-    // });
-
-    const [data, setData] = useState({ 
-        title: "",
-        date: "",
-        altName: "",
-        keywords: "",
-        photo: "",
-        newsText: ""
-    });
+    const [data, setData] = useState({});
 
     useEffect(() => {
         fetchOneNews(id);
-        // setData(prevState => ({
-        //     ...prevState,
-        //     title: newsData.one_news.title,
-        //     date: newsData.one_news.date,
-        //     altName: newsData.one_news.altName,
-        //     keywords: newsData.one_news.keywords,
-        //     photo: newsData.one_news.photo,
-        //     newsText: newsData.one_news.newsText
-        // }));
-        console.log("current news", newsData.one_news);
-        // console.log("data: ", data);
     }, [])
+
+    useEffect(() => {
+        setData(newsData.one_news);
+    }, [newsData.one_news])
 
     const edit = e => {
         e.preventDefault();
@@ -85,8 +61,8 @@ const EditNews = ({ fetchOneNews, newsData }) => {
                     </div>
                     <div className="input-container">
                         <label htmlFor="news-image">News image</label>
-                        {newsData.one_news.photo && <img src={"./img/" + newsData.one_news.photo} alt={newsData.one_news.title}></img>}
-                        <input className="input-item" type="file" id="news-image" defaultValue={newsData.one_news.photo} onChange={e => setData(prevState => ({ ...prevState, photo: e.target.value }))} required disabled />
+                        {newsData.one_news.photo && <img id="edit-image" src={"../../img/" + newsData.one_news.photo} alt={newsData.one_news.title}></img>}
+                        <input className="input-item" type="file" id="news-image" defaultValue={newsData.one_news.photo} onChange={e => setData(prevState => ({ ...prevState, photo: e.target.value }))} disabled />
                     </div>
                 </div>
                 <div className="add-form-inputs">
@@ -126,6 +102,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(EditNews)
-
-
-// export default EditNews;

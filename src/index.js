@@ -11,7 +11,6 @@ import { Provider } from 'react-redux'
 import allReducers from './reducers'
 import thunk from 'redux-thunk'
 import { user } from '../src/reducers/authReducer'
-import { OidcProvider } from 'redux-oidc'
 
 axios.defaults.baseURL = 'https://localhost:44344/api';
 axios.defaults.headers.common['Authorization'] = 'Bearer ' + user.user.token;
@@ -21,9 +20,7 @@ const store = createStore(allReducers, applyMiddleware(thunk));
 
 ReactDOM.render(
     <Provider store={store}>
-        {/* <OidcProvider userManager={userManager} store={store}> */}
-            <App />
-        {/* </OidcProvider> */}
+        <App />
     </Provider>,
     document.getElementById('root'));
 registerServiceWorker();

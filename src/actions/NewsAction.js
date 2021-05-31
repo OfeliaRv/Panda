@@ -59,6 +59,7 @@ export const addNews = data => {
 }
 
 export const editNews = (id, data) => {
+    console.log("im here sending", data, "and", id);
     return (dispatch) => {
         axios
             .patch(`/News/${id}`, data)
@@ -68,6 +69,7 @@ export const editNews = (id, data) => {
                 alert('News successfully edited!');
             })
             .catch(error => {
+                console.log("fail");
                 dispatch(editNewsFailure(error.message))
             })
     }
@@ -75,16 +77,17 @@ export const editNews = (id, data) => {
 
 export const deleteNews = id => {
     return (dispatch) => {
-        axios
-            .delete(`/News/${id}`)
-            .then(res => {
-                console.log("updated news:", res.data);
-                alert('News successfully deleted!');
-                window.location.replace("/news");
-            })
-            .catch(error => {
-                dispatch(deleteNewsFailure(error.message))
-            })
+        if (confirm("Are you sure you want to delete this item? You won't be able to restore it")) {
+            axios
+                .delete(`/News/${id}`)
+                .then(res => {
+                    alert('News successfully deleted!');
+                    window.location.replace("/news");
+                })
+                .catch(error => {
+                    dispatch(deleteNewsFailure(error.message))
+                })
+        }
     }
 }
 

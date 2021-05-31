@@ -35,7 +35,8 @@
         box-shadow: 0 0 0.875rem 0 rgba(33, 37, 41, 0.05);
 
         tr {
-            td, th {
+            td,
+            th {
                 padding: 0;
                 vertical-align: middle;
                 text-align: center;
@@ -91,6 +92,12 @@
             height: 3vw;
         }
     }
+}
+
+#edit-image {
+    width: 17vw;
+    height: 12vw;
+    padding: 2% 2% 2% 0;
 }
 
 .actions {
