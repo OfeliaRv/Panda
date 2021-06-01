@@ -1,8 +1,15 @@
 import Table from 'react-bootstrap/Table'
 import { Link } from "react-router-dom"
 import edit from '../assets/img/edit.svg'
+import { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { fetchCompanies } from '../actions/CompanyAction'
 
-const Companies = () => {
+const Companies = ({ fetchCompanies, companiesData }) => {
+    useEffect(() => {
+        fetchCompanies();
+    }, []);
+
     return (
         <div className="dashboard" id="companies">
             <div className="dashboard-header">
@@ -18,35 +25,56 @@ const Companies = () => {
                     <tr>
                         <th>#</th>
                         <th>Comapany Name</th>
-                        <th>X-position</th>
-                        <th>Y-position</th>
-                        <th>Company Image</th>
+                        <th>Comapany Info</th>
+                        <th>X-position (%)</th>
+                        <th>Y-position (%)</th>
+                        <th>Company Logo</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        {Array.from({ length: 4 }).map((_, index) => (
-                            <td key={index}>Table cell {index}</td>
-                        ))}
-                        <td className="actions">
-                            <img src={edit} alt="edit" title="Edit" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        {Array.from({ length: 4 }).map((_, index) => (
-                            <td key={index}>Table cell {index}</td>
-                        ))}
-                        <td className="actions">
-                            <img src={edit} alt="edit" title="Edit" />
-                        </td>
-                    </tr>
-                </tbody>
+                {companiesData.loading ? (
+                    <h2>Loading</h2>
+                ) : companiesData.error ? (
+                    <h2>{companiesData.error}</h2>
+                ) : companiesData.companies.length === 0 ? (
+                    <h2>No data to display</h2>
+                ) : (
+                    <tbody>
+                        {/* {companiesData.companies === [] && <h2>No data to display</h2>} */}
+                        {companiesData && companiesData.companies && companiesData.companies.map(company =>
+                            <tr key={company.id}>
+                                <td>{companiesData.companies.indexOf(company) + 1}</td>
+                                <td>{company.name}</td>
+                                <td>{company.about}</td>
+                                <td>{company.x_position}</td>
+                                <td>{company.y_position}</td>
+                                <td>{company.logo}</td>
+                                <td className="actions">
+                                    <Link to={"/editcompany/" + company.id}><img src={edit} alt="edit" title="Edit" /> </Link>
+                                </td>
+                            </tr>
+                        )}
+                    </tbody>
+                )}
             </Table>
         </div>
     );
 }
- 
-export default Companies;
+
+
+const mapStateToProps = state => {
+    return {
+        companiesData: state.companies
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchCompanies: () => dispatch(fetchCompanies())
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Companies)

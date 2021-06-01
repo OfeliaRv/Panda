@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchReviews } from '../actions/ReviewAction'
 
-const Reviews = ({fetchReviews, reviewsData}) => {
+const Reviews = ({ fetchReviews, reviewsData }) => {
     useEffect(() => {
         fetchReviews();
     }, []);
@@ -31,8 +31,15 @@ const Reviews = ({fetchReviews, reviewsData}) => {
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                {reviewsData && reviewsData.reviews && reviewsData.reviews.map(review =>
+                {reviewsData.loading ? (
+                    <h2>Loading</h2>
+                ) : reviewsData.error ? (
+                    <h2>{reviewsData.error}</h2>
+                ) : reviewsData.reviews.length === 0 ? (
+                    <h2>No data to display</h2>
+                ) : (
+                    <tbody>
+                        {reviewsData && reviewsData.reviews && reviewsData.reviews.map(review =>
                             <tr key={review.id}>
                                 <td>{reviewsData.reviews.indexOf(review) + 1}</td>
                                 <td>{review.fullName}</td>
@@ -41,11 +48,12 @@ const Reviews = ({fetchReviews, reviewsData}) => {
                                 <td>{review.reviewText}</td>
                                 <td>{review.photo}</td>
                                 <td className="actions">
-                                    <Link to={"/editreviews/" + review.id}><img src={edit} alt="edit" title="Edit" /> </Link>
+                                    <Link to={"/editreview/" + review.id}><img src={edit} alt="edit" title="Edit" /> </Link>
                                 </td>
                             </tr>
                         )}
-                </tbody>
+                    </tbody>
+                )}
             </Table>
         </div>
     );
@@ -67,5 +75,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(Reviews)
-
-// export default Reviews;

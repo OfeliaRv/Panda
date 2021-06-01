@@ -4,7 +4,7 @@ export const newsState = {
     loading: false,
     news: [],
     one_news: {},
-    error: '',
+    error: ''
 }
 
 const newsReducer = (state = newsState, action) => {
@@ -40,8 +40,7 @@ const newsReducer = (state = newsState, action) => {
             return {
                 loading: false,
                 news: [...state.news, added_news],
-                error: '',
-                redirect: true
+                error: ''
             }
         case ACTION_TYPES.ADD_NEWS_FAILURE:
             return {

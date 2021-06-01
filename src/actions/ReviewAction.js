@@ -44,47 +44,48 @@ export function fetchReview(id) {
     }
 }
 
-export const addReviews = data => {
+export const addReview = data => {
     return (dispatch) => {
         axios.post('/Review', data)
             .then(res => {
-                dispatch(addReviewsSuccess(res.data));
+                dispatch(addReviewSuccess(res.data));
                 alert('Review successfully added!');
                 window.location.replace("/reviews");
             })
             .catch(error => {
-                dispatch(addReviewsFailure(error.message))
+                dispatch(addReviewFailure(error.message))
             })
     }
 }
 
-export const editReviews = (id, data) => {
+export const editReview = (id, data) => {
     return (dispatch) => {
         axios
             .patch(`/Review/${id}`, data)
             .then(res => {
                 console.log("updated reviews:", res.data);
-                dispatch(editReviewsSuccess(id, res.data));
+                dispatch(editReviewSuccess(id, res.data));
                 alert('Review successfully edited!');
             })
             .catch(error => {
-                dispatch(editReviewsFailure(error.message))
+                dispatch(editReviewFailure(error.message))
             })
     }
 }
 
-export const deleteReviews = id => {
+export const deleteReview = id => {
     return (dispatch) => {
-        axios
-            .delete(`/Review/${id}`)
-            .then(res => {
-                console.log("updated review:", res.data);
-                alert('Review successfully deleted!');
-                window.location.replace("/reviews");
-            })
-            .catch(error => {
-                dispatch(deleteReviewsFailure(error.message))
-            })
+        if (confirm("Are you sure you want to delete this item? You won't be able to restore it")) {
+            axios
+                .delete(`/Review/${id}`)
+                .then(
+                    alert('News successfully deleted!'),
+                    window.location.replace("/reviews")
+                )
+                .catch(error => {
+                    dispatch(deleteReviewFailure(error.message))
+                })
+        }
     }
 }
 
@@ -141,7 +142,7 @@ export function editReviewSuccess(id, review) {
     }
 }
 
-export function editReviewsFailure(error) {
+export function editReviewFailure(error) {
     return {
         type: ACTION_TYPES.EDIT_REVIEW_FAILURE,
         payload: error
@@ -149,7 +150,7 @@ export function editReviewsFailure(error) {
 }
 
 // DELETE
-export function deleteReviewsFailure(error) {
+export function deleteReviewFailure(error) {
     return {
         type: ACTION_TYPES.DELETE_REVIEW_FAILURE,
         payload: error

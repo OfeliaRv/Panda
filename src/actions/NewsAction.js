@@ -59,17 +59,14 @@ export const addNews = data => {
 }
 
 export const editNews = (id, data) => {
-    console.log("im here sending", data, "and", id);
     return (dispatch) => {
         axios
             .patch(`/News/${id}`, data)
             .then(res => {
-                console.log("updated news:", res.data);
                 dispatch(editNewsSuccess(id, res.data));
                 alert('News successfully edited!');
             })
             .catch(error => {
-                console.log("fail");
                 dispatch(editNewsFailure(error.message))
             })
     }

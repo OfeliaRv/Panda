@@ -37,6 +37,8 @@ const News = ({ fetchNews, newsData }) => {
                     <h2>Loading</h2>
                 ) : newsData.error ? (
                     <h2>{newsData.error}</h2>
+                ) : newsData.news.length === 0 ? (
+                    <h2>No data to display</h2>
                 ) : (
                     <tbody>
                         {newsData && newsData.news && newsData.news.map(news =>
