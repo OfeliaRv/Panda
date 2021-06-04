@@ -2,13 +2,9 @@ import { companyState } from '../data/companyReducer'
 import { productState } from '../data/productReducer'
 import { newsState } from '../data/newsReducer'
 import { reviewState } from '../data/reviewsReducer'
+import { connect } from 'react-redux'
 
 const loadData = {
-    loadNews:
-    {
-        first: 0,
-        last: 5
-    },
     loadProducts:
     {
         first: 0,
@@ -23,7 +19,8 @@ const loadData = {
         last: 3
     },
     showNews: 0,
-    showPage: 0
+    showPage: 1, 
+    carousel: 0
 }
 
 const showDataReducer = (state = loadData, action) => {
@@ -52,14 +49,13 @@ const showDataReducer = (state = loadData, action) => {
             return state;
 
         case 'LOAD_NEWS':
-            if (state.loadNews.last < newsState.news.length) {
-                state.loadNews.first = state.loadNews.first + action.payload
-                state.loadNews.last = state.loadNews.last + action.payload
-            }
-            else {
-                state.loadNews.first = 0
-                state.loadNews.last = 5
-            }
+            // if (state.carousel < (action.length - 1 ) * 93.3) {  
+                var coef = action.payload;
+                state.carousel = coef  * 93.3;
+            // }
+            // else {
+                // state.carousel = 0
+            // }
 
             return state;
 

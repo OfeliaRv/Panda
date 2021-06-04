@@ -346,7 +346,7 @@ header nav {
           align-items: center;
   margin: 0 auto;
   width: 60%;
-  height: 60%;
+  height: 75%;
 }
 
 header nav .navigation-list {
@@ -637,7 +637,7 @@ footer .footer-content #footer-stamp {
   overflow: hidden;
 }
 
-.main-section #right1 .next-button {
+.main-section #right1 .arrow-button {
   margin-bottom: 1.5vw;
 }
 
@@ -725,12 +725,29 @@ footer .footer-content #footer-stamp {
   height: 0.63vw;
 }
 
-.main-section .right-items .next-button svg {
+.main-section .right-items .arrow-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-section .right-items .arrow-buttons #previous svg {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.main-section .right-items .arrow-buttons .arrow-button {
+  width: 2vw !important;
+  height: 2vw !important;
+  margin: 0 0.1rem !important;
+}
+
+.main-section .right-items .arrow-buttons .arrow-button svg {
   height: 1.0417vw;
   width: 0.678vw;
 }
 
-.main-section .right-items .next-button:hover svg path {
+.main-section .right-items .arrow-buttons .arrow-button:hover svg path {
   fill: #1654f0;
 }
 
@@ -741,7 +758,7 @@ footer .footer-content #footer-stamp {
   .center-content .main-heading h1 {
     font-size: 2.2vw !important;
   }
-  #right1 .next-button {
+  #right1 .arrow-button {
     margin-bottom: 2vw !important;
   }
 }
@@ -750,7 +767,9 @@ footer .footer-content #footer-stamp {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
+  position: relative;
+  -webkit-transition: left 0.7s ease-in;
+  transition: left 0.7s ease-in;
 }
 
 .news-slider-container .news-item {
@@ -763,11 +782,40 @@ footer .footer-content #footer-stamp {
   height: 11vw;
 }
 
+.news-slider-container .news-item .news-info {
+  width: 99%;
+}
+
 .news-slider-container .news-item .news-info h6 {
   margin: 1vh 0 1.2vh 0;
-  font-size: 1.4vw;
+  font-size: 0.95vw;
   font-weight: 500;
   color: #6d7587;
+  height: 4rem;
+  width: 100%;
+  overflow-y: auto;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.news-slider-container .news-item .news-info h6::-webkit-scrollbar {
+  width: 0.5vw;
+}
+
+.news-slider-container .news-item .news-info h6::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2vw;
+}
+
+.news-slider-container .news-item .news-info h6::-webkit-scrollbar-thumb {
+  background: #8a92a5;
+  border-radius: 2vw;
+}
+
+.news-slider-container .news-item .news-info h6::-webkit-scrollbar-thumb:hover {
+  background: #4d545e;
 }
 
 .news-slider-container .news-item .news-info p {
@@ -776,6 +824,10 @@ footer .footer-content #footer-stamp {
 
 .news-slider-container .news-item .news-info img {
   width: 1.1vw;
+}
+
+.news-slider .slider-buttons {
+  margin-top: 1vh !important;
 }
 
 @media (max-width: 1000px), (min-width: 1920px) {
@@ -1008,7 +1060,7 @@ footer .footer-content #footer-stamp {
   overflow: hidden;
 }
 
-#news .next-button {
+#news .arrow-button {
   margin: auto 0 !important;
 }
 
@@ -1092,9 +1144,7 @@ footer .footer-content #footer-stamp {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin: 0 7%;
 }
 
 .products .product {
@@ -1141,8 +1191,8 @@ footer .footer-content #footer-stamp {
   height: unset;
 }
 
-#products .next-button,
-#product-page .next-button {
+#products .arrow-button,
+#product-page .arrow-button {
   margin-top: auto;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
@@ -1266,7 +1316,7 @@ footer .footer-content #footer-stamp {
 #customers-page .customers .companies-list {
   margin: 0 9% 0 7%;
   width: 33%;
-  overflow-y: scroll;
+  overflow-y: auto;
   /* width */
   /* Track */
   /* Handle */
@@ -1612,6 +1662,16 @@ footer .footer-content #footer-stamp {
   padding: 3vh 0 0 0;
 }
 
+#forum #forum-buttons-top {
+  display: none;
+}
+
+#forum-buttons-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .forum {
   width: 79.5%;
   height: 100%;
@@ -1886,6 +1946,13 @@ footer .footer-content #footer-stamp {
   }
 }
 
+#forum-page .forum-item {
+  background: unset !important;
+  -webkit-box-shadow: unset !important;
+          box-shadow: unset !important;
+  background-blend-mode: unset !important;
+}
+
 #login {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2049,6 +2116,10 @@ footer .footer-content #footer-stamp {
   margin: 0;
 }
 
+#login footer {
+  margin: 3% 0;
+}
+
 .input-holder {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2097,18 +2168,6 @@ p {
 p a {
   font-weight: 700;
   color: #6d7587;
-}
-
-#login footer,
-#register footer {
-  margin: 3% 0;
-}
-
-#login footer p,
-#register footer p {
-  font-weight: 500;
-  margin: 0;
-  font-size: 1vw;
 }
 
 .form-tools {
@@ -2268,6 +2327,16 @@ p a {
 
 #register {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #register header {
@@ -2278,7 +2347,7 @@ p a {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  height: 10%;
+  height: 14%;
 }
 
 #register header a {
@@ -2303,7 +2372,7 @@ p a {
 
 #register .auth-card {
   width: 100%;
-  height: 80%;
+  height: 65%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2317,10 +2386,11 @@ p a {
 
 #register .auth-card .auth-container {
   width: 100%;
+  height: 100%;
 }
 
 #register .auth-card .auth-container .auth-heading {
-  margin: 0 0 2% 3%;
+  margin: 3% 0 2% 3%;
 }
 
 #register .auth-card .auth-container .auth-heading h1 {
@@ -2335,6 +2405,7 @@ p a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  height: 55%;
 }
 
 #register .auth-card .auth-form .form-col {
@@ -2343,12 +2414,12 @@ p a {
 }
 
 #register .auth-card .auth-form .form-col .input-holder {
-  height: 44%;
+  height: 30%;
   margin-top: 2%;
 }
 
 #register .auth-card .auth-form .form-col button {
-  height: 30%;
+  height: 24%;
 }
 
 #register footer {
@@ -2358,6 +2429,13 @@ p a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  height: 5%;
+}
+
+#register footer p {
+  font-weight: 500;
+  margin: 0;
+  font-size: 1vw;
 }
 
 #google-icon {

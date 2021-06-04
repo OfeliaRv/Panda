@@ -40,7 +40,8 @@
         .companies-list {
             margin: 0 9% 0 7%;
             width: 33%;
-            overflow-y: scroll;
+            overflow-y: auto;
+            // overflow-y: scroll;
 
             /* width */
             &::-webkit-scrollbar {

@@ -17,7 +17,7 @@ const Customers = () => {
 
         setTimeout(() => {
             company_item.classList.toggle("active-company"); 
-        }, 2000);
+        }, 1500);
     };
 
     return (
@@ -28,7 +28,7 @@ const Customers = () => {
                         <img src={map} alt="map" />
                         <div className="companies-pins">
                             {companies.map(company =>
-                                <a href={"#company" + company.id} key={company.id}><div className="company-pin" onClick={() => handlePin(company.id)} style={{ top: company.x_pos, left: company.y_pos }}></div></a>
+                                <a href={"#company" + (companies.indexOf(company) + 1)} key={company.id}><div className="company-pin" onClick={() => handlePin(company.id)} style={{ top: company.x_pos, left: company.y_pos }}></div></a>
                             )}
                         </div>
                     </div>

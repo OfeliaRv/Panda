@@ -2,42 +2,66 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import NewsLine from '../components/NewsLine'
 import MainSection from '../components/MainSection'
-import { useSelector } from 'react-redux'
+import { connect } from 'react-redux'
+import { fetchNews, fetchOneNews } from '../actions/newsAction'
 
-const News = () => {
+const News = ({ fetchOneNews, newsData, fetchNews }) => {
     const { id } = useParams();
 
-    // get all news
-    const news = useSelector(state => state.news.news);
-
-    // show selected news
-    const news_selected = useSelector(state => state.showData.showNews);
-
     useEffect(() => {
-        document.title = "Panda Navigation - News - " + news[news_selected].title
+        fetchOneNews(id);
+        console.log(newsData.one_news);
     }, [])
 
+    // useEffect(() => {
+    //     fetchNews();
+    // }, [])
+   
+
     return (
+    // newsData.loading ? (
+    //     <h2>Loading...</h2>
+    // ) : newsData.error ? (
+    //     <h2>{newsData.error}</h2>
+    // ) : (
         <div id="news">
             <MainSection>
                 <div className="main-heading">
                     <h1>News</h1>
                 </div>
                 <NewsLine />
-                <div className="news-container">
-                    <div className="main-heading">
-                        <h1>{news[id].title}</h1>
-                    </div>
-                    <div className="news-data">
-                        <img src={news[id].photo} alt="imgjd" />
-                        <div className="news-text">
-                            <p>{news[id].text}</p>
+                {newsData && newsData.one_news &&
+                    <div className="news-container">
+                        <div className="main-heading">
+                            <h1>{newsData.one_news.title}</h1>
+                        </div>
+                        <div className="news-data">
+                            <img src={'./../img/' + newsData.one_news.photo} alt={newsData.one_news.title} />
+                            <div className="news-text">
+                                <p>{newsData.one_news.newsText}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             </MainSection>
         </div>
     );
 }
 
-export default News;
+const mapStateToProps = state => {
+    return {
+        newsData: state.news
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchOneNews: (id) => dispatch(fetchOneNews(id)),
+        fetchNews: () => dispatch(fetchNews())
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(News)

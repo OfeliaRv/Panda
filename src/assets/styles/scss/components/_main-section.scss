@@ -38,7 +38,7 @@
     }
 
     #right1 {
-        .next-button {
+        .arrow-button {
             margin-bottom: 1.5vw;
         }
     }
@@ -108,16 +108,30 @@
             }
         }
 
-        .next-button {
-            svg {
-                height: 1.0417vw;
-                width: 0.678vw;
+        .arrow-buttons {
+            display: flex;
+
+            #previous {
+                svg {
+                    transform: rotate(180deg);
+                }
             }
 
-            &:hover {
+            .arrow-button {
+                width: 2vw !important;
+                height: 2vw !important;
+                margin: 0 0.1rem !important;
+
                 svg {
-                    path {
-                        fill: $hover-color;
+                    height: 1.0417vw;
+                    width: 0.678vw;
+                }
+
+                &:hover {
+                    svg {
+                        path {
+                            fill: $hover-color;
+                        }
                     }
                 }
             }
@@ -141,12 +155,8 @@
     }
 
     #right1 {
-        .next-button {
+        .arrow-button {
             margin-bottom: 2vw !important;
         }
     }
-
-    // .right-items {
-    //     height: 22vw;
-    // }
 }

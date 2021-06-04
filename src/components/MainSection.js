@@ -5,11 +5,21 @@ import left_item_news from '../assets/img/left-item-news.svg'
 import left_item_reviews from '../assets/img/left-item-reviews.svg'
 import left_item_contacts from '../assets/img/left-item-contact.svg'
 import { Route } from 'react-router'
-import { useSelector, useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useSelector, useDispatch, connect } from 'react-redux'
 import { loadNews, showPage, loadProducts, loadWidgets, setHomepage, loadReviews } from '../actions/showDataActions'
 
 const MainSection = ({ children }) => {
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            newsSlideNext();
+        }, 5000);
+        return () => clearTimeout(timer);
+    });
+
+    const [carouselCounter, setCarouselCounter] = useState(0);
 
     // get homepages
     const homepages = useSelector(state => state.home.homepage);
@@ -18,10 +28,10 @@ const MainSection = ({ children }) => {
 
 
     // get all news 
-    const news = useSelector(state => state.news.news);
-    // calculate the number of news pages (needed dots)
-    const news_pages = Math.ceil(news.length / 5);
+    // const news = newsData.news;
 
+    // calculate the number of news pages (needed dots)
+    // const news_pages = Math.ceil(news.length / 4);
 
     // show current page (little grey dot)
     const activePage = useSelector(state => state.showData.showPage);
@@ -44,17 +54,41 @@ const MainSection = ({ children }) => {
     // calculate the number of widget pages (needed dots)
     const review_pages = Math.ceil(reviews.length / 3);
 
-
     // news slider on next button click
-    const newsSlidesHandler = () => {
-        if (activePage < news_pages - 1) {
-            dispatch(loadNews(4));
-            dispatch(showPage(activePage + 1));
+    function newsSlideNext() {
+        dispatch(loadNews(carouselCounter + 1));
+        setCarouselCounter(carouselCounter + 1);
+        // if (activePage < news_pages) {
+        //     // dispatch(loadNews(carouselCounter + 1)); // carousel swipe counter
+        //     dispatch(showPage(activePage + 1));
+        // }
+        // else {
+        //     dispatch(showPage(1));
+        // }
+        // else{
+
+        // }
+
+        // console.log(activePage);
+    }
+
+    function newsSlidePrevious() {
+        if (carouselCounter > 0) {
+            dispatch(loadNews(carouselCounter - 1));
+            setCarouselCounter(carouselCounter - 1);
         }
-        else {
-            dispatch(loadNews(0));
-            dispatch(showPage(0));
-        }
+        // if (activePage < news_pages) {
+        //     // dispatch(loadNews(carouselCounter + 1)); // carousel swipe counter
+        //     dispatch(showPage(activePage + 1));
+        // }
+        // else {
+        //     dispatch(showPage(1));
+        // }
+        // else{
+
+        // }
+
+        // console.log(activePage);
     }
 
     // products slider on next button click
@@ -79,6 +113,15 @@ const MainSection = ({ children }) => {
             dispatch(loadWidgets(0));
             dispatch(showPage(0));
         }
+
+        // if (activePage < widget_pages) {
+        //     dispatch(loadWidgets(activePage, widget_pages));
+        //     dispatch(showPage(activePage + 1));
+        // }
+        // else {
+        //     dispatch(loadWidgets(activePage, widget_pages));
+        //     dispatch(showPage(1));
+        // }
     }
 
     // review pages on next button click
@@ -135,35 +178,42 @@ const MainSection = ({ children }) => {
                     </div>
                 </Route>}
                 {clickedHome == 0 && <Route exact path="/">
-                    <div className="next-button white-button square-button" onClick={newsSlidesHandler}>
-                        <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
-                        </svg>
+                    <div className="arrow-buttons">
+                        <div id="previous" className="arrow-button white-button square-button" onClick={newsSlidePrevious}>
+                            <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
+                            </svg>
+                        </div>
+                        <div className="arrow-button white-button square-button" onClick={newsSlideNext}>
+                            <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
+                            </svg>
+                        </div>
                     </div>
                 </Route>}
                 {clickedHome == 1 && <Route exact path="/">
-                    <div className="next-button white-button square-button" onClick={widgetsHandler}>
+                    <div className="arrow-button white-button square-button" onClick={widgetsHandler}>
                         <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
                         </svg>
                     </div>
                 </Route>}
                 <Route path="/news">
-                    <div className="next-button white-button square-button" onClick={newsSlidesHandler}>
+                    <div className="arrow-button white-button square-button" onClick={newsSlideNext}>
                         <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
                         </svg>
                     </div>
                 </Route>
                 <Route exact path="/products">
-                    <div className="next-button white-button square-button" onClick={productsHandler}>
+                    <div className="arrow-button white-button square-button" onClick={productsHandler}>
                         <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
                         </svg>
                     </div>
                 </Route>
                 <Route exact path="/reviews">
-                    <div className="next-button white-button square-button" onClick={reviewsHandler}>
+                    <div className="arrow-button white-button square-button" onClick={reviewsHandler}>
                         <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
                         </svg>
@@ -174,4 +224,13 @@ const MainSection = ({ children }) => {
     );
 }
 
-export default MainSection;
+const mapStateToProps = state => {
+    return {
+        newsData: state.news
+    }
+}
+
+export default connect(
+    mapStateToProps
+)(MainSection)
+

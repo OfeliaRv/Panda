@@ -1,38 +1,33 @@
+import { ACTION_TYPES } from '../../actions/reviewAction'
+
 export const reviewState = {
-    reviews: [
-        {
-            id: 1,
-            username: "Mr. Vadim Tumarkin1"
-        },
-        {
-            id: 2,
-            username: "Mr. Vadim Tumarkin2"
-        },
-        {
-            id: 3,
-            username: "Mr. Vadim Tumarkin3"
-        },
-        {
-            id: 4,
-            username: "Mr. Vadim Tumarkin4"
-        },
-        {
-            id: 5,
-            username: "Mr. Vadim Tumarkin5"
-        },
-        {
-            id: 6,
-            username: "Mr. Vadim Tumarkin6"
-        },
-        {
-            id: 7,
-            username: "Mr. Vadim Tumarkin7"
-        }
-    ]
+    loading: false,
+    reviews: [],
+    error: ''
 }
 
-const reviewReducer = (state = reviewState) => {
-    return state;
+const reviewReducer = (state = reviewState, action) => {
+    switch (action.type) {
+        case ACTION_TYPES.FETCH_REVIEWS_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case ACTION_TYPES.FETCH_REVIEWS_SUCCESS:
+            return {
+                loading: false,
+                reviews: action.payload,
+                error: ''
+            }
+        case ACTION_TYPES.FETCH_REVIEWS_FAILURE:
+            return {
+                loading: false,
+                reviews: [],
+                error: action.payload
+            }
+        default:
+            return state;
+    }
 }
 
 export default reviewReducer;

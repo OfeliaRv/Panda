@@ -114,6 +114,10 @@
             margin: 0;
         }
     }
+
+    footer {
+        margin: 3% 0;
+    }
 }
 
 .input-holder {
@@ -158,19 +162,6 @@ p {
     a {
         font-weight: 700;
         color: $textcolor2;
-    }
-}
-
-#login,
-#register {
-    footer {
-        margin: 3% 0;
-
-        p {
-            font-weight: 500;
-            margin: 0;
-            font-size: 1vw;
-        }
     }
 }
 

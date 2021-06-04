@@ -10,14 +10,12 @@ import axios from 'axios'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 
-axios.defaults.baseURL = 'http://localhost:42998/api';
+axios.defaults.baseURL = 'https://localhost:44344/api';
 // axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
-
-// const store = createStore(allReducers, applyMiddleware(thunk));
 
 const store = createStore(
     allReducers,
-    composeWithDevTools(applyMiddleware(logger, thunk))
+    composeWithDevTools(applyMiddleware(thunk))
 )
 
 ReactDOM.render(

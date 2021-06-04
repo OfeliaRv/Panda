@@ -1,13 +1,11 @@
 import { useEffect } from 'react'
 import MainSection from '../components/MainSection'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch, connect } from 'react-redux'
 import { loadProducts, showPage } from '../actions/showDataActions'
+import { fetchProducts } from '../actions/productAction'
 
-const Products = () => {
-    const dispatch = useDispatch();
-
-    // get all products
-    const products = useSelector(state => state.products.products);
+const Products = ({ fetchProducts, productsData }) => {
+    const my_dispatch = useDispatch();
 
     // show maximum 6 products on a page
     const getProductsRange = useSelector(state => state.showData.loadProducts);
@@ -16,11 +14,12 @@ const Products = () => {
     const activePage = useSelector(state => state.showData.showPage);
 
     useEffect(() => {
+        fetchProducts();
         document.title = "Panda Navigation - Products"
     }, [])
 
     var dots = [];
-    const dots_num = Math.ceil(products.length / 6);
+    const dots_num = Math.ceil(productsData.products.length / 6);
     for (let i = 0; i < dots_num; i++) {
         dots[i] = {
             id: i
@@ -28,15 +27,20 @@ const Products = () => {
     }
 
     const handleSlides = id => {
-        dispatch(loadProducts(0 + 6 * id));
-        dispatch(showPage(id));
+        my_dispatch(loadProducts(0 + 6 * id));
+        my_dispatch(showPage(id));
     }
 
-    return (
+    return productsData.loading ? (
+        <h2>Loading...</h2>
+    ) : productsData.error ? (
+        <h2>{productsData.error}</h2>
+    ) : (
         <div id="products">
             <MainSection>
                 <div className="products">
-                    {products.slice(getProductsRange.first, getProductsRange.last).map(product =>
+                    {productsData && productsData.products && productsData.products.slice(getProductsRange.first, getProductsRange.last).map(product =>
+                        
                         <a href={`/products/${product.id}`} key={product.id}><div className="product white-button">
                             <h6>{product.name}</h6>
                         </div></a>
@@ -52,4 +56,19 @@ const Products = () => {
     );
 }
 
-export default Products;
+const mapStateToProps = state => {
+    return {
+        productsData: state.products // access data in products reducer
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchProducts: () => dispatch(fetchProducts()) // access function to fetch all products
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Products)

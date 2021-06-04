@@ -1,81 +1,67 @@
-import date_icon from '../assets/img/date-icon.svg'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch, connect } from 'react-redux'
 import { loadNews, showNews, showPage } from '../actions/showDataActions'
 import { useEffect } from 'react'
-import { connect } from 'react-redux'
 import { fetchNews } from '../actions/newsAction'
-import { newsState } from '../reducers/data/newsReducer'
+import NewsItem from './NewsItem'
 
 const NewsLine = ({ fetchNews, newsData }) => {
-    const my_dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        fetchNews()
-        console.log("newstate news: " + newsState.news);
-        console.log("News data: " + newsData.news);
+        fetchNews();
+        // dispatch(showPage(1));
     }, [])
 
-    // // get all news 
-    // const news = useSelector(state => state.news.news);
-    // const news = useSelector(state => state.news.news);
-
-    // is loading (boolean)
-    // const isLoading = useSelector(state => state.news.loading);
-
-    // if there is an error
-    // const error = useSelector(state => state.news.error);
-
-    // show maximum 5 news on a page
-    const getNewsRange = useSelector(state => state.showData.loadNews);
-
     // show current page (little grey dot)
-    const activePage = useSelector(state => state.showData.showPage);
+    // const activePage = useSelector(state => state.showData.showPage);
+
+    // carousel value
+    const style = useSelector(state => state.showData.carousel);
 
     // calculate the number of pages based on the amount of news
-    var dots = [];
-    const dots_num = Math.ceil(newsData.news.length / 5);
-    for (let i = 0; i < dots_num; i++) {
-        dots[i] = {
-            id: i
-        };
-    }
+    // var dots = [];
+    // const dots_num = Math.ceil(newsData.news.length / 4);
+    // for (let i = 1; i <= dots_num; i++) {
+    //     dots[i] = {
+    //         id: i
+    //     };
+    // }
 
-    const handleSlides = id => {
-        my_dispatch(loadNews(0 + 4 * id));
-        my_dispatch(showPage(id));
-    }
+    // const handleSlides = id => {  // fix this
+
+    //     if (id == dots_num) {
+    //         dispatch(loadNews(id - 1, dots_num + 1));
+    //         dispatch(showPage(id));
+    //     } else {
+    //         dispatch(loadNews(id - 1, dots_num));
+    //         dispatch(showPage(id));
+    //     }
+    // }
+
+    const makeRepeated = (arr, repeats) =>
+        Array.from({ length: repeats }, () => arr).flat();
 
     const handleNews = id => {
-        my_dispatch(showNews(id));
+        dispatch(showNews(id));
     }
 
     return newsData.loading ? (
-        <h2>Loading</h2>
+        <h2>Loading...</h2>
     ) : newsData.error ? (
         <h2>{newsData.error}</h2>
     ) : (
         <div className="news-slider">
-            <div className="news-slider-container">
-                {newsData && newsData.news && newsData.news.slice(getNewsRange.first, getNewsRange.last).map(news =>
-                    <a href={"/news/" + news.id} className="news-item" key={news.id} onClick={() => handleNews((news.id))}>
-                        <div className="news-img">
-                            <img className="news-image" src={`../img/${news.photo}`} alt="news" />
-                        </div>
-                        <div className="news-info">
-                            <h6>{news.title}</h6>
-                            <div style={{ display: 'flex' }}>
-                                <img src={date_icon} alt="date icon" />
-                                <p>{news.date}</p>
-                            </div>
-                        </div>
-                    </a>
+            <div className="news-slider-container" style={{ left: '-' + style + '%' }}>
+                {/* {newsData && newsData.news && newsData.news.map(news => */}
+                {newsData && newsData.news && makeRepeated(newsData.news, 50).map(news =>
+                    <NewsItem news={news} key={Math.floor(Math.random() * 2000) + news.id + Math.floor(Math.random() * 2000)} handleNews={handleNews} />
                 )}
             </div>
-            <div className="slider-buttons">
+            {/* <div className="slider-buttons">
                 {dots.map(dot =>
                     <div className={"slide-button " + (dot.id === activePage ? "active-slide" : "")} key={dot.id} onClick={() => handleSlides(dot.id)}></div>
                 )}
-            </div>
+            </div> */}
         </div>
     );
 }
@@ -96,5 +82,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(NewsLine)
-
-// export default NewsLine;

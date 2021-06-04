@@ -1,57 +1,43 @@
-import product1 from '../../assets/img/product1.png'
+import { ACTION_TYPES } from '../../actions/productAction'
 
 export const productState = {
-    products: [
-        {
-            id: 0,
-            name: "Flight Procedures Design System",
-            img: product1
-        },
-        {
-            id: 1,
-            name: "Flight Procedures Design System",
-            img: product1
-        },
-        {
-            id: 2,
-            name: "Flight Procedures Design System",
-            img: product1
-        },
-        {
-            id: 3,
-            name: "Flight Procedures Design System",
-            img: product1
-        },
-        {
-            id: 4,
-            name: "Flight Procedures Design System",
-            img: product1
-        },
-        {
-            id: 5,
-            name: "Flight Procedures Design System",
-            img: product1
-        },
-        {
-            id: 6,
-            name: "Flight Procedures Design System 2",
-            img: product1
-        },
-        {
-            id: 7,
-            name: "Flight Procedures Design System 2",
-            img: product1
-        },
-        {
-            id: 8,
-            name: "Flight Procedures Design System",
-            img: product1
-        }
-    ]
+    loading: false,
+    product: {},
+    products: [],
+    error: ''
 }
 
-const productReducer = (state = productState) => {
-    return state;
+const productReducer = (state = productState, action) => {
+    switch (action.type) {
+        case ACTION_TYPES.FETCH_PRODUCTS_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+        case ACTION_TYPES.FETCH_PRODUCTS_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload,
+                product: {},
+                error: ''
+            }
+        case ACTION_TYPES.FETCH_PRODUCT_SUCCESS:
+            return {
+                loading: false,
+                products: [],
+                product: action.payload,
+                error: ''
+            }
+        case ACTION_TYPES.FETCH_PRODUCTS_FAILURE:
+            return {
+                loading: false,
+                products: [],
+                product: {},
+                error: action.payload
+            }
+        default:
+            return state;
+    }
 }
 
 export default productReducer;

@@ -17,23 +17,17 @@ const Home = () => {
         document.title = "Panda Navigation - Home";
     }, []);
 
-    var myTimeout;
-    const scrollHandler = (e) => {
-        window.clearTimeout(myTimeout);
-        myTimeout = setTimeout(() => {
-            var newSlide;
-            newSlide = clickedHome + (Math.sign(e.deltaY));
+    var scrollTimeout;
+    const scrollHandler = e => {
+        let sign = Math.sign(e.deltaY);
+        if (sign === 0) return;
+
+        window.clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            let newSlide = (clickedHome + sign + 3) % 3;
             dispatch(setHomepage(newSlide));
-
-            if (e.deltaY > 0 && clickedHome == 2) {
-                dispatch(setHomepage(0));
-            }
-
-            if (e.deltaY < 0 && clickedHome == 0) {
-                dispatch(setHomepage(2));
-            }
-        }, 150);
-    }
+        }, 300);
+    };
 
     return (
         <div onWheel={scrollHandler}>

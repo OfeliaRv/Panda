@@ -1,7 +1,8 @@
 .products {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    margin: 0 7%;
+    // justify-content: center;
 
     .product {
         display: flex;
@@ -40,7 +41,7 @@
         }
     }
 
-    .next-button {
+    .arrow-button {
         margin-top: auto;
         display: flex !important;
         margin-bottom: unset !important;

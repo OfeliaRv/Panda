@@ -2,6 +2,9 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import user_photo from '../assets/img/user-photo.png'
 import { useSelector } from 'react-redux'
+import { connect } from 'react-redux'
+// import { fetchProduct } from '../actions/productAction'
+
 
 const ForumPage = () => {
     // get all forum data
@@ -34,7 +37,6 @@ const ForumPage = () => {
                         <img src={user_photo} alt="user" />
                         <h6>Posted by Name Surname</h6>
                     </div>
-
                     <div className="forum-item-tools">
                         <div className="forum-item-buttons">
                             <div className="round-button white-button">
@@ -72,4 +74,19 @@ const ForumPage = () => {
     );
 }
 
-export default ForumPage;
+const mapStateToProps = state => {
+    return {
+        productData: state.products // access data in products reducer
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchProduct: (id) => dispatch(fetchProduct(id)) // access function to fetch the product
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ForumPage)

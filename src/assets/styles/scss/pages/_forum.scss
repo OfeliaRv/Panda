@@ -2,7 +2,7 @@
 #forum-page {
     height: 100%;
 
-    .main-section{
+    .main-section {
         height: 100%;
     }
 
@@ -30,6 +30,15 @@
         justify-content: space-between;
         padding: 3vh 0 0 0;
     }
+}
+#forum {
+    #forum-buttons-top {
+        display: none;
+    }
+}
+
+#forum-buttons-top {
+    display: flex;
 }
 
 .forum {
