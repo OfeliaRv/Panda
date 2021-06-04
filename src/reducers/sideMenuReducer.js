@@ -39,14 +39,20 @@ const initialState = {
         },
         {
             id: 6,
-            link: 'requests',
+            link: 'auth-requests',
             name: 'Registration Requests',
+            icon: requests_icon
+        },
+        {
+            id: 7,
+            link: 'topic-requests',
+            name: 'Topic Placement Requests',
             icon: requests_icon
         }
     ]
 }
 
-const menuReducer = (state = initialState, action) => {
+const menuReducer = (state = initialState) => {
     return state;
 }
 

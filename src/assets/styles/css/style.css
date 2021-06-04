@@ -34,6 +34,10 @@
   font-family: "Montserrat", sans-serif;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   background-color: #f7f7fc !important;
   margin: 0;
@@ -42,6 +46,62 @@ body {
 
 .App {
   height: 100vh;
+}
+
+h1 {
+  font-size: 2.8rem !important;
+}
+
+h2 {
+  font-size: 2.6rem !important;
+}
+
+h3 {
+  font-size: 2.4rem !important;
+}
+
+h4 {
+  font-size: 2.2rem !important;
+}
+
+h5 {
+  font-size: 2rem !important;
+}
+
+h6 {
+  font-size: 1.8rem !important;
+}
+
+p {
+  font-size: 1.6rem !important;
+}
+
+input::-webkit-input-placeholder, input:not(:focus), input:focus,
+textarea::-webkit-input-placeholder,
+textarea:not(:focus),
+textarea:focus {
+  font-size: 1.6rem;
+}
+
+input:-ms-input-placeholder, input:not(:focus), input:focus,
+textarea:-ms-input-placeholder,
+textarea:not(:focus),
+textarea:focus {
+  font-size: 1.6rem;
+}
+
+input::-ms-input-placeholder, input:not(:focus), input:focus,
+textarea::-ms-input-placeholder,
+textarea:not(:focus),
+textarea:focus {
+  font-size: 1.6rem;
+}
+
+input::placeholder, input:not(:focus), input:focus,
+textarea::placeholder,
+textarea:not(:focus),
+textarea:focus {
+  font-size: 1.6rem;
 }
 
 #layout {
@@ -162,7 +222,6 @@ nav .nav-part .admin-img {
 
 nav .nav-part .admin p {
   width: 100%;
-  font-size: 1vw;
   margin: 0;
 }
 
@@ -220,7 +279,6 @@ nav:nth-child(2) {
 
 #sidebar .sidebar-items-holder .sidebar-item .sidebar-name {
   margin: 0;
-  font-size: 0.9vw;
 }
 
 #sidebar .sidebar-items-holder .sidebar-item:hover .sidebar-name {
@@ -475,7 +533,6 @@ nav:nth-child(2) {
 }
 
 .dashboard-header h1 {
-  font-size: 2vw;
   font-weight: 400;
 }
 
@@ -492,25 +549,7 @@ nav:nth-child(2) {
 .dashboard-header .add-button p {
   font-weight: 500;
   color: white;
-  font-size: 1.2vw;
   margin: unset;
-}
-
-.table-responsive {
-  padding: 0 2% 1% 2%;
-}
-
-.table-responsive table {
-  background-color: white;
-  -webkit-box-shadow: 0 0 0.875rem 0 rgba(33, 37, 41, 0.05);
-          box-shadow: 0 0 0.875rem 0 rgba(33, 37, 41, 0.05);
-}
-
-.table-responsive table tr td,
-.table-responsive table tr th {
-  padding: 0;
-  vertical-align: middle;
-  text-align: center;
 }
 
 .add-component {
@@ -581,10 +620,32 @@ nav:nth-child(2) {
   padding: 2% 2% 2% 0;
 }
 
+footer {
+  padding: 4% 0 0 4%;
+  margin-top: auto;
+}
+
+.table-responsive {
+  padding: 0 2% 1% 2%;
+}
+
+.table-responsive table {
+  background-color: white;
+  -webkit-box-shadow: 0 0 0.875rem 0 rgba(33, 37, 41, 0.05);
+          box-shadow: 0 0 0.875rem 0 rgba(33, 37, 41, 0.05);
+}
+
+.table-responsive table tr td,
+.table-responsive table tr th {
+  padding: 15px;
+  vertical-align: middle;
+  text-align: center;
+  min-width: 60px;
+  font-size: 1.6rem;
+}
+
 .actions {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: table-cell;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -603,8 +664,76 @@ nav:nth-child(2) {
   margin: 0 3%;
 }
 
-footer {
-  padding: 4% 0 0 4%;
-  margin-top: auto;
+.popup-card {
+  z-index: 5;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-card-inner {
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  top: 25%;
+  bottom: 25%;
+  margin: auto;
+  background: white;
+}
+
+.popup-card-inner div {
+  padding: 2rem;
+}
+
+.popup-card .popup-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.popup-card .popup-header div {
+  padding: 0;
+}
+
+.popup-card .popup-header h6 {
+  font-weight: 400;
+}
+
+.popup-card .popup-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.popup-card .popup-buttons img {
+  cursor: pointer;
+  width: 2rem;
+}
+
+.popup-card .close-popup {
+  cursor: pointer;
+  color: red;
+  font-weight: bolder;
+  margin: 0 1rem;
+  font-size: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.popup-card .message-container {
+  overflow-y: auto;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,35 @@
+.table-responsive {
+    padding: 0 2% 1% 2%;
+
+    table {
+        background-color: white;
+        box-shadow: 0 0 0.875rem 0 rgba(33, 37, 41, 0.05);
+
+        tr {
+            td,
+            th {
+                padding: 15px;
+                vertical-align: middle;
+                text-align: center;
+                min-width: 60px;
+                font-size: 1.6rem;
+            }
+        }
+    }
+}
+
+.actions {
+    display: table-cell;
+    justify-content: center;
+    align-items: center;
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+
+    img {
+        height: 1.5vw;
+        width: 1.5vw;
+        cursor: pointer;
+        margin: 0 3%;
+    }
+}

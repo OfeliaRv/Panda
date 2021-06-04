@@ -2,7 +2,7 @@ import Table from 'react-bootstrap/Table'
 import approve from '../assets/img/approve.svg'
 import deny from '../assets/img/deny.svg'
 
-const Requests = () => {
+const AuthRequests = () => {
     return (
         <div className="dashboard" id="requests">
             <div className="dashboard-header">
@@ -46,4 +46,4 @@ const Requests = () => {
     );
 }
 
-export default Requests;
+export default AuthRequests;

@@ -28,6 +28,7 @@ const Reviews = ({ fetchReviews, reviewsData }) => {
                         <th>Company</th>
                         <th>Position</th>
                         <th>Review text</th>
+                        <th>Reviewer photo</th>
                         <th>Actions</th>
                     </tr>
                 </thead>

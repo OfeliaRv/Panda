@@ -6,6 +6,7 @@ import toggleMenuReducer from "./toggleMenuReducer"
 import companyReducer from "./companyReducer"
 import reviewReducer from "./reviewReducer"
 import productReducer from "./productReducer"
+import messageReducer from "./messageReducer";
 
 const allReducers = combineReducers({
     auth: authReducer,
@@ -14,7 +15,8 @@ const allReducers = combineReducers({
     news: newsReducer,
     companies: companyReducer,
     reviews: reviewReducer, 
-    products: productReducer
+    products: productReducer,
+    messages: messageReducer
 })
 
 export default allReducers;

@@ -23,7 +23,8 @@ const App = () => {
                     <Route path="/reviews" component={Dashboard} />
                     <Route path="/addreview" component={Dashboard} />
                     <Route exact path="/editreview/:id" component={Dashboard} />
-                    <Route path="/requests" component={Dashboard} />
+                    <Route path="/auth-requests" component={Dashboard} />
+                    <Route path="/topic-requests" component={Dashboard} />
                     <Route path="/messages" component={Dashboard} />
                     <Route path="/companies" component={Dashboard} />
                     <Route path="/addcompany" component={Dashboard} />

@@ -7,7 +7,6 @@ import Products from "./Products"
 import AddProduct from "../components/AddProduct"
 import Reviews from './Reviews'
 import AddReview from "../components/AddReview"
-import Requests from "./Requests"
 import Messages from "./Messages"
 import Companies from "./Companies"
 import AddCompany from "../components/AddCompany"
@@ -15,6 +14,8 @@ import EditNews from "../components/EditNews"
 import EditCompany from "../components/EditCompany"
 import EditReview from "../components/EditReview"
 import EditProduct from "../components/EditProduct"
+import AuthRequests from "./AuthRequests"
+import TopicRequests from "./TopicRequests"
 
 const Dashboard = () => {
     // if (user === null || user === undefined) {
@@ -35,7 +36,8 @@ const Dashboard = () => {
             <Route path="/reviews" component={Reviews} />
             <Route path="/addreview" component={AddReview} />
             <Route exact path="/editreview/:id" component={EditReview} />
-            <Route path="/requests" component={Requests} />
+            <Route path="/auth-requests" component={AuthRequests} />
+            <Route path="/topic-requests" component={TopicRequests} />
             <Route path="/messages" component={Messages} />
             <Route path="/companies" component={Companies} />
             <Route path="/addcompany" component={AddCompany} />

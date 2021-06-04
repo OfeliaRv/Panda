@@ -1,0 +1,62 @@
+.popup-card {
+    z-index: 5;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    &-inner {
+        position: absolute;
+        left: 25%;
+        right: 25%;
+        top: 25%;
+        bottom: 25%;
+        margin: auto;
+        background: white;
+
+        div {
+            padding: 2rem;
+        }
+    }
+
+    .popup-header {
+        display: flex;
+        justify-content: space-between;
+
+        div {
+            padding: 0;
+        }
+
+        h6 {
+            font-weight: 400;
+        }
+    }
+
+    .popup-buttons {
+        display: flex;
+
+        img {
+            cursor: pointer;
+            width: 2rem;
+        }
+    }
+
+    .close-popup {
+        cursor: pointer;
+        color: red;
+        font-weight: bolder;
+        margin: 0 1rem;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .message-container {
+        overflow-y: auto;
+    }
+}
