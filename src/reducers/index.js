@@ -6,6 +6,7 @@ import productReducer from "./data/productReducer"
 import reviewReducer from "./data/reviewsReducer"
 import homeReducer from "./data/homeReducer"
 import showDataReducer from "./state/showDataReducer"
+import messageReducer from "./data/messageReducer"
 
 const allReducers = combineReducers({
     companies: companyReducer,
@@ -14,6 +15,7 @@ const allReducers = combineReducers({
     reviews: reviewReducer,
     forumData: forumReducer,
     showData: showDataReducer,
+    messages: messageReducer,
     home: homeReducer
 })
 
