@@ -3,14 +3,30 @@ import { useDispatch } from 'react-redux'
 import { editReview, fetchReview, deleteReview } from '../actions/ReviewAction'
 import { connect } from 'react-redux'
 import { useParams } from 'react-router'
+import 'tinymce/tinymce'
+import 'tinymce/icons/default'
+import 'tinymce/themes/silver'
+import 'tinymce/plugins/paste'
+import 'tinymce/plugins/link'
+import 'tinymce/plugins/image'
+import 'tinymce/plugins/table'
+import 'tinymce/skins/ui/oxide/skin.min.css'
+import 'tinymce/skins/ui/oxide/content.min.css'
+import 'tinymce/skins/content/default/content.min.css'
+import { Editor } from '@tinymce/tinymce-react'
 
 const EditReview = ({ fetchReview, reviewsData }) => {
     const { id } = useParams();
     const my_dispatch = useDispatch();
     const [data, setData] = useState({});
+    const [isEditorEnabled, setIsEditorEnabled] = useState(true);
 
     useEffect(() => {
         fetchReview(id);
+        var inputs = document.getElementsByClassName('input-item');
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = true;
+        }
     }, [])
 
     useEffect(() => {
@@ -23,12 +39,11 @@ const EditReview = ({ fetchReview, reviewsData }) => {
         for (var i = 0; i < inputs.length; i++) {
             inputs[i].disabled = false;
         }
+        setIsEditorEnabled(false);
+    }
 
-        var textfield = document.getElementsByClassName('tox-tinymce');
-        if (textfield.nodeType == 1) {
-            textfield.setAttribute("aria-disabled", false);
-            textfield.classList.remove('tox-tinymce--disabled');
-        }
+    const handleEditorChange = content => {
+        setData(prevState => ({ ...prevState, reviewText: content }))
     }
 
     return (
@@ -62,18 +77,26 @@ const EditReview = ({ fetchReview, reviewsData }) => {
                 </div>
                 <div className="add-form-inputs">
                     <h5>Review content</h5>
-                    {/* <Editor
-                        apiKey="mvg3ckngqlx3wg04j15oifuabymhabh11i2h6rnbkx0po4cs"
-                        initialValue="<p>current value</p>"
+                    <Editor
+                        initialValue={reviewsData.review.reviewText}
                         init={{
-                            plugins: 'link image code',
-                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright',
-
-                        }
-                        }
-                        disabled={true}
-                    /> */}
-                    <textarea className="input-item" id="review-text" defaultValue={reviewsData.review.reviewText} onChange={e => setData(prevState => ({ ...prevState, reviewText: e.target.value }))} placeholder="Enter text" disabled required ></textarea>
+                            skin: false,
+                            content_css: false,
+                            height: 300,
+                            menubar: false,
+                            plugins: [
+                                'link image',
+                                'table paste'
+                            ],
+                            toolbar:
+                                'undo redo | formatselect | bold italic backcolor | \
+             alignleft aligncenter alignright alignjustify | \
+             bullist numlist outdent indent | removeformat | help'
+                        }}
+                        onEditorChange={handleEditorChange}
+                        disabled={isEditorEnabled}
+                        required={true}
+                    />
                 </div>
                 <button type="submit" className="add-button input-item" disabled>Update review</button>
             </form>

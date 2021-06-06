@@ -40,7 +40,6 @@ const Companies = ({ fetchCompanies, companiesData }) => {
                     <h2>No data to display</h2>
                 ) : (
                     <tbody>
-                        {/* {companiesData.companies === [] && <h2>No data to display</h2>} */}
                         {companiesData && companiesData.companies && companiesData.companies.map(company =>
                             <tr key={company.id}>
                                 <td>{companiesData.companies.indexOf(company) + 1}</td>

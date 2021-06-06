@@ -1,16 +1,40 @@
-// import { Editor } from '@tinymce/tinymce-react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addNews } from '../actions/NewsAction'
+import 'tinymce/tinymce'
+import 'tinymce/icons/default'
+import 'tinymce/themes/silver'
+import 'tinymce/plugins/paste'
+import 'tinymce/plugins/link'
+import 'tinymce/plugins/image'
+import 'tinymce/plugins/table'
+import 'tinymce/skins/ui/oxide/skin.min.css'
+import 'tinymce/skins/ui/oxide/content.min.css'
+import 'tinymce/skins/content/default/content.min.css'
+import { Editor } from '@tinymce/tinymce-react'
 
 const AddNews = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState({});
 
+    const handleEditorChange = content => {
+        setData(prevState => ({ ...prevState, newsText: content }))
+    }
+
+    const submitHandler = e => {
+        e.preventDefault();
+        if (data.newsText == '' || data.newsText == null) {
+            alert("Text field cannot be empty!");
+        }
+        else{
+            dispatch(addNews(data))
+        }
+    }
+
     return (
         <div className="add-component" id="add-news">
             <h4 className="add-component-heading">Add News</h4>
-            <form className="add-form" onSubmit={() => dispatch(addNews(data))}>
+            <form className="add-form" onSubmit={submitHandler}>
                 <div className="add-form-inputs">
                     <div className="input-container">
                         <label htmlFor="news-title">News title</label>
@@ -35,17 +59,24 @@ const AddNews = () => {
                 </div>
                 <div className="add-form-inputs">
                     <h5>News content</h5>
-                    {/* <Editor
-                        apiKey="mvg3ckngqlx3wg04j15oifuabymhabh11i2h6rnbkx0po4cs"
-                        initialValue="<p>Type the news content</p>"
+                    <Editor
+                        initialValue="<p>Add text</p>"
                         init={{
-                            plugins: 'link image code',
-                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright',
-                        }
-                        }
-                        onChange={e => setData(prevState => ({ ...prevState, newsText: e.target.getContent() }))}
-                    /> */}
-                    <textarea id="news-text" onChange={e => setData(prevState => ({ ...prevState, newsText: e.target.value }))} placeholder="Enter text" required ></textarea>
+                            skin: false,
+                            content_css: false,
+                            height: 300,
+                            menubar: false,
+                            plugins: [
+                                'link image',
+                                'table paste'
+                            ],
+                            toolbar:
+                                'undo redo | formatselect | bold italic backcolor | \
+             alignleft aligncenter alignright alignjustify | \
+             bullist numlist outdent indent | removeformat | help'
+                        }}
+                        onEditorChange={handleEditorChange}
+                    />
                 </div>
                 <button type="submit" className="add-button">Add news</button>
             </form>

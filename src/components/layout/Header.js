@@ -1,13 +1,18 @@
-import { useDispatch } from 'react-redux'
 import logo from '../../assets/img/logo.svg'
 import user_img from '../../assets/img/avatar.png'
 import menu_img from '../../assets/img/menu.svg'
 import logout_img from '../../assets/img/logout.svg'
 import { toggleSidebar } from '../../actions/ToolsActions'
 import { logoutUser } from '../../actions/AuthAction'
+import { useDispatch, connect } from 'react-redux'
+import { useEffect } from 'react'
 
-const Navbar = () => {
+const Navbar = ({ userData }) => {
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        console.log(userData.user);
+    }, [])
 
     return (
         <nav>
@@ -20,7 +25,7 @@ const Navbar = () => {
             <div className="nav-part">
                 <div className="admin">
                     <img className="admin-img" src={user_img} alt="admin-img" />
-                    <p>Ofelya Rahmanova</p>
+                    <p>{userData.user.name}</p>
                     <img id="logout" onClick={() => dispatch(logoutUser)} src={logout_img} alt="logout" />
                 </div>
             </div>
@@ -28,4 +33,12 @@ const Navbar = () => {
     );
 }
 
-export default Navbar;
+const mapStateToProps = state => {
+    return {
+        userData: state.auth
+    }
+}
+
+export default connect(
+    mapStateToProps
+)(Navbar)

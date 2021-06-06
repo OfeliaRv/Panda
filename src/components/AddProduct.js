@@ -1,20 +1,40 @@
-import { Editor } from '@tinymce/tinymce-react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addProduct } from '../actions/ProductAction'
+import 'tinymce/tinymce'
+import 'tinymce/icons/default'
+import 'tinymce/themes/silver'
+import 'tinymce/plugins/paste'
+import 'tinymce/plugins/link'
+import 'tinymce/plugins/image'
+import 'tinymce/plugins/table'
+import 'tinymce/skins/ui/oxide/skin.min.css'
+import 'tinymce/skins/ui/oxide/content.min.css'
+import 'tinymce/skins/content/default/content.min.css'
+import { Editor } from '@tinymce/tinymce-react'
 
 const AddProduct = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState({});
 
-    const handleEditorChange = (e) => {
-        console.log('Content was updated:', e.target.getContent());
+    const handleEditorChange = content => {
+        setData(prevState => ({ ...prevState, productText: content }))
+    }
+
+    const submitHandler = e => {
+        e.preventDefault();
+        if (data.productText == '' || data.productText == null) {
+            alert("Text field cannot be empty!");
+        }
+        else{
+            dispatch(addProduct(data))
+        }
     }
 
     return (
         <div className="add-component" id="add-product">
             <h4 className="add-component-heading">Add Product</h4>
-            <form className="add-form" onSubmit={() => dispatch(addProduct(data))}>
+            <form className="add-form" onSubmit={submitHandler}>
                 <div className="add-form-inputs">
                     <div className="input-container">
                         <label htmlFor="product-name">Product name</label>
@@ -35,17 +55,25 @@ const AddProduct = () => {
                 </div>
                 <div className="add-form-inputs">
                     <h5>Product content</h5>
-                    {/* <Editor
-                        apiKey="mvg3ckngqlx3wg04j15oifuabymhabh11i2h6rnbkx0po4cs"
-                        initialValue="<p>Type the product content</p>"
+                    <Editor
+                        initialValue="<p>Add text</p>"
                         init={{
-                            plugins: 'link image code',
-                            toolbar: 'undo redo | bold italic | alignleft aligncenter alignright'
+                            skin: false,
+                            content_css: false,
+                            height: 300,
+                            menubar: false,
+                            plugins: [
+                                'link image',
+                                'table paste'
+                            ],
+                            toolbar:
+                                'undo redo | formatselect | bold italic backcolor | \
+             alignleft aligncenter alignright alignjustify | \
+             bullist numlist outdent indent | removeformat | help'
                         }}
-                        onChange={handleEditorChange}
-                    /> */}
+                        onEditorChange={handleEditorChange}
+                    />
                 </div>
-                <textarea id="product-text" onChange={e => setData(prevState => ({ ...prevState, productText: e.target.value }))} placeholder="Enter text" required ></textarea>
                 <button type="submit" className="add-button">Add product</button>
             </form>
         </div>
