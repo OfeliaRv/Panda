@@ -8,8 +8,9 @@ import { Route } from 'react-router'
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch, connect } from 'react-redux'
 import { loadNews, showPage, loadProducts, loadWidgets, setHomepage, loadReviews } from '../actions/showDataActions'
+import { fetchCustomers } from '../actions/customerAction'
 
-const MainSection = ({ children }) => {
+const MainSection = ({ children, productsData, customersData, reviewsData }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -20,6 +21,7 @@ const MainSection = ({ children }) => {
     });
 
     const [carouselCounter, setCarouselCounter] = useState(0);
+    const [objectCounter, setObjectCounter] = useState(0);
 
     // get homepages
     const homepages = useSelector(state => state.home.homepage);
@@ -38,19 +40,21 @@ const MainSection = ({ children }) => {
 
 
     // get all products
-    const products = useSelector(state => state.products.products);
+    const products = productsData.products;
     // calculate the number of product pages (needed dots)
     const product_pages = Math.ceil(products.length / 6);
 
 
     // get add widgets
-    const widgets = useSelector(state => state.companies.companies);
+    const widgets = customersData.customers;
     // calculate the number of widget pages (needed dots)
     const widget_pages = Math.ceil(widgets.length / 3);
 
+    const n_widgets = Math.trunc(widgets.length / 3);  // number of pages with 3 widgets (=> last page has none, 1 or 2 widget)
+
 
     // get all reviews
-    const reviews = useSelector(state => state.reviews.reviews);
+    const reviews = reviewsData.reviews;
     // calculate the number of widget pages (needed dots)
     const review_pages = Math.ceil(reviews.length / 3);
 
@@ -92,46 +96,77 @@ const MainSection = ({ children }) => {
     }
 
     // products slider on next button click
-    const productsHandler = () => {
+    const productsSlidePrevious = () => {
+        if (activePage > 0) {
+            dispatch(loadProducts(-6, products.length));
+            dispatch(showPage(activePage - 1));
+        }
+    }
+
+    const productsSlideNext = () => {
         if (activePage < product_pages - 1) {
-            dispatch(loadProducts(6));
+            dispatch(loadProducts(6, products.length));
             dispatch(showPage(activePage + 1));
         }
         else {
-            dispatch(loadProducts(0));
+            dispatch(loadProducts(0, products.length));
             dispatch(showPage(0));
         }
     }
 
-    // widgets slider on next button click
-    const widgetsHandler = () => {
+    // widgets slider on arrow buttons click
+    const widgetsSlidePrevious = () => {
+        if (activePage > 0) {
+            if (activePage == widget_pages) { // if it is the last page
+                dispatch(loadWidgets(widgets.length % 3, widgets.length)); // then subtract remaining widgets first, and then the full 3-widget pages
+                setObjectCounter(0);
+            } else {
+                dispatch(loadWidgets(-3, widgets.length));
+                dispatch(showPage(activePage - 1));
+            }
+        }
+        console.log(activePage);
+    }
+
+    const widgetsSlideNext = () => {
         if (activePage < widget_pages - 1) {
-            dispatch(loadWidgets(3));
+            if (objectCounter < n_widgets) {
+                dispatch(loadWidgets(3, widgets.length));
+                setObjectCounter(objectCounter + 1);
+            } else {
+                dispatch(loadWidgets(widgets.length % 3, widgets.length));
+                setObjectCounter(0);
+            }
             dispatch(showPage(activePage + 1));
         }
         else {
-            dispatch(loadWidgets(0));
+            dispatch(loadWidgets(0, widgets.length));
             dispatch(showPage(0));
+            setObjectCounter(0);
         }
 
-        // if (activePage < widget_pages) {
-        //     dispatch(loadWidgets(activePage, widget_pages));
-        //     dispatch(showPage(activePage + 1));
-        // }
-        // else {
-        //     dispatch(loadWidgets(activePage, widget_pages));
-        //     dispatch(showPage(1));
-        // }
+        // console.log(objectCounter);
     }
 
     // review pages on next button click
-    const reviewsHandler = () => {
+    const reviewsSlidePrevious = () => {  // fix this
         if (activePage < review_pages - 1) {
-            dispatch(loadReviews(3));
+            dispatch(loadReviews(3, reviews.length));
             dispatch(showPage(activePage + 1));
         }
         else {
-            dispatch(loadReviews(0));
+            dispatch(loadReviews(0, reviews.length));
+            dispatch(showPage(0));
+        }
+    }
+
+    const reviewsSlideNext = () => {
+        if (activePage < review_pages - 1) {
+            dispatch(loadReviews(3, reviews.length));
+            dispatch(showPage(activePage + 1));
+        }
+        else {
+            dispatch(loadReviews(0, reviews.length));
             dispatch(showPage(0));
         }
     }
@@ -192,31 +227,59 @@ const MainSection = ({ children }) => {
                     </div>
                 </Route>}
                 {clickedHome == 1 && <Route exact path="/">
-                    <div className="arrow-button white-button square-button" onClick={widgetsHandler}>
-                        <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
-                        </svg>
+                    <div className="arrow-buttons">
+                        <div id="previous" className="arrow-button white-button square-button" onClick={widgetsSlidePrevious}>
+                            <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
+                            </svg>
+                        </div>
+                        <div className="arrow-button white-button square-button" onClick={widgetsSlideNext}>
+                            <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
+                            </svg>
+                        </div>
                     </div>
                 </Route>}
                 <Route path="/news">
-                    <div className="arrow-button white-button square-button" onClick={newsSlideNext}>
-                        <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
-                        </svg>
+                    <div className="arrow-buttons">
+                        <div id="previous" className="arrow-button white-button square-button" onClick={newsSlidePrevious}>
+                            <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
+                            </svg>
+                        </div>
+                        <div className="arrow-button white-button square-button" onClick={newsSlideNext}>
+                            <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
+                            </svg>
+                        </div>
                     </div>
                 </Route>
                 <Route exact path="/products">
-                    <div className="arrow-button white-button square-button" onClick={productsHandler}>
-                        <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
-                        </svg>
+                    <div className="arrow-buttons">
+                        <div id="previous" className="arrow-button white-button square-button" onClick={productsSlidePrevious}>
+                            <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
+                            </svg>
+                        </div>
+                        <div className="arrow-button white-button square-button" onClick={productsSlideNext}>
+                            <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
+                            </svg>
+                        </div>
                     </div>
                 </Route>
                 <Route exact path="/reviews">
-                    <div className="arrow-button white-button square-button" onClick={reviewsHandler}>
-                        <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
-                        </svg>
+                <div className="arrow-buttons">
+                        <div id="previous" className="arrow-button white-button square-button" onClick={reviewsSlidePrevious}>
+                            <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
+                            </svg>
+                        </div>
+                        <div className="arrow-button white-button square-button" onClick={reviewsSlideNext}>
+                            <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />
+                            </svg>
+                        </div>
                     </div>
                 </Route>
             </div>
@@ -226,7 +289,9 @@ const MainSection = ({ children }) => {
 
 const mapStateToProps = state => {
     return {
-        newsData: state.news
+        customersData: state.customers,
+        productsData: state.products,
+        reviewsData: state.reviews
     }
 }
 

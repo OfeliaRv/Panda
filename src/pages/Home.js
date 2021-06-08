@@ -30,7 +30,7 @@ const Home = () => {
     };
 
     return (
-        <div onWheel={scrollHandler}>
+        <div id="homepage" onWheel={scrollHandler}>
             <PageHeading />
             <MainSection>
                 {clickedHome == 0 &&

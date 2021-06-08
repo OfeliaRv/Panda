@@ -46,7 +46,7 @@
     .right-items {
         display: flex;
         align-items: flex-end;
-        flex-direction: column;
+        // flex-direction: column;
         justify-content: space-between;
         margin-left: 1.39%;
 
@@ -136,6 +136,12 @@
                 }
             }
         }
+    }
+}
+
+#homepage{
+    .right-items{
+        flex-direction: column !important;
     }
 }
 

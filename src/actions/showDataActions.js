@@ -5,28 +5,31 @@ export const setHomepage = id => {
     };
 }
 
-export const loadWidgets = value => {
+export const loadWidgets = (value, length) => {
     return {
         type: 'LOAD_WIDGETS',
-        payload: value
+        payload: value,
+        length: length
     };
 }
 
-export const loadReviews = value => {
+export const loadReviews = (value, length) => {
     return {
         type: 'LOAD_REVIEWS',
-        payload: value
+        payload: value,
+        length: length
     };
 }
 
-export const loadProducts = value => {
+export const loadProducts = (value, length) => {
     return {
         type: 'LOAD_PRODUCTS',
-        payload: value
+        payload: value,
+        length: length
     };
 }
 
-export const loadNews = (value) => {
+export const loadNews = value => {
     return {
         type: 'LOAD_NEWS',
         payload: value,

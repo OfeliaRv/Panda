@@ -1,6 +1,7 @@
 #forum,
 #forum-page {
     height: 100%;
+    overflow-y: auto;
 
     .main-section {
         height: 100%;
@@ -31,6 +32,7 @@
         padding: 3vh 0 0 0;
     }
 }
+
 #forum {
     #forum-buttons-top {
         display: none;
@@ -44,6 +46,7 @@
 .forum {
     width: 79.5%;
     height: 100%;
+    padding: 0 3.5% 2% 2%;
 
     .forum-item {
         width: 100%;
@@ -53,7 +56,7 @@
         background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
         background-blend-mode: soft-light, normal;
         box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
-        padding: 1.5% 3.5% 2% 2%;
+        padding: 1.5% 3.5% 1% 2%;
         margin-bottom: 1.2%;
 
         &-rating {
@@ -100,10 +103,10 @@
             flex-direction: column;
             justify-content: center;
 
-            h1 {
+            h5 {
                 color: $textcolor2;
                 font-weight: 500;
-                font-size: 1.24vw;
+                // font-size: 1.24vw;
                 margin: 0;
             }
 
@@ -131,7 +134,7 @@
                     margin: 0;
                     font-weight: 500;
                     font-size: 1.05vw;
-                    margin-left: 1.45%;
+                    margin-left: 2.6%;
                 }
             }
         }
@@ -164,12 +167,14 @@
             }
         }
 
-        .add-comment-button {
+        .add-response-button {
             display: flex;
             justify-content: space-between;
             border-radius: 2vw;
+            align-items: center;
             width: 14vw;
-            padding: 0 1.5vw;
+            padding: 0.8rem 1.5vw;
+            margin: 0.3rem 0;
 
             svg {
                 width: 1.094vw;
@@ -226,7 +231,10 @@
         .start-topic-button {
             width: 100%;
             height: 100%;
+            display: flex;
+            justify-content: center;
             font-size: 1.25vw;
+            align-items: center;
         }
     }
 
@@ -237,40 +245,40 @@
         margin: 5% 0.5vw;
     }
 
-    .top-users-list {
-        margin-left: 3%;
+    // .top-users-list {
+    //     margin-left: 3%;
 
-        .top-user {
-            display: flex;
-            justify-content: space-between;
-            margin: 5% 0;
+    //     .top-user {
+    //         display: flex;
+    //         justify-content: space-between;
+    //         margin: 5% 0;
 
-            img {
-                width: 1.46vw;
-                height: 1.46vw;
-            }
+    //         img {
+    //             width: 1.46vw;
+    //             height: 1.46vw;
+    //         }
 
-            p,
-            h6 {
-                margin: 0;
-                font-size: 1.1vw;
-                color: $textcolor2;
-            }
+    //         p,
+    //         h6 {
+    //             margin: 0;
+    //             font-size: 1.1vw;
+    //             color: $textcolor2;
+    //         }
 
-            p {
-                font-weight: 500;
-            }
+    //         p {
+    //             font-weight: 500;
+    //         }
 
-            h6 {
-                font-weight: 600;
-            }
+    //         h6 {
+    //             font-weight: 600;
+    //         }
 
-            svg {
-                width: 1.3vw;
-                height: 1.3vw;
-            }
-        }
-    }
+    //         svg {
+    //             width: 1.3vw;
+    //             height: 1.3vw;
+    //         }
+    //     }
+    // }
 }
 
 @media (min-width: 1920px) {

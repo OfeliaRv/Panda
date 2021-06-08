@@ -1,5 +1,5 @@
 import { combineReducers } from "redux"
-import companyReducer from './data/companyReducer'
+import customerReducer from './data/customerReducer'
 import forumReducer from "./data/forumReducer"
 import newsReducer from "./data/newsReducer"
 import productReducer from "./data/productReducer"
@@ -9,7 +9,7 @@ import showDataReducer from "./state/showDataReducer"
 import messageReducer from "./data/messageReducer"
 
 const allReducers = combineReducers({
-    companies: companyReducer,
+    customers: customerReducer,
     news: newsReducer,
     products: productReducer,
     reviews: reviewReducer,

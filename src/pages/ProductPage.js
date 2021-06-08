@@ -12,8 +12,11 @@ const ProductPage = ({ productData, fetchProduct }) => {
 
     useEffect(() => {
         fetchProduct(id);
-        document.title = "Panda Navigation - " + productData.product.name;
     }, [id])
+
+    useEffect(() => {
+        document.title = "Panda Navigation - " + productData.product.name;
+    }, []);
 
     return (
         <div id="product-page">

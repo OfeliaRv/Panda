@@ -1,0 +1,60 @@
+#forum-topic {
+    margin-top: 1rem;
+
+    h1 {
+        color: $textcolor2;
+    }
+
+    input {
+        height: 3vw;
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    textarea {
+        padding-top: 2vh;
+    }
+
+    input,
+    textarea {
+        font-size: 2rem;
+        padding-left: 2.3vw;
+    }
+
+    .forum-container {
+        margin-top: 3rem;
+    }
+
+    .start-topic-button-holder {
+        width: 25%;
+
+        .start-topic-button {
+            width: 100%;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+    }
+}
+
+.response-item {
+    h5 {
+        margin: 1rem 0;
+        color: $textcolor2;
+    }
+
+    textarea {
+        width: 100%;
+        padding-top: 2vh;
+        font-size: 2rem;
+        padding-left: 2.3vw;
+    }
+}
+
+#reply {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}

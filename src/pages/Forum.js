@@ -37,7 +37,7 @@ const Forum = () => {
                                             </div>
                                             <div className="forum-item-data">
                                                 <div className="forum-head">
-                                                    <h1>Lorem ipsum?</h1>
+                                                    <h5>Lorem ipsum?</h5>
                                                     <div id="forum-buttons-top" className="forum-item-buttons">
                                                         <div className="round-button white-button">
                                                             <svg className="bookmark" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,13 +61,13 @@ const Forum = () => {
 
                                                 <div className="forum-item-tools">
                                                     <div id="forum-buttons-bottom" className="forum-item-buttons">
-                                                        <div className="round-button white-button">
+                                                        {/* <div className="round-button white-button">
                                                             <svg className="bookmark" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path fillRule="evenodd" clipRule="evenodd" d="M7.29134 3.125H17.708C18.8538 3.125 19.7913 4.0625 19.7913 5.20833V21.875L12.4997 18.75L5.20801 21.875V5.20833C5.20801 4.0625 6.14551 3.125 7.29134 3.125ZM12.4997 16.4792L17.708 18.75V6.25C17.708 5.67708 17.2393 5.20833 16.6663 5.20833H8.33301C7.76009 5.20833 7.29134 5.67708 7.29134 6.25V18.75L12.4997 16.4792Z" fill="#6D7587" />
                                                                 <path className="bookmark-fill" fillRule="evenodd" clipRule="evenodd" d="M6.32715 20.0929V4.49414H18.3271V20.4941L11.9908 17.6081L6.32715 20.0929Z" fill="none" />
                                                             </svg>
-                                                        </div>
-                                                        <div className="add-comment-button white-button">
+                                                        </div> */}
+                                                        <div className="add-response-button white-button">
                                                             <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                 <path fillRule="evenodd" clipRule="evenodd" d="M3.5 1.75H17.5C18.4625 1.75 19.25 2.5375 19.25 3.5V14C19.25 14.9625 18.4625 15.75 17.5 15.75H5.25L1.75 19.25V3.5C1.75 2.5375 2.5375 1.75 3.5 1.75ZM5.25 14H17.5V3.5H3.5V15.75L5.25 14Z" fill="#6D7587" />
                                                             </svg>
@@ -101,7 +101,7 @@ const Forum = () => {
                         </div>
                         <div className="forum-stats">
                             <div className="start-topic-button-holder">
-                                <button className="start-topic-button grey-button">Start a new topic</button>
+                                <a href="/starttopic" className="start-topic-button grey-button">Start a new topic</a>
                             </div>
                         </div>
                     </div>

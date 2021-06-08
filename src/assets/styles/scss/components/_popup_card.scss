@@ -1,0 +1,74 @@
+.popup-card {
+    z-index: 5;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    &-inner {
+        border-radius: 2vw;
+        position: absolute;
+        left: 25%;
+        right: 25%;
+        top: 25%;
+        bottom: 25%;
+        margin: auto;
+        background-color: #ebecf0;
+    }
+
+    .card-content {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2rem;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        img {
+            margin: 2.5rem auto;
+        }
+    }
+
+    .close-popup {
+        cursor: pointer;
+        color: $textcolor3;
+        font-weight: bolder;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 1rem 2.5rem 0 0;
+
+        div {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100%;
+            font-size: 1.6rem;
+        }
+    }
+
+    .info-container {
+        width: 55%;
+        align-items: flex-start;
+        overflow-y: auto;
+
+        p {
+            font-size: 1.6rem;
+        }
+    }
+}

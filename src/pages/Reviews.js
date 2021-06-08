@@ -2,22 +2,23 @@ import { useEffect } from 'react'
 import MainSection from '../components/MainSection'
 import quotations from '../assets/img/quotations.svg'
 import user_photo from '../assets/img/user-photo.png'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch, connect } from 'react-redux'
+import { fetchReviews } from '../actions/reviewAction'
 import { loadReviews, showPage } from '../actions/showDataActions'
 
-const Reviews = () => {
+const Reviews = ({ fetchReviews, reviewsData }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        fetchReviews();
         document.title = "Panda Navigation - Reviews";
         dispatch((showPage(0)));
     }, []);
 
-
     // get all reviews
-    const reviews = useSelector(state => state.reviews.reviews);
+    const reviews = reviewsData.reviews;
 
-    // show maximum 6 products on a page
+    // show maximum 3 reviews on a page
     const getReviewsRange = useSelector(state => state.showData.loadReviews);
 
     // show current page (little grey dot)
@@ -40,7 +41,7 @@ const Reviews = () => {
         <div id="reviews">
             <MainSection>
                 <div className="reviews">
-                    {reviews.slice(getReviewsRange.first, getReviewsRange.last).map(review =>
+                    {reviewsData && reviewsData.reviews && reviewsData.reviews.slice(getReviewsRange.first, getReviewsRange.last).map(review =>
                         <div className="review" key={review.id}>
                             <div className="review-quote">
                                 <div className="square-button white-button">
@@ -53,12 +54,12 @@ const Reviews = () => {
                                         <img src={user_photo} alt="user" />
                                     </div>
                                     <div className="user-info-data">
-                                        <h2>{review.username}</h2>
-                                        <h6>Lorem ipsum dolor sit</h6>
+                                        <h2>{review.fullName}</h2>
+                                        <h6>{review.position} | {review.company}</h6>
                                     </div>
                                 </div>
                                 <div className="review-text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                    <p>{review.reviewText}</p>
                                 </div>
                             </div>
                         </div>
@@ -74,4 +75,19 @@ const Reviews = () => {
     );
 }
 
-export default Reviews;
+const mapStateToProps = state => {
+    return {
+        reviewsData: state.reviews
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchReviews: () => dispatch(fetchReviews())
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Reviews)

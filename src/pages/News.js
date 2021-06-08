@@ -3,27 +3,21 @@ import { useParams } from 'react-router-dom'
 import NewsLine from '../components/NewsLine'
 import MainSection from '../components/MainSection'
 import { connect } from 'react-redux'
-import { fetchNews, fetchOneNews } from '../actions/newsAction'
+import { fetchOneNews } from '../actions/newsAction'
 
-const News = ({ fetchOneNews, newsData, fetchNews }) => {
+const News = ({ fetchOneNews, newsData }) => {
     const { id } = useParams();
 
     useEffect(() => {
-        fetchOneNews(id);
+        if (id === '' || id === undefined || id === null) {
+            fetchOneNews(newsData.news[0].id);
+        } else {
+            fetchOneNews(id);
+        }
         console.log(newsData.one_news);
     }, [])
 
-    // useEffect(() => {
-    //     fetchNews();
-    // }, [])
-   
-
     return (
-    // newsData.loading ? (
-    //     <h2>Loading...</h2>
-    // ) : newsData.error ? (
-    //     <h2>{newsData.error}</h2>
-    // ) : (
         <div id="news">
             <MainSection>
                 <div className="main-heading">
@@ -36,7 +30,7 @@ const News = ({ fetchOneNews, newsData, fetchNews }) => {
                             <h1>{newsData.one_news.title}</h1>
                         </div>
                         <div className="news-data">
-                            <img src={'./../img/' + newsData.one_news.photo} alt={newsData.one_news.title} />
+                            <img src={'./../img/' + newsData.one_news.photo} alt={newsData.one_news.altName} />
                             <div className="news-text">
                                 <p>{newsData.one_news.newsText}</p>
                             </div>
@@ -56,8 +50,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchOneNews: (id) => dispatch(fetchOneNews(id)),
-        fetchNews: () => dispatch(fetchNews())
+        fetchOneNews: (id) => dispatch(fetchOneNews(id))
     }
 }
 

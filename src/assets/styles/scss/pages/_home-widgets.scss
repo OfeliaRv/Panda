@@ -4,7 +4,6 @@
     flex-wrap: nowrap;
 
     .widget {
-        display: flex;
         cursor: pointer;
         background: linear-gradient(317.7deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.4) 105.18%), #ebecf0;
         background-blend-mode: soft-light, normal;
@@ -42,7 +41,7 @@
                 }
 
                 width: 7.917vw;
-                height: 15.75vh;
+                // height: 15.75vh;
                 filter: saturate(0);
             }
         }

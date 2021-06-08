@@ -41,29 +41,6 @@
             margin: 0 9% 0 7%;
             width: 33%;
             overflow-y: auto;
-            // overflow-y: scroll;
-
-            /* width */
-            &::-webkit-scrollbar {
-                width: 0.5vw;
-            }
-
-            /* Track */
-            &::-webkit-scrollbar-track {
-                background: #f1f1f1;
-                border-radius: 2vw;
-            }
-
-            /* Handle */
-            &::-webkit-scrollbar-thumb {
-                background: $textcolor1;
-                border-radius: 2vw;
-            }
-
-            /* Handle on hover */
-            &::-webkit-scrollbar-thumb:hover {
-                background: $textcolor3;
-            }
 
             .company-item {
                 display: flex;

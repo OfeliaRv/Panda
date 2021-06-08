@@ -9,6 +9,7 @@ import Reviews from './pages/Reviews'
 import Forum from './pages/Forum'
 import Contacts from './pages/Contacts'
 import { createBrowserHistory } from 'history';
+import StartTopic from './pages/StartTopic'
 const history = createBrowserHistory({ forceRefresh: true });
 
 const Site = () => {
@@ -26,6 +27,7 @@ const Site = () => {
                     <Route path="/contacts" component={Contacts} />
                     <Route exact path="/forum" component={Forum} />
                     <Route path="/forum/:id" component={Forum} />
+                    <Route path="/starttopic" component={StartTopic} />
                     <Route path="*">
                         <div style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
                             <h1 style={{ textAlign: 'center', color: '#6D7587' }}>PAGE NOT FOUND</h1>

@@ -1,17 +1,7 @@
-import { useEffect, useState } from 'react'
-import { connect } from 'react-redux'
-import { fetchNews, fetchOneNews } from '../../actions/newsAction'
 import logo from '../../assets/img/logo.svg'
 import person from '../../assets/img/person.svg'
 
-const Header = ({ newsData, fetchNews }) => {
-    // const [id, setId] = useState('');
-
-    // useEffect(() => {
-    //     fetchNews();
-    //     setId(newsData.news[0].id);
-    // }, [])
-
+const Header = () => {
     return (
         <header>
             <a href="/"><div className="logo">
@@ -44,22 +34,5 @@ const Header = ({ newsData, fetchNews }) => {
         </header>
     );
 }
-
-// const mapStateToProps = state => {
-//     return {
-//         newsData: state.news
-//     }
-// }
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         fetchNews: () => dispatch(fetchNews())
-//     }
-// }
-
-// export default connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-// )(Header)
 
 export default Header;

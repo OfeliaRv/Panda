@@ -3,5 +3,56 @@
         background: unset !important;
         box-shadow: unset !important;
         background-blend-mode: unset !important;
+        padding: 0 !important;
+
+        &-buttons {
+            width: unset;
+        }
+
+        &-tools {
+            width: unset !important;
+        }
+    }
+
+    .forum-page-heading {
+        margin-top: unset !important;
+    }
+
+    .user-info {
+        width: 100%;
+        border: none !important;
+    }
+
+    .forum-page-heading {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .responses {
+        overflow-y: auto;
+
+        .response-item {
+            padding: 1.5% 2.7% 2.5% 5%;
+
+            .response-text {
+                overflow-y: auto;
+            }
+        }
+
+        .reply-buttons {
+            display: flex;
+            justify-content: flex-end;
+
+            .add-response-button {
+                width: 8vw !important;
+            }
+        }
+    }
+
+    .user-info-img {
+        img {
+            width: 1.875vw !important;
+            height: 1.875vw !important;
+        }
     }
 }

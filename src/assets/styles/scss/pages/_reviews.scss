@@ -38,62 +38,9 @@
             }
 
             &-content {
-                .review-user-info {
-                    display: flex;
-                    align-items: center;
-                    color: $textcolor2;
-
-                    .user-info-img {
-                        img {
-                            height: 3.3335vw;
-                        }
-                    }
-
-                    .user-info-data {
-                        margin-left: 2%;
-
-                        h2,
-                        h6 {
-                            margin: 0;
-                        }
-
-                        h2 {
-                            font-weight: 700;
-                            font-size: 1.05vw;
-                        }
-
-                        h6 {
-                            font-weight: 500;
-                            font-size: 0.85vw;
-                        }
-                    }
-                }
-
                 .review-text {
                     height: 5.6vw;
                     overflow-y: auto;
-
-                    /* width */
-                    &::-webkit-scrollbar {
-                        width: 0.5vw;
-                    }
-
-                    /* Track */
-                    &::-webkit-scrollbar-track {
-                        background: #f1f1f1;
-                        border-radius: 2vw;
-                    }
-
-                    /* Handle */
-                    &::-webkit-scrollbar-thumb {
-                        background: $textcolor1;
-                        border-radius: 2vw;
-                    }
-
-                    /* Handle on hover */
-                    &::-webkit-scrollbar-thumb:hover {
-                        background: $textcolor3;
-                    }
 
                     p {
                         color: $textcolor1;
@@ -103,6 +50,38 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.review-user-info {
+    display: flex;
+    align-items: center;
+    color: $textcolor2;
+
+    .user-info-img {
+        img {
+            height: 3.3335vw;
+        }
+    }
+
+    .user-info-data {
+        margin-left: 2%;
+
+        h2,
+        h6 {
+            margin: 0;
+        }
+
+        h2 {
+            font-weight: 700;
+            font-size: 1.05vw;
+        }
+
+        h6 {
+            font-weight: 500;
+            font-size: 0.85vw;
+            width: max-content;
         }
     }
 }

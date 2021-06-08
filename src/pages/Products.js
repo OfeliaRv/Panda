@@ -40,7 +40,6 @@ const Products = ({ fetchProducts, productsData }) => {
             <MainSection>
                 <div className="products">
                     {productsData && productsData.products && productsData.products.slice(getProductsRange.first, getProductsRange.last).map(product =>
-                        
                         <a href={`/products/${product.id}`} key={product.id}><div className="product white-button">
                             <h6>{product.name}</h6>
                         </div></a>

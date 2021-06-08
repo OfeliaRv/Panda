@@ -16,16 +16,18 @@ const newsReducer = (state = newsState, action) => {
             }
         case ACTION_TYPES.FETCH_NEWS_SUCCESS:
             return {
+                ...state,
                 loading: false,
-                one_news: {},
+                // one_news: {},
                 news: action.payload,
                 error: ''
             }
         case ACTION_TYPES.FETCH_ONE_NEWS_SUCCESS:
             return {
+                ...state,
                 loading: false,
                 one_news: action.payload,
-                news: [],
+                // news: [],
                 error: ''
             }
         case ACTION_TYPES.FETCH_NEWS_FAILURE:

@@ -10,7 +10,9 @@ const NewsLine = ({ fetchNews, newsData }) => {
     useEffect(() => {
         fetchNews();
         // dispatch(showPage(1));
-    }, [])
+    }, []);
+
+    console.log(newsData);
 
     // show current page (little grey dot)
     // const activePage = useSelector(state => state.showData.showPage);

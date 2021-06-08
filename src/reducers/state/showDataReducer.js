@@ -1,8 +1,7 @@
-import { companyState } from '../data/companyReducer'
+import { customerState } from '../data/customerReducer'
 import { productState } from '../data/productReducer'
 import { newsState } from '../data/newsReducer'
 import { reviewState } from '../data/reviewsReducer'
-import { connect } from 'react-redux'
 
 const loadData = {
     loadProducts:
@@ -19,16 +18,17 @@ const loadData = {
         last: 3
     },
     showNews: 0,
-    showPage: 1, 
+    showPage: 0, 
     carousel: 0
 }
 
 const showDataReducer = (state = loadData, action) => {
     switch (action.type) {
         case 'LOAD_WIDGETS':
-            if (state.loadWidgets.last < companyState.companies.length) {
+            if (state.loadWidgets.last < action.length) {
                 state.loadWidgets.first = state.loadWidgets.first + action.payload
                 state.loadWidgets.last = state.loadWidgets.last + action.payload
+                console.log(state.loadWidgets.last);
             }
             else {
                 state.loadWidgets.first = 0
@@ -37,7 +37,7 @@ const showDataReducer = (state = loadData, action) => {
             return state;
 
         case 'LOAD_REVIEWS':
-            if (state.loadReviews.last < reviewState.reviews.length) {
+            if (state.loadReviews.last < action.length) {
                 state.loadReviews.first = state.loadReviews.first + action.payload
                 state.loadReviews.last = state.loadReviews.last + action.payload
             }
@@ -60,7 +60,7 @@ const showDataReducer = (state = loadData, action) => {
             return state;
 
         case 'LOAD_PRODUCTS':
-            if (state.loadProducts.last < productState.products.length) {
+            if (state.loadProducts.last < action.length) {
                 state.loadProducts.first = state.loadProducts.first + action.payload
                 state.loadProducts.last = state.loadProducts.last + action.payload
             }

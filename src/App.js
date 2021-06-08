@@ -20,6 +20,7 @@ const App = () => {
                 <Route path="/contacts" component={Site} />
                 <Route exact path="/forum" component={Site} />
                 <Route path="/forum/:id" component={Site} />
+                <Route path="/starttopic" component={Site} />
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
                 <Route path="*">
