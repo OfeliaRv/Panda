@@ -9,24 +9,20 @@ const Register = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        dispatch(register(data));
-
-        // return (dispatch) => {
-        //     axios.post('/Authentication/Login', data, { withCredentials: true })
-        //         .then(() => {
-        //             authService.signIn({ returnUrl: "/" })
-        //                 .then(res => {
-        //                     authService.getUser()
-        //                     .then(user => {
-        //                         dispatch(login(user));
-        //                         window.location.replace(res.state.returnUrl);
-        //                     });
-        //                 })
-        //                 .catch(error => {
-        //                     console.log(error.message);
-        //                 });
-        //         });
-        // }
+        axios.post('/Authentication/RegisterAdmin', data, { withCredentials: true })
+            .then(_ => {
+                authService.signIn({ returnUrl: "/" })
+                    .then(res => {
+                        authService.getUser()
+                            .then(user => {
+                                dispatch(register(user));
+                                window.location.replace(res.state.returnUrl);
+                            });
+                    });
+            })
+            .catch(error => {
+                console.log(error.message);
+            });
     }
 
     return (

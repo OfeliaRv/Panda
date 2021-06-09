@@ -17,23 +17,20 @@ const Login = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log("clicked");
-        return (dispatch) => {
-            axios.post('/Authentication/Login', data, { withCredentials: true })
-                .then(() => {
-                    authService.signIn({ returnUrl: "/" })
-                        .then(res => {
-                            authService.getUser()
+        axios.post('/Authentication/Login', data, { withCredentials: true })
+            .then(_ => {
+                authService.signIn({ returnUrl: "/" })
+                    .then(res => {
+                        authService.getUser()
                             .then(user => {
                                 dispatch(login(user));
                                 window.location.replace(res.state.returnUrl);
                             });
-                        })
-                        .catch(error => {
-                            console.log(error.message);
-                        });
-                });
-        }
+                    });
+            })
+            .catch(error => {
+                console.log(error.message);
+            });
     }
 
     return (
@@ -41,7 +38,7 @@ const Login = () => {
             <div className="auth-heading">
                 <h1>Sign in to Panda Admin</h1>
             </div>
-            <form className="form" id="login-form" onSubmit={e => onSubmit(e)}>
+            <form className="form" id="login-form" onSubmit={onSubmit}>
                 <div className="auth-form">
                     <input type="text" id="username" placeholder="Username" onChange={e => setData(prevState => ({ ...prevState, userName: e.target.value }))} required />
                     <input type="password" id="password" placeholder="Password" onChange={e => setData(prevState => ({ ...prevState, password: e.target.value }))} required />
