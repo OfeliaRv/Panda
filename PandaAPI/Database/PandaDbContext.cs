@@ -25,6 +25,11 @@ namespace PandaAPI.Database
             builder.Entity<IdentityUserLogin<string>>(x => x.ToTable("UserLogin"));
             builder.Entity<IdentityRoleClaim<string>>(x => x.ToTable("RoleClaim"));
             builder.Entity<IdentityUserToken<string>>(x => x.ToTable("UserToken"));
+
+            builder.Entity<ForumResponse>()
+           .HasOne(p => p.ForumItem)
+           .WithMany(b => b.Responses)
+           .HasForeignKey(p => p.TopicId);
         }
 
         public DbSet<News> News { get; set; }
@@ -32,5 +37,7 @@ namespace PandaAPI.Database
         public DbSet<Company> Companies { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<ClientMessage> Messages { get; set; }
+        public DbSet<ForumItem> ForumItems { get; set; }
+        public DbSet<ForumResponse> ForumResponses { get; set; }
     }
 }

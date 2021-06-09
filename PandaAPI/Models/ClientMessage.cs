@@ -17,7 +17,6 @@ namespace PandaAPI.Models
         [Required]
         public string MessageText { get; set; }
 
-        [Required]
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
     }
 }

@@ -11,9 +11,9 @@ namespace PandaAPI.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductData _productData;
-        public ProductController(IProductData productsData)
+        public ProductController(IProductData productData)
         {
-            _productData = productsData;
+            _productData = productData;
         }
 
         [HttpGet]

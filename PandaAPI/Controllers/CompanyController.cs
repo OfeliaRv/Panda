@@ -11,9 +11,9 @@ namespace PandaAPI.Controllers
     public class CompanyController : ControllerBase
     {
         private readonly ICompanyData _companyData;
-        public CompanyController(ICompanyData companysData)
+        public CompanyController(ICompanyData companyData)
         {
-            _companyData = companysData;
+            _companyData = companyData;
         }
 
         [HttpGet]

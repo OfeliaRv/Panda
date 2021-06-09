@@ -37,6 +37,9 @@ namespace PandaAPI
 
             services.AddScoped<INewsData, SqlNewsData>();
             services.AddScoped<IProductData, SqlProductData>();
+            services.AddScoped<ICompanyData, SqlCompanyData>();
+            services.AddScoped<IReviewData, SqlReviewData>();
+            services.AddScoped<IMessageData, SqlMessageData>();
 
             //For Identity
             services.AddIdentityCore<User>(x =>
