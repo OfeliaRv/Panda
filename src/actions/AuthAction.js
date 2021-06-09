@@ -16,9 +16,8 @@ export const register = data => {
         axios.post('/Authentication/RegisterAdmin', data)
             .then(res => {
                 dispatch(registerUserSuccess(res.data));
-                // console.log("token: " + res.data.token);
-                // localStorage.setItem('token', res.data.token);
                 alert("Admin Register Successful!");
+                window.location.replace("/")
             })
             .catch(error => {
                 dispatch(registerUserFailure(error.message));
@@ -28,20 +27,7 @@ export const register = data => {
 
 export const login = data => {
     return (dispatch) => {
-        console.log(data);
-        axios.post('/Authentication/Login', data)
-            .then(res => {
-                console.log("res", res);
-                // window.location.reload();
-                //dispatch(loginUserSuccess(res.data));
-                // console.log("token: " + res.data.token);
-                // localStorage.setItem('token', res.data.token);
-                alert("User Login Successful!");
-            })
-            .catch(error => {
-                console.log(error.message);
-                dispatch(registerUserFailure(error.message));
-            })
+        dispatch(loginUserSuccess(data));
     }
 }
 

@@ -8,28 +8,32 @@ import { login } from '../../actions/AuthAction'
 const Login = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState([]);
-    const [user, setUser] = useState([]);
 
     //for testing
     useEffect(() => {
-        authService.getUser().then(user => {console.log("user", user), () => dispatch(login(user))});
+        authService.getUser()
+            .then(user => { console.log("user", user) });
     }, []);
 
     const onSubmit = e => {
         e.preventDefault();
-        // return (dispatch) => {
+        console.log("clicked");
+        return (dispatch) => {
             axios.post('/Authentication/Login', data, { withCredentials: true })
                 .then(() => {
                     authService.signIn({ returnUrl: "/" })
                         .then(res => {
-                            window.location.replace(res.state.returnUrl)
-                            // dispatch(login(res.data))
+                            authService.getUser()
+                            .then(user => {
+                                dispatch(login(user));
+                                window.location.replace(res.state.returnUrl);
+                            });
+                        })
+                        .catch(error => {
+                            console.log(error.message);
                         });
-                })
-                .catch(error => {
-                    console.log(error.message);
                 });
-        // }
+        }
     }
 
     return (

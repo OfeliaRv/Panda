@@ -3,17 +3,31 @@ import Auth from './pages/Auth'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
 import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
+import authService from './components/api-authorization/AuthorizeService'
+import { connect } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { login } from './actions/AuthAction'
 
-const App = () => {
+const App = ({ userData }) => {
+    const dispatch = useDispatch();
+    // const [user, setUser] = useState({});
+
+    useEffect(() => {
+        authService.getUser()
+            .then(user => { console.log("user", user); dispatch(login(user)) });
+    }, []);
+
     return (
         <div className="App">
             <Router>
                 <Switch>
                     <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
-                    <Route exact path="/" component={Dashboard} />
-                    <Route path="/login" component={Auth} />
+                    { userData.user == null || userData == undefined || Object.keys(userData.user).length == 0 ?
+                        <Route exact path="/" component={Auth} /> :
+                        <Route exact path="/" component={Dashboard} />
+                    }
                     <Route path="/register" component={Auth} />
-                    <Route path="/dashboard" component={Dashboard} />
                     <Route path="/news" component={Dashboard} />
                     <Route path="/addnews" component={Dashboard} />
                     <Route exact path="/editnews/:id" component={Dashboard} />
@@ -36,4 +50,19 @@ const App = () => {
     );
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        userData: state.auth
+    }
+}
+
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         fetchUser: () => dispatch(fetchUser())
+//     }
+// }
+
+export default connect(
+    mapStateToProps //,
+    // mapDispatchToProps
+)(App)

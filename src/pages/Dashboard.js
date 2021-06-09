@@ -16,18 +16,24 @@ import EditReview from "../components/EditReview"
 import EditProduct from "../components/EditProduct"
 import AuthRequests from "./AuthRequests"
 import TopicRequests from "./TopicRequests"
+import { connect } from 'react-redux'
+import { useEffect } from 'react'
 
-const Dashboard = () => {
-    // if (user === null || user === undefined) {
+const Dashboard = ({ userData }) => {
+    useEffect(() => {
+        // fetchUser();
+        console.log(userData.user);
+    }, []);
+
+    // if (userData === undefined) {
     //     return (
-    //         <Auth />
+    //         <Route exact path="/" component={Auth} />
     //     )
     // }
     // else {
     return (
         <Layout>
             <Route exact path="/" component={News} />
-            <Route path="/news" component={News} />
             <Route path="/addnews" component={AddNews} />
             <Route exact path="/editnews/:id" component={EditNews} />
             <Route path="/products" component={Products} />
@@ -47,4 +53,19 @@ const Dashboard = () => {
     // }
 }
 
-export default Dashboard;
+const mapStateToProps = state => {
+    return {
+        userData: state.auth
+    }
+}
+
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         fetchUser: () => dispatch(fetchUser())
+//     }
+// }
+
+export default connect(
+    mapStateToProps //,
+    // mapDispatchToProps
+)(Dashboard)

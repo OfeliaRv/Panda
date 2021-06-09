@@ -5,7 +5,7 @@ import Register from '../components/auth/Register'
 const Auth = () => {
     return (
         <div className="auth-container">
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/" component={Login} />
             <Route path="/register" component={Register} />
         </div>
     );

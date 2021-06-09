@@ -3,9 +3,10 @@ import user_img from '../../assets/img/avatar.png'
 import menu_img from '../../assets/img/menu.svg'
 import logout_img from '../../assets/img/logout.svg'
 import { toggleSidebar } from '../../actions/ToolsActions'
-import { logoutUser } from '../../actions/AuthAction'
+import { logout, logoutUser } from '../../actions/AuthAction'
 import { useDispatch, connect } from 'react-redux'
 import { useEffect } from 'react'
+import authService from '../../components/api-authorization/AuthorizeService'
 
 const Navbar = ({ userData }) => {
     const dispatch = useDispatch();
@@ -13,6 +14,14 @@ const Navbar = ({ userData }) => {
     useEffect(() => {
         console.log(userData.user);
     }, [])
+
+    const Logout = () => {
+        authService.signOut({ returnUrl: "/" }).then(res => {
+            console.log("here");
+            dispatch(logout);
+            window.location.replace(res.state.returnUrl);
+        });
+    }
 
     return (
         <nav>
@@ -26,7 +35,7 @@ const Navbar = ({ userData }) => {
                 <div className="admin">
                     <img className="admin-img" src={user_img} alt="admin-img" />
                     <p>{userData.user.name}</p>
-                    <img id="logout" onClick={() => dispatch(logoutUser)} src={logout_img} alt="logout" />
+                    <img id="logout" onClick={Logout} src={logout_img} alt="logout" />
                 </div>
             </div>
         </nav>
