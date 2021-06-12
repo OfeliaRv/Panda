@@ -1,8 +1,3 @@
-import { customerState } from '../data/customerReducer'
-import { productState } from '../data/productReducer'
-import { newsState } from '../data/newsReducer'
-import { reviewState } from '../data/reviewsReducer'
-
 const loadData = {
     loadProducts:
     {

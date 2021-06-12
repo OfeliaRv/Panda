@@ -189,6 +189,9 @@ const MainSection = ({ children, productsData, customersData, reviewsData }) => 
                 <Route path="/forum">
                     <img src={left_item_reviews} alt="Reviews" />
                 </Route>
+                <Route path="/starttopic">
+                    <img src={left_item_reviews} alt="Reviews" />
+                </Route>
                 <Route path="/news">
                     <img src={left_item_news} alt="News" />
                 </Route>
@@ -269,7 +272,7 @@ const MainSection = ({ children, productsData, customersData, reviewsData }) => 
                     </div>
                 </Route>
                 <Route exact path="/reviews">
-                <div className="arrow-buttons">
+                    <div className="arrow-buttons">
                         <div id="previous" className="arrow-button white-button square-button" onClick={reviewsSlidePrevious}>
                             <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fillRule="evenodd" clipRule="evenodd" d="M1.09766 23.7395L10.8436 14.0444L1.09766 4.34921L4.0925 1.35438L16.7825 14.0444L4.0925 26.7344L1.09766 23.7395Z" fill="#8A92A5" />

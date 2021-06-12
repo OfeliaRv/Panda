@@ -37,10 +37,15 @@ const Reviews = ({ fetchReviews, reviewsData }) => {
         dispatch(showPage(id));
     }
 
-    return (
+    return reviewsData.loading ? (
+        <h2>Loading...</h2>
+    ) : reviewsData.error ? (
+        <h2>{reviewsData.error}</h2>
+    ) : (
         <div id="reviews">
             <MainSection>
                 <div className="reviews">
+                    {reviewsData.reviews.length === 0 && <h2>No data to display</h2>}
                     {reviewsData && reviewsData.reviews && reviewsData.reviews.slice(getReviewsRange.first, getReviewsRange.last).map(review =>
                         <div className="review" key={review.id}>
                             <div className="review-quote">

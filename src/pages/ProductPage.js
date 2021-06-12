@@ -55,7 +55,7 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
         fetchProduct: (id) => dispatch(fetchProduct(id)) // access function to fetch the product
     }

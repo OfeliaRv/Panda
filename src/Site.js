@@ -10,6 +10,7 @@ import Forum from './pages/Forum'
 import Contacts from './pages/Contacts'
 import { createBrowserHistory } from 'history';
 import StartTopic from './pages/StartTopic'
+import ForumPage from './pages/ForumPage'
 const history = createBrowserHistory({ forceRefresh: true });
 
 const Site = () => {
@@ -26,7 +27,7 @@ const Site = () => {
                     <Route path="/news/:id" component={News} />
                     <Route path="/contacts" component={Contacts} />
                     <Route exact path="/forum" component={Forum} />
-                    <Route path="/forum/:id" component={Forum} />
+                    <Route path="/forum/:id" component={ForumPage} />
                     <Route path="/starttopic" component={StartTopic} />
                     <Route path="*">
                         <div style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>

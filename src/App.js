@@ -1,15 +1,30 @@
 import { Router, Switch, Route } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import Site from './Site'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
+import authService from './components/api-authorization/AuthorizeService'
+import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes'
+import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants'
+import { login } from './actions/authAction'
 
 const history = createBrowserHistory();
 
 const App = () => {
+    const dispatch = useDispatch();
+
+    //for testing
+    useEffect(() => {
+        authService.getUser()
+            .then(user => { console.log("user", user); dispatch(login(user)) });
+    }, []);
+
     return (
         <Router history={history}>
             <Switch>
+                <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
                 <Route exact path="/" component={Site} />
                 <Route exact path="/products" component={Site} />
                 <Route path="/products/:id" component={Site} />

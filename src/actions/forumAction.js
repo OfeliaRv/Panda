@@ -7,7 +7,6 @@ export const ACTION_TYPES = {
     FETCH_TOPICS_FAILURE: 'FETCH_TOPICS_FAILURE',
 
     FETCH_RESPONSES_REQUEST: 'FETCH_RESPONSES_REQUEST',
-    FETCH_RESPONSE_SUCCESS: 'FETCH_RESPONSE_SUCCESS',
     FETCH_RESPONSES_SUCCESS: 'FETCH_RESPONSES_SUCCESS',
     FETCH_RESPONSES_FAILURE: 'FETCH_RESPONSES_FAILURE',
 
@@ -46,16 +45,46 @@ export function fetchTopic(id) {
     }
 }
 
-export  function fetchResponses(id) {  // id -> topic id
+export function fetchResponses(id) {  // id -> topic id
     return (dispatch) => {
         dispatch(fetchResponsesRequest())
         axios
-            .get('/Forum/Response/' + id)
+            .get('/Forum/' + id + '/Responses')
             .then(res => {
                 dispatch(fetchResponsesSuccess(res.data));
             })
             .catch(error => {
                 dispatch(fetchResponsesFailure(error.message))
+            })
+    }
+}
+
+export const addTopic = data => {
+    console.log(data);
+    return (dispatch) => {
+        axios.post('/Forum', data)
+            .then(res => {
+                dispatch(addTopicSuccess(res.data));
+                alert('Topic was successfully added!');
+                window.location.replace("/forum");
+            })
+            .catch(error => {
+                dispatch(addTopicFailure(error.message))
+            })
+    }
+}
+
+export const addResponse = (id, data) => {
+    return (dispatch) => {
+        axios.post('/Forum/' + id + '/Response', data)
+            .then(res => {
+                dispatch(addResponseSuccess(res.data));
+                alert('Your response was successfully added!');
+                // window.location.replace("/forum/" + id);
+                window.location.reload();
+            })
+            .catch(error => {
+                dispatch(addResponseFailure(error.message))
             })
     }
 }
@@ -93,13 +122,6 @@ export function fetchTopicsFailure(error) {
 export function fetchResponsesRequest() {
     return {
         type: ACTION_TYPES.FETCH_RESPONSES_REQUEST
-    }
-}
-
-export function fetchResponseSuccess(response) {
-    return {
-        type: ACTION_TYPES.FETCH_RESPONSE_SUCCESS,
-        payload: response
     }
 }
 

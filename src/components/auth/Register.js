@@ -1,18 +1,26 @@
 import eye_dimmed from '../../assets/img/eye_dimmed.svg'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import copyright_item from '../../assets/img/copyright.svg'
 import logo from '../../assets/img/logo.svg'
 import back_arrow from '../../assets/img/arrow-right.svg'
 import { Router } from "react-router-dom"
 import { createBrowserHistory } from 'history'
+import { useDispatch } from 'react-redux'
+import authService from '../api-authorization/AuthorizeService'
+import axios from 'axios'
+import { login } from '../../actions/authAction'
 
 const history = createBrowserHistory();
 
 const Register = () => {
+    const dispatch = useDispatch();
+    const [data, setData] = useState([]);
+    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
 
     useEffect(() => {
         document.title = "Panda Navigation - Sign Up"
-    }, [])
+    })
 
     const passwordVisible = () => {
         var password = document.getElementById("password");
@@ -27,6 +35,31 @@ const Register = () => {
             rep_password.type = "text";
         } else {
             rep_password.type = "password";
+        }
+    }
+
+    const onSubmit = e => {
+        e.preventDefault();
+
+        console.log(data);
+
+        if (password !== data.password) {
+            alert("Password fields are not the same!");
+        } else {
+            axios.post('/Authentication/Register', data, { withCredentials: true })
+                .then(_ => {
+                    authService.signIn({ returnUrl: "/" })
+                        .then(res => {
+                            authService.getUser()
+                                .then(user => {
+                                    dispatch(login(user));
+                                    window.location.replace(res.state.returnUrl);
+                                });
+                        });
+                })
+                .catch(error => {
+                    console.log(error.message);
+                });
         }
     }
 
@@ -47,48 +80,48 @@ const Register = () => {
                             </div>
                             <h1>Register</h1>
                         </div>
-                        <form className="auth-form" action="">
+                        <form className="auth-form" onSubmit={onSubmit}>
                             <div className="form-col">
                                 <div className="input-holder">
                                     <label htmlFor="name">Name</label>
-                                    <input className="form-input" type="text" name="name" id="name" placeholder="Name" required />
+                                    <input className="form-input" type="text" id="name" placeholder="Name" onChange={e => setName(e.target.value)} required />
                                 </div>
                                 <div className="input-holder">
                                     <label htmlFor="surname">Surname</label>
-                                    <input className="form-input" type="text" name="surname" id="surname" placeholder="Surname" required />
+                                    <input className="form-input" type="text" id="surname" placeholder="Surname" onChange={e => setData(prevState => ({ ...prevState, fullName: name + " " + e.target.value }))} required />
                                 </div>
                                 <div className="input-holder">
                                     <label htmlFor="email">Email</label>
-                                    <input className="form-input" type="email" name="email" id="email" placeholder="Email" required />
+                                    <input className="form-input" type="email" id="email" placeholder="Email" onChange={e => setData(prevState => ({ ...prevState, email: e.target.value }))} required />
                                 </div>
                             </div>
                             <div className="form-col">
                                 <div className="input-holder">
                                     <label htmlFor="password">Password</label>
-                                    <input className="form-input" type="password" name="password" id="password" placeholder="Password" required />
+                                    <input className="form-input" type="password" id="password" placeholder="Password" onChange={e => setData(prevState => ({ ...prevState, password: e.target.value }))} required />
                                     <img onClick={passwordVisible} src={eye_dimmed} alt="see password" />
                                 </div>
                                 <div className="input-holder">
                                     <label htmlFor="rep-password">Repeat password</label>
-                                    <input className="form-input" type="password" name="rep-password" id="rep-password" placeholder="Repeat password" required />
+                                    <input className="form-input" type="password" id="rep-password" placeholder="Repeat password" onChange={e => setPassword(e.target.value)} required />
                                     <img onClick={passwordVisible} src={eye_dimmed} alt="see password" />
                                 </div>
                                 <div className="input-holder">
                                     <label htmlFor="position">Position</label>
-                                    <input className="form-input" type="text" name="position" id="position" placeholder="Position" required />
+                                    <input className="form-input" type="text" id="position" placeholder="Position" onChange={e => setData(prevState => ({ ...prevState, position: e.target.value }))} required />
                                 </div>
                             </div>
                             <div className="form-col">
                                 <div className="input-holder">
                                     <label htmlFor="company-name">Company name</label>
-                                    <input className="form-input" type="text" name="company-name" id="company-name" placeholder="Company name" required />
+                                    <input className="form-input" type="text" id="company-name" placeholder="Company name" onChange={e => setData(prevState => ({ ...prevState, company: e.target.value }))} required />
                                 </div>
-                                <div className="form-tools">
+                                {/* <div className="form-tools">
                                     <div className="check">
-                                        <input className="form-input check" type="checkbox" name="remember" id="remember" />
-                                        <label htmlFor="remember">I agree with <span>Terms of Service </span> and <span> Privacy Policy</span></label>
+                                        <input className="form-input check" type="checkbox" required />
+                                        <label>I agree with <span>Terms of Service </span> and <span> Privacy Policy</span></label>
                                     </div>
-                                </div>
+                                </div> */}
                                 <button type="submit" className="grey-button">Create an Account</button>
                                 {/* <button className="white-button google-button"><div id="google-icon"></div> Sign up with Google</button> */}
                             </div>

@@ -48,6 +48,7 @@ const Widgets = ({ fetchCustomers, customersData }) => {
     ) : (
         <div>
             <div className="widgets-row">
+                {customersData.customers.length === 0 && <h2>No data to display</h2>}
                 {customersData && customersData.customers && customersData.customers.slice(getWidgetsRange.first, getWidgetsRange.last).map(widget =>
                     <div className="widget" key={widget.id} onClick={() => showInfo(widget)}>
                         <div className="widget-data">

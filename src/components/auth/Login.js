@@ -2,20 +2,48 @@ import fb from '../../assets/img/fb.svg'
 import insta from '../../assets/img/insta.svg'
 import linkedin from '../../assets/img/linkedin.svg'
 import eye_dimmed from '../../assets/img/eye_dimmed.svg'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import logo from '../../assets/img/logo_white.svg'
 import copyright_item from '../../assets/img/copyright.svg'
 import back_arrow from '../../assets/img/arrow-right.svg'
 import { Router } from "react-router-dom"
 import { createBrowserHistory } from 'history'
+import authService from '../api-authorization/AuthorizeService'
+import { useDispatch } from 'react-redux'
+import axios from 'axios'
+import { login } from '../../actions/authAction'
 
 const history = createBrowserHistory();
 
 const Login = () => {
+    const dispatch = useDispatch();
+    const [data, setData] = useState([]);
 
     useEffect(() => {
         document.title = "Panda Navigation - Sign In"
+
+        //for testing
+        authService.getUser()
+        .then(user => { console.log("user", user) });
     }, [])
+
+    const onSubmit = e => {
+        e.preventDefault();
+        axios.post('/Authentication/Login', data, { withCredentials: true })
+            .then(_ => {
+                authService.signIn({ returnUrl: "/" })
+                    .then(res => {
+                        authService.getUser()
+                            .then(user => {
+                                dispatch(login(user));
+                                window.location.replace(res.state.returnUrl);
+                            });
+                    });
+            })
+            .catch(error => {
+                console.log(error.message);
+            });
+    }
 
     const passwordVisible = () => {
         var password = document.getElementById("password");
@@ -40,14 +68,14 @@ const Login = () => {
                                 <p>Back</p>
                             </div>
                             <h1 className="login-heading">Sign in</h1>
-                            <form className="login-form" action="">
+                            <form className="login-form" onSubmit={onSubmit}>
                                 <div className="input-holder">
                                     <label htmlFor="email">Email</label>
-                                    <input className="form-input" type="email" name="email" id="email" placeholder="Email" required />
+                                    <input className="form-input" type="email" id="email" placeholder="Email" onChange={e => setData(prevState => ({ ...prevState, email: e.target.value }))} required />
                                 </div>
                                 <div className="input-holder">
                                     <label htmlFor="password">Password</label>
-                                    <input className="form-input" type="password" name="password" id="password" placeholder="Password" required />
+                                    <input className="form-input" type="password" id="password" placeholder="Password" onChange={e => setData(prevState => ({ ...prevState, password: e.target.value }))} required />
                                     <img onClick={passwordVisible} src={eye_dimmed} alt="see password" />
                                 </div>
                                 <div className="form-tools">

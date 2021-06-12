@@ -12,8 +12,6 @@ const NewsLine = ({ fetchNews, newsData }) => {
         // dispatch(showPage(1));
     }, []);
 
-    console.log(newsData);
-
     // show current page (little grey dot)
     // const activePage = useSelector(state => state.showData.showPage);
 
@@ -53,6 +51,7 @@ const NewsLine = ({ fetchNews, newsData }) => {
         <h2>{newsData.error}</h2>
     ) : (
         <div className="news-slider">
+            {newsData.news.length === 0 && <h2>No data to display</h2>}
             <div className="news-slider-container" style={{ left: '-' + style + '%' }}>
                 {/* {newsData && newsData.news && newsData.news.map(news => */}
                 {newsData && newsData.news && makeRepeated(newsData.news, 50).map(news =>
