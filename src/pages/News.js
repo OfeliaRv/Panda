@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { connect } from 'react-redux'
+import parse from 'html-react-parser'
+import { fetchOneNews } from '../actions/newsAction'
 import NewsLine from '../components/NewsLine'
 import MainSection from '../components/MainSection'
-import { connect } from 'react-redux'
-import { fetchOneNews } from '../actions/newsAction'
 
 const News = ({ fetchOneNews, newsData }) => {
     const { id } = useParams();
@@ -31,8 +32,8 @@ const News = ({ fetchOneNews, newsData }) => {
                         </div>
                         <div className="news-data">
                             <img src={'./../img/' + newsData.one_news.photo} alt={newsData.one_news.altName} />
-                            <div className="news-text">
-                                <p>{newsData.one_news.newsText}</p>
+                            <div id="text" className="news-text">
+                                {parse(`${newsData.one_news.newsText}`)}
                             </div>
                         </div>
                     </div>
@@ -50,7 +51,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchOneNews: (id) => dispatch(fetchOneNews(id))
+        fetchOneNews: id => dispatch(fetchOneNews(id))
     }
 }
 

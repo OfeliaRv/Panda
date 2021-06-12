@@ -1,26 +1,23 @@
-import MainSection from '../components/MainSection'
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { addTopic } from '../actions/forumAction'
+import MainSection from '../components/MainSection'
 
 const StartTopic = () => {
     const dispatch = useDispatch();
+
+    // data to be sent to the API 
     const [data, setData] = useState({});
 
     useEffect(() => {
-        setData(prevState => ({ ...prevState, authorFullName: "Ofelya Rahmanova" }))
+        setData(prevState => ({ ...prevState, authorFullName: "Ofelya Rahmanova" })) // temporary static
     }, [])
-
-    const onSubmit = () => {
-        // setData(prevState => ({ ...prevState, authorFullName: "Ofelya Rahmanova" }))
-        dispatch(addTopic(data));
-    }
 
     return (
         <div id="forum-topic">
             <MainSection>
                 <div className="forum-container">
-                    <form className="forum" onSubmit={onSubmit}>
+                    <form className="forum" onSubmit={() => dispatch(addTopic(data))}>
                         <h1>Start New Topic</h1>
                         <div className="forum-item">
                             <div className="forum-item-data">

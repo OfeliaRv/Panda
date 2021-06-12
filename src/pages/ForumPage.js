@@ -1,40 +1,46 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import user_photo from '../assets/img/user-photo.png'
-import { connect } from 'react-redux'
-import { fetchResponses, fetchTopic } from '../actions/forumAction'
+import { connect, useDispatch } from 'react-redux'
+import { fetchResponses, fetchTopic, addResponse } from '../actions/forumAction'
 import MainSection from '../components/MainSection'
+import user_photo from '../assets/img/user-photo.png'
 
 const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
+    const dispatch = useDispatch();
+
+    // get topic id from the URL
     const { id } = useParams();
 
+    // data to be sent to the API 
+    const [data, setData] = useState({});
+
+    // to control reply field visibility
     const [responseWindowStyle, setResponseWindowStyle] = useState(false);
 
     useEffect(() => {
         // get selected topic
         fetchTopic(id);
+
         // get responses of the selected topic
         fetchResponses(id);
     }, [id])
 
     useEffect(() => {
+        // set page title
         document.title = "Panda Navigation - Forum - Forum title"
     }, [])
 
-    const addResponse = () => {
+    // toggle response field visibility
+    const responseHandler = () => {
         setResponseWindowStyle(!responseWindowStyle);
     }
 
     const topic = forumData.topic;
-    // return forumData.loading_topic ? (
-    //     <h2>Loading...</h2>
-    // ) : forumData.error ? (
-    //     <h2>{forumData.error_topic}</h2>
-    // ) : (
     return (
         <div id="forum-page">
             <MainSection>
                 <div className="forum">
+                    {/* TOPIC */}
                     <div className="forum-item">
                         <div className="forum-item-rating">
                             <div className="rating-components">
@@ -55,7 +61,7 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
                                         <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path fillRule="evenodd" clipRule="evenodd" d="M3.5 1.75H17.5C18.4625 1.75 19.25 2.5375 19.25 3.5V14C19.25 14.9625 18.4625 15.75 17.5 15.75H5.25L1.75 19.25V3.5C1.75 2.5375 2.5375 1.75 3.5 1.75ZM5.25 14H17.5V3.5H3.5V15.75L5.25 14Z" fill="#6D7587" />
                                         </svg>
-                                        <p onClick={addResponse}>Add new response</p>
+                                        <p onClick={responseHandler}>Add new response</p>
                                     </div>
                                 </div>
                             </div>
@@ -93,16 +99,23 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
                             </div>
                         </div>
                     </div>
+                    {/* TOPIC */}
+
                     <div className="responses">
-                        {responseWindowStyle && <form className="response-item">
-                            <h5>Add your response</h5>
-                            <textarea cols="30" rows="5" className="form-input response-text" placeholder="Enter your response" />
-                            <div className="reply-buttons forum-item-tools">
-                                <div className="forum-item-buttons">
-                                    <button type="submit" id="reply" className="add-response-button grey-button">Reply</button>
+                        {/* ADD RESPONSE FIELD */}
+                        {responseWindowStyle &&
+                            <form className="response-item" onSubmit={() => dispatch(addResponse(id, data))}>
+                                <h5>Add your response</h5>
+                                <textarea cols="30" rows="5" className="form-input response-text" onChange={e => setData(prevState => ({ ...prevState, replyText: e.target.value }))} placeholder="Enter your response" />
+                                <div className="reply-buttons forum-item-tools">
+                                    <div className="forum-item-buttons">
+                                        <button type="submit" id="reply" className="add-response-button grey-button">Reply</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>}
+                            </form>}
+                        {/* ADD RESPONSE FIELD */}
+
+                        {/* RESPONSES LIST */}
                         {forumData.loading_responses ? (
                             <h2>Loading...</h2>
                         ) : forumData.error ? (
@@ -134,6 +147,7 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
                                     </div>
                                 </div>
                             ))}
+                        {/* RESPONSES LIST */}
                     </div>
                 </div>
             </MainSection>
@@ -143,13 +157,17 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
 
 const mapStateToProps = state => {
     return {
-        forumData: state.forum   // access data in forum reducer
+        // access state in reducer
+        forumData: state.forum
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchTopic: id => dispatch(fetchTopic(id)), // access function to fetch all topics
+        // access action to fetch all topics
+        fetchTopic: id => dispatch(fetchTopic(id)),
+
+        // access action to fetch all responses
         fetchResponses: id => dispatch(fetchResponses(id))
     }
 }

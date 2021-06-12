@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { useParams, Router } from 'react-router-dom'
-import MainSection from '../components/MainSection'
-import { createBrowserHistory } from 'history'
 import { connect } from 'react-redux'
+import { createBrowserHistory } from 'history'
+import parse from 'html-react-parser'
+import MainSection from '../components/MainSection'
 import { fetchProduct } from '../actions/productAction'
 
 const history = createBrowserHistory();
@@ -39,7 +40,7 @@ const ProductPage = ({ productData, fetchProduct }) => {
                                     <img src={`../img/${productData.product.photo}`} alt={productData.product.name} />
                                 </div>
                                 <div className="product-text">
-                                    <p>{productData.product.productText}</p>
+                                    {parse(`${productData.product.productText}`)}
                                 </div>
                             </div>
                         </div>)}
@@ -57,7 +58,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchProduct: (id) => dispatch(fetchProduct(id)) // access function to fetch the product
+        fetchProduct: id => dispatch(fetchProduct(id)) // access function to fetch the product
     }
 }
 

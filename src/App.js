@@ -10,7 +10,7 @@ import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizat
 import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants'
 import { login } from './actions/authAction'
 
-const history = createBrowserHistory();
+const history = createBrowserHistory(); 
 
 const App = () => {
     const dispatch = useDispatch();

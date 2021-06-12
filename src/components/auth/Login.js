@@ -1,25 +1,29 @@
+import { Router } from "react-router-dom"
+import { createBrowserHistory } from 'history'
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import axios from 'axios'
+import { login } from '../../actions/authAction'
 import fb from '../../assets/img/fb.svg'
 import insta from '../../assets/img/insta.svg'
 import linkedin from '../../assets/img/linkedin.svg'
 import eye_dimmed from '../../assets/img/eye_dimmed.svg'
-import { useEffect, useState } from 'react'
 import logo from '../../assets/img/logo_white.svg'
 import copyright_item from '../../assets/img/copyright.svg'
 import back_arrow from '../../assets/img/arrow-right.svg'
-import { Router } from "react-router-dom"
-import { createBrowserHistory } from 'history'
 import authService from '../api-authorization/AuthorizeService'
-import { useDispatch } from 'react-redux'
-import axios from 'axios'
-import { login } from '../../actions/authAction'
 
+// enable history navigation
 const history = createBrowserHistory();
 
 const Login = () => {
     const dispatch = useDispatch();
+
+    // data to be sent to the API
     const [data, setData] = useState([]);
 
     useEffect(() => {
+        // set page title
         document.title = "Panda Navigation - Sign In"
 
         //for testing

@@ -1216,21 +1216,23 @@ footer .footer-content #footer-stamp {
 
 #news .news-container .news-data img {
   width: 23%;
-  height: 24vh;
 }
 
 #news .news-container .news-data .news-text {
   width: 74%;
   height: 11.6vw;
   overflow-y: auto;
+  color: #8a92a5 !important;
+  font-weight: 500;
+}
+
+#news .news-container .news-data .news-text div {
+  font-size: 1.6rem;
 }
 
 #news .news-container .news-data .news-text p {
   margin-bottom: 0;
   margin-top: 0.5%;
-  font-weight: 500;
-  color: #8a92a5;
-  font-size: 0.82vw;
 }
 
 @media (min-width: 1920px) {

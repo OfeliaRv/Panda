@@ -1,8 +1,9 @@
-import map from '../assets/img/map.png'
 import { useEffect, useState } from 'react'
-import MainSection from '../components/MainSection'
 import { connect } from 'react-redux'
+import parse from 'html-react-parser'
+import MainSection from '../components/MainSection'
 import { fetchCustomers } from '../actions/customerAction'
+import map from '../assets/img/map.png'
 
 const Customers = ({ fetchCustomers, customersData }) => {
     const [showPopup, setShowPopup] = useState(false);
@@ -32,10 +33,10 @@ const Customers = ({ fetchCustomers, customersData }) => {
     };
 
     return customersData.loading ? (
-            <h2>Loading...</h2>
-        ) : customersData.error ? (
-            <h2>{customersData.error}</h2>
-        ) : (
+        <h2>Loading...</h2>
+    ) : customersData.error ? (
+        <h2>{customersData.error}</h2>
+    ) : (
         <div id="customers-page">
             <MainSection>
                 <div className="customers">
@@ -43,7 +44,7 @@ const Customers = ({ fetchCustomers, customersData }) => {
                         <img src={map} alt="map" />
                         <div className="companies-pins">
                             {customersData && customersData.customers && customersData.customers.map(customer =>
-                                <a href={"#company" + customer.id} key={customer.id}><div className="company-pin" onClick={() => handlePin(customer.id)} style={{ top: parseInt(customer.x_position, 10)+ '%', left:  parseInt(customer.y_position, 10) +'%' }}></div></a>
+                                <a href={"#company" + customer.id} key={customer.id}><div className="company-pin" onClick={() => handlePin(customer.id)} style={{ top: parseInt(customer.x_position, 10) + '%', left: parseInt(customer.y_position, 10) + '%' }}></div></a>
                             )}
                         </div>
                     </div>
@@ -67,7 +68,8 @@ const Customers = ({ fetchCustomers, customersData }) => {
                                     <img src={popupData.logo} alt={popupData.name} />
                                 </div>
                                 <div className="info-container">
-                                    <p className="info-text">{popupData.about}</p>
+                                    <p className="info-text"> {parse(`${popupData.about}`)}</p>
+
                                 </div>
                             </div>
                         </div>
@@ -80,13 +82,15 @@ const Customers = ({ fetchCustomers, customersData }) => {
 
 const mapStateToProps = state => {
     return {
-        customersData: state.customers // access data in customers reducer
+        // access state in a reducer
+        customersData: state.customers 
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchCustomers: () => dispatch(fetchCustomers()) // access function to fetch all customers
+        // access action to fetch all customers
+        fetchCustomers: () => dispatch(fetchCustomers()) 
     }
 }
 

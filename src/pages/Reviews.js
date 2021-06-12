@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
+import { useSelector, useDispatch, connect } from 'react-redux'
+import parse from 'html-react-parser'
 import MainSection from '../components/MainSection'
 import quotations from '../assets/img/quotations.svg'
 import user_photo from '../assets/img/user-photo.png'
-import { useSelector, useDispatch, connect } from 'react-redux'
+
 import { fetchReviews } from '../actions/reviewAction'
 import { loadReviews, showPage } from '../actions/showDataActions'
 
@@ -64,7 +66,7 @@ const Reviews = ({ fetchReviews, reviewsData }) => {
                                     </div>
                                 </div>
                                 <div className="review-text">
-                                    <p>{review.reviewText}</p>
+                                    {parse(`${review.reviewText}`)}
                                 </div>
                             </div>
                         </div>
