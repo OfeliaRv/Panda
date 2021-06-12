@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PandaAPI.Models
 {
-    public class ForumItem
+    public class ForumTopic
     {
         [Key]
         public Guid Id { get; set; }
 
         [Required]
-        [ForeignKey("TopicName")]
         public string TopicName { get; set; }
 
         [Required]

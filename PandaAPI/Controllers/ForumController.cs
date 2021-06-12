@@ -17,67 +17,79 @@ namespace PandaAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetForumItems()
+        public IActionResult GetForumTopics()
         {
-            return Ok(_forumData.GetForumItems());
+            return Ok(_forumData.GetForumTopics());
         }
 
         [HttpGet]
         [Route("{id}")]
-        public IActionResult GetForumItem(Guid id)
+        public IActionResult GetForumTopic(Guid id)
         {
-            var forum = _forumData.GetForumItem(id);
+            var forum = _forumData.GetForumTopic(id);
             if (forum != null)
             {
                 return Ok(forum);
             }
 
-            return NotFound($"ForumItem with id: {id} was not found");
+            return NotFound($"Topic with id: {id} was not found");
+        }
+
+        [HttpGet]
+        [Route("{id}/Responses")]
+        public IActionResult GetForumResponses(Guid id)
+        {
+            var forum = _forumData.GetForumTopic(id);
+            if (forum != null)
+            {
+                return Ok(forum.Responses);
+            }
+
+            return NotFound($"Responses for Topic with id: {id} were not found");
         }
 
 
         [HttpPost]
-        public IActionResult AddForumItem(ForumItem forum)
+        public IActionResult AddForumTopic(ForumTopic forum)
         {
-            _forumData.AddForumItem(forum);
+            _forumData.AddForumTopic(forum);
             return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + forum.Id, forum);
         }
 
         [HttpPost]
-        [Route("Response/{id}")]
+        [Route("{id}/Response")]
         public IActionResult AddResponse(Forum forumData)
         {
             var response = forumData.ForumResponse;
-            var forum = forumData.ForumItem;
-            _forumData.AddResponse(response, forum);
-            return Ok(response);
-            //return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + response.Id, response);
-        }
+            var forum = forumData.ForumTopic;
+            _forumData.AddForumResponse(response, forum);
 
+            return Ok(response);
+        }
 
         [HttpDelete]
         [Route("{id}")]
-        public IActionResult DeleteForumItem(Guid id)
+        public IActionResult DeleteForumTopic(Guid id)
         {
-            var forum = _forumData.GetForumItem(id);
+            var forum = _forumData.GetForumTopic(id);
             if (forum != null)
             {
-                _forumData.DeleteForumItem(forum);
+                _forumData.DeleteForumTopic(forum);
                 return Ok();
             }
 
-            return NotFound($"ForumItem with id: {id} was not found");
+            return NotFound($"Topic with id: {id} was not found");
         }
 
         //[HttpPatch]
         //[Route("{id}")]
-        //public IActionResult EditForumItem(Guid id, ForumItem forum)
+        //public IActionResult EditForumTopic(Guid id, ForumTopic forum)
         //{
-        //    var existing_forum = _forumData.GetForumItem(id);
+        //    var existing_forum = _forumData.GetForumTopic(id);
         //    if (existing_forum != null)
         //    {
         //        forum.Id = existing_forum.Id;
-        //        _forumData.EditForumItem(forum);
+        //        _forumData.EditForumTopic(forum);
         //    }
 
         //    return Ok(forum);

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,7 +11,7 @@ namespace PandaAPI.Models
 
         [Required]
         [ForeignKey("TopicId")]
-        public Guid TopicId { get; set; }
+        public Guid? TopicId { get; set; }
 
         [Required]
         public string AuthorFullName { get; set; }
@@ -26,6 +25,6 @@ namespace PandaAPI.Models
         [Required]
         public bool IsApproved { get; set; }
 
-        public ForumItem ForumItem { get; set; }
+        public ForumTopic ForumTopic { get; set; }
     }
 }

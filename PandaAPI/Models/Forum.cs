@@ -2,7 +2,7 @@
 {
     public class Forum
     {
-        public ForumItem ForumItem { get; set; }
+        public ForumTopic ForumTopic { get; set; }
 
         public ForumResponse ForumResponse { get; set; }
     }

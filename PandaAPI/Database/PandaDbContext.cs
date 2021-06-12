@@ -27,7 +27,7 @@ namespace PandaAPI.Database
             builder.Entity<IdentityUserToken<string>>(x => x.ToTable("UserToken"));
 
             builder.Entity<ForumResponse>()
-           .HasOne(p => p.ForumItem)
+           .HasOne(p => p.ForumTopic)
            .WithMany(b => b.Responses)
            .HasForeignKey(p => p.TopicId);
         }
@@ -37,7 +37,7 @@ namespace PandaAPI.Database
         public DbSet<Company> Companies { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<ClientMessage> Messages { get; set; }
-        public DbSet<ForumItem> ForumItems { get; set; }
+        public DbSet<ForumTopic> ForumTopics { get; set; }
         public DbSet<ForumResponse> ForumResponses { get; set; }
     }
 }

@@ -26,25 +26,27 @@ namespace PandaAPI.Controllers
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
         {
-            var UserExists = await userManager.FindByNameAsync(model.UserName);
+            var UserExists = await userManager.FindByEmailAsync(model.Email);
             if (UserExists != null)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists" });
             User user = new()
             {
+                UserName = model.Email,
                 Email = model.Email,
                 FullName = model.FullName,
-                UserName = model.UserName
+                Position = model.Position,
+                Company = model.Company
             };
 
             var result = await userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Failed to register new user" });
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = $"{result.Errors.ToList()[0].Code}", Message = $"{result.Errors.ToList()[0].Description}" });
 
             return Ok(new Response { Status = "Success", Message = "User was successfully created!" });
         }
 
         [HttpPost("RegisterAdmin")]
-        public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
+        public async Task<IActionResult> RegisterAdmin([FromBody] AdminRegisterModel model)
         {
             var userExist = await userManager.FindByNameAsync(model.UserName);
             if (userExist != null)
@@ -77,10 +79,23 @@ namespace PandaAPI.Controllers
             return Ok(new Response { Status = "Success", Message = "User Created Successfully" });
         }
 
+        [HttpPost("LoginAdmin")]
+        public async Task<IActionResult> LoginAdmin([FromBody] AdminLoginModel model)
+        {
+            var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, true, false);
+
+            if (result.Succeeded)
+            {
+                return Ok();
+            }
+
+            return Unauthorized();
+        }
+
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
-            var result = await signInManager.PasswordSignInAsync(model.UserName, model.Password, true, false);
+            var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, true, false);
 
             if (result.Succeeded)
             {

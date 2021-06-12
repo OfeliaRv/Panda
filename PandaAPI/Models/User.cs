@@ -8,7 +8,8 @@ namespace PandaAPI.Models
         [Required]
         [MaxLength(100)]
         public string FullName { get; set; }
-
+        public string Company { get; set; }
+        public string Position { get; set; }
         public int? UserInfoId { get; set; }
         public UserInfo UserInfo { get; set; }
     }

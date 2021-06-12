@@ -6,16 +6,16 @@ namespace PandaAPI.Data
 {
     public interface IForumData
     {
-        List<ForumItem> GetForumItems();
+        List<ForumTopic> GetForumTopics();
 
-        ForumItem GetForumItem(Guid id);
+        ForumTopic GetForumTopic(Guid id);
 
-        ForumItem AddForumItem(ForumItem forum);
+        List<ForumResponse> GetForumResponses(Guid id);
 
-        void DeleteForumItem(ForumItem forum);
+        ForumTopic AddForumTopic(ForumTopic forum);
 
-        ForumResponse AddResponse(ForumResponse response, ForumItem forum);
+        ForumResponse AddForumResponse(ForumResponse response, ForumTopic forum);
 
-        //ForumItem EditForum(ForumItem forum);
+        void DeleteForumTopic(ForumTopic forum);
     }
 }

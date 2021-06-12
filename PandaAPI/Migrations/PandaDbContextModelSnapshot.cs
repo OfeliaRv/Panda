@@ -194,7 +194,7 @@ namespace PandaAPI.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims");
+                    b.ToTable("UserClaim");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
@@ -233,7 +233,7 @@ namespace PandaAPI.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("UserClaim");
+                    b.ToTable("UserRole");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -315,7 +315,38 @@ namespace PandaAPI.Migrations
                     b.ToTable("Companies");
                 });
 
-            modelBuilder.Entity("PandaAPI.Models.ForumItem", b =>
+            modelBuilder.Entity("PandaAPI.Models.ForumResponse", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AuthorFullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsApproved")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ReplyText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("TopicId")
+                        .IsRequired()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TopicId");
+
+                    b.ToTable("ForumResponses");
+                });
+
+            modelBuilder.Entity("PandaAPI.Models.ForumTopic", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -347,37 +378,7 @@ namespace PandaAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ForumItems");
-                });
-
-            modelBuilder.Entity("PandaAPI.Models.ForumResponse", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("AuthorFullName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsApproved")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ReplyText")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("TopicId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TopicId");
-
-                    b.ToTable("ForumResponses");
+                    b.ToTable("ForumTopics");
                 });
 
             modelBuilder.Entity("PandaAPI.Models.News", b =>
@@ -487,6 +488,9 @@ namespace PandaAPI.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("Company")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -525,6 +529,9 @@ namespace PandaAPI.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Position")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -622,13 +629,13 @@ namespace PandaAPI.Migrations
 
             modelBuilder.Entity("PandaAPI.Models.ForumResponse", b =>
                 {
-                    b.HasOne("PandaAPI.Models.ForumItem", "ForumItem")
+                    b.HasOne("PandaAPI.Models.ForumTopic", "ForumTopic")
                         .WithMany("Responses")
                         .HasForeignKey("TopicId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ForumItem");
+                    b.Navigation("ForumTopic");
                 });
 
             modelBuilder.Entity("PandaAPI.Models.User", b =>
@@ -640,7 +647,7 @@ namespace PandaAPI.Migrations
                     b.Navigation("UserInfo");
                 });
 
-            modelBuilder.Entity("PandaAPI.Models.ForumItem", b =>
+            modelBuilder.Entity("PandaAPI.Models.ForumTopic", b =>
                 {
                     b.Navigation("Responses");
                 });
