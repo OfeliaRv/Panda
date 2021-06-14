@@ -24,7 +24,9 @@ const ProductPage = ({ productData, fetchProduct }) => {
             <Router history={history}>
                 <MainSection>
                     {productData.loading ? (
-                        <h2>Loading...</h2>
+                        <div className="loader-container">
+                            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                        </div>
                     ) : productData.error ? (
                         <h2>{productData.error}</h2>
                     ) : (

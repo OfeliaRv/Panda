@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { connect, useDispatch } from 'react-redux'
 import { fetchResponses, fetchTopic, addResponse } from '../actions/forumAction'
+import authService from '../components/api-authorization/AuthorizeService'
 import MainSection from '../components/MainSection'
 import user_photo from '../assets/img/user-photo.png'
 
@@ -13,6 +14,9 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
 
     // data to be sent to the API 
     const [data, setData] = useState({});
+
+    // current user
+    const [user, setUser] = useState({});
 
     // to control reply field visibility
     const [responseWindowStyle, setResponseWindowStyle] = useState(false);
@@ -28,11 +32,21 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
     useEffect(() => {
         // set page title
         document.title = "Panda Navigation - Forum - Forum title"
+
+        // get current user
+        authService.getUser()
+        .then(user => { setUser(user)});
     }, [])
 
     // toggle response field visibility
     const responseHandler = () => {
         setResponseWindowStyle(!responseWindowStyle);
+    }
+
+    const onSubmit = e => {
+        e.preventDefault();
+        setData(prevState => ({ ...prevState, authorFullName: user.name }));
+        dispatch(addResponse(id, data));
     }
 
     const topic = forumData.topic;
@@ -104,7 +118,7 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
                     <div className="responses">
                         {/* ADD RESPONSE FIELD */}
                         {responseWindowStyle &&
-                            <form className="response-item" onSubmit={() => dispatch(addResponse(id, data))}>
+                            <form className="response-item" onSubmit={onSubmit}>
                                 <h5>Add your response</h5>
                                 <textarea cols="30" rows="5" className="form-input response-text" onChange={e => setData(prevState => ({ ...prevState, replyText: e.target.value }))} placeholder="Enter your response" />
                                 <div className="reply-buttons forum-item-tools">

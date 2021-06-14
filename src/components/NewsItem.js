@@ -1,6 +1,6 @@
 import date_icon from '../assets/img/date-icon.svg'
 
-const NewsItem = (props) => {
+const NewsItem = props => {
     return (
         <a href={"/news/" + props.news.id} className="news-item" key={props.news.id} onClick={() => props.handleNews((props.news.id))}>
             <div className="news-img">

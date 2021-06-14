@@ -1,7 +1,27 @@
+import { useEffect, useState } from 'react'
+import { useDispatch, connect } from 'react-redux'
+import authService from '../api-authorization/AuthorizeService'
 import logo from '../../assets/img/logo.svg'
 import person from '../../assets/img/person.svg'
+import { logout } from '../../actions/authAction'
 
-const Header = () => {
+const Header = ({ userData }) => {
+    const dispatch = useDispatch();
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        authService.getUser()
+            .then(user => { console.log("user", user); setUser(user)});
+    }, [])
+
+    const Logout = () => {
+        authService.signOut({ returnUrl: "/" }).then(res => {
+            console.log("here");
+            dispatch(logout);
+            window.location.replace(res.state.returnUrl);
+        });
+    }
+
     return (
         <header>
             <a href="/"><div className="logo">
@@ -23,8 +43,9 @@ const Header = () => {
                     <div className="icon-holder" style={{ pointerEvents: 'none' }}>
                         <img src={person} alt="person" />
                     </div>
-                    <p>Login</p>
+                    <p>{user == null ? "Login" : user && user.name}</p>
                 </div></a>
+                {user == null ? null : <div onClick={Logout} style={{ cursor: 'pointer' }}>logout</div>}
                 {/* <div className="lang-select">
                     <span className="lang" id="az">AZ</span> |
                     <span className="lang" id="ru">RU</span> |
@@ -35,4 +56,12 @@ const Header = () => {
     );
 }
 
-export default Header;
+const mapStateToProps = state => {
+    return {
+        userData: state.auth
+    }
+}
+
+export default connect(
+    mapStateToProps
+)(Header)

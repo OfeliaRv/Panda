@@ -46,7 +46,9 @@ const NewsLine = ({ fetchNews, newsData }) => {
     }
 
     return newsData.loading ? (
-        <h2>Loading...</h2>
+        <div className="loader-container">
+            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
     ) : newsData.error ? (
         <h2>{newsData.error}</h2>
     ) : (

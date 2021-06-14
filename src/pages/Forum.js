@@ -13,7 +13,9 @@ const Forum = ({ forumData, fetchTopics }) => {
     }, [])
 
     return forumData.loading_topic ? (
-        <h2>Loading...</h2>
+        <div className="loader-container">
+            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
     ) : forumData.error ? (
         <h2>{forumData.error_topic}</h2>
     ) : (
@@ -86,7 +88,7 @@ const Forum = ({ forumData, fetchTopics }) => {
                                                     <svg className="comment" width="25" height="25" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path fillRule="evenodd" clipRule="evenodd" d="M3.5 1.75H17.5C18.4625 1.75 19.25 2.5375 19.25 3.5V14C19.25 14.9625 18.4625 15.75 17.5 15.75H5.25L1.75 19.25V3.5C1.75 2.5375 2.5375 1.75 3.5 1.75ZM5.25 14H17.5V3.5H3.5V15.75L5.25 14Z" fill="#6D7587" />
                                                     </svg>
-                                                    <p>{forumItem.responses === null && 0 }</p>
+                                                    <p>{forumItem.responses === null && 0}</p>
                                                 </div>
                                             </div>
                                         </div>

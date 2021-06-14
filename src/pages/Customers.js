@@ -6,23 +6,26 @@ import { fetchCustomers } from '../actions/customerAction'
 import map from '../assets/img/map.png'
 
 const Customers = ({ fetchCustomers, customersData }) => {
+    // popup visibility 
     const [showPopup, setShowPopup] = useState(false);
+
+    // popup data object
     const [popupData, setPopupData] = useState({});
 
     useEffect(() => {
+        // get all customers/companies
         fetchCustomers();
+
+        // set page title
         document.title = "Panda Navigation - Customers"
     }, []);
-
-    useEffect(() => {
-        console.log(customersData.customers);
-    }, [customersData.customers])
 
     const showInfo = data => {
         setShowPopup(true);
         setPopupData(data);
     }
 
+    // show company on map location click
     const handlePin = id => {
         var customer_item = document.getElementById("company" + id);
         customer_item.classList.toggle("active-company");
@@ -33,13 +36,16 @@ const Customers = ({ fetchCustomers, customersData }) => {
     };
 
     return customersData.loading ? (
-        <h2>Loading...</h2>
+        <div className="loader-container">
+            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
     ) : customersData.error ? (
         <h2>{customersData.error}</h2>
     ) : (
         <div id="customers-page">
             <MainSection>
                 <div className="customers">
+                    {/* CUSTOMERS MAP */}
                     <div className="map-container">
                         <img src={map} alt="map" />
                         <div className="companies-pins">
@@ -48,6 +54,9 @@ const Customers = ({ fetchCustomers, customersData }) => {
                             )}
                         </div>
                     </div>
+                    {/* CUSTOMERS MAP */}
+
+                    {/* CUSTOMERS LIST */}
                     <div className="companies-list">
                         {customersData && customersData.customers && customersData.customers.map(customer =>
                             <div id={"company" + customer.id} className="company-item" key={customer.id} onClick={() => showInfo(customer)}>
@@ -56,7 +65,9 @@ const Customers = ({ fetchCustomers, customersData }) => {
                             </div>
                         )}
                     </div>
+                    {/* CUSTOMERS LIST */}
 
+                    {/* POPUP CARD */}
                     {showPopup && <div className="popup-card">
                         <div className="popup-card-inner">
                             <div className="close-popup" onClick={() => setShowPopup(false)}>
@@ -69,11 +80,11 @@ const Customers = ({ fetchCustomers, customersData }) => {
                                 </div>
                                 <div className="info-container">
                                     <p className="info-text"> {parse(`${popupData.about}`)}</p>
-
                                 </div>
                             </div>
                         </div>
                     </div>}
+                    {/* POPUP CARD */}
                 </div>
             </MainSection>
         </div>
@@ -83,14 +94,14 @@ const Customers = ({ fetchCustomers, customersData }) => {
 const mapStateToProps = state => {
     return {
         // access state in a reducer
-        customersData: state.customers 
+        customersData: state.customers
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         // access action to fetch all customers
-        fetchCustomers: () => dispatch(fetchCustomers()) 
+        fetchCustomers: () => dispatch(fetchCustomers())
     }
 }
 

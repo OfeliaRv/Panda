@@ -8,8 +8,13 @@ const Widgets = ({ fetchCustomers, customersData }) => {
     const [showPopup, setShowPopup] = useState(false);
     const [popupData, setPopupData] = useState({});
 
+    const dispatch = useDispatch();
+
     useEffect(() => {
+        // get all customers/companies
         fetchCustomers();
+
+        // set title
         document.title = "Panda Navigation - Customers"
     }, []);
 
@@ -17,8 +22,6 @@ const Widgets = ({ fetchCustomers, customersData }) => {
         setShowPopup(true);
         setPopupData(data);
     }
-
-    const dispatch = useDispatch();
 
     const widgets = customersData.customers;
 
@@ -42,7 +45,9 @@ const Widgets = ({ fetchCustomers, customersData }) => {
     }
 
     return customersData.loading ? (
-        <h2>Loading...</h2>
+        <div className="loader-container">
+            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
     ) : customersData.error ? (
         <h2>{customersData.error}</h2>
     ) : (
@@ -67,7 +72,7 @@ const Widgets = ({ fetchCustomers, customersData }) => {
                     <div className={"slide-button " + (dot.id === activePage ? "active-slide" : "")} key={dot.id} onClick={() => handleSlides(dot.id)}></div>
                 )}
             </div>
-
+            {/* POPUP CARD */}
             {showPopup && <div className="popup-card">
                 <div className="popup-card-inner">
                     <div className="close-popup" onClick={() => setShowPopup(false)}>
@@ -84,19 +89,22 @@ const Widgets = ({ fetchCustomers, customersData }) => {
                     </div>
                 </div>
             </div>}
+            {/* POPUP CARD */}
         </div>
     );
 }
 
 const mapStateToProps = state => {
     return {
-        customersData: state.customers // access data in customers reducer
+        // access data in customers reducer
+        customersData: state.customers
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchCustomers: () => dispatch(fetchCustomers()) // access function to fetch all customers
+        // access the action to get all customers
+        fetchCustomers: () => dispatch(fetchCustomers())
     }
 }
 

@@ -18,7 +18,6 @@ const newsReducer = (state = newsState, action) => {
             return {
                 ...state,
                 loading: false,
-                // one_news: {},
                 news: action.payload,
                 error: ''
             }
@@ -27,7 +26,6 @@ const newsReducer = (state = newsState, action) => {
                 ...state,
                 loading: false,
                 one_news: action.payload,
-                // news: [],
                 error: ''
             }
         case ACTION_TYPES.FETCH_NEWS_FAILURE:

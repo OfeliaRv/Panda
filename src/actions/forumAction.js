@@ -75,12 +75,12 @@ export const addTopic = data => {
 }
 
 export const addResponse = (id, data) => {
+    console.log("data", data);
     return (dispatch) => {
         axios.post('/Forum/' + id + '/Response', data)
             .then(res => {
                 dispatch(addResponseSuccess(res.data));
                 alert('Your response was successfully added!');
-                // window.location.replace("/forum/" + id);
                 window.location.reload();
             })
             .catch(error => {
