@@ -33,7 +33,7 @@ const Products = ({ fetchProducts, productsData }) => {
 
     return productsData.loading ? (
         <div className="loader-container">
-            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
     ) : productsData.error ? (
         <h2>{productsData.error}</h2>

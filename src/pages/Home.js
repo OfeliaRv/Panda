@@ -43,7 +43,7 @@ const Home = () => {
                         </div>
                     </div>}
                 {clickedHome == 1 &&
-                    <div>
+                    <div className="widgets-page">
                         <div className="main-heading">
                             <h1>Customers</h1>
                         </div>

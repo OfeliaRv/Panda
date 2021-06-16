@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { useSelector, useDispatch } from 'react-redux'
-import { loadWidgets, showPage } from '../actions/showDataActions'
+import parse from 'html-react-parser'
 import { fetchCustomers } from '../actions/customerAction'
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper/core'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 const Widgets = ({ fetchCustomers, customersData }) => {
     const [showPopup, setShowPopup] = useState(false);
     const [popupData, setPopupData] = useState({});
-
-    const dispatch = useDispatch();
 
     useEffect(() => {
         // get all customers/companies
@@ -23,39 +24,23 @@ const Widgets = ({ fetchCustomers, customersData }) => {
         setPopupData(data);
     }
 
-    const widgets = customersData.customers;
-
-    // show maximum 3 widgets on a page
-    const getWidgetsRange = useSelector(state => state.showData.loadWidgets);
-
-    // show current page (little grey dot)
-    const activePage = useSelector(state => state.showData.showPage);
-
-    var dots = [];
-    const dots_num = Math.ceil(widgets.length / 3);
-    for (let i = 0; i < dots_num; i++) {
-        dots[i] = {
-            id: i
-        };
-    }
-
-    const handleSlides = id => {
-        dispatch(loadWidgets(0 + 3 * id));
-        dispatch(showPage(id));
-    }
-
     return customersData.loading ? (
         <div className="loader-container">
-            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
     ) : customersData.error ? (
         <h2>{customersData.error}</h2>
     ) : (
-        <div>
-            <div className="widgets-row">
+        <div className="widgets-page">
+            <Swiper className="widgets-row"
+                slidesPerView={3}
+                navigation={true}
+                pagination={{ clickable: true }}
+            >
                 {customersData.customers.length === 0 && <h2>No data to display</h2>}
-                {customersData && customersData.customers && customersData.customers.slice(getWidgetsRange.first, getWidgetsRange.last).map(widget =>
-                    <div className="widget" key={widget.id} onClick={() => showInfo(widget)}>
+                {customersData && customersData.customers && customersData.customers.map(widget =>
+                    <SwiperSlide key={widget.id} className="widget" onClick={() => showInfo(widget)}>
+                        {/* <div className="widget" key={widget.id} onClick={() => showInfo(widget)}> */}
                         <div className="widget-data">
                             <div className="widget-logo">
                                 <img src={widget.logo} alt="logo" />
@@ -64,14 +49,10 @@ const Widgets = ({ fetchCustomers, customersData }) => {
                                 <p>{widget.name}</p>
                             </div>
                         </div>
-                    </div>
+                    </SwiperSlide>
                 )}
-            </div>
-            <div className="slider-buttons">
-                {dots.map(dot =>
-                    <div className={"slide-button " + (dot.id === activePage ? "active-slide" : "")} key={dot.id} onClick={() => handleSlides(dot.id)}></div>
-                )}
-            </div>
+            </Swiper>
+
             {/* POPUP CARD */}
             {showPopup && <div className="popup-card">
                 <div className="popup-card-inner">
@@ -84,7 +65,7 @@ const Widgets = ({ fetchCustomers, customersData }) => {
                             <img src={popupData.logo} alt={popupData.name} />
                         </div>
                         <div className="info-container">
-                            <p className="info-text">{popupData.about}</p>
+                            <div className="info-text">{parse(`${popupData.about}`)}</div>
                         </div>
                     </div>
                 </div>

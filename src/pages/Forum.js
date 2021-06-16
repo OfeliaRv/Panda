@@ -14,7 +14,7 @@ const Forum = ({ forumData, fetchTopics }) => {
 
     return forumData.loading_topic ? (
         <div className="loader-container">
-            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
     ) : forumData.error ? (
         <h2>{forumData.error_topic}</h2>

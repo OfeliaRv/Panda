@@ -1,0 +1,77 @@
+@import "./buttons";
+
+.swiper-container {
+    margin: 0 !important;
+    width: 117% !important;
+    position: unset !important;
+
+    .swiper-wrapper {
+        display: flex;
+    }
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal > .swiper-pagination-bullets {
+    display: flex;
+}
+
+.swiper-pagination-bullet {
+    width: 1rem !important;
+    height: 1rem !important;
+    opacity: unset !important;
+    background-color: #848e9d !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #4d545e !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    @extend .white-button;
+    border-radius: 22%;
+    width: 2vw !important;
+    height: 2vw !important;
+    margin: 0 0.1rem !important;
+}
+
+.white-button:hover,
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    &::after {
+        color: $hover-color !important;
+    }
+}
+
+.swiper-button-next:after,
+.swiper-container-rtl .swiper-button-prev:after,
+.swiper-button-prev:after,
+.swiper-container-rtl .swiper-button-next:after {
+    font-size: 1.5rem !important;
+    color: #8a92a5 !important;
+    font-weight: 700 !important;
+}
+
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
+    right: 1.8% !important;
+    bottom: 0 !important;
+    left: unset !important;
+    top: 76% !important;
+}
+
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+    right: 4% !important;
+    bottom: 0 !important;
+    left: unset !important;
+    top: 76% !important;
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal > .swiper-pagination-bullets {
+    left: 12% !important;
+    top: 85% !important;
+}

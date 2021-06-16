@@ -37,7 +37,7 @@ const Customers = ({ fetchCustomers, customersData }) => {
 
     return customersData.loading ? (
         <div className="loader-container">
-            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
     ) : customersData.error ? (
         <h2>{customersData.error}</h2>
@@ -79,7 +79,7 @@ const Customers = ({ fetchCustomers, customersData }) => {
                                     <img src={popupData.logo} alt={popupData.name} />
                                 </div>
                                 <div className="info-container">
-                                    <p className="info-text"> {parse(`${popupData.about}`)}</p>
+                                    <div className="info-text"> {parse(`${popupData.about}`)}</div>
                                 </div>
                             </div>
                         </div>

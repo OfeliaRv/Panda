@@ -4,6 +4,13 @@
         position: relative;
         transition: left 0.7s ease-in;
 
+        // width: calc(17.8rem * 10);
+        // animation: carousel 20s linear infinite;
+
+        &:hover {
+            animation-play-state: paused;
+        }
+
         .news-item {
             width: 23.3%;
             cursor: pointer;
@@ -64,6 +71,15 @@
 
     .slider-buttons {
         margin-top: 1vh !important;
+    }
+}
+
+@keyframes carousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-17.8rem * 20));
     }
 }
 

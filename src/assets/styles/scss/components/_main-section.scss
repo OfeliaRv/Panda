@@ -1,6 +1,6 @@
 .main-section {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
 
     .left-items {
         margin: 4.5% 2.5vw 0 4.5vw;
@@ -33,9 +33,16 @@
         }
     }
 
-    #center0 {
+    #center0,
+    #center1 {
         overflow: hidden;
     }
+
+    // #center1 {
+    //     .widgets-page {
+    //         width: 106%;
+    //     }
+    // }
 
     #right1 {
         .arrow-button {
@@ -139,8 +146,8 @@
     }
 }
 
-#homepage{
-    .right-items{
+#homepage {
+    .right-items {
         flex-direction: column !important;
     }
 }

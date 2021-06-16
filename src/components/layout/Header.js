@@ -5,7 +5,7 @@ import logo from '../../assets/img/logo.svg'
 import person from '../../assets/img/person.svg'
 import { logout } from '../../actions/authAction'
 
-const Header = ({ userData }) => {
+const Header = () => {
     const dispatch = useDispatch();
     const [user, setUser] = useState({});
 
@@ -45,7 +45,7 @@ const Header = ({ userData }) => {
                     </div>
                     <p>{user == null ? "Login" : user && user.name}</p>
                 </div></a>
-                {user == null ? null : <div onClick={Logout} style={{ cursor: 'pointer' }}>logout</div>}
+                {user !== undefined || user !== null && <div onClick={Logout} style={{ cursor: 'pointer' }}>logout</div>}
                 {/* <div className="lang-select">
                     <span className="lang" id="az">AZ</span> |
                     <span className="lang" id="ru">RU</span> |

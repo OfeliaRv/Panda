@@ -8,9 +8,8 @@ import { Route } from 'react-router'
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch, connect } from 'react-redux'
 import { loadNews, showPage, loadProducts, loadWidgets, setHomepage, loadReviews } from '../actions/showDataActions'
-import { fetchCustomers } from '../actions/customerAction'
 
-const MainSection = ({ children, productsData, customersData, reviewsData }) => {
+const MainSection = ({ children, newsData, productsData, customersData, reviewsData }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -30,10 +29,10 @@ const MainSection = ({ children, productsData, customersData, reviewsData }) => 
 
 
     // get all news 
-    // const news = newsData.news;
+    const news = newsData.news;
 
     // calculate the number of news pages (needed dots)
-    // const news_pages = Math.ceil(news.length / 4);
+    const news_pages = Math.ceil(news.length / 4);
 
     // show current page (little grey dot)
     const activePage = useSelector(state => state.showData.showPage);
@@ -62,37 +61,21 @@ const MainSection = ({ children, productsData, customersData, reviewsData }) => 
     function newsSlideNext() {
         dispatch(loadNews(carouselCounter + 1));
         setCarouselCounter(carouselCounter + 1);
-        // if (activePage < news_pages) {
-        //     // dispatch(loadNews(carouselCounter + 1)); // carousel swipe counter
-        //     dispatch(showPage(activePage + 1));
-        // }
-        // else {
-        //     dispatch(showPage(1));
-        // }
-        // else{
 
-        // }
-
-        // console.log(activePage);
+        if (activePage < news_pages) {
+            dispatch(showPage(activePage + 1));
+        }
+        else {
+            dispatch(showPage(1));
+        }
     }
 
     function newsSlidePrevious() {
         if (carouselCounter > 0) {
             dispatch(loadNews(carouselCounter - 1));
             setCarouselCounter(carouselCounter - 1);
+            dispatch(showPage(activePage - 1));
         }
-        // if (activePage < news_pages) {
-        //     // dispatch(loadNews(carouselCounter + 1)); // carousel swipe counter
-        //     dispatch(showPage(activePage + 1));
-        // }
-        // else {
-        //     dispatch(showPage(1));
-        // }
-        // else{
-
-        // }
-
-        // console.log(activePage);
     }
 
     // products slider on next button click
@@ -229,7 +212,7 @@ const MainSection = ({ children, productsData, customersData, reviewsData }) => 
                         </div>
                     </div>
                 </Route>}
-                {clickedHome == 1 && <Route exact path="/">
+                {/* {clickedHome == 1 && <Route exact path="/">
                     <div className="arrow-buttons">
                         <div id="previous" className="arrow-button white-button square-button" onClick={widgetsSlidePrevious}>
                             <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -242,7 +225,7 @@ const MainSection = ({ children, productsData, customersData, reviewsData }) => 
                             </svg>
                         </div>
                     </div>
-                </Route>}
+                </Route>} */}
                 <Route path="/news">
                     <div className="arrow-buttons">
                         <div id="previous" className="arrow-button white-button square-button" onClick={newsSlidePrevious}>
@@ -294,7 +277,8 @@ const mapStateToProps = state => {
     return {
         customersData: state.customers,
         productsData: state.products,
-        reviewsData: state.reviews
+        reviewsData: state.reviews,
+        newsData: state.news
     }
 }
 

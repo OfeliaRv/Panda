@@ -1,26 +1,23 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { connect, useSelector } from 'react-redux'
+import { connect } from 'react-redux'
 import parse from 'html-react-parser'
 import { fetchOneNews, fetchNews } from '../actions/newsAction'
 import NewsLine from '../components/NewsLine'
 import MainSection from '../components/MainSection'
 
-const News = ({ fetchOneNews, fetchNews, newsData }) => {
+const News = ({ fetchOneNews, newsData }) => {
     const { id } = useParams();
-
-    const news = useSelector(state => state.news.news);
 
     useEffect(() => {
         if (id === '' || id === undefined || id === null) {
-            fetchOneNews(news[0].id)
+            if (newsData.news && newsData.news.length) {
+                fetchOneNews(newsData.news[0].id);
+            }
         } else {
             fetchOneNews(id);
         }
-
-        // console.log(newsData.news[0].id);
-        console.log(newsData);
-    }, [id])
+    }, [id, newsData.news?.length]);
 
     return (
         <div id="news">

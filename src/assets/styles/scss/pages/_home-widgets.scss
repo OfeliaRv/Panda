@@ -2,6 +2,7 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: nowrap;
+    min-height: 29rem;
 
     .widget {
         cursor: pointer;
@@ -9,8 +10,8 @@
         background-blend-mode: soft-light, normal;
         box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
         border-radius: 2vw;
-        width: 28.07%;
-        height: 34vh;
+        width: 23vw !important;
+        height: 34vh !important;
         margin-right: 5.159%;
 
         &-data {
