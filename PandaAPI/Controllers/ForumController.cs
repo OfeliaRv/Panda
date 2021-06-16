@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PandaAPI.Data;
 using PandaAPI.Models;
 using System;
+using System.Linq;
 
 namespace PandaAPI.Controllers
 {
@@ -58,11 +60,15 @@ namespace PandaAPI.Controllers
 
         [HttpPost]
         [Route("{id}/Response")]
-        public IActionResult AddResponse(Forum forumData)
+        public IActionResult AddForumResponse(Guid id, ForumResponseModel forumResponse)
         {
-            var response = forumData.ForumResponse;
-            var forum = forumData.ForumTopic;
-            _forumData.AddForumResponse(response, forum);
+            var response = new ForumResponse
+            {
+                ReplyText = forumResponse.ReplyText,
+                AuthorFullName = forumResponse.AuthorFullName
+            };
+
+            _forumData.AddForumResponse(response, id);
 
             return Ok(response);
         }

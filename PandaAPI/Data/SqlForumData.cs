@@ -27,10 +27,10 @@ namespace PandaAPI.Data
             return forum;
         }
 
-        public ForumResponse AddForumResponse(ForumResponse response, ForumTopic forum)
+        public ForumResponse AddForumResponse(ForumResponse response, Guid forumId)
         {
             response.Id = Guid.NewGuid();
-            response.TopicId = forum.Id;
+            response.TopicId = forumId;
             response.IsApproved = false;
             response.Date = DateTime.Now;
             _pandaContext.ForumResponses.Add(response);

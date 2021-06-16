@@ -14,7 +14,7 @@ namespace PandaAPI.Data
 
         ForumTopic AddForumTopic(ForumTopic forum);
 
-        ForumResponse AddForumResponse(ForumResponse response, ForumTopic forum);
+        ForumResponse AddForumResponse(ForumResponse response, Guid forumId);
 
         void DeleteForumTopic(ForumTopic forum);
     }
