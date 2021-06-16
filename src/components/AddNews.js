@@ -54,7 +54,7 @@ const AddNews = () => {
                     </div>
                     <div className="input-container">
                         <label htmlFor="news-image">News image</label>
-                        <input type="file" id="news-photo" onChange={e => setData(prevState => ({ ...prevState, photo: e.target.files[0].name }))} />
+                        <input type="file" id="news-photo" onChange={e => setData(prevState => ({ ...prevState, photo: e.target.files[0].name }))} required />
                     </div>
                 </div>
                 <div className="add-form-inputs">

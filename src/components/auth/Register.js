@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { register } from '../../actions/AuthAction'
 import { useDispatch } from 'react-redux'
 import authService from '../api-authorization/AuthorizeService'
+import axios from 'axios'
 
 const Register = () => {
     const dispatch = useDispatch();

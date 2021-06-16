@@ -1,6 +1,5 @@
 import Layout from "../components/layout/Layout"
 import { Route } from "react-router"
-import Auth from "./Auth"
 import News from "./News"
 import AddNews from "../components/AddNews"
 import Products from "./Products"
@@ -17,23 +16,12 @@ import EditProduct from "../components/EditProduct"
 import AuthRequests from "./AuthRequests"
 import TopicRequests from "./TopicRequests"
 import { connect } from 'react-redux'
-import { useEffect } from 'react'
 
-const Dashboard = ({ userData }) => {
-    useEffect(() => {
-        // fetchUser();
-        console.log(userData.user);
-    }, []);
-
-    // if (userData === undefined) {
-    //     return (
-    //         <Route exact path="/" component={Auth} />
-    //     )
-    // }
-    // else {
+const Dashboard = () => {
     return (
         <Layout>
             <Route exact path="/" component={News} />
+            <Route exact path="/news" component={News} />
             <Route path="/addnews" component={AddNews} />
             <Route exact path="/editnews/:id" component={EditNews} />
             <Route path="/products" component={Products} />
@@ -50,7 +38,6 @@ const Dashboard = ({ userData }) => {
             <Route exact path="/editcompany/:id" component={EditCompany} />
         </Layout>
     );
-    // }
 }
 
 const mapStateToProps = state => {
@@ -59,13 +46,6 @@ const mapStateToProps = state => {
     }
 }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         fetchUser: () => dispatch(fetchUser())
-//     }
-// }
-
 export default connect(
-    mapStateToProps //,
-    // mapDispatchToProps
+    mapStateToProps
 )(Dashboard)

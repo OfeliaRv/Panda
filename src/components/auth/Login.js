@@ -17,7 +17,7 @@ const Login = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        axios.post('/Authentication/Login', data, { withCredentials: true })
+        axios.post('/Authentication/LoginAdmin', data, { withCredentials: true })
             .then(_ => {
                 authService.signIn({ returnUrl: "/" })
                     .then(res => {

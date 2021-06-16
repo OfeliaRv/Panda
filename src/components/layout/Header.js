@@ -1,12 +1,12 @@
+import { useDispatch, connect } from 'react-redux'
+import { useEffect } from 'react'
+import authService from '../../components/api-authorization/AuthorizeService'
 import logo from '../../assets/img/logo.svg'
 import user_img from '../../assets/img/avatar.png'
 import menu_img from '../../assets/img/menu.svg'
 import logout_img from '../../assets/img/logout.svg'
 import { toggleSidebar } from '../../actions/ToolsActions'
-import { logout, logoutUser } from '../../actions/AuthAction'
-import { useDispatch, connect } from 'react-redux'
-import { useEffect } from 'react'
-import authService from '../../components/api-authorization/AuthorizeService'
+import { logout } from '../../actions/AuthAction'
 
 const Navbar = ({ userData }) => {
     const dispatch = useDispatch();

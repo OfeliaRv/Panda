@@ -4,7 +4,7 @@ var config = {
     "authority": "https://localhost:3000",
     "client_id": "PandaAPI",
     "redirect_uri": "https://localhost:3000/authentication/login-callback",
-    "post_logout_redirect_uri": "https://localhost:3000/authentication/logout-callback",
+    "post_logout_redirect_uri": "https://localhost:3000/",
     "response_type": "id_token token",
     "scope": "openid PandaAPIAPI"
 }

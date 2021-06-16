@@ -4,14 +4,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
 import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
 import authService from './components/api-authorization/AuthorizeService'
-import { connect } from 'react-redux'
-import { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, connect } from 'react-redux'
 import { login } from './actions/AuthAction'
 
 const App = ({ userData }) => {
     const dispatch = useDispatch();
-    // const [user, setUser] = useState({});
 
     useEffect(() => {
         authService.getUser()
@@ -23,10 +21,9 @@ const App = ({ userData }) => {
             <Router>
                 <Switch>
                     <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
-                    { userData.user == null || userData == undefined || Object.keys(userData.user).length == 0 ?
-                        <Route exact path="/" component={Auth} /> :
-                        <Route exact path="/" component={Dashboard} />
-                    }
+                    {(userData.user == null || userData == undefined || Object.keys(userData.user).length == 0) &&
+                        <Route exact path="/" component={Auth} />}
+                    {userData.user && <Route exact path="/" component={Dashboard} />}
                     <Route path="/register" component={Auth} />
                     <Route path="/news" component={Dashboard} />
                     <Route path="/addnews" component={Dashboard} />
@@ -56,13 +53,6 @@ const mapStateToProps = state => {
     }
 }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         fetchUser: () => dispatch(fetchUser())
-//     }
-// }
-
 export default connect(
-    mapStateToProps //,
-    // mapDispatchToProps
+    mapStateToProps
 )(App)
