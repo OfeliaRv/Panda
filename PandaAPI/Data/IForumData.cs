@@ -1,6 +1,7 @@
 ﻿using PandaAPI.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PandaAPI.Data
 {
@@ -14,7 +15,7 @@ namespace PandaAPI.Data
 
         ForumTopic AddForumTopic(ForumTopic forum);
 
-        ForumResponse AddForumResponse(ForumResponse response, Guid forumId);
+        Task<ForumResponse> AddForumResponse(ForumResponse response, Guid forumId);
 
         void DeleteForumTopic(ForumTopic forum);
     }

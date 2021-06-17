@@ -5,6 +5,7 @@ using PandaAPI.Data;
 using PandaAPI.Models;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PandaAPI.Controllers
 {
@@ -13,9 +14,11 @@ namespace PandaAPI.Controllers
     public class ForumController : ControllerBase
     {
         private readonly IForumData _forumData;
-        public ForumController(IForumData forumData)
+        private readonly UserManager<User> _userManager;
+        public ForumController(IForumData forumData, UserManager<User> userManager)
         {
             _forumData = forumData;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -60,15 +63,16 @@ namespace PandaAPI.Controllers
 
         [HttpPost]
         [Route("{id}/Response")]
-        public IActionResult AddForumResponse(Guid id, ForumResponseModel forumResponse)
+        public async Task<IActionResult> AddForumResponse(Guid id, ForumResponseModel forumResponse)
         {
+            var user = await _userManager.GetUserAsync(User);
             var response = new ForumResponse
             {
                 ReplyText = forumResponse.ReplyText,
-                AuthorFullName = forumResponse.AuthorFullName
+                AuthorFullName = user.FullName
             };
 
-            _forumData.AddForumResponse(response, id);
+            await _forumData.AddForumResponse(response, id);
 
             return Ok(response);
         }

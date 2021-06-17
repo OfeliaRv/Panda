@@ -9,7 +9,7 @@ namespace PandaAPI.Models
         public Guid Id { get; set; }
 
         [Required]
-        public Guid? TopicId { get; set; }
+        public Guid? TopicId { get; set; } 
 
         [Required]
         public string AuthorFullName { get; set; }
@@ -23,6 +23,6 @@ namespace PandaAPI.Models
         [Required]
         public bool IsApproved { get; set; }
 
-        public ForumTopic ForumTopic { get; set; }
+        public ForumTopic ForumTopic { get; set; } 
     }
 }

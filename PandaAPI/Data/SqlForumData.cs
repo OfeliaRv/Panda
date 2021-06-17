@@ -3,6 +3,7 @@ using PandaAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PandaAPI.Data
 {
@@ -20,21 +21,21 @@ namespace PandaAPI.Data
             forum.Id = Guid.NewGuid();
             forum.Rating = 0;
             forum.NRead = 0;
-            forum.IsApproved = false;
+            forum.IsApproved = true;
             forum.Date = DateTime.Now;
             _pandaContext.ForumTopics.Add(forum);
             _pandaContext.SaveChanges();
             return forum;
         }
 
-        public ForumResponse AddForumResponse(ForumResponse response, Guid forumId)
+        public async Task<ForumResponse> AddForumResponse(ForumResponse response, Guid forumId)
         {
             response.Id = Guid.NewGuid();
             response.TopicId = forumId;
-            response.IsApproved = false;
+            response.IsApproved = true;
             response.Date = DateTime.Now;
             _pandaContext.ForumResponses.Add(response);
-            _pandaContext.SaveChanges();
+            await _pandaContext.SaveChangesAsync();
             return response;
         }
 
