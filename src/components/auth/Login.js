@@ -33,7 +33,7 @@ const Login = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        axios.post('/Authentication/Login', data, { withCredentials: true })
+        axios.post('/Authentication/Login', data)
             .then(_ => {
                 authService.signIn({ returnUrl: "/" })
                     .then(res => {
@@ -82,13 +82,13 @@ const Login = () => {
                                     <input className="form-input" type="password" id="password" placeholder="Password" onChange={e => setData(prevState => ({ ...prevState, password: e.target.value }))} required />
                                     <img onClick={passwordVisible} src={eye_dimmed} alt="see password" />
                                 </div>
-                                <div className="form-tools">
+                                {/* <div className="form-tools">
                                     <div className="check">
                                         <input className="form-input check" type="checkbox" name="remember" id="remember" />
                                         <label htmlFor="remember">Remember me</label>
                                     </div>
                                     <a href="#">Forgot password?</a>
-                                </div>
+                                </div> */}
                                 <button className="grey-button">Login</button>
                                 <p>Not registered yet? <a href="/register">Create an Account!</a></p>
                             </form>

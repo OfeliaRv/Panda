@@ -9,10 +9,11 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import axios from 'axios'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import { user } from './reducers/data/authReducer'
+import authService from './components/api-authorization/AuthorizeService'
 
 axios.defaults.baseURL = 'https://localhost:44344/api';
-axios.defaults.headers.common['Authorization'] = 'Bearer ' + user.user.token;
+axios.defaults.withCredentials = true;
+authService.getAccessToken().then(t => { console.log(t);axios.defaults.headers.common['Authorization'] = 'Bearer ' + t; });
 
 const store = createStore(
     allReducers,

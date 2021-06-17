@@ -14,9 +14,6 @@ const Widgets = ({ fetchCustomers, customersData }) => {
     useEffect(() => {
         // get all customers/companies
         fetchCustomers();
-
-        // set title
-        document.title = "Panda Navigation - Customers"
     }, []);
 
     const showInfo = data => {
@@ -33,14 +30,15 @@ const Widgets = ({ fetchCustomers, customersData }) => {
     ) : (
         <div className="widgets-page">
             <Swiper className="widgets-row"
-                slidesPerView={3}
+                slidesPerView={'auto'}
+                loopedSlides={10}
+                loop={true}
                 navigation={true}
                 pagination={{ clickable: true }}
             >
                 {customersData.customers.length === 0 && <h2>No data to display</h2>}
                 {customersData && customersData.customers && customersData.customers.map(widget =>
                     <SwiperSlide key={widget.id} className="widget" onClick={() => showInfo(widget)}>
-                        {/* <div className="widget" key={widget.id} onClick={() => showInfo(widget)}> */}
                         <div className="widget-data">
                             <div className="widget-logo">
                                 <img src={widget.logo} alt="logo" />

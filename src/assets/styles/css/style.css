@@ -1539,6 +1539,10 @@ button,
   margin: auto 0 !important;
 }
 
+#news .news-container {
+  margin-top: 2rem;
+}
+
 #news .news-container .main-heading {
   margin: 0 0 1% 0;
 }
@@ -1590,13 +1594,7 @@ button,
 }
 
 .products {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   margin: 0 7%;
-  width: 100%;
 }
 
 .products .product {
@@ -1623,16 +1621,6 @@ button,
   font-size: 1.4vw;
 }
 
-#products,
-#product-page {
-  margin: auto 0 !important;
-}
-
-#products .center-content,
-#product-page .center-content {
-  overflow: visible !important;
-}
-
 #products .main-section,
 #product-page .main-section {
   margin: 2.5vw 0;
@@ -1650,6 +1638,31 @@ button,
   display: -ms-flexbox !important;
   display: flex !important;
   margin-bottom: unset !important;
+}
+
+#products .center-content {
+  padding: 3rem;
+  width: 77% !important;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+#products .swiper-slide {
+  width: unset !important;
+}
+
+#products .swiper-container-multirow-column > .swiper-wrapper {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
+}
+
+#products .swiper-container {
+  overflow: visible !important;
+  width: unset !important;
+  height: 100% !important;
+  margin: 0 1%;
 }
 
 @media (max-width: 1000px), (min-width: 1920px) {
@@ -1681,6 +1694,7 @@ button,
   color: #8a92a5;
   margin: 0 0 0 2.084vw;
   height: 24vw;
+  width: 60%;
   overflow-y: auto;
 }
 
@@ -2397,10 +2411,6 @@ button,
 #forum-topic textarea {
   font-size: 2rem;
   padding-left: 2.3vw;
-}
-
-#forum-topic .forum-container {
-  margin-top: 3rem;
 }
 
 #forum-topic .start-topic-button-holder {

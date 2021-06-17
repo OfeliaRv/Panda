@@ -240,7 +240,7 @@ const MainSection = ({ children, newsData, productsData, customersData, reviewsD
                         </div>
                     </div>
                 </Route>
-                <Route exact path="/products">
+                {/* <Route exact path="/products">
                     <div className="arrow-buttons">
                         <div id="previous" className="arrow-button white-button square-button" onClick={productsSlidePrevious}>
                             <svg width="18" height="27" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -253,7 +253,7 @@ const MainSection = ({ children, newsData, productsData, customersData, reviewsD
                             </svg>
                         </div>
                     </div>
-                </Route>
+                </Route> */}
                 <Route exact path="/reviews">
                     <div className="arrow-buttons">
                         <div id="previous" className="arrow-button white-button square-button" onClick={reviewsSlidePrevious}>

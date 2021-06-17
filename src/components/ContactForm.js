@@ -26,11 +26,11 @@ const ContactForm = () => {
     };
 
     const onSubmit = e => {
-        e.preventDefault(); 
         if (isVerified) {
             dispatch(addMessage(data));
             recaptchaInstance.reset();
         } else {
+            e.preventDefault(); 
             alert('Prove you are not a robot!');
         }
     }

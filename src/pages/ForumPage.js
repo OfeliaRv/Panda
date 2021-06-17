@@ -33,10 +33,11 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
         // set page title
         document.title = "Panda Navigation - Forum - Forum title"
 
+        console.log(forumData.responses);
         // get current user
         authService.getUser()
-        .then(user => { setUser(user)});
-    }, [])
+            .then(user => { setUser(user) });
+    }, [forumData.responses])
 
     // toggle response field visibility
     const responseHandler = () => {
@@ -56,7 +57,7 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
                 <div className="forum">
                     {/* TOPIC */}
                     <div className="forum-item">
-                        <div className="forum-item-rating">
+                        {/* <div className="forum-item-rating">
                             <div className="rating-components">
                                 <svg className="forum-upvote" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M13.0004 7.99V19C13.0004 19.55 12.5504 20 12.0004 20C11.4504 20 11.0004 19.55 11.0004 19V7.99H9.21041C8.76041 7.99 8.54041 7.45 8.86041 7.14L11.6504 4.36C11.8504 4.17 12.1604 4.17 12.3604 4.36L15.1504 7.14C15.4704 7.45 15.2404 7.99 14.8004 7.99H13.0004Z" fill="black" />
@@ -66,7 +67,7 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
                                     <path d="M13.0004 16.01V5C13.0004 4.45 12.5504 4 12.0004 4C11.4504 4 11.0004 4.45 11.0004 5V16.01H9.21041C8.76041 16.01 8.54041 16.55 8.86041 16.86L11.6504 19.64C11.8504 19.83 12.1604 19.83 12.3604 19.64L15.1504 16.86C15.4704 16.55 15.2404 16.01 14.8004 16.01H13.0004Z" fill="black" />
                                 </svg>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="forum-item-data">
                             <div className="forum-page-heading forum-item-tools">
                                 <h5>{topic.topicName}</h5>
@@ -135,7 +136,7 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
                         ) : forumData.error ? (
                             <h2>{forumData.error_responses}</h2>
                         ) : forumData.responses.length === 0 ? <h2>No responses yet</h2> : (
-                            forumData && forumData.reponses && forumData.reponses.map(response =>
+                            topic && topic.responses && topic.responses.map(response =>
                                 <div className="response-item">
                                     <div className="review-user-info">
                                         <div className="user-info-img">

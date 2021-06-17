@@ -1,35 +1,39 @@
 import { useEffect } from 'react'
-import MainSection from '../components/MainSection'
 import { useSelector, useDispatch, connect } from 'react-redux'
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper/core'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import MainSection from '../components/MainSection'
 import { loadProducts, showPage } from '../actions/showDataActions'
 import { fetchProducts } from '../actions/productAction'
+
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 const Products = ({ fetchProducts, productsData }) => {
     const my_dispatch = useDispatch();
 
     // show maximum 6 products on a page
-    const getProductsRange = useSelector(state => state.showData.loadProducts);
+    // const getProductsRange = useSelector(state => state.showData.loadProducts);
 
-    // show current page (little grey dot)
-    const activePage = useSelector(state => state.showData.showPage);
+    // // show current page (little grey dot)
+    // const activePage = useSelector(state => state.showData.showPage);
 
     useEffect(() => {
         fetchProducts();
         document.title = "Panda Navigation - Products"
     }, [])
 
-    var dots = [];
-    const dots_num = Math.ceil(productsData.products.length / 6);
-    for (let i = 0; i < dots_num; i++) {
-        dots[i] = {
-            id: i
-        };
-    }
+    // var dots = [];
+    // const dots_num = Math.ceil(productsData.products.length / 6);
+    // for (let i = 0; i < dots_num; i++) {
+    //     dots[i] = {
+    //         id: i
+    //     };
+    // }
 
-    const handleSlides = id => {
-        my_dispatch(loadProducts(0 + 6 * id));
-        my_dispatch(showPage(id));
-    }
+    // const handleSlides = id => {
+    //     my_dispatch(loadProducts(0 + 6 * id));
+    //     my_dispatch(showPage(id));
+    // }
 
     return productsData.loading ? (
         <div className="loader-container">
@@ -40,20 +44,29 @@ const Products = ({ fetchProducts, productsData }) => {
     ) : (
         <div id="products">
             <MainSection>
-                <div className="products">
-                    {productsData.products.length === 0 && <h2>No data to display</h2>}
-                    {productsData && productsData.products && productsData.products.slice(getProductsRange.first, getProductsRange.last).map(product =>
-                        <a href={`/products/${product.id}`} key={product.id}><div className="product white-button">
-                            <h6>{product.name}</h6>
-                        </div></a>
-                    )}
-                </div>
+                <>
+                    <Swiper className="products"
+                        slidesPerView={3}
+                        slidesPerColumn={2}
+                        navigation={true}
+                        pagination={{ clickable: true }}
+                    >
+                        {productsData.products.length === 0 && <h2>No data to display</h2>}
+                        {productsData && productsData.products && productsData.products.map(product =>
+                            <SwiperSlide tag="a" href={`/products/${product.id}`} key={product.id}>
+                                <div className="product white-button">
+                                    <h6>{product.name}</h6>
+                                </div>
+                            </SwiperSlide>
+                        )}
+                    </Swiper>
+                </>
             </MainSection>
-            <div className="slider-buttons" style={{ padding: '0 17%' }}>
+            {/* <div className="slider-buttons" style={{ padding: '0 17%' }}>
                 {dots.map(dot =>
                     <div className={"slide-button " + (dot.id === activePage ? "active-slide" : "")} key={dot.id} onClick={() => handleSlides(dot.id)}></div>
                 )}
-            </div>
+            </div> */}
         </div>
     );
 }

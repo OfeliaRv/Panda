@@ -1,13 +1,22 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import MainSection from '../components/MainSection'
 import user_photo from '../assets/img/user-photo.png'
 import { fetchTopics } from '../actions/forumAction'
 import { connect } from 'react-redux'
+import authService from '../components/api-authorization/AuthorizeService'
 
 const Forum = ({ forumData, fetchTopics }) => {
+    // current user
+    const [user, setUser] = useState({});
+
     useEffect(() => {
         // get all topics
         fetchTopics();
+
+        // get current user
+        authService.getUser()
+            .then(user => { setUser(user) });
+
 
         document.title = "Panda Navigation - Forum"
     }, [])
@@ -27,7 +36,7 @@ const Forum = ({ forumData, fetchTopics }) => {
                         {forumData && forumData.topics && forumData.topics.map(forumItem =>
                             <a href={`/forum/${forumItem.id}`} key={forumItem.id}>
                                 <div className="forum-item">
-                                    <div className="forum-item-rating">
+                                    {/* <div className="forum-item-rating">
                                         <div className="rating-components">
                                             <svg className="forum-upvote" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M13.0004 7.99V19C13.0004 19.55 12.5504 20 12.0004 20C11.4504 20 11.0004 19.55 11.0004 19V7.99H9.21041C8.76041 7.99 8.54041 7.45 8.86041 7.14L11.6504 4.36C11.8504 4.17 12.1604 4.17 12.3604 4.36L15.1504 7.14C15.4704 7.45 15.2404 7.99 14.8004 7.99H13.0004Z" fill="black" />
@@ -37,7 +46,7 @@ const Forum = ({ forumData, fetchTopics }) => {
                                                 <path d="M13.0004 16.01V5C13.0004 4.45 12.5504 4 12.0004 4C11.4504 4 11.0004 4.45 11.0004 5V16.01H9.21041C8.76041 16.01 8.54041 16.55 8.86041 16.86L11.6504 19.64C11.8504 19.83 12.1604 19.83 12.3604 19.64L15.1504 16.86C15.4704 16.55 15.2404 16.01 14.8004 16.01H13.0004Z" fill="black" />
                                             </svg>
                                         </div>
-                                    </div>
+                                    </div> */}
                                     <div className="forum-item-data">
                                         <div className="forum-head">
                                             <h5>{forumItem.topicName}</h5>
@@ -97,11 +106,11 @@ const Forum = ({ forumData, fetchTopics }) => {
                             </a>
                         )}
                     </div>
-                    <div className="forum-stats">
+                    {user && <div className="forum-stats">
                         <div className="start-topic-button-holder">
                             <a href="/starttopic" className="start-topic-button grey-button">Start a new topic</a>
                         </div>
-                    </div>
+                    </div>}
                 </div>
             </MainSection>
         </div>

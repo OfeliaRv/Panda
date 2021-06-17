@@ -46,7 +46,7 @@ const Register = () => {
         if (password !== data.password) {
             alert("Password fields are not the same!");
         } else {
-            axios.post('/Authentication/Register', data, { withCredentials: true })
+            axios.post('/Authentication/Register', data)
                 .then(_ => {
                     authService.signIn({ returnUrl: "/" })
                         .then(res => {

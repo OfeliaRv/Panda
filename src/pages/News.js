@@ -34,7 +34,7 @@ const News = ({ fetchOneNews, newsData }) => {
                         <div className="news-data">
                             <img src={'./../img/' + newsData.one_news.photo} alt={newsData.one_news.altName} />
                             <div id="text" className="news-text">
-                                {parse(`${newsData.one_news.newsText}`)}
+                                {newsData.one_news.newsText && parse(`${newsData.one_news.newsText}`)}
                             </div>
                         </div>
                     </div>

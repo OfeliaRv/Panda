@@ -7,16 +7,15 @@ import { logout } from '../../actions/authAction'
 
 const Header = () => {
     const dispatch = useDispatch();
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
         authService.getUser()
-            .then(user => { console.log("user", user); setUser(user)});
+            .then(user => { console.log("user", user); setUser(user) });
     }, [])
 
     const Logout = () => {
         authService.signOut({ returnUrl: "/" }).then(res => {
-            console.log("here");
             dispatch(logout);
             window.location.replace(res.state.returnUrl);
         });
@@ -45,7 +44,7 @@ const Header = () => {
                     </div>
                     <p>{user == null ? "Login" : user && user.name}</p>
                 </div></a>
-                {user !== undefined || user !== null && <div onClick={Logout} style={{ cursor: 'pointer' }}>logout</div>}
+                {user !== null && user && <div onClick={Logout} style={{ cursor: 'pointer' }}>logout</div>}
                 {/* <div className="lang-select">
                     <span className="lang" id="az">AZ</span> |
                     <span className="lang" id="ru">RU</span> |

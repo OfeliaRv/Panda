@@ -1,8 +1,8 @@
 .products {
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
     margin: 0 7%;
-    width: 100%;
+    // width: 100%;
 
     .product {
         display: flex;
@@ -25,11 +25,7 @@
 
 #products,
 #product-page {
-    margin: auto 0 !important;
-
-    .center-content {
-        overflow: visible !important;
-    }
+    // margin: auto 0 !important;
 
     .main-section {
         margin: 2.5vw 0;
@@ -45,6 +41,30 @@
         margin-top: auto;
         display: flex !important;
         margin-bottom: unset !important;
+    }
+}
+
+#products {
+    .center-content {
+        padding: 3rem;
+        width: 77% !important;
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+
+    .swiper-slide {
+        width: unset !important;
+    }
+
+    .swiper-container-multirow-column > .swiper-wrapper {
+        flex-direction: row !important;
+    }
+
+    .swiper-container {
+        overflow: visible !important;
+        width: unset !important;
+        height: 100% !important;
+        margin: 0 1%;
     }
 }
 
