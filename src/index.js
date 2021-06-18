@@ -13,7 +13,7 @@ import authService from './components/api-authorization/AuthorizeService'
 
 axios.defaults.baseURL = 'https://localhost:44344/api';
 axios.defaults.withCredentials = true;
-authService.getAccessToken().then(t => { console.log(t);axios.defaults.headers.common['Authorization'] = 'Bearer ' + t; });
+authService.getAccessToken().then(t => { axios.defaults.headers.common['Authorization'] = 'Bearer ' + t; });
 
 const store = createStore(
     allReducers,

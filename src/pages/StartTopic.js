@@ -9,9 +9,9 @@ const StartTopic = () => {
     // data to be sent to the API 
     const [data, setData] = useState({});
 
-    useEffect(() => {
-        setData(prevState => ({ ...prevState, authorFullName: "Ofelya Rahmanova" })) // temporary static
-    }, [])
+    // useEffect(() => {
+    //     setData(prevState => ({ ...prevState, authorFullName: "Ofelya Rahmanova" })) // temporary static
+    // }, [])
 
     return (
         <div id="forum-topic">

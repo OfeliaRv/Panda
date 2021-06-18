@@ -2338,6 +2338,9 @@ button,
 }
 
 #forum-page .forum-item-tools {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: unset !important;
 }
 

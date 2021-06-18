@@ -14,12 +14,15 @@ const Forum = ({ forumData, fetchTopics }) => {
         fetchTopics();
 
         // get current user
-        authService.getUser()
-            .then(user => { setUser(user) });
+        authService.getUser().then(user => { setUser(user) });
 
-
+        // set title
         document.title = "Panda Navigation - Forum"
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        console.log(forumData.topics);
+    }, []);
 
     return forumData.loading_topic ? (
         <div className="loader-container">
@@ -36,17 +39,6 @@ const Forum = ({ forumData, fetchTopics }) => {
                         {forumData && forumData.topics && forumData.topics.map(forumItem =>
                             <a href={`/forum/${forumItem.id}`} key={forumItem.id}>
                                 <div className="forum-item">
-                                    {/* <div className="forum-item-rating">
-                                        <div className="rating-components">
-                                            <svg className="forum-upvote" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.0004 7.99V19C13.0004 19.55 12.5504 20 12.0004 20C11.4504 20 11.0004 19.55 11.0004 19V7.99H9.21041C8.76041 7.99 8.54041 7.45 8.86041 7.14L11.6504 4.36C11.8504 4.17 12.1604 4.17 12.3604 4.36L15.1504 7.14C15.4704 7.45 15.2404 7.99 14.8004 7.99H13.0004Z" fill="black" />
-                                            </svg>
-                                            <p>{forumItem.rating}</p>
-                                            <svg className="forum-downvote" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.0004 16.01V5C13.0004 4.45 12.5504 4 12.0004 4C11.4504 4 11.0004 4.45 11.0004 5V16.01H9.21041C8.76041 16.01 8.54041 16.55 8.86041 16.86L11.6504 19.64C11.8504 19.83 12.1604 19.83 12.3604 19.64L15.1504 16.86C15.4704 16.55 15.2404 16.01 14.8004 16.01H13.0004Z" fill="black" />
-                                            </svg>
-                                        </div>
-                                    </div> */}
                                     <div className="forum-item-data">
                                         <div className="forum-head">
                                             <h5>{forumItem.topicName}</h5>
@@ -57,12 +49,12 @@ const Forum = ({ forumData, fetchTopics }) => {
                                                         <path className="bookmark-fill" fillRule="evenodd" clipRule="evenodd" d="M6.32715 20.0929V4.49414H18.3271V20.4941L11.9908 17.6081L6.32715 20.0929Z" fill="none" />
                                                     </svg>
                                                 </div>
-                                                <div className="add-comment-button white-button">
+                                                {user && <div className="add-comment-button white-button">
                                                     <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path fillRule="evenodd" clipRule="evenodd" d="M3.5 1.75H17.5C18.4625 1.75 19.25 2.5375 19.25 3.5V14C19.25 14.9625 18.4625 15.75 17.5 15.75H5.25L1.75 19.25V3.5C1.75 2.5375 2.5375 1.75 3.5 1.75ZM5.25 14H17.5V3.5H3.5V15.75L5.25 14Z" fill="#6D7587" />
                                                     </svg>
                                                     <p>Add new response</p>
-                                                </div>
+                                                </div>}
                                             </div>
                                         </div>
                                         <p>{forumItem.topicText}</p>
@@ -71,20 +63,14 @@ const Forum = ({ forumData, fetchTopics }) => {
                                             <h6>Posted by {forumItem.authorFullName}</h6>
                                         </div>
                                         <div className="forum-item-tools">
-                                            <div id="forum-buttons-bottom" className="forum-item-buttons">
-                                                {/* <div className="round-button white-button">
-                                                            <svg className="bookmark" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path fillRule="evenodd" clipRule="evenodd" d="M7.29134 3.125H17.708C18.8538 3.125 19.7913 4.0625 19.7913 5.20833V21.875L12.4997 18.75L5.20801 21.875V5.20833C5.20801 4.0625 6.14551 3.125 7.29134 3.125ZM12.4997 16.4792L17.708 18.75V6.25C17.708 5.67708 17.2393 5.20833 16.6663 5.20833H8.33301C7.76009 5.20833 7.29134 5.67708 7.29134 6.25V18.75L12.4997 16.4792Z" fill="#6D7587" />
-                                                                <path className="bookmark-fill" fillRule="evenodd" clipRule="evenodd" d="M6.32715 20.0929V4.49414H18.3271V20.4941L11.9908 17.6081L6.32715 20.0929Z" fill="none" />
-                                                            </svg>
-                                                        </div> */}
+                                            {user && <div id="forum-buttons-bottom" className="forum-item-buttons">
                                                 <div className="add-response-button white-button">
                                                     <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path fillRule="evenodd" clipRule="evenodd" d="M3.5 1.75H17.5C18.4625 1.75 19.25 2.5375 19.25 3.5V14C19.25 14.9625 18.4625 15.75 17.5 15.75H5.25L1.75 19.25V3.5C1.75 2.5375 2.5375 1.75 3.5 1.75ZM5.25 14H17.5V3.5H3.5V15.75L5.25 14Z" fill="#6D7587" />
                                                     </svg>
                                                     <p>Add new response</p>
                                                 </div>
-                                            </div>
+                                            </div>}
                                             <div className="forum-item-buttons">
                                                 <div className="forum-item-btn">
                                                     <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,7 +83,7 @@ const Forum = ({ forumData, fetchTopics }) => {
                                                     <svg className="comment" width="25" height="25" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path fillRule="evenodd" clipRule="evenodd" d="M3.5 1.75H17.5C18.4625 1.75 19.25 2.5375 19.25 3.5V14C19.25 14.9625 18.4625 15.75 17.5 15.75H5.25L1.75 19.25V3.5C1.75 2.5375 2.5375 1.75 3.5 1.75ZM5.25 14H17.5V3.5H3.5V15.75L5.25 14Z" fill="#6D7587" />
                                                     </svg>
-                                                    <p>{forumItem.responses === null && 0}</p>
+                                                    <p>{forumItem.responses == null && 0} {forumItem.responses && forumItem.responses.length}</p>
                                                 </div>
                                             </div>
                                         </div>

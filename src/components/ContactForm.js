@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import Recaptcha from 'react-recaptcha'
 import { addMessage } from '../actions/messageAction'
+export { sitekey } from '../keys'
 
 const ContactForm = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState({});
     const [isVerified, setIsVerified] = useState(false);
 
-    const sitekey = '6LdkSzIbAAAAACcecjOL2KJFlX-bnJaewboiA7qn';
     let recaptchaInstance;
 
     const onloadCallback = () => {
@@ -30,7 +30,7 @@ const ContactForm = () => {
             dispatch(addMessage(data));
             recaptchaInstance.reset();
         } else {
-            e.preventDefault(); 
+            e.preventDefault();
             alert('Prove you are not a robot!');
         }
     }

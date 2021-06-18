@@ -3,6 +3,7 @@ import { useDispatch, connect } from 'react-redux'
 import authService from '../api-authorization/AuthorizeService'
 import logo from '../../assets/img/logo.svg'
 import person from '../../assets/img/person.svg'
+import signout from '../../assets/img/logout.svg'
 import { logout } from '../../actions/authAction'
 
 const Header = () => {
@@ -11,14 +12,14 @@ const Header = () => {
 
     useEffect(() => {
         authService.getUser()
-            .then(user => { console.log("user", user); setUser(user) });
+            .then(user => { setUser(user) });
     }, [])
 
     const Logout = () => {
-        authService.signOut({ returnUrl: "/" }).then(res => {
-            dispatch(logout);
-            window.location.replace(res.state.returnUrl);
-        });
+        authService.signOut({ returnUrl: "/" }).then(
+            dispatch(logout),
+            window.location.replace("/")
+        );
     }
 
     return (
@@ -38,13 +39,22 @@ const Header = () => {
                 </ul>
             </nav>
             <div className="header-buttons">
-                <a href="/login"><div className="auth-button white-button">
+
+
+                {user == null && <a href="/login"><div className="auth-button white-button">
                     <div className="icon-holder" style={{ pointerEvents: 'none' }}>
                         <img src={person} alt="person" />
                     </div>
-                    <p>{user == null ? "Login" : user && user.name}</p>
+                    <p> Login</p>
                 </div></a>
-                {user !== null && user && <div onClick={Logout} style={{ cursor: 'pointer' }}>logout</div>}
+                }
+                {user && <a onClick={Logout}><div className="auth-button white-button">
+                    <div className="icon-holder" style={{ pointerEvents: 'none' }}>
+                        {user == null ? <img src={person} alt="person" /> : <img src={signout} alt="person" />}
+                    </div>
+                    <p>{user == null ? "Login" : user && user.name}</p>
+                </div></a>}
+                {/* {user !== null && user && <div onClick={Logout} style={{ cursor: 'pointer' }}>logout</div>} */}
                 {/* <div className="lang-select">
                     <span className="lang" id="az">AZ</span> |
                     <span className="lang" id="ru">RU</span> |

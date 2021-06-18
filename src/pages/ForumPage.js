@@ -24,16 +24,18 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
     useEffect(() => {
         // get selected topic
         fetchTopic(id);
+    }, [])
 
+    useEffect(() => {
         // get responses of the selected topic
         fetchResponses(id);
-    }, [id])
+    }, [])
 
     useEffect(() => {
         // set page title
         document.title = "Panda Navigation - Forum - Forum title"
 
-        console.log(forumData.responses);
+        console.log(forumData.topic);
         // get current user
         authService.getUser()
             .then(user => { setUser(user) });
@@ -50,41 +52,29 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
         dispatch(addResponse(id, data));
     }
 
-    const topic = forumData.topic;
     return (
         <div id="forum-page">
             <MainSection>
                 <div className="forum">
                     {/* TOPIC */}
                     <div className="forum-item">
-                        {/* <div className="forum-item-rating">
-                            <div className="rating-components">
-                                <svg className="forum-upvote" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13.0004 7.99V19C13.0004 19.55 12.5504 20 12.0004 20C11.4504 20 11.0004 19.55 11.0004 19V7.99H9.21041C8.76041 7.99 8.54041 7.45 8.86041 7.14L11.6504 4.36C11.8504 4.17 12.1604 4.17 12.3604 4.36L15.1504 7.14C15.4704 7.45 15.2404 7.99 14.8004 7.99H13.0004Z" fill="black" />
-                                </svg>
-                                <p>{topic.rating}</p>
-                                <svg className="forum-downvote" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13.0004 16.01V5C13.0004 4.45 12.5504 4 12.0004 4C11.4504 4 11.0004 4.45 11.0004 5V16.01H9.21041C8.76041 16.01 8.54041 16.55 8.86041 16.86L11.6504 19.64C11.8504 19.83 12.1604 19.83 12.3604 19.64L15.1504 16.86C15.4704 16.55 15.2404 16.01 14.8004 16.01H13.0004Z" fill="black" />
-                                </svg>
-                            </div>
-                        </div> */}
                         <div className="forum-item-data">
                             <div className="forum-page-heading forum-item-tools">
-                                <h5>{topic.topicName}</h5>
-                                <div className="forum-item-buttons">
+                                <h5>{forumData.topic.topicName}</h5>
+                                {user && <div className="forum-item-buttons">
                                     <div className="add-response-button white-button">
                                         <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path fillRule="evenodd" clipRule="evenodd" d="M3.5 1.75H17.5C18.4625 1.75 19.25 2.5375 19.25 3.5V14C19.25 14.9625 18.4625 15.75 17.5 15.75H5.25L1.75 19.25V3.5C1.75 2.5375 2.5375 1.75 3.5 1.75ZM5.25 14H17.5V3.5H3.5V15.75L5.25 14Z" fill="#6D7587" />
                                         </svg>
                                         <p onClick={responseHandler}>Add new response</p>
                                     </div>
-                                </div>
+                                </div>}
                             </div>
-                            <p>{topic.topicText}</p>
+                            <p>{forumData.topic.topicText}</p>
                             <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '2px solid #8a92a5' }}>
                                 <div className="user-info">
                                     <img src={user_photo} alt="user" />
-                                    <h6>Posted by {topic.authorFullName}</h6>
+                                    <h6>Posted by {forumData.topic.authorFullName}</h6>
                                 </div>
                                 <div className="forum-item-tools">
                                     {/* <div className="forum-item-buttons">
@@ -101,13 +91,13 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
                                                 <path fillRule="evenodd" clipRule="evenodd" d="M12.4999 0.0410156C19.2963 0.0410156 24.6177 7.21626 24.8411 7.52178C25.0529 7.81133 25.0529 8.20474 24.8411 8.49453C24.6177 8.79976 19.2963 15.975 12.4999 15.975C5.70342 15.975 0.381738 8.7998 0.158643 8.49429C-0.0528809 8.20444 -0.0528809 7.81133 0.158643 7.52148C0.381738 7.21626 5.70342 0.0410156 12.4999 0.0410156ZM1.87402 8.00747C3.15757 9.56436 7.49355 14.3267 12.4999 14.3267C17.5169 14.3267 21.8438 9.5668 23.1257 8.00859C21.8416 6.45088 17.5059 1.68936 12.4999 1.68936C7.48281 1.68936 3.15591 6.44922 1.87402 8.00747Z" fill="#6D7587" />
                                                 <path fillRule="evenodd" clipRule="evenodd" d="M7.55469 8.00757C7.55469 5.28091 9.7731 3.0625 12.4998 3.0625C15.2264 3.0625 17.4448 5.28091 17.4448 8.00757C17.4448 10.7342 15.2264 12.9526 12.4998 12.9526C9.7731 12.9526 7.55469 10.7342 7.55469 8.00757ZM9.20308 8.00757C9.20308 9.82539 10.6819 11.3042 12.4998 11.3042C14.3176 11.3042 15.7964 9.82539 15.7964 8.00757C15.7964 6.18975 14.3176 4.71089 12.4998 4.71089C10.6819 4.71089 9.20308 6.18975 9.20308 8.00757Z" fill="#6D7587" />
                                             </svg>
-                                            <p>{topic.nRead}</p>
+                                            <p>{forumData.topic.nRead}</p>
                                         </div>
                                         <div className="forum-item-btn" style={{ borderLeft: '1px solid #8B919F' }}>
                                             <svg className="comment" width="25" height="25" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fillRule="evenodd" clipRule="evenodd" d="M3.5 1.75H17.5C18.4625 1.75 19.25 2.5375 19.25 3.5V14C19.25 14.9625 18.4625 15.75 17.5 15.75H5.25L1.75 19.25V3.5C1.75 2.5375 2.5375 1.75 3.5 1.75ZM5.25 14H17.5V3.5H3.5V15.75L5.25 14Z" fill="#6D7587" />
                                             </svg>
-                                            <p>{topic.responses === null && 0}</p>
+                                            <p>{forumData.responses === null && 0} {forumData.responses && forumData.responses.length}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -136,21 +126,21 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
                         ) : forumData.error ? (
                             <h2>{forumData.error_responses}</h2>
                         ) : forumData.responses.length === 0 ? <h2>No responses yet</h2> : (
-                            topic && topic.responses && topic.responses.map(response =>
-                                <div className="response-item">
+                            forumData && forumData.responses && forumData.responses.map(response =>
+                                <div className="response-item" key={response.id}>
                                     <div className="review-user-info">
                                         <div className="user-info-img">
                                             <img src={user_photo} alt="user" />
                                         </div>
                                         <div className="user-info-data">
                                             <h2>{response.authorFullName}</h2>
-                                            <h6>position</h6>
+                                            <h6>{response.authorPosition} at {response.authorCompany}</h6>
                                         </div>
                                     </div>
                                     <div className="response-text">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, mollitia? Vel at eaque ipsa nihil voluptas possimus minima esse inventore a. Dolorem sit quia tempore quod autem fugit nam omnis.</p>
+                                        <p>{response.replyText}</p>
                                     </div>
-                                    <div className="reply-buttons forum-item-tools">
+                                    {/* <div className="reply-buttons forum-item-tools">
                                         <div className="forum-item-buttons">
                                             <div className="add-response-button white-button">
                                                 <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -159,7 +149,7 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
                                                 <p>Reply</p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             ))}
                         {/* RESPONSES LIST */}
