@@ -80,6 +80,9 @@ namespace PandaAPI
             });
 
             services.AddCors();
+
+            services.AddControllersWithViews()
+            .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,7 +90,7 @@ namespace PandaAPI
         {
             app.UseCors(options =>
             {
-                options.WithOrigins("https://localhost:3000")
+                options.WithOrigins("https://localhost:3000", "https://localhost:3001")
                 .AllowAnyHeader()
                 .AllowAnyMethod()
                 .AllowCredentials();

@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PandaAPI.Data;
 using PandaAPI.Models;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PandaAPI.Controllers
@@ -22,9 +20,16 @@ namespace PandaAPI.Controllers
         }
 
         [HttpGet]
+        [Route("All")]
         public IActionResult GetForumTopics()
         {
             return Ok(_forumData.GetForumTopics());
+        }
+
+        [HttpGet]
+        public IActionResult GetApprovedForumTopics()
+        {
+            return Ok(_forumData.GetApprovedForumTopics());
         }
 
         [HttpGet]
@@ -44,10 +49,10 @@ namespace PandaAPI.Controllers
         [Route("{id}/Responses")]
         public IActionResult GetForumResponses(Guid id)
         {
-            var forum = _forumData.GetForumTopic(id);
-            if (forum != null)
+            var responses = _forumData.GetForumResponses(id);
+            if (responses.Count > 0)
             {
-                return Ok(forum.Responses);
+                return Ok(responses);
             }
 
             return NotFound($"Responses for Topic with id: {id} were not found");
@@ -55,10 +60,18 @@ namespace PandaAPI.Controllers
 
 
         [HttpPost]
-        public IActionResult AddForumTopic(ForumTopic forum)
+        public async Task<IActionResult> AddForumTopic(ForumTopicModel forumTopic)
         {
-            _forumData.AddForumTopic(forum);
-            return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + forum.Id, forum);
+            var user = await _userManager.GetUserAsync(User);
+            var forum = new ForumTopic
+            {
+                TopicName = forumTopic.TopicName,
+                TopicText = forumTopic.TopicText,
+                AuthorFullName = user.FullName
+            };
+
+            await _forumData.AddForumTopic(forum);
+            return Ok(forum);
         }
 
         [HttpPost]
@@ -69,11 +82,12 @@ namespace PandaAPI.Controllers
             var response = new ForumResponse
             {
                 ReplyText = forumResponse.ReplyText,
-                AuthorFullName = user.FullName
+                AuthorFullName = user.FullName,
+                AuthorPosition = user.Position,
+                AuthorCompany = user.Company
             };
 
             await _forumData.AddForumResponse(response, id);
-
             return Ok(response);
         }
 
@@ -91,18 +105,20 @@ namespace PandaAPI.Controllers
             return NotFound($"Topic with id: {id} was not found");
         }
 
-        //[HttpPatch]
-        //[Route("{id}")]
-        //public IActionResult EditForumTopic(Guid id, ForumTopic forum)
-        //{
-        //    var existing_forum = _forumData.GetForumTopic(id);
-        //    if (existing_forum != null)
-        //    {
-        //        forum.Id = existing_forum.Id;
-        //        _forumData.EditForumTopic(forum);
-        //    }
+        [HttpPatch]
+        [Route("{id}/Status")]
+        public IActionResult ChangeForumTopicStatus(Guid id, [FromBody] string status)
+        {
+            _forumData.ChangeForumTopicStatus(id, status);
+            return Ok();
+        }
 
-        //    return Ok(forum);
-        //}
+        [HttpPatch]
+        [Route("{id}/Views")]
+        public IActionResult IncrementForumTopicViews(Guid id, [FromBody] int views)
+        {
+            _forumData.IncrementForumTopicViews(id, views);
+            return Ok();
+        }
     }
 }

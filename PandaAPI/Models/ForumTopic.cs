@@ -16,9 +16,6 @@ namespace PandaAPI.Models
         public string AuthorFullName { get; set; }
 
         [Required]
-        public int Rating { get; set; }
-
-        [Required]
         public string TopicText { get; set; }
 
         [Required]
@@ -28,7 +25,7 @@ namespace PandaAPI.Models
         public int NRead { get; set; }
 
         [Required]
-        public bool IsApproved { get; set; }
+        public string Status { get; set; }
 
         public List<ForumResponse> Responses { get; set; }
     }

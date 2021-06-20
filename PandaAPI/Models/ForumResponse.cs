@@ -15,13 +15,19 @@ namespace PandaAPI.Models
         public string AuthorFullName { get; set; }
 
         [Required]
+        public string AuthorPosition { get; set; }
+
+        [Required]
+        public string AuthorCompany { get; set; }
+
+        [Required]
         public string ReplyText { get; set; }
 
         [Required]
         public DateTime Date { get; set; }
 
         [Required]
-        public bool IsApproved { get; set; }
+        public string Status { get; set; }
 
         public ForumTopic ForumTopic { get; set; } 
     }

@@ -1,4 +1,5 @@
-﻿using PandaAPI.Database;
+﻿using Microsoft.EntityFrameworkCore;
+using PandaAPI.Database;
 using PandaAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -16,15 +17,14 @@ namespace PandaAPI.Data
             _pandaContext = pandaContext;
         }
 
-        public ForumTopic AddForumTopic(ForumTopic forum)
+        public async Task<ForumTopic> AddForumTopic(ForumTopic forum)
         {
             forum.Id = Guid.NewGuid();
-            forum.Rating = 0;
             forum.NRead = 0;
-            forum.IsApproved = true;
+            forum.Status = "Pending";
             forum.Date = DateTime.Now;
             _pandaContext.ForumTopics.Add(forum);
-            _pandaContext.SaveChanges();
+            await _pandaContext.SaveChangesAsync();
             return forum;
         }
 
@@ -32,7 +32,7 @@ namespace PandaAPI.Data
         {
             response.Id = Guid.NewGuid();
             response.TopicId = forumId;
-            response.IsApproved = true;
+            response.Status = "Pending";
             response.Date = DateTime.Now;
             _pandaContext.ForumResponses.Add(response);
             await _pandaContext.SaveChangesAsync();
@@ -48,18 +48,41 @@ namespace PandaAPI.Data
         public ForumTopic GetForumTopic(Guid id)
         {
             var forum = _pandaContext.ForumTopics.Find(id);
+            _pandaContext.Entry(forum).Collection(x => x.Responses).Load();
             return forum;
         }
 
         public List<ForumTopic> GetForumTopics()
         {
-            return _pandaContext.ForumTopics.ToList();
+            var topics = _pandaContext.ForumTopics.Include(x => x.Responses).ToList();
+
+            return topics;
+        }
+
+        public List<ForumTopic> GetApprovedForumTopics()
+        {
+            return _pandaContext.ForumTopics.Where(x => x.Status == "Approved").Include(x => x.Responses).ToList();
         }
 
         public List<ForumResponse> GetForumResponses(Guid id)
         {
-            var forum = _pandaContext.ForumTopics.Find(id);
-            return forum.Responses.ToList();
+            return _pandaContext.ForumResponses.Where(x => x.TopicId == id).Include(x => x.ForumTopic).ToList();
+        }
+
+        public void ChangeForumTopicStatus(Guid id, string status)
+        {
+            var topic = new ForumTopic() { Id = id, Status = status };
+            _pandaContext.ForumTopics.Attach(topic);
+            _pandaContext.Entry(topic).Property(x => x.Status).IsModified = true;
+            _pandaContext.SaveChanges();
+        }
+
+        public void IncrementForumTopicViews(Guid id, int views)
+        {
+            var topic = new ForumTopic() { Id = id, NRead = views };
+            _pandaContext.ForumTopics.Attach(topic);
+            _pandaContext.Entry(topic).Property(x => x.NRead).IsModified = true;
+            _pandaContext.SaveChanges();
         }
     }
 }
