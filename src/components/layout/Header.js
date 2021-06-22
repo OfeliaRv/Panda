@@ -1,5 +1,5 @@
 import { useDispatch, connect } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import authService from '../../components/api-authorization/AuthorizeService'
 import logo from '../../assets/img/logo.svg'
 import user_img from '../../assets/img/avatar.png'
@@ -8,19 +8,20 @@ import logout_img from '../../assets/img/logout.svg'
 import { toggleSidebar } from '../../actions/ToolsActions'
 import { logout } from '../../actions/AuthAction'
 
-const Navbar = ({ userData }) => {
+const Navbar = () => {
     const dispatch = useDispatch();
 
+    const [user, setUser] = useState(null);
     useEffect(() => {
-        console.log(userData.user);
+        authService.getUser()
+            .then(user => { console.log("user", user); setUser(user); });
     }, [])
 
     const Logout = () => {
-        authService.signOut({ returnUrl: "/" }).then(res => {
-            console.log("here");
-            dispatch(logout);
-            window.location.replace(res.state.returnUrl);
-        });
+        authService.signOut({ returnUrl: "/" }).then(
+            dispatch(logout),
+            window.location.replace("/")
+        );
     }
 
     return (
@@ -34,7 +35,7 @@ const Navbar = ({ userData }) => {
             <div className="nav-part">
                 <div className="admin">
                     <img className="admin-img" src={user_img} alt="admin-img" />
-                    <p>{userData.user.name}</p>
+                    <p>{user && user.name}</p>
                     <img id="logout" onClick={Logout} src={logout_img} alt="logout" />
                 </div>
             </div>
@@ -42,12 +43,4 @@ const Navbar = ({ userData }) => {
     );
 }
 
-const mapStateToProps = state => {
-    return {
-        userData: state.auth
-    }
-}
-
-export default connect(
-    mapStateToProps
-)(Navbar)
+export default Navbar;

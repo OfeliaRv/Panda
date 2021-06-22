@@ -16,9 +16,14 @@ import 'tinymce/skins/content/default/content.min.css'
 import { Editor } from '@tinymce/tinymce-react'
 
 const EditNews = ({ fetchOneNews, newsData }) => {
-    const { id } = useParams();
     const my_dispatch = useDispatch();
+
+    // get news id
+    const { id } = useParams();
+
+    // data to be sent to the API
     const [data, setData] = useState({});
+
     const [isEditorEnabled, setIsEditorEnabled] = useState(true);
 
     useEffect(() => {
@@ -29,6 +34,7 @@ const EditNews = ({ fetchOneNews, newsData }) => {
         }
     }, [])
 
+    // set fields to the current news data
     useEffect(() => {
         setData(newsData.one_news);
     }, [newsData.one_news])
@@ -43,7 +49,7 @@ const EditNews = ({ fetchOneNews, newsData }) => {
     }
 
     const handleEditorChange = content => {
-        setData(prevState => ({ ...prevState, about: content }))
+        setData(prevState => ({ ...prevState, newsText: content }))
     }
 
     return (
@@ -51,8 +57,8 @@ const EditNews = ({ fetchOneNews, newsData }) => {
             <div className="add-component-heading">
                 <h4>Edit News</h4>
                 <div className="heading-buttons">
-                    <div className="add-button" onClick={edit}>Edit News</div>
-                    <div className="add-button" style={{ backgroundColor: '#e55d5d' }} onClick={() => my_dispatch(deleteNews(id))}>Delete News</div>
+                    <div className="add-button" onClick={edit}>Edit</div>
+                    <div className="add-button" style={{ backgroundColor: '#e55d5d' }} onClick={() => my_dispatch(deleteNews(id))}>Delete</div>
                 </div>
             </div>
             <form className="add-form" onSubmit={() => my_dispatch(editNews(id, data))}>
@@ -116,7 +122,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchOneNews: (id) => dispatch(fetchOneNews(id))
+        fetchOneNews: id => dispatch(fetchOneNews(id))
     }
 }
 

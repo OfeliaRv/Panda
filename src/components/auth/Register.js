@@ -10,7 +10,7 @@ const Register = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        axios.post('/Authentication/RegisterAdmin', data, { withCredentials: true })
+        axios.post('/Authentication/RegisterAdmin', data)
             .then(_ => {
                 authService.signIn({ returnUrl: "/" })
                     .then(res => {

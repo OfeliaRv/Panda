@@ -4,6 +4,7 @@ import companies_icon from '../assets/img/companies.svg'
 import messages_icon from '../assets/img/messages.svg'
 import products_icon from '../assets/img/products.svg'
 import reviews_icon from '../assets/img/review.svg'
+import forum_icon from '../assets/img/chat.svg'
 
 const initialState = {
     menuItems: [
@@ -39,15 +40,9 @@ const initialState = {
         },
         {
             id: 6,
-            link: 'auth-requests',
-            name: 'Registration Requests',
-            icon: requests_icon
-        },
-        {
-            id: 7,
-            link: 'topic-requests',
-            name: 'Topic Placement Requests',
-            icon: requests_icon
+            link: 'forum-topics',
+            name: 'Forum Topics',
+            icon: forum_icon
         }
     ]
 }

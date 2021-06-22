@@ -51,8 +51,8 @@ const EditCompany = ({ fetchCompany, companiesData }) => {
             <div className="add-component-heading">
                 <h4>Edit Company</h4>
                 <div className="heading-buttons">
-                    <div className="add-button" onClick={edit}>Edit Company</div>
-                    <div className="add-button" style={{ backgroundColor: '#e55d5d' }} onClick={() => my_dispatch(deleteCompany(id))}>Delete Company</div>
+                    <div className="add-button" onClick={edit}>Edit</div>
+                    <div className="add-button" style={{ backgroundColor: '#e55d5d' }} onClick={() => my_dispatch(deleteCompany(id))}>Delete</div>
                 </div>
             </div>
             <form className="add-form" onSubmit={() => my_dispatch(editCompany(id, data))}>
@@ -71,7 +71,7 @@ const EditCompany = ({ fetchCompany, companiesData }) => {
                     </div>
                     <div className="input-container">
                         <label htmlFor="company-image">Company image</label>
-                        {companiesData.company.logo && <img id="edit-image" src={"../../img/" + companiesData.company.logo} alt={companiesData.company.name}></img>}
+                        {companiesData.company.logo && <img id="edit-image" src={"../../img/customers/" + companiesData.company.logo} alt={companiesData.company.name}></img>}
                         <input className="input-item" type="file" id="company-image" defaultValue={companiesData.company.logo} onChange={e => setData(prevState => ({ ...prevState, logo: e.target.value }))} />
                     </div>
                 </div>
@@ -86,12 +86,13 @@ const EditCompany = ({ fetchCompany, companiesData }) => {
                             menubar: false,
                             plugins: [
                                 'link image',
-                                'table paste'
+                                'table paste',
+                                'hr'
                             ],
                             toolbar:
                                 'undo redo | formatselect | bold italic backcolor | \
              alignleft aligncenter alignright alignjustify | \
-             bullist numlist outdent indent | removeformat | help'
+             bullist numlist outdent indent | removeformat | help | hr'
                         }}
                         onEditorChange={handleEditorChange}
                         disabled={isEditorEnabled}
@@ -112,7 +113,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchCompany: (id) => dispatch(fetchCompany(id))
+        fetchCompany: id => dispatch(fetchCompany(id))
     }
 }
 

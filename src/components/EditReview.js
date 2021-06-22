@@ -51,8 +51,8 @@ const EditReview = ({ fetchReview, reviewsData }) => {
             <div className="add-component-heading">
                 <h4>Edit Review</h4>
                 <div className="heading-buttons">
-                    <div className="add-button" onClick={edit}>Edit Review</div>
-                    <div className="add-button" style={{ backgroundColor: '#e55d5d' }} onClick={() => my_dispatch(deleteReview(id))}>Delete Review</div>
+                    <div className="add-button" onClick={edit}>Edit</div>
+                    <div className="add-button" style={{ backgroundColor: '#e55d5d' }} onClick={() => my_dispatch(deleteReview(id))}>Delete</div>
                 </div>
             </div>
             <form className="add-form" onSubmit={() => my_dispatch(editReview(id, data))}>

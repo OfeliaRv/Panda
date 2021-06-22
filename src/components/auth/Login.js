@@ -17,7 +17,7 @@ const Login = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        axios.post('/Authentication/LoginAdmin', data, { withCredentials: true })
+        axios.post('/Authentication/LoginAdmin', data)
             .then(_ => {
                 authService.signIn({ returnUrl: "/" })
                     .then(res => {
@@ -43,13 +43,13 @@ const Login = () => {
                     <input type="text" id="username" placeholder="Username" onChange={e => setData(prevState => ({ ...prevState, userName: e.target.value }))} required />
                     <input type="password" id="password" placeholder="Password" onChange={e => setData(prevState => ({ ...prevState, password: e.target.value }))} required />
                 </div>
-                <div className="check">
+                {/* <div className="check">
                     <input type="checkbox" name="remember-me" id="remember-me" />
                     <p>Remember me</p>
-                </div>
+                </div> */}
                 <button type="submit" className="auth-button">Sign in</button>
             </form>
-            <p className="under-auth-text">Or register <a href="/register">here</a></p>
+            {/* <p className="under-auth-text">Or register <a href="/register">here</a></p> */}
         </div>
     )
 }

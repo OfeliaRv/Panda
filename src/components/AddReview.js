@@ -50,7 +50,7 @@ const AddReview = () => {
                     </div>
                     <div className="input-container">
                         <label htmlFor="reviewer-image">Reviewer's photo</label>
-                        <input type="file" id="reviewer-image" onChange={e => setData(prevState => ({ ...prevState, photo: e.target.files[0].name }))}  />
+                        <input type="file" id="reviewer-image" onChange={e => setData(prevState => ({ ...prevState, photo: e.target.files[0].name }))} required />
                     </div>
                 </div>
                 <div className="add-form-inputs">

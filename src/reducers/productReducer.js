@@ -48,7 +48,6 @@ const productReducer = (state = productState, action) => {
                 products: state.products,
                 error: action.payload
             }
-
         case ACTION_TYPES.EDIT_PRODUCT_SUCCESS:
             return {
                 ...state,

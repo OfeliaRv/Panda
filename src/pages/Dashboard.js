@@ -1,5 +1,5 @@
-import Layout from "../components/layout/Layout"
 import { Route } from "react-router"
+import Layout from "../components/layout/Layout"
 import News from "./News"
 import AddNews from "../components/AddNews"
 import Products from "./Products"
@@ -14,8 +14,8 @@ import EditCompany from "../components/EditCompany"
 import EditReview from "../components/EditReview"
 import EditProduct from "../components/EditProduct"
 import AuthRequests from "./AuthRequests"
-import TopicRequests from "./TopicRequests"
-import { connect } from 'react-redux'
+import Forum from "./Forum"
+import ForumResponses from "./ForumResponses"
 
 const Dashboard = () => {
     return (
@@ -30,22 +30,14 @@ const Dashboard = () => {
             <Route path="/reviews" component={Reviews} />
             <Route path="/addreview" component={AddReview} />
             <Route exact path="/editreview/:id" component={EditReview} />
-            <Route path="/auth-requests" component={AuthRequests} />
-            <Route path="/topic-requests" component={TopicRequests} />
             <Route path="/messages" component={Messages} />
             <Route path="/companies" component={Companies} />
             <Route path="/addcompany" component={AddCompany} />
             <Route exact path="/editcompany/:id" component={EditCompany} />
+            <Route exact path="/forum-topics" component={Forum} />
+            <Route exact path="/forum-topics/:id/responses" component={ForumResponses} />
         </Layout>
     );
 }
 
-const mapStateToProps = state => {
-    return {
-        userData: state.auth
-    }
-}
-
-export default connect(
-    mapStateToProps
-)(Dashboard)
+export default Dashboard;

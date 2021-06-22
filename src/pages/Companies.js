@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import edit from '../assets/img/edit.svg'
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
+import parse from 'html-react-parser'
 import { fetchCompanies } from '../actions/CompanyAction'
 
 const Companies = ({ fetchCompanies, companiesData }) => {
@@ -25,7 +26,7 @@ const Companies = ({ fetchCompanies, companiesData }) => {
                     <tr>
                         <th>#</th>
                         <th>Comapany Name</th>
-                        <th>Comapany Info</th>
+                        {/* <th>Comapany Info</th> */}
                         <th>X-position (%)</th>
                         <th>Y-position (%)</th>
                         <th>Company Logo</th>
@@ -44,7 +45,7 @@ const Companies = ({ fetchCompanies, companiesData }) => {
                             <tr key={company.id}>
                                 <td>{companiesData.companies.indexOf(company) + 1}</td>
                                 <td>{company.name}</td>
-                                <td>{company.about}</td>
+                                {/* <td>{parse(`${company.about}`)}</td> */}
                                 <td>{company.x_position}</td>
                                 <td>{company.y_position}</td>
                                 <td>{company.logo}</td>

@@ -27,8 +27,8 @@ const Reviews = ({ fetchReviews, reviewsData }) => {
                         <th>Full name</th>
                         <th>Company</th>
                         <th>Position</th>
-                        <th>Review text</th>
-                        <th>Reviewer photo</th>
+                        {/* <th>Review text</th> */}
+                        {/* <th>Reviewer photo</th> */}
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -46,8 +46,8 @@ const Reviews = ({ fetchReviews, reviewsData }) => {
                                 <td>{review.fullName}</td>
                                 <td>{review.company}</td>
                                 <td>{review.position}</td>
-                                <td>{review.reviewText}</td>
-                                <td>{review.photo}</td>
+                                {/* <td>{review.reviewText}</td> */}
+                                {/* <td>{review.photo}</td> */}
                                 <td className="actions">
                                     <Link to={"/editreview/" + review.id}><img src={edit} alt="edit" title="Edit" /> </Link>
                                 </td>

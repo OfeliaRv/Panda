@@ -10,6 +10,9 @@ const Messages = ({ fetchMessages, messagesData }) => {
         fetchMessages();
     }, []);
 
+    // sort by date (show latest first)
+    var messages = messagesData.messages.sort((a, b) => (a.date > b.date) ? 1 : -1).reverse();
+
     const my_dispatch = useDispatch();
     const [showPopup, setShowPopup] = useState(false);
     const [popupData, setPopupData] = useState({});
@@ -30,7 +33,6 @@ const Messages = ({ fetchMessages, messagesData }) => {
                         <th>#</th>
                         <th>Full Name</th>
                         <th>Email</th>
-                        <th>Message text</th>
                         <th>Date</th>
                         <th>Actions</th>
                     </tr>
@@ -43,12 +45,11 @@ const Messages = ({ fetchMessages, messagesData }) => {
                     <h2>No data to display</h2>
                 ) : (
                     <tbody>
-                        {messagesData && messagesData.messages && messagesData.messages.map(message =>
+                        {messagesData && messagesData.messages && messages.map(message =>
                             <tr key={message.id}>
                                 <td>{messagesData.messages.indexOf(message) + 1}</td>
                                 <td>{message.fullName}</td>
                                 <td>{message.email}</td>
-                                <td>{message.messageText}</td>
                                 <td>{message.date}</td>
                                 <td className="actions">
                                     <img src={read} alt="read" title="Read message" onClick={() => showMessage(message)} />

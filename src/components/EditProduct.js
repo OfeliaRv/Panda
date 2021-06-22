@@ -52,8 +52,8 @@ const EditProduct = ({ fetchProduct, productsData }) => {
             <div className="add-component-heading">
                 <h4>Edit Product</h4>
                 <div className="heading-buttons">
-                    <div className="add-button" onClick={edit}>Edit Product</div>
-                    <div className="add-button" style={{ backgroundColor: '#e55d5d' }} onClick={() => my_dispatch(deleteProduct(id))}>Delete Product</div>
+                    <div className="add-button" onClick={edit}>Edit</div>
+                    <div className="add-button" style={{ backgroundColor: '#e55d5d' }} onClick={() => my_dispatch(deleteProduct(id))}>Delete</div>
                 </div>
             </div>
             <form className="add-form" onSubmit={() => my_dispatch(editProduct(id, data))}>

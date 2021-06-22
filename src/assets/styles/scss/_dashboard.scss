@@ -34,11 +34,12 @@
         padding: 3% 4% 0 4%;
 
         .heading-buttons {
-            width: 21%;
+            width: 15%;
             display: flex;
             justify-content: space-between;
 
             div {
+                width: 48%;
                 padding: 3%;
             }
         }
@@ -76,13 +77,11 @@
 
 #edit-image {
     width: 17vw;
-    height: 12vw;
+    max-height: 280px;
     padding: 2% 2% 2% 0;
 }
 
-
-
 footer {
-    padding: 4% 0 0 4%;
+    padding: 2% 0 0 4%;
     margin-top: auto;
 }

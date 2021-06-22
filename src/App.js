@@ -40,6 +40,8 @@ const App = ({ userData }) => {
                     <Route path="/companies" component={Dashboard} />
                     <Route path="/addcompany" component={Dashboard} />
                     <Route exact path="/editcompany/:id" component={Dashboard} />
+                    <Route exact path="/forum-topics" component={Dashboard} />
+                    <Route exact path="/forum-topics/:id/responses" component={Dashboard} />
                     <Route path="*"> <h1>Page not found</h1></Route>
                 </Switch>
             </Router>
