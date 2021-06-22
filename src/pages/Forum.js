@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import MainSection from '../components/MainSection'
 import user_photo from '../assets/img/user-photo.png'
-import { fetchTopics } from '../actions/forumAction'
-import { connect } from 'react-redux'
+import { fetchTopics, incrementViews } from '../actions/forumAction'
+import { connect, useDispatch } from 'react-redux'
 import authService from '../components/api-authorization/AuthorizeService'
 
 const Forum = ({ forumData, fetchTopics }) => {
+    const dispatch = useDispatch();
+
     // current user
     const [user, setUser] = useState({});
 
@@ -20,9 +22,8 @@ const Forum = ({ forumData, fetchTopics }) => {
         document.title = "Panda Navigation - Forum"
     }, []);
 
-    useEffect(() => {
-        console.log(forumData.topics);
-    }, []);
+    // sort by number views (show most popular first)
+    var topics = forumData.topics.sort((a, b) => (a.nRead > b.nRead) ? 1 : -1).reverse();
 
     return forumData.loading_topic ? (
         <div className="loader-container">
@@ -36,8 +37,8 @@ const Forum = ({ forumData, fetchTopics }) => {
                 <div className="forum-container">
                     <div className="forum">
                         {forumData.topics.length === 0 && <h2>No data to display</h2>}
-                        {forumData && forumData.topics && forumData.topics.map(forumItem =>
-                            <a href={`/forum/${forumItem.id}`} key={forumItem.id}>
+                        {forumData && forumData.topics && topics.map(forumItem =>
+                            <a onClick={() => dispatch(incrementViews(forumItem.id, forumItem.nRead + 1))} href={`/forum/${forumItem.id}`} key={forumItem.id}>
                                 <div className="forum-item">
                                     <div className="forum-item-data">
                                         <div className="forum-head">

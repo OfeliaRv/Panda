@@ -3,6 +3,7 @@
     justify-content: flex-start;
     flex-wrap: nowrap;
     min-height: 29rem;
+    width: 90% !important;
 
     .widget {
         cursor: pointer;
@@ -11,7 +12,8 @@
         box-shadow: -10px -10px 20px #fafbff, 10px 10px 20px #a6abbd;
         border-radius: 2vw;
         width: 23vw !important;
-        height: 34vh !important;
+        height: max-content;
+        padding: 1%;
         margin-right: 5.159%;
 
         &-data {
@@ -19,12 +21,10 @@
             justify-content: center;
             flex-direction: column;
             align-items: center;
-            margin: 4.7vh 2.35vw 2.9vh 2.35vw;
         }
 
         &-text {
             text-align: center;
-            margin-top: 1.86vh;
 
             p {
                 color: $textcolor3;
@@ -41,8 +41,8 @@
                     fill: $textcolor3;
                 }
 
-                width: 7.917vw;
-                // height: 15.75vh;
+                width: 100%;
+                max-width: 200px;
                 filter: saturate(0);
             }
         }

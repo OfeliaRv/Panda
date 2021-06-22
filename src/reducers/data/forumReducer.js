@@ -88,6 +88,20 @@ const forumReducer = (state = forumState, action) => {
                 topics: state.topics,
                 error_responses: action.payload
             }
+        case ACTION_TYPES.INCREMENT_TOPICVIEWS_SUCCESS:
+            return {
+                ...state,
+                topics: state.topics.map(
+                    content => content.id === action.id ? { content: action.payload } : content
+                )
+            }
+        case ACTION_TYPES.INCREMENT_TOPICVIEWS_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                topics: state.topics,
+                error: action.payload
+            }
         default:
             return state;
     }

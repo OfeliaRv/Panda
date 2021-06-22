@@ -1,14 +1,16 @@
 header {
     display: flex;
     justify-content: center;
-    padding: 0 0 0 3%;
+    padding: 0 2% 0 3%;
 
     .logo {
         cursor: pointer;
 
         img {
-            width: 12.865vw;
-            height: 6.76vh;
+            // width: 12.865vw;
+            // height: 6.76vh;
+            width: 78%;
+            max-height: 52px;
         }
 
         &::before {

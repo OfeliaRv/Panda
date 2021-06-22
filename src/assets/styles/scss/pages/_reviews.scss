@@ -19,10 +19,14 @@
 
     .reviews {
         padding-right: 10vw;
+        max-height: 535px;
 
         .review {
             display: flex;
-            margin: 2% 0;
+            margin: 1% 0;
+            height: max-content;
+            width: 100% !important;
+            max-height: 250px;
 
             &-quote {
                 display: flex;
@@ -39,8 +43,9 @@
 
             &-content {
                 .review-text {
-                    height: 5.6vw;
+                    margin: 1.2rem 0;
                     overflow-y: auto;
+                    height: 60%;
 
                     p {
                         color: $textcolor1;
@@ -51,6 +56,10 @@
                 }
             }
         }
+    }
+
+    .swiper-container .swiper-wrapper {
+        flex-direction: column;
     }
 }
 
@@ -92,6 +101,7 @@
 
         .reviews {
             padding-right: 4vw;
+
             .review {
                 display: flex;
                 margin: 2% 0;

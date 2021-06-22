@@ -23,7 +23,7 @@
                 top: 0;
 
                 .company-pin {
-                    position: relative;
+                    position: absolute;
                     width: 0.4vw;
                     height: 0.4vw;
                     border-radius: 100%;
@@ -72,9 +72,9 @@
                 }
             }
 
-            .active-company{
+            .active-company {
                 background-color: #061f5f3b;
-                transition: all .2s ease-in-out;
+                transition: all 0.2s ease-in-out;
             }
         }
     }

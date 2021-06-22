@@ -28,6 +28,7 @@ const Widgets = ({ fetchCustomers, customersData }) => {
     ) : customersData.error ? (
         <h2>{customersData.error}</h2>
     ) : (
+        <>
         <div className="widgets-page">
             <Swiper className="widgets-row"
                 slidesPerView={'auto'}
@@ -41,7 +42,7 @@ const Widgets = ({ fetchCustomers, customersData }) => {
                     <SwiperSlide key={widget.id} className="widget" onClick={() => showInfo(widget)}>
                         <div className="widget-data">
                             <div className="widget-logo">
-                                <img src={widget.logo} alt="logo" />
+                                <img src={`../img/customers/${widget.logo}`} alt="logo" />
                             </div>
                             <div className="widget-text">
                                 <p>{widget.name}</p>
@@ -50,26 +51,26 @@ const Widgets = ({ fetchCustomers, customersData }) => {
                     </SwiperSlide>
                 )}
             </Swiper>
-
-            {/* POPUP CARD */}
-            {showPopup && <div className="popup-card">
-                <div className="popup-card-inner">
-                    <div className="close-popup" onClick={() => setShowPopup(false)}>
-                        <div className="white-button">X</div>
-                    </div>
-                    <div className="card-content">
-                        <div>
-                            <h1>{popupData.name}</h1>
-                            <img src={popupData.logo} alt={popupData.name} />
-                        </div>
-                        <div className="info-container">
-                            <div className="info-text">{parse(`${popupData.about}`)}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>}
-            {/* POPUP CARD */}
         </div>
+        {/* POPUP CARD */}
+        {/* {showPopup && <div className="popup-card">
+        <div className="popup-card-inner">
+            <div className="close-popup" onClick={() => setShowPopup(false)}>
+                <div className="white-button">X</div>
+            </div>
+            <div className="card-content">
+                <div>
+                    <h1>{popupData.name}</h1>
+                    <img src={"../img/customers/" + popupData.logo} alt={popupData.name} />
+                </div>
+                <div className="info-container">
+                    <div className="info-text">{parse(`${popupData.about}`)}</div>
+                </div>
+            </div>
+        </div>
+    </div>} */}
+    {/* POPUP CARD */}
+    </>
     );
 }
 

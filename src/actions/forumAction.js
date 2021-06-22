@@ -13,6 +13,9 @@ export const ACTION_TYPES = {
     ADD_TOPIC_SUCCESS: 'ADD_TOPIC_SUCCESS',
     ADD_TOPIC_FAILURE: 'ADD_TOPIC_FAILURE',
 
+    INCREMENT_TOPICVIEWS_SUCCESS: 'INCREMENT_TOPICVIEWS_SUCCESS',
+    INCREMENT_TOPICVIEWS_FAILURE: 'INCREMENT_TOPICVIEWS_FAILURE',
+
     ADD_RESPONSE_SUCCESS: 'ADD_RESPONSE_SUCCESS',
     ADD_RESPONSE_FAILURE: 'ADD_RESPONSE_FAILURE'
 }
@@ -65,7 +68,7 @@ export const addTopic = data => {
         axios.post('/Forum', data)
             .then(res => {
                 dispatch(addTopicSuccess(res.data));
-                alert('Topic was successfully added!');
+                alert('Topic was successfully submitted! It will be displayed in the forum after administrator\'s approval!');
                 window.location.replace("/forum");
             })
             .catch(error => {
@@ -80,11 +83,24 @@ export const addResponse = (id, data) => {
         axios.post('/Forum/' + id + '/Response', data)
             .then(res => {
                 dispatch(addResponseSuccess(res.data));
-                alert('Your response was successfully added!');
+                alert('Your response was successfully submitted!');
                 window.location.reload();
             })
             .catch(error => {
                 dispatch(addResponseFailure(error.message))
+            })
+    }
+}
+
+export const incrementViews = (id, data) => {
+    return (dispatch) => {
+        axios
+            .patch(`/Forum/${id}/Views`, "\"" + data + "\"", { headers: { 'Content-Type': 'application/json-patch+json' } })
+            .then(res => {
+                dispatch(incrementViewsSuccess(id, res.data));
+            })
+            .catch(error => {
+                dispatch(incrementViewsFailure(error.message))
             })
     }
 }
@@ -165,6 +181,22 @@ export function addResponseSuccess(response) {
 export function addResponseFailure(error) {
     return {
         type: ACTION_TYPES.ADD_RESPONSE_FAILURE,
+        payload: error
+    }
+}
+
+// Increment views
+export function incrementViewsSuccess(id, data) {
+    return {
+        type: ACTION_TYPES.INCREMENT_TOPICVIEWS_SUCCESS,
+        id: id,
+        payload: data
+    }
+}
+
+export function incrementViewsFailure(error) {
+    return {
+        type: ACTION_TYPES.INCREMENT_TOPICVIEWS_FAILURE,
         payload: error
     }
 }

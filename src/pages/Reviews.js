@@ -4,9 +4,12 @@ import parse from 'html-react-parser'
 import MainSection from '../components/MainSection'
 import quotations from '../assets/img/quotations.svg'
 import user_photo from '../assets/img/user-photo.png'
-
 import { fetchReviews } from '../actions/reviewAction'
 import { loadReviews, showPage } from '../actions/showDataActions'
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper/core'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 const Reviews = ({ fetchReviews, reviewsData }) => {
     const dispatch = useDispatch();
@@ -14,7 +17,6 @@ const Reviews = ({ fetchReviews, reviewsData }) => {
     useEffect(() => {
         fetchReviews();
         document.title = "Panda Navigation - Reviews";
-        dispatch((showPage(0)));
     }, []);
 
     // get all reviews
@@ -48,38 +50,45 @@ const Reviews = ({ fetchReviews, reviewsData }) => {
     ) : (
         <div id="reviews">
             <MainSection>
-                <div className="reviews">
-                    {reviewsData.reviews.length === 0 && <h2>No data to display</h2>}
-                    {reviewsData && reviewsData.reviews && reviewsData.reviews.slice(getReviewsRange.first, getReviewsRange.last).map(review =>
-                        <div className="review" key={review.id}>
-                            <div className="review-quote">
-                                <div className="square-button white-button">
-                                    <img src={quotations} alt="quote" />
-                                </div>
-                            </div>
-                            <div className="review-content">
-                                <div className="review-user-info">
-                                    <div className="user-info-img">
-                                        <img src={user_photo} alt="user" />
-                                    </div>
-                                    <div className="user-info-data">
-                                        <h2>{review.fullName}</h2>
-                                        <h6>{review.position} | {review.company}</h6>
+                <>
+                    <Swiper className="reviews"
+                        slidesPerView={2}
+                        // slidesPerColumn={3}
+                        // navigation={true}
+                        // pagination={{ clickable: true }}
+                    >
+                        {reviewsData.reviews.length === 0 && <h2>No data to display</h2>}
+                        {reviewsData && reviewsData.reviews && reviewsData.reviews.map(review =>
+                            <SwiperSlide className="review" key={review.id}>
+                                <div className="review-quote">
+                                    <div className="square-button white-button">
+                                        <img src={quotations} alt="quote" />
                                     </div>
                                 </div>
-                                <div className="review-text">
-                                    {parse(`${review.reviewText}`)}
+                                <div className="review-content">
+                                    <div className="review-user-info">
+                                        <div className="user-info-img">
+                                            <img src={user_photo} alt="user" />
+                                        </div>
+                                        <div className="user-info-data">
+                                            <h2>{review.fullName}</h2>
+                                            <h6>{review.position} | {review.company}</h6>
+                                        </div>
+                                    </div>
+                                    <div className="review-text">
+                                        {parse(`${review.reviewText}`)}
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    )}
-                </div>
+                            </SwiperSlide>
+                        )}
+                    </Swiper>
+                </>
             </MainSection>
-            <div className="slider-buttons" style={{ padding: '0 10%', marginTop: '0' }}>
+            {/* <div className="slider-buttons" style={{ padding: '0 10%', marginTop: '0' }}>
                 {dots.map(dot =>
                     <div className={"slide-button " + (dot.id === activePage ? "active-slide" : "")} key={dot.id} onClick={() => handleSlides(dot.id)}></div>
                 )}
-            </div>
+            </div> */}
         </div>
     );
 }

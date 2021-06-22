@@ -1,6 +1,6 @@
 .main-section {
     display: flex;
-    // justify-content: center;
+    overflow: hidden;
 
     .left-items {
         margin: 4.5% 2.5vw 0 4.5vw;
@@ -38,12 +38,6 @@
         overflow: hidden;
     }
 
-    // #center1 {
-    //     .widgets-page {
-    //         width: 106%;
-    //     }
-    // }
-
     #right1 {
         .arrow-button {
             margin-bottom: 1.5vw;
@@ -53,7 +47,6 @@
     .right-items {
         display: flex;
         align-items: flex-end;
-        // flex-direction: column;
         justify-content: space-between;
         margin-left: 1.39%;
 

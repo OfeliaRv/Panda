@@ -6,8 +6,8 @@ const PageHeading = () => {
                 <h1>for safe and efficient air navigation</h1>
             </div>
             <div className="heading-buttons">
-                <a href="visuals"><p className="heading-button white-button">Explore Visuals</p></a>
-                <a href="products"><p className="heading-button white-button">View Products</p></a>
+                <a href="/customers"><p className="heading-button white-button">See Customers</p></a>
+                <a href="/products"><p className="heading-button white-button">View Products</p></a>
             </div>
         </section>
     );

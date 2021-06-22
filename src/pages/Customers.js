@@ -60,7 +60,7 @@ const Customers = ({ fetchCustomers, customersData }) => {
                     <div className="companies-list">
                         {customersData && customersData.customers && customersData.customers.map(customer =>
                             <div id={"company" + customer.id} className="company-item" key={customer.id} onClick={() => showInfo(customer)}>
-                                <img src={customer.logo} alt={customer.name} />
+                                <img src={"./../img/customers/" + customer.logo} alt={customer.name} />
                                 <h6>{customer.name}</h6>
                             </div>
                         )}
@@ -74,9 +74,9 @@ const Customers = ({ fetchCustomers, customersData }) => {
                                 <div className="white-button">X</div>
                             </div>
                             <div className="card-content">
-                                <div>
+                                <div className="info-name">
                                     <h1>{popupData.name}</h1>
-                                    <img src={popupData.logo} alt={popupData.name} />
+                                    <img src={"./../img/customers/" + popupData.logo} alt={popupData.name} />
                                 </div>
                                 <div className="info-container">
                                     <div className="info-text"> {parse(`${popupData.about}`)}</div>

@@ -39,7 +39,7 @@ const ProductPage = ({ productData, fetchProduct }) => {
                             </div>
                             <div className="product-content">
                                 <div className="product-img">
-                                    <img src={`../img/${productData.product.photo}`} alt={productData.product.name} />
+                                    <img src={`../img/${productData.product.photo}`} alt={productData.product.altName} />
                                 </div>
                                 <div className="product-text">
                                     {parse(`${productData.product.productText}`)}
