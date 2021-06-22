@@ -18,7 +18,7 @@ namespace PandaAPI.Data
         public ClientMessage AddMessage(ClientMessage message)
         {
             message.Id = Guid.NewGuid();
-            message.Date = DateTime.Now;
+            message.Date = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             _pandaContext.Messages.Add(message);
             _pandaContext.SaveChanges();
             return message;

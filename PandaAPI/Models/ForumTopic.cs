@@ -19,7 +19,7 @@ namespace PandaAPI.Models
         public string TopicText { get; set; }
 
         [Required]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         [Required]
         public int NRead { get; set; }

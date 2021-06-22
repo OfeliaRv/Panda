@@ -22,7 +22,7 @@ namespace PandaAPI.Data
             forum.Id = Guid.NewGuid();
             forum.NRead = 0;
             forum.Status = "Pending";
-            forum.Date = DateTime.Now;
+            forum.Date = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             _pandaContext.ForumTopics.Add(forum);
             await _pandaContext.SaveChangesAsync();
             return forum;
@@ -33,7 +33,7 @@ namespace PandaAPI.Data
             response.Id = Guid.NewGuid();
             response.TopicId = forumId;
             response.Status = "Pending";
-            response.Date = DateTime.Now;
+            response.Date = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             _pandaContext.ForumResponses.Add(response);
             await _pandaContext.SaveChangesAsync();
             return response;

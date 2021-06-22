@@ -24,7 +24,7 @@ namespace PandaAPI.Models
         public string ReplyText { get; set; }
 
         [Required]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         [Required]
         public string Status { get; set; }
