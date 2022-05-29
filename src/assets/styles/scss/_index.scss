@@ -24,7 +24,7 @@
     }
 }
 
-html{
+html {
     font-size: 62.5%;
 }
 
@@ -131,6 +131,11 @@ h5 {
     span {
         margin: 0 1%;
     }
+}
+
+.user-logged {
+    margin-left: unset !important;
+    width: unset !important;
 }
 
 @media screen and (min-width: 1920px) {

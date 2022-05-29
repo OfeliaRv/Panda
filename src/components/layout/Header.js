@@ -35,12 +35,10 @@ const Header = () => {
                     <a href="/reviews"><li className="navigation-list-item"><p>Reviews</p></li></a>
                     <a href="/news"><li className="navigation-list-item"><p>News</p></li></a>
                     <a href="/contacts"><li className="navigation-list-item"><p>Contacts</p></li></a>
-                    <a href="/forum"><li className="navigation-list-item"><p>Forum</p></li></a>
+                    {/* <a href="/forum"><li className="navigation-list-item"><p>Forum</p></li></a> */}
                 </ul>
             </nav>
-            <div className="header-buttons">
-
-
+            {/* <div className={"header-buttons " + (user && "user-logged")}>
                 {user == null && <a href="/login"><div className="auth-button white-button">
                     <div className="icon-holder" style={{ pointerEvents: 'none' }}>
                         <img src={person} alt="person" />
@@ -60,7 +58,7 @@ const Header = () => {
                     <span className="lang" id="ru">RU</span> |
                     <span className="lang" id="en">EN</span>
                 </div> */}
-            </div>
+            {/* </div> */}
         </header>
     );
 }

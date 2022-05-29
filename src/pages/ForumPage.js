@@ -41,6 +41,9 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
             .then(user => { setUser(user) });
     }, [forumData.responses])
 
+    // sort by the date (show the latest first)
+    var responses = forumData.responses.sort((a, b) => (a.date > b.date) ? 1 : -1).reverse();
+
     // toggle response field visibility
     const responseHandler = () => {
         setResponseWindowStyle(!responseWindowStyle);
@@ -126,7 +129,7 @@ const ForumPage = ({ forumData, fetchTopic, fetchResponses }) => {
                         ) : forumData.error ? (
                             <h2>{forumData.error_responses}</h2>
                         ) : forumData.responses.length === 0 ? <h2>No responses yet</h2> : (
-                            forumData && forumData.responses && forumData.responses.map(response =>
+                            forumData && forumData.responses && responses.map(response =>
                                 <div className="response-item" key={response.id}>
                                     <div className="review-user-info">
                                         <div className="user-info-img">

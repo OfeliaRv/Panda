@@ -33,11 +33,11 @@ const App = () => {
                 <Route exact path="/news" component={Site} />
                 <Route path="/news/:id" component={Site} />
                 <Route path="/contacts" component={Site} />
-                <Route exact path="/forum" component={Site} />
+                {/* <Route exact path="/forum" component={Site} />
                 <Route path="/forum/:id" component={Site} />
-                <Route path="/starttopic" component={Site} />
-                <Route path="/login" component={Login} />
-                <Route path="/register" component={Register} />
+                <Route path="/starttopic" component={Site} /> */}
+                {/* <Route path="/login" component={Login} />
+                <Route path="/register" component={Register} /> */}
                 <Route path="*">
                     <div style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
                         <h1 style={{ textAlign: 'center', color: '#6D7587' }}>PAGE NOT FOUND</h1>

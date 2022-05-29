@@ -29,7 +29,7 @@ const NewsLine = ({ fetchNews, newsData }) => {
     ) : newsData.error ? (
         <h2>{newsData.error}</h2>
     ) : (
-        <div className="news-slider">
+        <div className="news-slider" style={{width: "95%"}}>
             <Swiper slidesPerView={5}
                 autoplay={{
                     delay: 2500,
@@ -40,6 +40,7 @@ const NewsLine = ({ fetchNews, newsData }) => {
                 }}
                 loop={true}
                 navigation={true}
+                spaceBetween={20}
                 className="news-slider-container"
             >
                 {newsData.news.length === 0 && <h2>No data to display</h2>}
@@ -47,7 +48,7 @@ const NewsLine = ({ fetchNews, newsData }) => {
                     <SwiperSlide key={news.id}>
                         <a href={"/news/" + news.id} className="news-item" onClick={(() => handleNews(news.id))}>
                             <div className="news-img">
-                                <img className="news-image" src={`../img/${news.photo}`} alt="news" />
+                                <img className="news-image w-100" src={`../img/${news.photo}`} alt="news" />
                             </div>
                             <div className="news-info">
                                 <h6>{news.title}</h6>

@@ -164,3 +164,9 @@
         top: 51% !important;
     }
 }
+
+#products {
+    .swiper-wrapper {
+        flex-direction: row !important;
+    }
+}
