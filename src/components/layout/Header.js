@@ -10,10 +10,10 @@ const Header = () => {
     const dispatch = useDispatch();
     const [user, setUser] = useState(null);
 
-    useEffect(() => {
-        authService.getUser()
-            .then(user => { setUser(user) });
-    }, [])
+    // useEffect(() => {
+    //     authService.getUser()
+    //         .then(user => { setUser(user) });
+    // }, [])
 
     const Logout = () => {
         authService.signOut({ returnUrl: "/" }).then(

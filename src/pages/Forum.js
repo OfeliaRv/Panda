@@ -16,7 +16,7 @@ const Forum = ({ forumData, fetchTopics }) => {
         fetchTopics();
 
         // get current user
-        authService.getUser().then(user => { setUser(user) });
+        // authService.getUser().then(user => { setUser(user) });
 
         // set title
         document.title = "Panda Navigation - Forum"

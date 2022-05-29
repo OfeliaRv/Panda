@@ -16,15 +16,15 @@ const App = () => {
     const dispatch = useDispatch();
 
     //for testing
-    useEffect(() => {
-        authService.getUser()
-            .then(user => { console.log("user", user); dispatch(login(user)) });
-    }, []);
+    // useEffect(() => {
+    //     authService.getUser()
+    //         .then(user => { console.log("user", user); dispatch(login(user)) });
+    // }, []);
 
     return (
         <Router history={history}>
             <Switch>
-                <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
+                {/* <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} /> */}
                 <Route exact path="/" component={Site} />
                 <Route exact path="/products" component={Site} />
                 <Route path="/products/:id" component={Site} />
