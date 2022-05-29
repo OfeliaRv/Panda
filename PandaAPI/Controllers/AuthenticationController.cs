@@ -42,6 +42,8 @@ namespace PandaAPI.Controllers
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = $"{result.Errors.ToList()[0].Code}", Message = $"{result.Errors.ToList()[0].Description}" });
 
+            await signInManager.SignInAsync(user, true);
+
             return Ok(new Response { Status = "Success", Message = "User was successfully created!" });
         }
 
