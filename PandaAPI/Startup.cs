@@ -26,9 +26,12 @@ namespace PandaAPI
 
         public IConfiguration Configuration { get; }
 
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
 
             // Entity framwork
@@ -43,43 +46,55 @@ namespace PandaAPI
             services.AddScoped<IForumData, SqlForumData>();
 
             //For Identity
-            services.AddIdentityCore<User>(x =>
-            {
-                x.Stores.MaxLengthForKeys = 128;
-                x.Password.RequireLowercase = false;
-                x.Password.RequireUppercase = false;
-                x.Password.RequireNonAlphanumeric = false;
-                x.Password.RequiredLength = 1;
-                x.Password.RequireDigit = false;
-            })
-                .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<PandaDbContext>()
-                .AddDefaultTokenProviders()
-                .AddSignInManager();
+            //services.AddIdentityCore<User>(x =>
+            //{
+            //    x.Stores.MaxLengthForKeys = 128;
+            //    x.Password.RequireLowercase = false;
+            //    x.Password.RequireUppercase = false;
+            //    x.Password.RequireNonAlphanumeric = false;
+            //    x.Password.RequiredLength = 1;
+            //    x.Password.RequireDigit = false;
+            //})
+            //    .AddRoles<IdentityRole>()
+            //    .AddEntityFrameworkStores<PandaDbContext>()
+            //    .AddDefaultTokenProviders()
+            //    .AddSignInManager();
 
-            //Adding Authentication
-            services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = IdentityConstants.ApplicationScheme;
-                options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
-            })
-                .AddIdentityServerJwt()
-                .AddIdentityCookies();
+            ////Adding Authentication
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultScheme = IdentityConstants.ApplicationScheme;
+            //    options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
+            //})
+            //    .AddIdentityServerJwt()
+            //    .AddIdentityCookies();
 
-            services.AddIdentityServer()
-                .AddApiAuthorization<User, PandaDbContext>(o =>
-                {
-                    o.IdentityResources[IdentityServerConstants.StandardScopes.OpenId].UserClaims.Add(JwtClaimTypes.Role);
-                    o.ApiResources.Single().UserClaims.Add(JwtClaimTypes.Role);
-                });
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove(JwtClaimTypes.Role);
+            //services.AddIdentityServer()
+            //    .AddApiAuthorization<User, PandaDbContext>(o =>
+            //    {
+            //        o.IdentityResources[IdentityServerConstants.StandardScopes.OpenId].UserClaims.Add(JwtClaimTypes.Role);
+            //        o.ApiResources.Single().UserClaims.Add(JwtClaimTypes.Role);
+            //    });
+            //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove(JwtClaimTypes.Role);
 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PandaAPI", Version = "v1" });
             });
 
-            services.AddCors();
+            //services.AddCors()
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  policy =>
+                                  {
+                                      policy.WithOrigins("https://localhost:3000", "https://localhost:3001", "https://panda-gilt.vercel.app/")
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod()
+                                      .AllowCredentials();
+                                  });
+            });
 
             services.AddControllersWithViews()
             .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -88,26 +103,28 @@ namespace PandaAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseCors(options =>
-            {
-                options.WithOrigins("https://localhost:3000", "https://localhost:3001")
-                .AllowAnyHeader()
-                .AllowAnyMethod()
-                .AllowCredentials();
-            });
+            //app.UseCors(options =>
+            //{
+            //    //options.WithOrigins("https://localhost:3000", "https://localhost:3001", "https://panda-gilt.vercel.app/")
+            //    options.WithOrigins("*")
+            //    .AllowAnyHeader()
+            //    .AllowAnyMethod()
+            //    .AllowCredentials();
+            //});
+            app.UseCors(MyAllowSpecificOrigins);
 
             //if (env.IsDevelopment())
             //{
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PandaAPI v1"));
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PandaAPI v1"));
             //}
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseIdentityServer();
+            //app.UseIdentityServer();
             app.UseAuthentication();
             app.UseAuthorization();
 

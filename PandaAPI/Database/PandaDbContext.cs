@@ -26,7 +26,6 @@ namespace PandaAPI.Database
             builder.Entity<IdentityRoleClaim<string>>(x => x.ToTable("RoleClaim"));
             builder.Entity<IdentityUserToken<string>>(x => x.ToTable("UserToken"));
 
-            //libo vot tak
             builder.Entity<ForumResponse>().HasOne(x => x.ForumTopic).WithMany(x => x.Responses).HasForeignKey(x => x.TopicId);
         }
 
