@@ -12,7 +12,7 @@ import logger from 'redux-logger'
 import authService from './components/api-authorization/AuthorizeService'
 
 // axios.defaults.baseURL = 'https://localhost:44344/api';
-axios.defaults.baseURL = 'https://pandanavigation.azurewebsites.net/';
+axios.defaults.baseURL = 'https://pandanavigation.azurewebsites.net/api';
 
 axios.defaults.withCredentials = true;
 // authService.getAccessToken().then(t => { axios.defaults.headers.common['Authorization'] = 'Bearer ' + t; });
