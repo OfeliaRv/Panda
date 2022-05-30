@@ -38,7 +38,7 @@ const Home = () => {
     // };
 
     return (
-        <>
+        <div id="homepage">
             <PageHeading />
             <MainSection>
                 <Swiper
@@ -76,7 +76,7 @@ const Home = () => {
                     </SwiperSlide>
                 </Swiper>
             </MainSection>
-        </>
+        </div>
     );
 }
 

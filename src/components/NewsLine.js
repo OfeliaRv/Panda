@@ -40,7 +40,7 @@ const NewsLine = ({ fetchNews, newsData }) => {
                 }}
                 loop={true}
                 navigation={true}
-                spaceBetween={20}
+                // spaceBetween={20}
                 className="news-slider-container"
             >
                 {newsData.news.length === 0 && <h2>No data to display</h2>}

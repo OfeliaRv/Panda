@@ -138,6 +138,13 @@ h5 {
     width: unset !important;
 }
 
+#homepage{
+    .swiper-container-vertical > .swiper-pagination-bullets{
+        right: 3% !important;
+        top: 40% !important;
+    }
+}
+
 @media screen and (min-width: 1920px) {
     body {
         display: flex;
@@ -156,6 +163,7 @@ h5 {
 
             .page-holder {
                 padding: 2.61vw 1.125vw 1.1vw 3.125vw !important;
+                position: relative !important;
             }
         }
     }

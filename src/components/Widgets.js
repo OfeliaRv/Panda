@@ -40,14 +40,14 @@ const Widgets = ({ fetchCustomers, customersData }) => {
                 {customersData.customers.length === 0 && <h2>No data to display</h2>}
                 {customersData && customersData.customers && customersData.customers.map(widget =>
                     <SwiperSlide key={widget.id} className="widget" onClick={() => showInfo(widget)}>
-                        <div className="widget-data">
+                        <a className="widget-data" href={'/customers#company'+widget.id}>
                             <div className="widget-logo">
                                 <img src={`../img/customers/${widget.logo}`} alt="logo" />
                             </div>
                             <div className="widget-text">
                                 <p>{widget.name}</p>
                             </div>
-                        </div>
+                        </a>
                     </SwiperSlide>
                 )}
             </Swiper>

@@ -24,7 +24,7 @@ header {
         justify-content: center;
         align-items: center;
         margin-left: 8%;
-        padding: 2rem;
+        padding: 1.5%;
         width: 60%;
         height: 75%;
         // height: 60%;  // when languages bar will be visible
@@ -46,7 +46,7 @@ header {
                 }
 
                 &:hover {
-                   p {
+                    p {
                         background: $hover-gradient;
                         background-clip: text;
                         -webkit-text-fill-color: transparent;
@@ -120,18 +120,31 @@ header {
 
 @media (max-width: 1000px), (min-width: 1920px) {
     header {
-        .logo {
-            img {
-                height: 3.8vw !important;
-            }
-        }
+        // .logo {
+        //     img {
+        //         height: 3.8vw !important;
+        //     }
+        // }
 
-        nav {
-            width: 62.5% !important;
-        }
+        // nav {
+        //     width: 62.5% !important;
+        // }
 
         .lang-select {
             font-size: 1vw !important;
+        }
+    }
+}
+
+@media (min-width: 1920px) {
+    header {
+        .logo {
+            img {
+                transform: scale(2.5) !important;
+                margin: 7rem !important;
+                width: unset !important;
+                max-height: unset !important;
+            }
         }
     }
 }

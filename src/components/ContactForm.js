@@ -54,7 +54,7 @@ const ContactForm = () => {
                 </div>
             </div>
             <div className="contact-button">
-                <Recaptcha
+                {/* <Recaptcha
                     ref={e => recaptchaInstance = e}
                     sitekey={sitekey}
                     render="explicit"
@@ -62,7 +62,7 @@ const ContactForm = () => {
                     onloadCallback={onloadCallback}
                     verifyCallback={verifyCallback}
                     expiredCallback={expiredCallback}
-                />
+                /> */}
                 <button className="grey-button">Send</button>
             </div>
         </form>
