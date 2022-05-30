@@ -10,8 +10,8 @@ using PandaAPI.Database;
 namespace PandaAPI.Migrations
 {
     [DbContext(typeof(PandaDbContext))]
-    [Migration("20220529204328_initial")]
-    partial class initial
+    [Migration("20220529212519_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
