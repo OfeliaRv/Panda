@@ -11,20 +11,22 @@ import { login } from './actions/AuthAction'
 const App = ({ userData }) => {
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        authService.getUser()
-            .then(user => { console.log("user", user); dispatch(login(user)) });
-    }, []);
+    // useEffect(() => {
+    //     authService.getUser()
+    //         .then(user => { console.log("user", user); dispatch(login(user)) });
+    // }, []);
 
     return (
         <div className="App">
             <Router>
                 <Switch>
-                    <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
+                    {/* <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
                     {(userData.user == null || userData == undefined || Object.keys(userData.user).length == 0) &&
-                        <Route exact path="/" component={Auth} />}
-                    {userData.user && <Route exact path="/" component={Dashboard} />}
-                    <Route path="/register" component={Auth} />
+                        <Route exact path="/" component={Auth} />} */}
+                    {/* {userData.user && <Route exact path="/" component={Dashboard} />} */}
+                    {<Route exact path="/" component={Dashboard} />} 
+
+                    {/* <Route path="/register" component={Auth} /> */}
                     <Route path="/news" component={Dashboard} />
                     <Route path="/addnews" component={Dashboard} />
                     <Route exact path="/editnews/:id" component={Dashboard} />
@@ -34,14 +36,14 @@ const App = ({ userData }) => {
                     <Route path="/reviews" component={Dashboard} />
                     <Route path="/addreview" component={Dashboard} />
                     <Route exact path="/editreview/:id" component={Dashboard} />
-                    <Route path="/auth-requests" component={Dashboard} />
-                    <Route path="/topic-requests" component={Dashboard} />
+                    {/* <Route path="/auth-requests" component={Dashboard} /> */}
+                    {/* <Route path="/topic-requests" component={Dashboard} /> */}
                     <Route path="/messages" component={Dashboard} />
                     <Route path="/companies" component={Dashboard} />
                     <Route path="/addcompany" component={Dashboard} />
                     <Route exact path="/editcompany/:id" component={Dashboard} />
-                    <Route exact path="/forum-topics" component={Dashboard} />
-                    <Route exact path="/forum-topics/:id/responses" component={Dashboard} />
+                    {/* <Route exact path="/forum-topics" component={Dashboard} />
+                    <Route exact path="/forum-topics/:id/responses" component={Dashboard} /> */}
                     <Route path="*"> <h1>Page not found</h1></Route>
                 </Switch>
             </Router>

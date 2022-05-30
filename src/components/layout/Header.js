@@ -12,10 +12,10 @@ const Navbar = () => {
     const dispatch = useDispatch();
 
     const [user, setUser] = useState(null);
-    useEffect(() => {
-        authService.getUser()
-            .then(user => { console.log("user", user); setUser(user); });
-    }, [])
+    // useEffect(() => {
+    //     authService.getUser()
+    //         .then(user => { console.log("user", user); setUser(user); });
+    // }, [])
 
     const Logout = () => {
         authService.signOut({ returnUrl: "/" }).then(
@@ -33,11 +33,11 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="nav-part">
-                <div className="admin">
+                {/* <div className="admin">
                     <img className="admin-img" src={user_img} alt="admin-img" />
                     <p>{user && user.name}</p>
                     <img id="logout" onClick={Logout} src={logout_img} alt="logout" />
-                </div>
+                </div> */}
             </div>
         </nav>
     );

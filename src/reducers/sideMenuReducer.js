@@ -37,13 +37,14 @@ const initialState = {
             link: 'messages',
             name: 'Messages',
             icon: messages_icon
-        },
-        {
-            id: 6,
-            link: 'forum-topics',
-            name: 'Forum Topics',
-            icon: forum_icon
         }
+        // ,
+        // {
+        //     id: 6,
+        //     link: 'forum-topics',
+        //     name: 'Forum Topics',
+        //     icon: forum_icon
+        // }
     ]
 }
 

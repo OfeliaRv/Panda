@@ -64,7 +64,7 @@ export const deleteTopic = id => {
                 .delete(`/Forum/${id}`)
                 .then(
                     alert('Topic successfully deleted!'),
-                    window.location.replace("/topics")
+                    window.location.replace("/forum-topics")
                 )
                 .catch(error => {
                     dispatch(deleteTopicFailure(error.topic))
